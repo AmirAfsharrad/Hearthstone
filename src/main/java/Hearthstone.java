@@ -1,6 +1,11 @@
+import CLI.CLI;
 import Cards.Card;
 import Heros.Hero;
 import Heros.Mage;
+import Heros.Rogue;
+import Heros.Warlock;
+import Initialization.PlacesDataCreator;
+import Places.MainMenu;
 import UserHandle.User;
 import UserHandle.UserDataHandler;
 import org.json.*;
@@ -10,14 +15,33 @@ import java.util.Scanner;
 
 public class Hearthstone {
     public static void main(String[] args) {
+        //PrettyJson.prettyJson("Data/users.json");
+        //PlacesDataCreator.initAllPlaces();
+
+        CLI cli = CLI.getGetCLI();
+        cli.run();
+/*
+        MainMenu mainMenu = new MainMenu();
+
+        System.out.println(mainMenu.getValidCommands());
+
+ */
+/*
+
+
         UserDataHandler userDataHandler = UserDataHandler.getUserHandler();
 
-        User user = new User("Ehsan", "ehsan1234");
+        PlacesDataCreator.initAllPlaces();
+
+        User user = new User("Ali", "ali1234");
         ArrayList<Card> cards = new ArrayList<>();
         ArrayList<Hero> heroes = new ArrayList<>();
         Mage mage = new Mage();
+        Warlock warlock = new Warlock();
+        Rogue rogue = new Rogue();
         heroes.add(mage);
-        //heroes.add(mage);
+        heroes.add(warlock);
+        heroes.add(rogue);
         user.setCards(cards);
         user.setCurrentHero(mage);
         user.setGold(50);
@@ -26,12 +50,16 @@ public class Hearthstone {
         userDataHandler.add(user);
 
 
-        User user1 = userDataHandler.load("Ehsan", "ehsand1234");
+        User user1 = userDataHandler.load("Taha", "taha1234");
         System.out.println(user1);
 
-        User user2 = userDataHandler.load("Amir", "amir1234");
-        user2.setGold(125);
+        User user2 = userDataHandler.load("Ehsan", "ehsan1234");
+        user2.setGold(85);
         userDataHandler.save(user2);
+
+
+
+*/
 
 
 

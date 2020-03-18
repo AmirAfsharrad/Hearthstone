@@ -1,78 +1,31 @@
 package UserHandle;
 
+import CLI.RespondToUser;
 import Heros.HeroCreator;
+import Utilities.FileHandler;
+import Utilities.SHA256Hash;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class UserDataHandler {
-    private static UserDataHandler userHandler = new UserDataHandler();
-    private String path = "JSONs/users.json";
-
-    private UserDataHandler() {
-    }
-
-    public static UserDataHandler getUserHandler() {
-        return userHandler;
-    }
+    private static String path = "Data/users.json";
 
     public void setPath(String path) {
-        this.path = path;
+        path = path;
     }
 
-    public String getPath() {
-        return this.path;
+    public static String getPath() {
+        return path;
     }
 
-    public String getHashSHA256(String inputString){
-        try {
-            // Static getInstance method is called with hashing SHA
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-
-            // digest() method called to calculate message digest of an input and return array of byte
-            byte[] hash = md.digest(inputString.getBytes(StandardCharsets.UTF_8));
-
-            // Convert byte array into signum representation
-            BigInteger number = new BigInteger(1, hash);
-
-            // Convert message digest into hex value
-            StringBuilder hexString = new StringBuilder(number.toString(16));
-
-            // Pad with leading zeros
-            while (hexString.length() < 32)
-            {
-                hexString.insert(0, '0');
-            }
-
-            return hexString.toString();
-
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    private void writeJsonArrayToFile(String path, JSONArray jsonArray){
-        try (FileWriter file = new FileWriter(path)) {
-            file.write(jsonArray.toJSONString());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private boolean userMatchCheck(String userName, JSONObject user) {
+    private static boolean userMatchCheck(String userName, JSONObject user) {
         String tempUserName = (String) user.get("user name");
         String deleteTime = (String) user.get("delete time");
 
@@ -83,8 +36,8 @@ public class UserDataHandler {
     }
 
 
-    private int getUserIndexIfExists(String userName) {
-        try (FileReader reader = new FileReader(this.getPath())) {
+    private static int getUserIndexIfExists(String userName) {
+        try (FileReader reader = new FileReader(UserDataHandler.getPath())) {
 
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(reader);
@@ -107,13 +60,13 @@ public class UserDataHandler {
         return -1;
     }
 
-    public void add(User user) {
-        try (FileReader reader = new FileReader(this.getPath())) {
+    public static User add(User user) {
+        try (FileReader reader = new FileReader(UserDataHandler.getPath())) {
             int userId = getUserIndexIfExists(user.getName());
 
             if (userId != -1) {
-                System.out.println("There is another user registered as " + user.getName() + ". Please choose another name and try again.");
-                return;
+                RespondToUser.respond("There is another user registered as " + user.getName() + ". Please choose another name and try again.");
+                return null;
             }
 
             JSONParser jsonParser = new JSONParser();
@@ -121,37 +74,39 @@ public class UserDataHandler {
             JSONArray usersList = (JSONArray) obj;
             JSONObject userObj = new JSONObject();
             user.setId(usersList.size());
+            user.setPassword(SHA256Hash.getHashSHA256(user.getPassword()));
 
             userObj.put("user ID", user.getId());
             userObj.put("user name", user.getName());
-            userObj.put("password", getHashSHA256(user.getPassword()));
+            userObj.put("password", user.getPassword());
             userObj.put("sign up time", LocalDateTime.now().toString());
             userObj.put("gold", user.getGold());
             userObj.put("delete time", "none");
             userObj.put("cards", user.getCardsString());
             userObj.put("heroes", user.getHeroesString());
+            userObj.put("current hero", user.getCurrentHero());
 
             usersList.add(userObj);
 
-            writeJsonArrayToFile(this.path, usersList);
+            FileHandler.writeJsonArrayToFile(path, usersList);
 
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
-        System.out.println("New user " + user.getName() + " created successfully.");
+        return user;
     }
 
-    public User load(String userName, String password){
+    public static User load(String userName, String password){
         int userId = getUserIndexIfExists(userName);
 
         if (userId == -1) {
-            System.out.println("There is no user registered as " + userName + ". Please consider creating a new account!");
+            RespondToUser.respond("There is no user registered as " + userName +"!");
             return null;
         }
 
         User user = new User(userName, password);
 
-        try (FileReader reader = new FileReader(this.getPath())) {
+        try (FileReader reader = new FileReader(UserDataHandler.getPath())) {
 
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(reader);
@@ -161,7 +116,7 @@ public class UserDataHandler {
             userObj = (JSONObject) usersList.get(userId);
             String truePassword = (String) userObj.get("password");
 
-            if (truePassword.equals(getHashSHA256(password))) {
+            if (truePassword.equals(SHA256Hash.getHashSHA256(password))) {
                 Long gold =  (Long) userObj.get("gold");
                 user.setGold(gold.intValue());
 
@@ -172,10 +127,12 @@ public class UserDataHandler {
                     user.getHeroes().add(heroCreator.createHero(heroName));
                 }
 
+                String currentHero = (String) userObj.get("current hero");
+                user.setCurrentHero(heroCreator.createHero(currentHero));
 
                 return user;
             } else {
-                System.out.println("Incorrect password!");
+                RespondToUser.respond("Incorrect password!");
             }
 
         } catch (ParseException | IOException e) {
@@ -184,8 +141,8 @@ public class UserDataHandler {
         return null;
     }
 
-    public void save(User user){
-        try (FileReader reader = new FileReader(this.getPath())) {
+    public static void save(User user){
+        try (FileReader reader = new FileReader(UserDataHandler.getPath())) {
 
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(reader);
@@ -195,12 +152,13 @@ public class UserDataHandler {
             userObj = (JSONObject) usersList.get(user.getId());
 
             userObj.put("user name", user.getName());
-            userObj.put("password", getHashSHA256(user.getPassword()));
+            userObj.put("password", SHA256Hash.getHashSHA256(user.getPassword()));
             userObj.put("gold", user.getGold());
             userObj.put("cards", user.getCardsString());
             userObj.put("heroes", user.getHeroesString());
+            userObj.put("current hero", user.getCurrentHero());
 
-            writeJsonArrayToFile(this.path, usersList);
+            FileHandler.writeJsonArrayToFile(path, usersList);
 
         } catch (IOException | ParseException e) {
             e.printStackTrace();
@@ -208,11 +166,11 @@ public class UserDataHandler {
         System.out.println("Changes to " + user.getName() + " saved successfully.");
     }
 
-    public void remove(User user){
+    public static void remove(User user){
         remove(user.getName(), user.getPassword());
     }
 
-    public void remove(String userName, String password) {
+    public static void remove(String userName, String password) {
         int userId = getUserIndexIfExists(userName);
 
         if (userId == -1) {
@@ -220,7 +178,7 @@ public class UserDataHandler {
             return;
         }
 
-        try (FileReader reader = new FileReader(this.getPath())) {
+        try (FileReader reader = new FileReader(UserDataHandler.getPath())) {
 
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(reader);
@@ -230,11 +188,11 @@ public class UserDataHandler {
             user = (JSONObject) usersList.get(userId);
             String truePassword = (String) user.get("password");
 
-            if (truePassword.equals(getHashSHA256(password))) {
+            if (truePassword.equals(SHA256Hash.getHashSHA256(password))) {
                 user.put("delete time", LocalDateTime.now().toString());
                 System.out.println(userName + " removed successfully");
 
-                writeJsonArrayToFile(this.path, usersList);
+                FileHandler.writeJsonArrayToFile(path, usersList);
 
             } else {
                 System.out.println("Incorrect password!");

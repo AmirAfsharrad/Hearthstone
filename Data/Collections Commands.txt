@@ -1,0 +1,10 @@
+main menu
+ls -a - heroes
+ls -m -heroes
+select *
+ls -a -cards
+ls -m -cards
+ls -n -cards
+add *
+remove *
+hearthstone --help

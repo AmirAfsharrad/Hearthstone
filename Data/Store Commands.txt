@@ -1,0 +1,7 @@
+main menu
+buy *
+wallet
+sell *
+ls -s
+ls -b
+hearthstone --help

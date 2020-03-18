@@ -1,5 +1,7 @@
 package Heros;
 
+import CLI.RespondToUser;
+
 public class HeroCreator {
     public static HeroCreator heroCreator = new HeroCreator();
 
@@ -16,7 +18,7 @@ public class HeroCreator {
             case "rogue": return new Rogue();
             case "warlock": return new Warlock();
         }
-        System.out.println("There is no hero named " + heroName);
+        RespondToUser.respond("There is no hero named " + heroName);
         return null;
     }
 }

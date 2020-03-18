@@ -2,6 +2,8 @@ package UserHandle;
 
 import Cards.Card;
 import Heros.Hero;
+import Heros.Mage;
+import org.graalvm.compiler.lir.amd64.vector.AMD64VectorMove;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -16,11 +18,12 @@ public class User {
     private Hero currentHero;
 
     public User(String name, String password) {
-        this.id = id;
         this.name = name;
         this.password = password;
         cards = new ArrayList<Card>();
         heroes = new ArrayList<Hero>();
+        currentHero = new Mage();
+        heroes.add(currentHero);
     }
 
     public int getId() {
@@ -77,6 +80,16 @@ public class User {
 
     public void setCurrentHero(Hero currentHero) {
         this.currentHero = currentHero;
+    }
+
+    public void copy (User user){
+        this.setId(user.getId());
+        this.setName(user.getName());
+        this.setPassword(user.getPassword());
+        this.setGold(user.getGold());
+        this.setHeroes(user.getHeroes());
+        this.setCurrentHero(user.getCurrentHero());
+        this.setCards(user.getCards());
     }
 
     public ArrayList<String> getHeroesString(){
