@@ -10,6 +10,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -30,6 +33,43 @@ public class UserDataHandler {
 
     public String getPath() {
         return this.path;
+    }
+
+    public String getHashSHA256(String inputString){
+        try {
+            // Static getInstance method is called with hashing SHA
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+            // digest() method called to calculate message digest of an input and return array of byte
+            byte[] hash = md.digest(inputString.getBytes(StandardCharsets.UTF_8));
+
+            // Convert byte array into signum representation
+            BigInteger number = new BigInteger(1, hash);
+
+            // Convert message digest into hex value
+            StringBuilder hexString = new StringBuilder(number.toString(16));
+
+            // Pad with leading zeros
+            while (hexString.length() < 32)
+            {
+                hexString.insert(0, '0');
+            }
+
+            return hexString.toString();
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private void writeJsonArrayToFile(String path, JSONArray jsonArray){
+        try (FileWriter file = new FileWriter(path)) {
+            file.write(jsonArray.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private boolean userMatchCheck(String userName, JSONObject user) {
@@ -60,11 +100,7 @@ public class UserDataHandler {
                 counter++;
             }
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
 
@@ -88,7 +124,7 @@ public class UserDataHandler {
 
             userObj.put("user ID", user.getId());
             userObj.put("user name", user.getName());
-            userObj.put("password", user.getPassword());
+            userObj.put("password", getHashSHA256(user.getPassword()));
             userObj.put("sign up time", LocalDateTime.now().toString());
             userObj.put("gold", user.getGold());
             userObj.put("delete time", "none");
@@ -97,19 +133,12 @@ public class UserDataHandler {
 
             usersList.add(userObj);
 
-            try (FileWriter file = new FileWriter(this.getPath())) {
-                file.write(usersList.toJSONString());
-                file.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+            writeJsonArrayToFile(this.path, usersList);
+
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
+        System.out.println("New user " + user.getName() + " created successfully.");
     }
 
     public User load(String userName, String password){
@@ -132,7 +161,7 @@ public class UserDataHandler {
             userObj = (JSONObject) usersList.get(userId);
             String truePassword = (String) userObj.get("password");
 
-            if (truePassword.equals(password)) {
+            if (truePassword.equals(getHashSHA256(password))) {
                 Long gold =  (Long) userObj.get("gold");
                 user.setGold(gold.intValue());
 
@@ -155,6 +184,34 @@ public class UserDataHandler {
         return null;
     }
 
+    public void save(User user){
+        try (FileReader reader = new FileReader(this.getPath())) {
+
+            JSONParser jsonParser = new JSONParser();
+            Object obj = jsonParser.parse(reader);
+            JSONArray usersList = (JSONArray) obj;
+            JSONObject userObj;
+
+            userObj = (JSONObject) usersList.get(user.getId());
+
+            userObj.put("user name", user.getName());
+            userObj.put("password", getHashSHA256(user.getPassword()));
+            userObj.put("gold", user.getGold());
+            userObj.put("cards", user.getCardsString());
+            userObj.put("heroes", user.getHeroesString());
+
+            writeJsonArrayToFile(this.path, usersList);
+
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Changes to " + user.getName() + " saved successfully.");
+    }
+
+    public void remove(User user){
+        remove(user.getName(), user.getPassword());
+    }
+
     public void remove(String userName, String password) {
         int userId = getUserIndexIfExists(userName);
 
@@ -173,17 +230,12 @@ public class UserDataHandler {
             user = (JSONObject) usersList.get(userId);
             String truePassword = (String) user.get("password");
 
-            if (truePassword.equals(password)) {
+            if (truePassword.equals(getHashSHA256(password))) {
                 user.put("delete time", LocalDateTime.now().toString());
                 System.out.println(userName + " removed successfully");
-                try (FileWriter file = new FileWriter(this.getPath())) {
-                    file.write(usersList.toJSONString());
-                    file.flush();
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return;
+                writeJsonArrayToFile(this.path, usersList);
+
             } else {
                 System.out.println("Incorrect password!");
             }

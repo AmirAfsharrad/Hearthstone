@@ -26,9 +26,16 @@ public class Hearthstone {
         userDataHandler.add(user);
 
 
-        User user1 = userDataHandler.load("Ehsan", "ehsan1234");
+        User user1 = userDataHandler.load("Ehsan", "ehsand1234");
         System.out.println(user1);
 
+        User user2 = userDataHandler.load("Amir", "amir1234");
+        user2.setGold(125);
+        userDataHandler.save(user2);
+
+
+
+        //userDataHandler.remove("Ehsan", "ehsan1234");
 
 
     }
