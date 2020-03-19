@@ -4,6 +4,7 @@ import Heros.Hero;
 import Heros.Mage;
 import Heros.Rogue;
 import Heros.Warlock;
+import Initialization.CardsDataCreator;
 import Initialization.PlacesDataCreator;
 import Places.MainMenu;
 import UserHandle.User;
@@ -18,8 +19,10 @@ public class Hearthstone {
         //PrettyJson.prettyJson("Data/users.json");
         //PlacesDataCreator.initAllPlaces();
 
-        CLI cli = CLI.getGetCLI();
-        cli.run();
+        //CLI cli = CLI.getGetCLI();
+        //cli.run();
+
+        CardsDataCreator.cardsDataCreate();
 /*
         MainMenu mainMenu = new MainMenu();
 

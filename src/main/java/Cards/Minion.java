@@ -2,11 +2,11 @@ package Cards;
 
 public class Minion extends Card {
     private int hp;
-    private int attack;
+    private int attackPower;
 
-    public Minion(int mana, String name, String rarity, String cardClass, String description, int hp, int attack) {
-        super(mana, name, rarity, cardClass, description);
+    public Minion(int mana, String name, String rarity, String heroClass, String description, int hp, int attackPower) {
+        super(mana, name, rarity, heroClass, description, "Minion");
         this.hp = hp;
-        this.attack = attack;
+        this.attackPower = attackPower;
     }
 }

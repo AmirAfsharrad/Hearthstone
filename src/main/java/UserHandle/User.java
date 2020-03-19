@@ -3,9 +3,6 @@ package UserHandle;
 import Cards.Card;
 import Heros.Hero;
 import Heros.Mage;
-import org.graalvm.compiler.lir.amd64.vector.AMD64VectorMove;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class User {
@@ -90,6 +87,20 @@ public class User {
         this.setHeroes(user.getHeroes());
         this.setCurrentHero(user.getCurrentHero());
         this.setCards(user.getCards());
+    }
+
+    public boolean hasHero(Hero hero){
+        return hasHero(hero.toString());
+    }
+
+    public boolean hasHero(String hero){
+        for (Hero userHero :
+             this.heroes) {
+            if (userHero.getClass().equals(hero)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<String> getHeroesString(){

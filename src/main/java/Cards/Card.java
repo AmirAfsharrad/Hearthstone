@@ -1,18 +1,20 @@
 package Cards;
 
 public abstract class Card {
-    protected int mana;
-    protected String name;
-    protected String rarity;
-    protected String cardClass;
-    protected String description;
+    private int mana;
+    private String name;
+    private String rarity;
+    private String heroClass;
+    private String description;
+    private String type;
 
-    public Card(int mana, String name, String rarity, String cardClass, String description) {
+    public Card(int mana, String name, String rarity, String heroClass, String description, String type) {
         this.mana = mana;
         this.name = name;
         this.rarity = rarity;
-        this.cardClass = cardClass;
+        this.heroClass = heroClass;
         this.description = description;
+        this.type = type;
     }
 
     @Override

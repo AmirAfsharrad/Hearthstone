@@ -18,4 +18,36 @@ public abstract class Hero {
         this.specialPower = specialPower;
         this.deck = deck;
     }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public Object getHeroPower() {
+        return heroPower;
+    }
+
+    public void setHeroPower(Object heroPower) {
+        this.heroPower = heroPower;
+    }
+
+    public Object getSpecialPower() {
+        return specialPower;
+    }
+
+    public void setSpecialPower(Object specialPower) {
+        this.specialPower = specialPower;
+    }
+
+    public ArrayList<Card> getDeck() {
+        return deck;
+    }
+
+    public void setDeck(ArrayList<Card> deck) {
+        this.deck = deck;
+    }
 }
