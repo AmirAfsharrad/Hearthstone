@@ -1,11 +1,14 @@
 package UserHandle;
 
 import Cards.Card;
+import Cards.CardCreator;
 import Heros.Hero;
 import Heros.Mage;
+import Initialization.CardsDataCreator;
+
 import java.util.ArrayList;
 
-public class User {
+public class User{
     private int id;
     private String name;
     private String password;
@@ -119,6 +122,14 @@ public class User {
             cardsString.add(card.toString());
         }
         return cardsString;
+    }
+
+    public void addCard(Card card){
+        addCard(card.getName());
+    }
+
+    public void addCard(String cardName){
+        cards.add(CardCreator.createCard(cardName));
     }
 
     @Override

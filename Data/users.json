@@ -1,186 +1,25 @@
 [
   {
-    "gold": 0,
+    "gold": 50,
     "current hero": "Mage",
-    "user name": "erfan",
-    "password": "8925f20dc372cb1275d7038da5f8e987571eeab194e31addbe409f63736b3246",
-    "cards": [],
+    "user name": "Ehsan",
+    "password": "5f210ead693c8bf18702018d4a148b7ebbdfe5f83b469645028c7b511abff294",
+    "cards": [
+      "Goldshire Footman",
+      "Stonetusk Boar",
+      "Sap",
+      "Flamestike",
+      "Stonetusk Boar",
+      "Sap"
+    ],
     "heroes": [
       "Mage",
-      "Mage"
+      "Mage",
+      "Warlock",
+      "Rogue"
     ],
     "delete time": "none",
     "user ID": 0,
-    "sign up time": "2020-03-18T15:55:56.405793"
-  },
-  {
-    "gold": 50,
-    "user name": "Ehsan",
-    "password": "5f210ead693c8bf18702018d4a148b7ebbdfe5f83b469645028c7b511abff294",
-    "cards": [],
-    "heroes": [
-      "Mage"
-    ],
-    "delete time": "none",
-    "user ID": 1,
-    "sign up time": "2020-03-18T15:56:53.460134"
-  },
-  {
-    "gold": 50,
-    "user name": "Taha",
-    "password": "ac32a7c8120ae00fffba50bc7a921f62a104c4ace370a58c4356e4f81f0750e4",
-    "cards": [],
-    "heroes": [
-      "Mage",
-      "Warlock",
-      "Rogue"
-    ],
-    "delete time": "none",
-    "user ID": 2,
-    "sign up time": "2020-03-18T17:41:42.430996"
-  },
-  {
-    "gold": 50,
-    "user name": "Mammad",
-    "password": "d6d4304838c36e48dbfa9ee1f1296879c3bea8dad147fd46d2960206ac26731c",
-    "cards": [],
-    "heroes": [
-      "Mage",
-      "Warlock",
-      "Rogue"
-    ],
-    "delete time": "none",
-    "user ID": 3,
-    "sign up time": "2020-03-18T20:17:47.749569"
-  },
-  {
-    "gold": 50,
-    "user name": "Ali",
-    "password": "311339a6c86e58717f1f145db47d191d426fb0844f0400180741196c1e8f4e18",
-    "cards": [],
-    "heroes": [
-      "Mage",
-      "Warlock",
-      "Rogue"
-    ],
-    "delete time": "none",
-    "user ID": 4,
-    "sign up time": "2020-03-18T21:35:08.184254"
-  },
-  {
-    "gold": 0,
-    "user name": "Amirhossein",
-    "password": "71700cb49a209ec55a9d4de52a587d3f17696e02b832a2215aa78fb21b06f880",
-    "cards": [],
-    "heroes": [],
-    "delete time": "none",
-    "user ID": 5,
-    "sign up time": "2020-03-19T01:25:33.208330"
-  },
-  {
-    "gold": 0,
-    "user name": "Amir",
-    "password": "abc95b025ffecb0005a7a44b1f787047b5500efc2dae7cd5297de2216449fdc1",
-    "cards": [],
-    "heroes": [],
-    "delete time": "none",
-    "user ID": 6,
-    "sign up time": "2020-03-19T01:42:09.669856"
-  },
-  {
-    "gold": 0,
-    "user name": "hossein",
-    "password": "50e1e1d7e8a2bee7c6d5e0d59cab2949acbc5999d0f9ab9750ce80d5a3aba629",
-    "cards": [],
-    "heroes": [],
-    "delete time": "none",
-    "user ID": 7,
-    "sign up time": "2020-03-19T01:43:56.679318"
-  },
-  {
-    "gold": 0,
-    "user name": "babak",
-    "password": "654d504cd7d2ec0f11861454eb570146d8f1ac95ec2d5283c99455e1a0b2297f",
-    "cards": [],
-    "heroes": [],
-    "delete time": "none",
-    "user ID": 8,
-    "sign up time": "2020-03-19T01:46:15.974556"
-  },
-  {
-    "gold": 0,
-    "current hero": "Mage",
-    "user name": "hasan",
-    "password": "82a5c663481036616824c0510f21ede50f734e63d14e5f657716ac38f3c0f9f6",
-    "cards": [],
-    "heroes": [],
-    "delete time": "none",
-    "user ID": 9,
-    "sign up time": "2020-03-19T01:50:28.592219"
-  },
-  {
-    "gold": 0,
-    "current hero": "Mage",
-    "user name": "majid",
-    "password": "74876f3a13ecf1977dabb3cee7f6a9cfc05d414b5702eaa308bb9d4ba62e136c",
-    "cards": [],
-    "heroes": [
-      "Mage"
-    ],
-    "delete time": "none",
-    "user ID": 10,
-    "sign up time": "2020-03-19T01:54:42.683932"
-  },
-  {
-    "gold": 0,
-    "current hero": "Mage",
-    "user name": "farzad",
-    "password": "11cde0f3f914d8e5dff73ae1fe1f03e267fcb6ca23d6a12c44755de50191af4",
-    "cards": [],
-    "heroes": [
-      "Mage"
-    ],
-    "delete time": "none",
-    "user ID": 11,
-    "sign up time": "2020-03-19T01:56:40.404065"
-  },
-  {
-    "gold": 0,
-    "current hero": "Mage",
-    "user name": "taghi",
-    "password": "a7434795ccd9fe7d606a52c07857d8423ca060d188422bf17dd82ebf1fc23735",
-    "cards": [],
-    "heroes": [
-      "Mage"
-    ],
-    "delete time": "none",
-    "user ID": 12,
-    "sign up time": "2020-03-19T01:57:40.861147"
-  },
-  {
-    "gold": 0,
-    "current hero": "Mage",
-    "user name": "jasem",
-    "password": "2b6f94b8e2efaa14b08c5fbe9b0d7b1e163c75972c0a86a1eb3ea5d65f673feb",
-    "cards": [],
-    "heroes": [
-      "Mage"
-    ],
-    "delete time": "none",
-    "user ID": 13,
-    "sign up time": "2020-03-19T01:59:08.940003"
-  },
-  {
-    "gold": 0,
-    "current hero": "Mage",
-    "user name": "erfan",
-    "password": "8925f20dc372cb1275d7038da5f8e987571eeab194e31addbe409f63736b3246",
-    "cards": [],
-    "heroes": [
-      "Mage"
-    ],
-    "delete time": "none",
-    "user ID": 14,
-    "sign up time": "2020-03-19T02:00:09.750899"
+    "sign up time": "2020-03-19T19:31:04.556243"
   }
 ]

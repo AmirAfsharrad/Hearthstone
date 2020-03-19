@@ -1,6 +1,7 @@
 package UserHandle;
 
 import CLI.RespondToUser;
+import Cards.CardCreator;
 import Heros.HeroCreator;
 import Utilities.FileHandler;
 import Utilities.SHA256Hash;
@@ -125,6 +126,12 @@ public class UserDataHandler {
                 for (String heroName :
                         heroesList) {
                     user.getHeroes().add(heroCreator.createHero(heroName));
+                }
+
+                ArrayList<String> cardsList = (ArrayList<String>) userObj.get("cards");
+                for (String cardName :
+                        cardsList) {
+                    user.addCard(cardName);
                 }
 
                 String currentHero = (String) userObj.get("current hero");

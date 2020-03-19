@@ -1,14 +1,261 @@
 [
   {
+    "attackPower": 1,
+    "mana": 1,
+    "name": "Goldshire Footman",
+    "heroClass": "Neutral",
+    "hp": 2,
+    "description": "Taunt",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 1,
+    "mana": 1,
+    "name": "Stonetusk Boar",
+    "heroClass": "Neutral",
+    "hp": 1,
+    "description": "Charge",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
     "attackPower": 0,
+    "mana": 1,
+    "name": "Shieldbearer",
+    "heroClass": "Neutral",
+    "hp": 4,
+    "description": "Taunt",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 2,
+    "mana": 1,
+    "name": "Worgen Infiltrator",
+    "heroClass": "Neutral",
+    "hp": 1,
+    "description": "Stealth",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 0,
+    "mana": 1,
+    "name": "Depth Charge",
+    "heroClass": "Neutral",
+    "hp": 5,
+    "description": "At the start of your turn, deal 5 damage to all minions",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 3,
+    "mana": 2,
+    "name": "Bloodfen Raptor",
+    "heroClass": "Neutral",
+    "hp": 2,
+    "description": "",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 1,
+    "mana": 2,
+    "name": "Novice Engineer",
+    "heroClass": "Neutral",
+    "hp": 1,
+    "description": "Battlecry: Draw a card",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 2,
+    "mana": 3,
+    "name": "Raid Leader",
+    "heroClass": "Neutral",
+    "hp": 2,
+    "description": "Your other minions have +1 attack",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 4,
     "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
+    "name": "Sunreaver Warmage",
+    "heroClass": "Neutral",
+    "hp": 4,
+    "description": "Battlecry: If you are holding a spell that costs 5 or more, deal 4 damage",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 6,
+    "mana": 6,
+    "name": "Lord of the Arena",
+    "heroClass": "Neutral",
+    "hp": 5,
+    "description": "Taunt",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 6,
+    "mana": 7,
+    "name": "Stormwind Champion",
+    "heroClass": "Neutral",
+    "hp": 6,
+    "description": "Your other minions have +1/+1",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 2,
+    "mana": 8,
+    "name": "Mosh\u0027gg Enforcer",
+    "heroClass": "Neutral",
+    "hp": 14,
+    "description": "Taunt\n Divine shield",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 10,
+    "mana": 10,
+    "name": "Living Monument",
+    "heroClass": "Neutral",
+    "hp": 10,
+    "description": "Taunt",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "mana": 3,
+    "name": "Regenerate",
+    "heroClass": "Neutral",
+    "description": "Restore 3 health",
+    "type": "Spell",
+    "rarity": "Common"
+  },
+  {
+    "mana": 3,
+    "name": "Divine Spirit",
+    "heroClass": "Neutral",
+    "description": "Double a minion\u0027s health",
+    "type": "Spell",
+    "rarity": "Common"
+  },
+  {
+    "mana": 6,
+    "name": "Holy Fire",
+    "heroClass": "Neutral",
+    "description": "Deal 5 damage. Restore 5 health to your hero",
+    "type": "Spell",
+    "rarity": "Rare"
+  },
+  {
+    "mana": 2,
+    "name": "Sap",
+    "heroClass": "Neutral",
+    "description": "Return an enemy\u0027s minion to their hand",
+    "type": "Spell",
+    "rarity": "Common"
+  },
+  {
+    "mana": 7,
+    "name": "Sprint",
+    "heroClass": "Neutral",
+    "description": "Draw 4 cards",
+    "type": "Spell",
+    "rarity": "Rare"
+  },
+  {
+    "mana": 2,
+    "name": "Arcane Missiles",
+    "heroClass": "Neutral",
+    "description": "Deal 3 damage to random enemies",
+    "type": "Spell",
+    "rarity": "Common"
+  },
+  {
+    "mana": 5,
+    "name": "Fireball",
+    "heroClass": "Neutral",
+    "description": "Deal 6 damage",
+    "type": "Spell",
+    "rarity": "Common"
+  },
+  {
+    "mana": 8,
+    "name": "Flamestike",
+    "heroClass": "Neutral",
+    "description": "Deal 4 damage to all enemy minions",
+    "type": "Spell",
+    "rarity": "Epic"
+  },
+  {
+    "mana": 4,
+    "name": "Polymorph",
+    "heroClass": "Mage",
+    "description": "Transform a minion into a 1/1 sheep",
+    "type": "Spell",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 2,
+    "mana": 3,
+    "name": "Twilight Flamecaller",
+    "heroClass": "Mage",
+    "hp": 2,
+    "description": "Battlecry: Deal 1 damage to all enemy minions",
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "mana": 1,
+    "name": "Friendly Smith",
+    "heroClass": "Rogue",
+    "description": "Discover a weapon from any class and add it to your deck with +2/+2",
+    "type": "Spell",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 3,
+    "mana": 4,
+    "name": "Plagubringer",
+    "heroClass": "Rogue",
+    "hp": 3,
+    "description": "Battlecry: Give a friendly minion poisonous",
+    "type": "Minion",
+    "rarity": "Rare"
+  },
+  {
+    "attackPower": 3,
+    "mana": 3,
+    "durability": 2,
+    "name": "Shadowblade",
+    "heroClass": "Rogue",
+    "description": "Battlecry: Your hero is immune this turn",
+    "type": "Weapon",
+    "rarity": "Rare"
+  },
+  {
+    "attackPower": 4,
+    "mana": 3,
+    "name": "Dreadscale",
     "heroClass": "Warlock",
     "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
+    "description": "At the end of your turn, deal 1 damage to all other minions",
+    "type": "Minion",
     "rarity": "Common"
+  },
+  {
+    "mana": 8,
+    "name": "Twisting Nether",
+    "heroClass": "Warlock",
+    "description": "Destroy all minions",
+    "type": "Spell",
+    "rarity": "Rare"
   },
   {
     "attackPower": 0,
@@ -16,304 +263,6 @@
     "durability": 3,
     "name": "Skull of the Man\u0027ari",
     "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
-    "description": "At the start of your turn, summon a minion from your hand",
-    "type": "Weapon",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 0,
-    "mana": 5,
-    "durability": 3,
-    "name": "Skull of the Man\u0027ari",
-    "heroClass": "Warlock",
-    "hp": 2,
     "description": "At the start of your turn, summon a minion from your hand",
     "type": "Weapon",
     "rarity": "Common"

@@ -17,6 +17,30 @@ public abstract class Card {
         this.type = type;
     }
 
+    public int getMana() {
+        return mana;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRarity() {
+        return rarity;
+    }
+
+    public String getHeroClass() {
+        return heroClass;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
     @Override
     public String toString() {
         return name;

@@ -1,5 +1,6 @@
 import CLI.CLI;
 import Cards.Card;
+import Cards.CardCreator;
 import Heros.Hero;
 import Heros.Mage;
 import Heros.Rogue;
@@ -22,27 +23,26 @@ public class Hearthstone {
         //CLI cli = CLI.getGetCLI();
         //cli.run();
 
-        CardsDataCreator.cardsDataCreate();
+        //CardsDataCreator.cardsDataCreate();
+        //Card card = CardCreator.createCard("Skull of the Man\u0027ari");
+        //System.out.println(card);
 /*
         MainMenu mainMenu = new MainMenu();
 
         System.out.println(mainMenu.getValidCommands());
 
  */
-/*
 
 
-        UserDataHandler userDataHandler = UserDataHandler.getUserHandler();
 
         PlacesDataCreator.initAllPlaces();
 
-        User user = new User("Ali", "ali1234");
+        User user = new User("Ehsan", "ehsan1234");
         ArrayList<Card> cards = new ArrayList<>();
         ArrayList<Hero> heroes = new ArrayList<>();
         Mage mage = new Mage();
         Warlock warlock = new Warlock();
         Rogue rogue = new Rogue();
-        heroes.add(mage);
         heroes.add(warlock);
         heroes.add(rogue);
         user.setCards(cards);
@@ -50,19 +50,23 @@ public class Hearthstone {
         user.setGold(50);
         user.setHeroes(heroes);
 
-        userDataHandler.add(user);
+
+        UserDataHandler.add(user);
 
 
-        User user1 = userDataHandler.load("Taha", "taha1234");
+        User user1 = UserDataHandler.load("Ehsan", "ehsan1234");
         System.out.println(user1);
+        user1.addCard("Flamestike");
+        user1.addCard("Stonetusk Boar");
+        user1.addCard("Sap");
+        UserDataHandler.save(user1);
 
-        User user2 = userDataHandler.load("Ehsan", "ehsan1234");
+        /*
+        User user2 = UserDataHandler.load("Ehsan", "ehsan1234");
         user2.setGold(85);
-        userDataHandler.save(user2);
+        UserDataHandler.save(user2);
 
-
-
-*/
+         */
 
 
 

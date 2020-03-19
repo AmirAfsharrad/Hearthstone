@@ -1,16 +1,11 @@
 package Places;
 
-import CLI.GetResponseFromUser;
 import CLI.RespondToUser;
 import Cards.Card;
 import Heros.Hero;
 import UserHandle.User;
-import UserHandle.UserDataHandler;
 import Utilities.FileHandler;
-import Utilities.SHA256Hash;
 import Utilities.TextProcessingTools;
-import org.graalvm.compiler.lir.LIRInstruction;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 

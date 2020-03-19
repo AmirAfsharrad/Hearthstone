@@ -32,8 +32,9 @@ public class CardsDataCreator {
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(reader);
             JSONArray cardsList = (JSONArray) obj;
-            JSONObject cardObj = new JSONObject();
+            JSONObject cardObj;
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 1);
             cardObj.put("name", "Goldshire Footman");
             cardObj.put("rarity", "Common");
@@ -44,6 +45,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 1);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 1);
             cardObj.put("name", "Stonetusk Boar");
             cardObj.put("rarity", "Common");
@@ -54,6 +56,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 1);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 1);
             cardObj.put("name", "Shieldbearer");
             cardObj.put("rarity", "Common");
@@ -64,6 +67,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 0);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 1);
             cardObj.put("name", "Worgen Infiltrator");
             cardObj.put("rarity", "Common");
@@ -74,6 +78,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 2);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 1);
             cardObj.put("name", "Depth Charge");
             cardObj.put("rarity", "Common");
@@ -84,6 +89,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 0);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 2);
             cardObj.put("name", "Bloodfen Raptor");
             cardObj.put("rarity", "Common");
@@ -94,6 +100,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 3);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 2);
             cardObj.put("name", "Novice Engineer");
             cardObj.put("rarity", "Common");
@@ -104,6 +111,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 1);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 3);
             cardObj.put("name", "Raid Leader");
             cardObj.put("rarity", "Common");
@@ -114,6 +122,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 2);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 5);
             cardObj.put("name", "Sunreaver Warmage");
             cardObj.put("rarity", "Common");
@@ -124,6 +133,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 4);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 6);
             cardObj.put("name", "Lord of the Arena");
             cardObj.put("rarity", "Common");
@@ -134,6 +144,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 6);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 7);
             cardObj.put("name", "Stormwind Champion");
             cardObj.put("rarity", "Common");
@@ -144,6 +155,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 6);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 8);
             cardObj.put("name", "Mosh'gg Enforcer");
             cardObj.put("rarity", "Common");
@@ -154,6 +166,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 2);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 10);
             cardObj.put("name", "Living Monument");
             cardObj.put("rarity", "Common");
@@ -164,6 +177,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 10);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 3);
             cardObj.put("name", "Regenerate");
             cardObj.put("rarity", "Common");
@@ -172,6 +186,7 @@ public class CardsDataCreator {
             cardObj.put("type", "Spell");
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 3);
             cardObj.put("name", "Divine Spirit");
             cardObj.put("rarity", "Common");
@@ -180,6 +195,7 @@ public class CardsDataCreator {
             cardObj.put("type", "Spell");
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 6);
             cardObj.put("name", "Holy Fire");
             cardObj.put("rarity", "Rare");
@@ -188,6 +204,7 @@ public class CardsDataCreator {
             cardObj.put("type", "Spell");
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 2);
             cardObj.put("name", "Sap");
             cardObj.put("rarity", "Common");
@@ -196,6 +213,7 @@ public class CardsDataCreator {
             cardObj.put("type", "Spell");
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 7);
             cardObj.put("name", "Sprint");
             cardObj.put("rarity", "Rare");
@@ -204,6 +222,7 @@ public class CardsDataCreator {
             cardObj.put("type", "Spell");
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 2);
             cardObj.put("name", "Arcane Missiles");
             cardObj.put("rarity", "Common");
@@ -212,6 +231,7 @@ public class CardsDataCreator {
             cardObj.put("type", "Spell");
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 5);
             cardObj.put("name", "Fireball");
             cardObj.put("rarity", "Common");
@@ -220,6 +240,7 @@ public class CardsDataCreator {
             cardObj.put("type", "Spell");
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 8);
             cardObj.put("name", "Flamestike");
             cardObj.put("rarity", "Epic");
@@ -228,6 +249,7 @@ public class CardsDataCreator {
             cardObj.put("type", "Spell");
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 4);
             cardObj.put("name", "Polymorph");
             cardObj.put("rarity", "Common");
@@ -236,6 +258,7 @@ public class CardsDataCreator {
             cardObj.put("type", "Spell");
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 3);
             cardObj.put("name", "Twilight Flamecaller");
             cardObj.put("rarity", "Common");
@@ -246,6 +269,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 2);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 1);
             cardObj.put("name", "Friendly Smith");
             cardObj.put("rarity", "Common");
@@ -254,6 +278,7 @@ public class CardsDataCreator {
             cardObj.put("type", "Spell");
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 4);
             cardObj.put("name", "Plagubringer");
             cardObj.put("rarity", "Rare");
@@ -264,6 +289,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 3);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 3);
             cardObj.put("name", "Shadowblade");
             cardObj.put("rarity", "Rare");
@@ -274,6 +300,7 @@ public class CardsDataCreator {
             cardObj.put("durability", 2);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 3);
             cardObj.put("name", "Dreadscale");
             cardObj.put("rarity", "Common");
@@ -284,6 +311,7 @@ public class CardsDataCreator {
             cardObj.put("attackPower", 4);
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 8);
             cardObj.put("name", "Twisting Nether");
             cardObj.put("rarity", "Rare");
@@ -292,6 +320,7 @@ public class CardsDataCreator {
             cardObj.put("type", "Spell");
             cardsList.add(cardObj);
 
+            cardObj = new JSONObject();
             cardObj.put("mana", 5);
             cardObj.put("name", "Skull of the Man'ari");
             cardObj.put("rarity", "Common");
