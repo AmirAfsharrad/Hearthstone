@@ -1,25 +1,47 @@
 [
   {
     "gold": 50,
-    "current hero": "Mage",
-    "user name": "Ehsan",
+    "current hero": {
+      "hero power": "Can attack any enemy with 2 manas and do a one-hp harm to them.",
+      "hp": 10,
+      "type": "Mage",
+      "special power": "Spells are worth 2 manas less than for other heroes.",
+      "stringDeck": [
+        "Holy Fire",
+        "Sap"
+      ]
+    },
+    "user name": "amir0",
     "password": "5f210ead693c8bf18702018d4a148b7ebbdfe5f83b469645028c7b511abff294",
     "cards": [
-      "Goldshire Footman",
-      "Stonetusk Boar",
+      "Holy Fire",
       "Sap",
-      "Flamestike",
-      "Stonetusk Boar",
-      "Sap"
+      "Worgen Infiltrator"
     ],
     "heroes": [
-      "Mage",
-      "Mage",
-      "Warlock",
-      "Rogue"
+      {
+        "hero power": "Can attack any enemy with 2 manas and do a one-hp harm to them.",
+        "hp": 10,
+        "type": "Mage",
+        "special power": "Spells are worth 2 manas less than for other heroes.",
+        "stringDeck": [
+          "Holy Fire",
+          "Sap"
+        ]
+      },
+      {
+        "hero power": "Steal a card from enemies hand for 3 manas.",
+        "hp": 20,
+        "type": "Rogue",
+        "special power": "Cards of other heroes type are worth 2 manas less than for other heroes.",
+        "stringDeck": [
+          "Holy Fire",
+          "Worgen Infiltrator"
+        ]
+      }
     ],
     "delete time": "none",
     "user ID": 0,
-    "sign up time": "2020-03-19T19:31:04.556243"
+    "sign up time": "2020-03-19T22:12:39.652514"
   }
 ]

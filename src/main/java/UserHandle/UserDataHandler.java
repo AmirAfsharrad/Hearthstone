@@ -2,9 +2,12 @@ package UserHandle;
 
 import CLI.RespondToUser;
 import Cards.CardCreator;
+//import Heros.HeroCreator;
+import Heros.Hero;
 import Heros.HeroCreator;
 import Utilities.FileHandler;
 import Utilities.SHA256Hash;
+import com.google.gson.JsonObject;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -84,8 +87,8 @@ public class UserDataHandler {
             userObj.put("gold", user.getGold());
             userObj.put("delete time", "none");
             userObj.put("cards", user.getCardsString());
-            userObj.put("heroes", user.getHeroesString());
-            userObj.put("current hero", user.getCurrentHero());
+            userObj.put("heroes", user.getHerosJsonArray());
+            userObj.put("current hero", user.getCurrentHero().getJson());
 
             usersList.add(userObj);
 
@@ -118,14 +121,17 @@ public class UserDataHandler {
             String truePassword = (String) userObj.get("password");
 
             if (truePassword.equals(SHA256Hash.getHashSHA256(password))) {
+                user.setPassword(truePassword);
                 Long gold =  (Long) userObj.get("gold");
                 user.setGold(gold.intValue());
 
-                ArrayList<String> heroesList = (ArrayList<String>) userObj.get("heroes");
-                HeroCreator heroCreator = HeroCreator.getHeroCreator();
-                for (String heroName :
-                        heroesList) {
-                    user.getHeroes().add(heroCreator.createHero(heroName));
+                JSONArray heroesListJsonArray = (JSONArray) userObj.get("heroes");
+                //HeroCreator heroCreator = HeroCreator.getHeroCreator();
+                for (Object heroJsonObject :
+                        heroesListJsonArray) {
+                    Hero hero = HeroCreator.createHeroFromJson((JSONObject) heroJsonObject);
+                    user.addHero(hero);
+                    System.out.println("hero added");
                 }
 
                 ArrayList<String> cardsList = (ArrayList<String>) userObj.get("cards");
@@ -134,8 +140,9 @@ public class UserDataHandler {
                     user.addCard(cardName);
                 }
 
-                String currentHero = (String) userObj.get("current hero");
-                user.setCurrentHero(heroCreator.createHero(currentHero));
+                JSONObject currentHeroObject = (JSONObject) userObj.get("current hero");
+                user.setCurrentHero(HeroCreator.createHeroFromJson(currentHeroObject));
+                //user.setCurrentHero(heroCreator.createHero(currentHero));
 
                 return user;
             } else {
@@ -162,8 +169,8 @@ public class UserDataHandler {
             userObj.put("password", SHA256Hash.getHashSHA256(user.getPassword()));
             userObj.put("gold", user.getGold());
             userObj.put("cards", user.getCardsString());
-            userObj.put("heroes", user.getHeroesString());
-            userObj.put("current hero", user.getCurrentHero());
+            userObj.put("heroes", user.getHerosJsonArray());
+            userObj.put("current hero", user.getCurrentHero().getJson());
 
             FileHandler.writeJsonArrayToFile(path, usersList);
 

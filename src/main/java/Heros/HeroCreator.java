@@ -1,24 +1,39 @@
 package Heros;
 
 import CLI.RespondToUser;
+import Cards.Card;
+import Cards.CardCreator;
+import org.json.simple.JSONObject;
+
+import java.util.ArrayList;
 
 public class HeroCreator {
-    public static HeroCreator heroCreator = new HeroCreator();
 
-    private HeroCreator(){}
+    public static Hero createHeroFromJson(JSONObject heroJsonObject){
+        String type = (String) heroJsonObject.get("type");
+        Long hp = (Long) heroJsonObject.get("hp");
+        ArrayList<String> deckStringArray = (ArrayList<String>) heroJsonObject.get("stringDeck");
 
-    public static HeroCreator getHeroCreator() {
-        return heroCreator;
-    }
-
-    public Hero createHero(String heroName){
-        String heroNameLower = heroName.toLowerCase();
-        switch (heroNameLower){
-            case "mage": return new Mage();
-            case "rogue": return new Rogue();
-            case "warlock": return new Warlock();
+        ArrayList<Card> deck = new ArrayList<>();
+        for (String card :
+                deckStringArray) {
+            deck.add(CardCreator.createCard(card));
         }
-        RespondToUser.respond("There is no hero named " + heroName);
+
+        switch (type){
+            case "Mage":{
+                Hero hero = new Mage(hp.intValue(), deck);
+                return hero;
+            }
+            case "Rogue":{
+                Hero hero = new Rogue(hp.intValue(), deck);
+                return hero;
+            }
+            case "Warlock":{
+                Hero hero = new Warlock(hp.intValue(), deck);
+                return hero;
+            }
+        }
         return null;
     }
 }

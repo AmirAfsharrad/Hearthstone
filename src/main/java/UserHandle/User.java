@@ -5,6 +5,7 @@ import Cards.CardCreator;
 import Heros.Hero;
 import Heros.Mage;
 import Initialization.CardsDataCreator;
+import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
 
@@ -22,8 +23,6 @@ public class User{
         this.password = password;
         cards = new ArrayList<Card>();
         heroes = new ArrayList<Hero>();
-        currentHero = new Mage();
-        heroes.add(currentHero);
     }
 
     public int getId() {
@@ -106,6 +105,10 @@ public class User{
         return false;
     }
 
+    public void addHero(Hero hero){
+        heroes.add(hero);
+    }
+
     public ArrayList<String> getHeroesString(){
         ArrayList<String> heroesString = new ArrayList<>();
         for (Hero hero :
@@ -130,6 +133,15 @@ public class User{
 
     public void addCard(String cardName){
         cards.add(CardCreator.createCard(cardName));
+    }
+
+    public JSONArray getHerosJsonArray(){
+        JSONArray heroesJsonArray = new JSONArray();
+        for (Hero hero :
+                heroes) {
+            heroesJsonArray.add(hero.getJson());
+        }
+        return heroesJsonArray;
     }
 
     @Override

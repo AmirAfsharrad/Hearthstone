@@ -63,7 +63,6 @@ public class CardCreator {
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(reader);
             JSONArray cardsList = (JSONArray) obj;
-            JSONObject userObj;
 
             for (Object object :
                     cardsList) {

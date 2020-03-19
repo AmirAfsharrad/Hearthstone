@@ -9,8 +9,10 @@ public class Warlock extends Hero {
         super();
     }
 
-    public Warlock(int hp, Object heroPower, Object specialPower, ArrayList<Card> deck) {
-        super(hp, heroPower, specialPower, deck);
+    public Warlock(int hp, ArrayList<Card> deck) {
+        super(hp, deck, "Warlock");
+        super.setHeroPower("Loses 2 hps for a random choice of adding a card to current hand or adding an hp and an attackPower to a random minion.");
+        super.setSpecialPower("Starts the game with hp = 35.");
     }
 
     @Override

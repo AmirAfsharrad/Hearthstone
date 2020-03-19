@@ -42,13 +42,15 @@ public class Collections extends Place {
                 RespondToUser.respond("Your current hero is " + user.getCurrentHero());
                 return currentPlace;
             }
-            case "ls -a - cards":{
+            case "ls -a - cards": {
                 RespondToUser.respond("Here is the list of your cards:");
                 for (Card card :
                         user.getCards()) {
-                    RespondToUser.respond(card);
+                    if (card.getHeroClass().equals("Neutral") || card.getHeroClass().equals(user.getCurrentHero().getClass())) {
+                        RespondToUser.respond(card);
+                    }
+                    return currentPlace;
                 }
-                return currentPlace;
             }
             case "ls -m - cards":{
                 RespondToUser.respond("Here is the list of the cards in your deck:");

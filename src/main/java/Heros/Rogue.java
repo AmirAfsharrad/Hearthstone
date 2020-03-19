@@ -9,8 +9,10 @@ public class Rogue extends Hero {
         super();
     }
 
-    public Rogue(int hp, Object heroPower, Object specialPower, ArrayList<Card> deck) {
-        super(hp, heroPower, specialPower, deck);
+    public Rogue(int hp, ArrayList<Card> deck) {
+        super(hp, deck, "Rogue");
+        super.setHeroPower("Steal a card from enemies hand for 3 manas.");
+        super.setSpecialPower("Cards of other heroes type are worth 2 manas less than for other heroes.");
     }
 
     @Override
