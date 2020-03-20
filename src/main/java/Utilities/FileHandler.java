@@ -1,9 +1,5 @@
 package Utilities;
 
-import GameHandler.CLI.RespondToUser;
-import Heros.Hero;
-import Heros.HeroCreator;
-import UserHandle.UserDataHandler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -17,7 +13,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -59,7 +54,21 @@ public class FileHandler {
         }
     }
 
-    public static void writeJsonArrayToFile(String path, JSONArray jsonArray){
+    public static void writeJsonObjectToFile(JSONObject jsonObject, String path){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        JsonParser jsonParser = new JsonParser();
+        JsonElement jsonElement = jsonParser.parse(jsonObject.toJSONString());
+        String prettyJsonString = gson.toJson(jsonElement);
+
+        try (FileWriter file = new FileWriter(path)) {
+            file.write(prettyJsonString);
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void writeJsonArrayToFile(JSONArray jsonArray, String path){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         JsonParser jsonParser = new JsonParser();
         JsonElement jsonElement = jsonParser.parse(jsonArray.toJSONString());
@@ -81,6 +90,21 @@ public class FileHandler {
             JSONArray jsonArray = (JSONArray) obj;
 
             return jsonArray;
+
+        } catch (ParseException | IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static JSONObject getJsonObjectFromFile(String path){
+        try (FileReader reader = new FileReader(path)) {
+
+            JSONParser jsonParser = new JSONParser();
+            Object obj = jsonParser.parse(reader);
+            JSONObject jsonObject = (JSONObject) obj;
+
+            return jsonObject;
 
         } catch (ParseException | IOException e) {
             e.printStackTrace();

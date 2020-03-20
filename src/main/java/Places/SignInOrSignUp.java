@@ -4,13 +4,12 @@ import GameHandler.CLI.GetResponseFromUser;
 import GameHandler.CLI.RespondToUser;
 import UserHandle.User;
 import UserHandle.UserDataHandler;
-import Utilities.FileHandler;
-import java.util.ArrayList;
 
 public class SignInOrSignUp extends Place {
     private static SignInOrSignUp signInOrSignUp = new SignInOrSignUp();
     private SignInOrSignUp(){
-        validCommands = (ArrayList) FileHandler.readFileInList("Data/SignInOrSignUp Commands.txt");
+        setInstructionsPath("Data/SignInOrSignUp Commands.json");
+        loadInstructions();
     }
 
     public static SignInOrSignUp getSignInOrSignUp(){
@@ -25,8 +24,15 @@ public class SignInOrSignUp extends Place {
     @Override
     public Place runCommand(String command, User user, Place currentPlace) {
         switch (command){
+            case "hearthstone --help":{
+                for (String commandName :
+                        getInstructions().keySet()) {
+                    RespondToUser.respond(commandName + ": " + getInstructions().get(commandName));
+                }
+                return currentPlace;
+            }
             case "exit -a":{
-                System.out.println("Goodbye!");
+                RespondToUser.respond("Goodbye!");
                 System.exit(0);
             }
             case "n":{
@@ -54,9 +60,6 @@ public class SignInOrSignUp extends Place {
                 } else {
                     return currentPlace;
                 }
-            }
-            case "hearthstone --help":{
-                RespondToUser.respond("Sign in/Sign up page help");
             }
         }
         RespondToUser.respond("Invalid command!");

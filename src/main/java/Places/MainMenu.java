@@ -4,15 +4,13 @@ import GameHandler.CLI.GetResponseFromUser;
 import GameHandler.CLI.RespondToUser;
 import UserHandle.User;
 import UserHandle.UserDataHandler;
-import Utilities.FileHandler;
 import Utilities.SHA256Hash;
-
-import java.util.ArrayList;
 
 public class MainMenu extends Place {
     private static MainMenu mainMenu = new MainMenu();
     private MainMenu(){
-        validCommands = (ArrayList) FileHandler.readFileInList("Data/MainMenu Commands.txt");
+        setInstructionsPath("Data/MainMenu Commands.json");
+        loadInstructions();
     }
 
     public static MainMenu getMainMenu(){
@@ -27,6 +25,13 @@ public class MainMenu extends Place {
     @Override
     public Place runCommand(String command, User user, Place currentPlace) {
         switch (command){
+            case "hearthstone --help":{
+                for (String commandName :
+                        getInstructions().keySet()) {
+                    RespondToUser.respond(commandName + ": " + getInstructions().get(commandName));
+                }
+                return currentPlace;
+            }
             case "exit -a":{
                 UserDataHandler.save(user);
                 RespondToUser.respond("Goodbye!");
@@ -53,10 +58,6 @@ public class MainMenu extends Place {
             }
             case "store":{
                 return Store.getStore();
-            }
-            case "hearthstone --help":{
-                RespondToUser.respond("Main Menu help");
-                return currentPlace;
             }
         }
         RespondToUser.respond("Invalid Command!");

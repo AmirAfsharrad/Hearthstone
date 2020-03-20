@@ -1,20 +1,18 @@
 package Places;
 
-import GameHandler.CLI.RespondToUser;
 import Cards.Card;
 import Cards.CardCreator;
+import GameHandler.CLI.RespondToUser;
 import GameHandler.GameHandler;
 import Heros.Hero;
 import UserHandle.User;
-import Utilities.FileHandler;
 import Utilities.TextProcessingTools;
-
-import java.util.ArrayList;
 
 public class Store extends Place {
     private static Store store = new Store();
     private Store(){
-        validCommands = (ArrayList) FileHandler.readFileInList("Data/MainMenu Commands.txt");
+        setInstructionsPath("Data/Store Commands.json");
+        loadInstructions();
     }
 
     public static Store getStore(){
@@ -29,6 +27,13 @@ public class Store extends Place {
     @Override
     public Place runCommand(String command, User user, Place currentPlace) {
         switch (command) {
+            case "hearthstone --help":{
+                for (String commandName :
+                        getInstructions().keySet()) {
+                    RespondToUser.respond(commandName + ": " + getInstructions().get(commandName));
+                }
+                return currentPlace;
+            }
             case "main menu": {
                 return MainMenu.getMainMenu();
             }

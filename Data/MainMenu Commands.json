@@ -1,0 +1,8 @@
+{
+  "collections\t": "enter collections to check your heroes and cards",
+  "exit -a\t": "enter if you want to quit the game",
+  "delete-player\t": "enter if you already have an account",
+  "hearthstone --help\t": "a list of valid commands and instructions",
+  "exit\t": "enter if you want sign out of your current account",
+  "store\t": "enter store to sell or buy cards"
+}

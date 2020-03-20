@@ -1,0 +1,12 @@
+{
+  "ls -m -heroes\t": "your current hero",
+  "select [hero name]\t": "select a hero",
+  "main menu\t": "back to main menu",
+  "add [card name]\t": "add a card to your current deck",
+  "ls -a - heroes\t": "list of all your heroes",
+  "ls -n -cards\t": "list of the cards you can add to your current deck",
+  "hearthstone --help\t": "a list of valid commands and instructions",
+  "ls -a -cards\t": "list of all your cards",
+  "ls -m -cards\t": "list of the cards in your current deck",
+  "remove [card name]\t": "remove a card from your current deck"
+}

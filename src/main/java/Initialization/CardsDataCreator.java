@@ -325,7 +325,7 @@ public class CardsDataCreator {
             cardObj.put("durability", 3);
             cardsList.add(cardObj);
 
-            FileHandler.writeJsonArrayToFile(CardsDataCreator.getPath(), cardsList);
+            FileHandler.writeJsonArrayToFile(cardsList, CardsDataCreator.getPath());
 
         } catch (IOException | ParseException e) {
             e.printStackTrace();

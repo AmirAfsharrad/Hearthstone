@@ -90,7 +90,7 @@ public class UserDataHandler {
 
             usersList.add(userObj);
 
-            FileHandler.writeJsonArrayToFile(path, usersList);
+            FileHandler.writeJsonArrayToFile(usersList, path);
 
         } catch (IOException | ParseException e) {
             e.printStackTrace();
@@ -109,6 +109,7 @@ public class UserDataHandler {
         }
 
         User user = new User(userName, password);
+        user.setId(userId);
 
         try (FileReader reader = new FileReader(UserDataHandler.getPath())) {
 
@@ -122,16 +123,14 @@ public class UserDataHandler {
 
             if (truePassword.equals(SHA256Hash.getHashSHA256(password))) {
                 user.setPassword(truePassword);
-                Long gold =  (Long) userObj.get("gold");
+                Long gold = (Long) userObj.get("gold");
                 user.setGold(gold.intValue());
 
                 JSONArray heroesListJsonArray = (JSONArray) userObj.get("heroes");
-                //HeroCreator heroCreator = HeroCreator.getHeroCreator();
                 for (Object heroJsonObject :
                         heroesListJsonArray) {
                     Hero hero = HeroCreator.createHeroFromJson((JSONObject) heroJsonObject);
                     user.addHero(hero);
-                    RespondToUser.respond("hero added");
                 }
 
                 ArrayList<String> cardsList = (ArrayList<String>) userObj.get("cards");
@@ -182,7 +181,7 @@ public class UserDataHandler {
             return;
         }
 
-        FileHandler.writeJsonArrayToFile(path, usersList);
+        FileHandler.writeJsonArrayToFile(usersList, path);
 
         RespondToUser.respond("Changes to " + user.getName() + " saved successfully.");
     }
@@ -213,7 +212,7 @@ public class UserDataHandler {
                 user.put("delete time", LocalDateTime.now().toString());
                 RespondToUser.respond(userName + " removed successfully");
 
-                FileHandler.writeJsonArrayToFile(path, usersList);
+                FileHandler.writeJsonArrayToFile(usersList, path);
 
             } else {
                 RespondToUser.respond("Incorrect password!");

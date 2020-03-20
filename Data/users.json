@@ -2,6 +2,36 @@
   {
     "gold": 50,
     "current hero": 0,
+    "user name": "amir",
+    "password": "1574ad62d48a37f847699d7d2157105a5a5fd6ed323a3497fa41c7731229bf23",
+    "cards": [
+      "Goldshire Footman",
+      "Stonetusk Boar",
+      "Lord of the Arena",
+      "Mosh\u0027gg Enforcer",
+      "Stormwind Champion",
+      "Living Monument",
+      "Sprint",
+      "Sap",
+      "Polymorph"
+    ],
+    "heroes": [
+      {
+        "hero power": "Can attack any enemy with 2 manas and do a one-hp harm to them.",
+        "hp": 30,
+        "type": "Mage",
+        "special power": "Spells are worth 2 manas less than for other heroes.",
+        "stringDeck": []
+      }
+    ],
+    "delete time": "none",
+    "user ID": 0,
+    "sign up time": "2020-03-20T23:53:01.738728",
+    "current hero index": 0
+  },
+  {
+    "gold": 50,
+    "current hero": 0,
     "user name": "erfan",
     "password": "8925f20dc372cb1275d7038da5f8e987571eeab194e31addbe409f63736b3246",
     "cards": [
@@ -25,36 +55,8 @@
       }
     ],
     "delete time": "none",
-    "user ID": 0,
-    "sign up time": "2020-03-20T22:00:15.483537",
-    "current hero index": 0
-  },
-  {
-    "gold": 50,
-    "current hero": 0,
-    "user name": "erfan",
-    "password": "8925f20dc372cb1275d7038da5f8e987571eeab194e31addbe409f63736b3246",
-    "cards": [
-      "Goldshire Footman",
-      "Stonetusk Boar",
-      "Lord of the Arena",
-      "Mosh\u0027gg Enforcer",
-      "Stormwind Champion",
-      "Living Monument",
-      "Sprint",
-      "Sap",
-      "Polymorph"
-    ],
-    "heroes": [
-      {
-        "hp": 30,
-        "type": "Mage",
-        "stringDeck": []
-      }
-    ],
-    "delete time": "none",
     "user ID": 1,
-    "sign up time": "2020-03-20T22:00:23.406699",
+    "sign up time": "2020-03-20T23:53:10.660582",
     "current hero index": 0
   },
   {
@@ -70,19 +72,23 @@
       "Stormwind Champion",
       "Living Monument",
       "Sprint",
-      "Sap",
-      "Polymorph"
+      "Polymorph",
+      "Depth Charge"
     ],
     "heroes": [
       {
         "hp": 30,
         "type": "Mage",
-        "stringDeck": []
+        "stringDeck": [
+          "Polymorph",
+          "Depth Charge",
+          "Depth Charge"
+        ]
       }
     ],
     "delete time": "none",
     "user ID": 2,
-    "sign up time": "2020-03-20T22:01:25.335986",
+    "sign up time": "2020-03-20T23:55:49.344349",
     "current hero index": 0
   }
 ]

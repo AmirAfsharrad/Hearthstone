@@ -1,0 +1,9 @@
+{
+  "wallet\t": "check the amount of gold you have",
+  "sell [card name]\t": "sell a card",
+  "ls -b\t": "list of the cards you can buy (if you have enough gold)",
+  "main menu\t": "back to main menu",
+  "buy [card name]\t": "buy a card",
+  "ls -s\t": "list of the cards you can sell",
+  "hearthstone --help\t": "a list of valid commands and instructions"
+}

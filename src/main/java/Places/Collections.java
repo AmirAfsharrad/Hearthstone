@@ -1,24 +1,23 @@
 package Places;
 
-import GameHandler.CLI.RespondToUser;
 import Cards.Card;
 import Cards.CardCreator;
+import GameHandler.CLI.RespondToUser;
 import Heros.Hero;
 import UserHandle.User;
-import Utilities.FileHandler;
 import Utilities.TextProcessingTools;
-
-import java.util.ArrayList;
 
 public class Collections extends Place {
     private static Collections collections = new Collections();
     private Collections(){
-        validCommands = (ArrayList) FileHandler.readFileInList("Data/Collections Commands.txt");
+        setInstructionsPath("Data/Collections Commands.json");
+        loadInstructions();
     }
 
     public static Collections getCollections(){
         return collections;
     }
+
 
     @Override
     public void defaultResponse() {
@@ -28,6 +27,13 @@ public class Collections extends Place {
     @Override
     public Place runCommand(String command, User user, Place currentPlace) {
         switch (command) {
+            case "hearthstone --help":{
+                for (String commandName :
+                        getInstructions().keySet()) {
+                    RespondToUser.respond(commandName + ": " + getInstructions().get(commandName));
+                }
+                return currentPlace;
+            }
             case "main menu":{
                 return MainMenu.getMainMenu();
             }
