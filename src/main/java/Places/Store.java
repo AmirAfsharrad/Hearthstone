@@ -1,8 +1,9 @@
 package Places;
 
-import CLI.RespondToUser;
+import GameHandler.CLI.RespondToUser;
 import Cards.Card;
 import Cards.CardCreator;
+import GameHandler.GameHandler;
 import Heros.Hero;
 import UserHandle.User;
 import Utilities.FileHandler;
@@ -33,6 +34,26 @@ public class Store extends Place {
             }
             case "wallet": {
                 RespondToUser.respond("You have " + user.getGold() + " golds.");
+                return currentPlace;
+            }
+            case "ls -s":{
+                RespondToUser.respond("Here is the list of your cards, which could be sold:");
+                for (Card card :
+                        user.getCards()) {
+                    if (user.isForSale(card)){
+                        RespondToUser.respond(card);
+                    }
+                }
+                return currentPlace;
+            }
+            case "ls -b":{
+                RespondToUser.respond("Here is the list of available cards in the store for you:");
+                for (String cardName :
+                        GameHandler.getGameHandler().getAllCardNames()) {
+                    if (!user.hasCard(cardName)){
+                        RespondToUser.respond(cardName);
+                    }
+                }
                 return currentPlace;
             }
         }

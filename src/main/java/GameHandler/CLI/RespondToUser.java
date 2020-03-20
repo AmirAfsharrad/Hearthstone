@@ -1,4 +1,4 @@
-package CLI;
+package GameHandler.CLI;
 
 public class RespondToUser {
     public static void respond(Object message){

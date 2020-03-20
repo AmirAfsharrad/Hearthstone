@@ -1,4 +1,4 @@
-package CLI;
+package GameHandler.CLI;
 
 import Places.Place;
 import Places.SignInOrSignUp;

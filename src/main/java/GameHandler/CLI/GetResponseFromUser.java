@@ -1,4 +1,4 @@
-package CLI;
+package GameHandler.CLI;
 
 import java.util.Scanner;
 

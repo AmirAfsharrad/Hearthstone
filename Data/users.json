@@ -1,17 +1,19 @@
 [
   {
-    "gold": 20,
+    "gold": 50,
     "current hero": 0,
-    "user name": "amir",
-    "password": "1574ad62d48a37f847699d7d2157105a5a5fd6ed323a3497fa41c7731229bf23",
+    "user name": "erfan",
+    "password": "8925f20dc372cb1275d7038da5f8e987571eeab194e31addbe409f63736b3246",
     "cards": [
       "Goldshire Footman",
       "Stonetusk Boar",
       "Lord of the Arena",
       "Mosh\u0027gg Enforcer",
       "Stormwind Champion",
+      "Living Monument",
       "Sprint",
-      "Novice Engineer"
+      "Sap",
+      "Polymorph"
     ],
     "heroes": [
       {
@@ -19,15 +21,68 @@
         "hp": 30,
         "type": "Mage",
         "special power": "Spells are worth 2 manas less than for other heroes.",
-        "stringDeck": [
-          "Novice Engineer",
-          "Stonetusk Boar"
-        ]
+        "stringDeck": []
       }
     ],
     "delete time": "none",
     "user ID": 0,
-    "sign up time": "2020-03-20T19:26:41.535922",
+    "sign up time": "2020-03-20T22:00:15.483537",
+    "current hero index": 0
+  },
+  {
+    "gold": 50,
+    "current hero": 0,
+    "user name": "erfan",
+    "password": "8925f20dc372cb1275d7038da5f8e987571eeab194e31addbe409f63736b3246",
+    "cards": [
+      "Goldshire Footman",
+      "Stonetusk Boar",
+      "Lord of the Arena",
+      "Mosh\u0027gg Enforcer",
+      "Stormwind Champion",
+      "Living Monument",
+      "Sprint",
+      "Sap",
+      "Polymorph"
+    ],
+    "heroes": [
+      {
+        "hp": 30,
+        "type": "Mage",
+        "stringDeck": []
+      }
+    ],
+    "delete time": "none",
+    "user ID": 1,
+    "sign up time": "2020-03-20T22:00:23.406699",
+    "current hero index": 0
+  },
+  {
+    "gold": 50,
+    "current hero": 0,
+    "user name": "ehsan",
+    "password": "b3fda94bfdca08a13567a7d916474306de2bf5abf02b7349de441e0be85d14a6",
+    "cards": [
+      "Goldshire Footman",
+      "Stonetusk Boar",
+      "Lord of the Arena",
+      "Mosh\u0027gg Enforcer",
+      "Stormwind Champion",
+      "Living Monument",
+      "Sprint",
+      "Sap",
+      "Polymorph"
+    ],
+    "heroes": [
+      {
+        "hp": 30,
+        "type": "Mage",
+        "stringDeck": []
+      }
+    ],
+    "delete time": "none",
+    "user ID": 2,
+    "sign up time": "2020-03-20T22:01:25.335986",
     "current hero index": 0
   }
 ]

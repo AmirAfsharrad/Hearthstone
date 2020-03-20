@@ -1,6 +1,6 @@
 package Places;
 
-import CLI.RespondToUser;
+import GameHandler.CLI.RespondToUser;
 import Cards.Card;
 import Cards.CardCreator;
 import Heros.Hero;
@@ -98,21 +98,33 @@ public class Collections extends Place {
         if (TextProcessingTools.stringFirstWordMatch(command, "add")) {
             String bracketedCardName = command.replaceFirst("add\\s+", "");
             if (TextProcessingTools.isInBrackets(bracketedCardName)) {
+                if (user.getCurrentHero().getNumberOfCardsInDeck() >= user.getCurrentHero().getDeckCapacity()){
+                    RespondToUser.respond("There is no more capacity to add cards to deck.");
+                    return currentPlace;
+                }
                 String cardName = TextProcessingTools.unBracket(bracketedCardName);
-                if (user.getCardsAsArrayOfString().contains(cardName)) {
-                    Card card = CardCreator.createCard(cardName);
+                Card card = CardCreator.createCard(cardName);
+                if (card == null){
+                    RespondToUser.respond("There is no such card as " + cardName + ".");
+                    return currentPlace;
+                }
+                if (user.hasCard(card)) {
                     if (card.getHeroClass().equals("Neutral") || card.getHeroClass().equals(user.getCurrentHero().getType())) {
+                        if (user.getCurrentHero().getHowManyOfThisCardInDeck(card) >= user.getCurrentHero().getMaxRepetitiveCardsInDeck()){
+                            RespondToUser.respond("You already have " + user.getCurrentHero().getMaxRepetitiveCardsInDeck() + " of " + card + " in your deck. You cannot have more!");
+                            return currentPlace;
+                        }
                         user.getCurrentHero().addToDeck(card);
                         RespondToUser.respond("Card " + cardName + " successfully added to your deck.");
-                    } else {
-                        RespondToUser.respond("You cannot use this card with " + user.getCurrentHero());
+                        return currentPlace;
                     }
-                } else {
-                    RespondToUser.respond("You don't own a card named " + cardName);
+                    RespondToUser.respond("You cannot use this card with " + user.getCurrentHero());
+                    return currentPlace;
                 }
-            } else {
-                RespondToUser.respond("You have to enter your command in the form 'add [card name]'");
+                RespondToUser.respond("You don't own " + cardName + " so you cannot add it to your deck.");
+                return currentPlace;
             }
+            RespondToUser.respond("You have to enter your command in the form 'add [card name]'");
             return currentPlace;
         }
 

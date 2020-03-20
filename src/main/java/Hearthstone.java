@@ -1,22 +1,4 @@
-import CLI.CLI;
-import Cards.Card;
-import Cards.CardCreator;
-import Heros.Hero;
-import Heros.Mage;
-import Heros.Rogue;
-import Heros.Warlock;
-import Initialization.CardsDataCreator;
-import Initialization.DefaultUserCardsDataCreator;
-import Initialization.PlacesDataCreator;
-import Places.MainMenu;
-import UserHandle.User;
-import UserHandle.UserDataHandler;
-import Utilities.SHA256Hash;
-import com.google.gson.*;
-import org.json.*;
-
-import java.util.ArrayList;
-import java.util.Scanner;
+import GameHandler.CLI.CLI;
 
 public class Hearthstone {
     public static void main(String[] args) {

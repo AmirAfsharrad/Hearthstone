@@ -15,7 +15,7 @@ public class User{
     private int id;
     private String name;
     private String password;
-    private int gold;
+    private int gold = 50;
     private ArrayList<Card> cards;
     private ArrayList<Hero> heroes;
     private int currentHeroIndex;
@@ -179,6 +179,19 @@ public class User{
 
     public void removeCard(Card card){
         cards.remove(card);
+    }
+
+    public boolean isForSale(Card card){
+        if (!this.hasCard(card)){
+            return false;
+        }
+        for (Hero hero :
+                heroes) {
+            if (hero.hasCard(card)){
+                return false;
+            }
+        }
+        return true;
     }
 
     public JSONArray getHerosJsonArray(){

@@ -1,13 +1,11 @@
 package UserHandle;
 
-import CLI.RespondToUser;
-import Cards.CardCreator;
+import GameHandler.CLI.RespondToUser;
 //import Heros.HeroCreator;
 import Heros.Hero;
 import Heros.HeroCreator;
 import Utilities.FileHandler;
 import Utilities.SHA256Hash;
-import com.google.gson.JsonObject;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -17,7 +15,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class UserDataHandler {
     private static String path = "Data/users.json";

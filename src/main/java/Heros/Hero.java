@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public abstract class Hero {
     protected static int defaultHp = 30;
+    private int maxRepetitiveCardsInDeck = 2;
+    private int deckCapacity = 15;
     private int hp;
     private String type;
     private String heroPower;
@@ -81,6 +83,37 @@ public abstract class Hero {
 
     public boolean hasCard(String cardName){
         return hasCard(CardCreator.createCard(cardName));
+    }
+
+    public int getMaxRepetitiveCardsInDeck() {
+        return maxRepetitiveCardsInDeck;
+    }
+
+    public void setMaxRepetitiveCardsInDeck(int maxRepetitiveCardInDeck) {
+        this.maxRepetitiveCardsInDeck = maxRepetitiveCardInDeck;
+    }
+
+    public int getDeckCapacity() {
+        return deckCapacity;
+    }
+
+    public void setDeckCapacity(int deckCapacity) {
+        this.deckCapacity = deckCapacity;
+    }
+
+    public int getNumberOfCardsInDeck(){
+        return deck.size();
+    }
+
+    public int getHowManyOfThisCardInDeck(Card card){
+        int count = 0;
+        for (Card deckCard :
+                deck) {
+            if (card.equals(deckCard)){
+                count++;
+            }
+        }
+        return count;
     }
 
     public JSONObject getJson(){

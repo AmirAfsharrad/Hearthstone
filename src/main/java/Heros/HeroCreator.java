@@ -1,6 +1,5 @@
 package Heros;
 
-import CLI.RespondToUser;
 import Cards.Card;
 import Cards.CardCreator;
 import org.json.simple.JSONObject;

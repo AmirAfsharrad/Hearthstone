@@ -1,19 +1,13 @@
 package Initialization;
 
-import CLI.RespondToUser;
-import UserHandle.User;
-import UserHandle.UserDataHandler;
 import Utilities.FileHandler;
-import Utilities.SHA256Hash;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 public class CardsDataCreator {
     private static String path = "Data/All Cards.json";

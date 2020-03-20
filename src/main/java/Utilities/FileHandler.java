@@ -1,18 +1,23 @@
 package Utilities;
 
+import GameHandler.CLI.RespondToUser;
+import Heros.Hero;
+import Heros.HeroCreator;
+import UserHandle.UserDataHandler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -66,5 +71,20 @@ public class FileHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static JSONArray getJsonArrayFromFile(String path){
+        try (FileReader reader = new FileReader(path)) {
+
+            JSONParser jsonParser = new JSONParser();
+            Object obj = jsonParser.parse(reader);
+            JSONArray jsonArray = (JSONArray) obj;
+
+            return jsonArray;
+
+        } catch (ParseException | IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
