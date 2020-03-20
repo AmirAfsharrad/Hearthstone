@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Mage extends Hero {
     public Mage(){
-        super();
+        super(defaultHp, new ArrayList<Card>(), "Mage");
     }
 
     public Mage(int hp, ArrayList<Card> deck) {

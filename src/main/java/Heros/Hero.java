@@ -1,22 +1,12 @@
 package Heros;
 
-import CLI.RespondToUser;
 import Cards.Card;
-import UserHandle.UserDataHandler;
-import Utilities.FileHandler;
-import Utilities.SHA256Hash;
-import com.google.gson.*;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public abstract class Hero {
+    protected static int defaultHp = 30;
     private int hp;
     private String type;
     private String heroPower;
@@ -72,10 +62,20 @@ public abstract class Hero {
         this.deck = deck;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void addToDeck(Card card){
+        deck.add(card);
+    }
+
+    public void removeFromDeck(Card card){
+        deck.remove(card);
+    }
+
     public JSONObject getJson(){
         JSONObject heroObject = new JSONObject();
-
-        System.out.println(getDeckAsArrayOfString());
 
         heroObject.put("hp", hp);
         heroObject.put("type", type);
@@ -85,6 +85,4 @@ public abstract class Hero {
 
         return heroObject;
     }
-
-
 }

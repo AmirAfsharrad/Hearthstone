@@ -26,6 +26,7 @@ public class SHA256Hash {
             }
 
             return hexString.toString();
+            //return inputString;
 
         } catch (Exception e){
             e.printStackTrace();

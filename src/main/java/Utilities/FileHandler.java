@@ -55,12 +55,12 @@ public class FileHandler {
     }
 
     public static void writeJsonArrayToFile(String path, JSONArray jsonArray){
-        try (FileWriter file = new FileWriter(path)) {
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonParser jsonParser = new JsonParser();
-            JsonElement jsonElement = jsonParser.parse(jsonArray.toJSONString());
-            String prettyJsonString = gson.toJson(jsonElement);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        JsonParser jsonParser = new JsonParser();
+        JsonElement jsonElement = jsonParser.parse(jsonArray.toJSONString());
+        String prettyJsonString = gson.toJson(jsonElement);
 
+        try (FileWriter file = new FileWriter(path)) {
             file.write(prettyJsonString);
             file.flush();
         } catch (IOException e) {

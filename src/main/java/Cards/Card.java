@@ -1,5 +1,7 @@
 package Cards;
 
+import java.util.Objects;
+
 public abstract class Card {
     private int mana;
     private String name;
@@ -45,5 +47,28 @@ public abstract class Card {
     public String toString() {
         return name;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return Objects.equals(name, card.name);
+    }
+
+    /*
+    @Override
+    public String toString() {
+        return "Card{" +
+                "mana=" + mana +
+                ", name='" + name + '\'' +
+                ", rarity='" + rarity + '\'' +
+                ", heroClass='" + heroClass + '\'' +
+                ", description='" + description + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
+
+ */
 }
 

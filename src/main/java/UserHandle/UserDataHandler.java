@@ -17,6 +17,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class UserDataHandler {
     private static String path = "Data/users.json";
@@ -88,7 +89,7 @@ public class UserDataHandler {
             userObj.put("delete time", "none");
             userObj.put("cards", user.getCardsString());
             userObj.put("heroes", user.getHerosJsonArray());
-            userObj.put("current hero", user.getCurrentHero().getJson());
+            userObj.put("current hero index", user.getCurrentHeroIndex());
 
             usersList.add(userObj);
 
@@ -97,6 +98,8 @@ public class UserDataHandler {
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
+
+
         return user;
     }
 
@@ -131,7 +134,7 @@ public class UserDataHandler {
                         heroesListJsonArray) {
                     Hero hero = HeroCreator.createHeroFromJson((JSONObject) heroJsonObject);
                     user.addHero(hero);
-                    System.out.println("hero added");
+                    RespondToUser.respond("hero added");
                 }
 
                 ArrayList<String> cardsList = (ArrayList<String>) userObj.get("cards");
@@ -140,8 +143,8 @@ public class UserDataHandler {
                     user.addCard(cardName);
                 }
 
-                JSONObject currentHeroObject = (JSONObject) userObj.get("current hero");
-                user.setCurrentHero(HeroCreator.createHeroFromJson(currentHeroObject));
+                Long currentHeroIndex = (Long) userObj.get("current hero index");
+                user.setCurrentHeroIndex(currentHeroIndex.intValue());
                 //user.setCurrentHero(heroCreator.createHero(currentHero));
 
                 return user;
@@ -156,28 +159,35 @@ public class UserDataHandler {
     }
 
     public static void save(User user){
+        JSONArray usersList;
+
         try (FileReader reader = new FileReader(UserDataHandler.getPath())) {
 
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(reader);
-            JSONArray usersList = (JSONArray) obj;
+            usersList = (JSONArray) obj;
             JSONObject userObj;
 
             userObj = (JSONObject) usersList.get(user.getId());
 
             userObj.put("user name", user.getName());
-            userObj.put("password", SHA256Hash.getHashSHA256(user.getPassword()));
+            userObj.put("password", user.getPassword());
             userObj.put("gold", user.getGold());
             userObj.put("cards", user.getCardsString());
             userObj.put("heroes", user.getHerosJsonArray());
-            userObj.put("current hero", user.getCurrentHero().getJson());
+            userObj.put("current hero", user.getCurrentHeroIndex());
 
-            FileHandler.writeJsonArrayToFile(path, usersList);
+            usersList.set(user.getId(), userObj);
 
         } catch (IOException | ParseException e) {
             e.printStackTrace();
+            RespondToUser.respond("Problem occurred during save process. Your recent modification data might have been lost.");
+            return;
         }
-        System.out.println("Changes to " + user.getName() + " saved successfully.");
+
+        FileHandler.writeJsonArrayToFile(path, usersList);
+
+        RespondToUser.respond("Changes to " + user.getName() + " saved successfully.");
     }
 
     public static void remove(User user){
@@ -188,7 +198,7 @@ public class UserDataHandler {
         int userId = getUserIndexIfExists(userName);
 
         if (userId == -1) {
-            System.out.println("There is no user registered as " + userName);
+            RespondToUser.respond("There is no user registered as " + userName);
             return;
         }
 
@@ -204,12 +214,12 @@ public class UserDataHandler {
 
             if (truePassword.equals(SHA256Hash.getHashSHA256(password))) {
                 user.put("delete time", LocalDateTime.now().toString());
-                System.out.println(userName + " removed successfully");
+                RespondToUser.respond(userName + " removed successfully");
 
                 FileHandler.writeJsonArrayToFile(path, usersList);
 
             } else {
-                System.out.println("Incorrect password!");
+                RespondToUser.respond("Incorrect password!");
             }
 
         } catch (ParseException | IOException e) {

@@ -35,6 +35,7 @@ public class SignInOrSignUp extends Place {
                 User newUser = new User(username, password);
                 newUser = UserDataHandler.add(newUser);
                 if (newUser != null){
+                    newUser.initializeCardsAndHeroesAsDefault();
                     user.copy(newUser);
                     RespondToUser.respond("New user " + user.getName() + " created successfully.");
                     return MainMenu.getMainMenu();

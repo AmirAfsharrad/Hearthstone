@@ -1,47 +1,95 @@
 [
   {
-    "gold": 50,
-    "current hero": {
-      "hero power": "Can attack any enemy with 2 manas and do a one-hp harm to them.",
-      "hp": 10,
-      "type": "Mage",
-      "special power": "Spells are worth 2 manas less than for other heroes.",
-      "stringDeck": [
-        "Holy Fire",
-        "Sap"
-      ]
-    },
-    "user name": "amir0",
-    "password": "5f210ead693c8bf18702018d4a148b7ebbdfe5f83b469645028c7b511abff294",
+    "gold": 0,
+    "current hero": 0,
+    "user name": "ali",
+    "password": "94419b99b12c11133a4dfeccc3e17885974beb48f7827c48239aabfbcad238d8",
     "cards": [
-      "Holy Fire",
+      "Goldshire Footman",
+      "Stonetusk Boar",
+      "Lord of the Arena",
+      "Mosh\u0027gg Enforcer",
+      "Stormwind Champion",
+      "Living Monument",
+      "Sprint",
       "Sap",
-      "Worgen Infiltrator"
+      "Polymorph"
     ],
     "heroes": [
       {
         "hero power": "Can attack any enemy with 2 manas and do a one-hp harm to them.",
-        "hp": 10,
+        "hp": 30,
         "type": "Mage",
         "special power": "Spells are worth 2 manas less than for other heroes.",
         "stringDeck": [
-          "Holy Fire",
-          "Sap"
-        ]
-      },
-      {
-        "hero power": "Steal a card from enemies hand for 3 manas.",
-        "hp": 20,
-        "type": "Rogue",
-        "special power": "Cards of other heroes type are worth 2 manas less than for other heroes.",
-        "stringDeck": [
-          "Holy Fire",
-          "Worgen Infiltrator"
+          "Sprint",
+          "Living Monument",
+          "Mosh\u0027gg Enforcer"
         ]
       }
     ],
     "delete time": "none",
     "user ID": 0,
-    "sign up time": "2020-03-19T22:12:39.652514"
+    "sign up time": "2020-03-20T18:00:34.754148",
+    "current hero index": 0
+  },
+  {
+    "gold": 0,
+    "current hero": 0,
+    "user name": "amir",
+    "password": "1574ad62d48a37f847699d7d2157105a5a5fd6ed323a3497fa41c7731229bf23",
+    "cards": [
+      "Goldshire Footman",
+      "Stonetusk Boar",
+      "Lord of the Arena",
+      "Mosh\u0027gg Enforcer",
+      "Stormwind Champion",
+      "Living Monument",
+      "Sprint",
+      "Sap",
+      "Polymorph"
+    ],
+    "heroes": [
+      {
+        "hp": 30,
+        "type": "Mage",
+        "stringDeck": []
+      }
+    ],
+    "delete time": "none",
+    "user ID": 1,
+    "sign up time": "2020-03-20T18:02:12.813572",
+    "current hero index": 0
+  },
+  {
+    "gold": 0,
+    "current hero": 0,
+    "user name": "ali",
+    "password": "94419b99b12c11133a4dfeccc3e17885974beb48f7827c48239aabfbcad238d8",
+    "cards": [
+      "Goldshire Footman",
+      "Stonetusk Boar",
+      "Lord of the Arena",
+      "Mosh\u0027gg Enforcer",
+      "Stormwind Champion",
+      "Living Monument",
+      "Sprint",
+      "Sap",
+      "Polymorph"
+    ],
+    "heroes": [
+      {
+        "hp": 30,
+        "type": "Mage",
+        "stringDeck": [
+          "Sap",
+          "Sprint"
+        ]
+      }
+    ],
+    "delete time": "none",
+    "user ID": 2,
+    "sign up time": "2020-03-20T18:03:39.664787",
+    "current hero index": 0
   }
 ]

@@ -5,6 +5,8 @@ import Cards.CardCreator;
 import Heros.Hero;
 import Heros.Mage;
 import Initialization.CardsDataCreator;
+import Initialization.DefaultUserCardsDataCreator;
+import Utilities.FileHandler;
 import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ public class User{
     private int gold;
     private ArrayList<Card> cards;
     private ArrayList<Hero> heroes;
-    private Hero currentHero;
+    private int currentHeroIndex;
 
     public User(String name, String password) {
         this.name = name;
@@ -74,21 +76,37 @@ public class User{
     }
 
     public Hero getCurrentHero() {
-        return currentHero;
+        return heroes.get(currentHeroIndex);
     }
 
-    public void setCurrentHero(Hero currentHero) {
-        this.currentHero = currentHero;
+    public int getCurrentHeroIndex() {
+        return currentHeroIndex;
+    }
+
+    public void setCurrentHeroIndex(int currentHeroIndex){
+        this.currentHeroIndex = currentHeroIndex;
+    }
+
+    public void setCurrentHero(String heroName) {
+        int counter = 0;
+        for (Hero hero :
+                heroes) {
+            if (hero.getType().equals(heroName)) {
+                currentHeroIndex = counter;
+                break;
+            }
+            counter++;
+        }
     }
 
     public void copy (User user){
-        this.setId(user.getId());
-        this.setName(user.getName());
-        this.setPassword(user.getPassword());
-        this.setGold(user.getGold());
-        this.setHeroes(user.getHeroes());
-        this.setCurrentHero(user.getCurrentHero());
-        this.setCards(user.getCards());
+        this.setId(user.id);
+        this.setName(user.name);
+        this.setPassword(user.password);
+        this.setGold(user.gold);
+        this.setHeroes(user.heroes);
+        this.setCurrentHeroIndex(user.currentHeroIndex);
+        this.setCards(user.cards);
     }
 
     public boolean hasHero(Hero hero){
@@ -116,6 +134,18 @@ public class User{
             heroesString.add(hero.toString());
         }
         return heroesString;
+    }
+
+    public void initializeCardsAndHeroesAsDefault(){
+        currentHeroIndex = 0;
+        heroes.add(new Mage());
+
+        ArrayList<String> stringListOfCards = (ArrayList) FileHandler.readFileInList(DefaultUserCardsDataCreator.getPath());
+
+        for (String cardName :
+                stringListOfCards) {
+            addCard(cardName);
+        }
     }
 
     public ArrayList<String> getCardsString(){
@@ -153,7 +183,7 @@ public class User{
                 ", gold=" + gold +
                 ", cards=" + cards +
                 ", heroes=" + heroes +
-                ", currentHero=" + currentHero +
+                ", currentHero=" + heroes.get(currentHeroIndex) +
                 '}';
     }
 }

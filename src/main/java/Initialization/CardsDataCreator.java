@@ -26,7 +26,7 @@ public class CardsDataCreator {
         CardsDataCreator.path = path;
     }
 
-    public static void cardsDataCreate() {
+    public static void createCardsData() {
         try (FileReader reader = new FileReader(CardsDataCreator.getPath())) {
 
             JSONParser jsonParser = new JSONParser();

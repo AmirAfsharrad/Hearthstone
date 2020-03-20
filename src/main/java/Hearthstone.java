@@ -6,10 +6,12 @@ import Heros.Mage;
 import Heros.Rogue;
 import Heros.Warlock;
 import Initialization.CardsDataCreator;
+import Initialization.DefaultUserCardsDataCreator;
 import Initialization.PlacesDataCreator;
 import Places.MainMenu;
 import UserHandle.User;
 import UserHandle.UserDataHandler;
+import Utilities.SHA256Hash;
 import com.google.gson.*;
 import org.json.*;
 
@@ -19,12 +21,11 @@ import java.util.Scanner;
 public class Hearthstone {
     public static void main(String[] args) {
 
+        CLI cli = CLI.getGetCLI();
+        cli.run();
 
+        //System.out.println(SHA256Hash.getHashSHA256("6c1ccd1f20742182387027bb4b72c4bfe4ca7e9247af5e7c0f1f8ce0f236724e"));
 
-
-
-        //CLI cli = CLI.getGetCLI();
-        //cli.run();
 
         //CardsDataCreator.cardsDataCreate();
         //Card card = CardCreator.createCard("Skull of the Man\u0027ari");
@@ -71,11 +72,14 @@ public class Hearthstone {
         UserDataHandler.add(user);
 
  */
-
-
+/*
         User user1 = UserDataHandler.load("amir0", "ehsan1234");
         System.out.println("Sp:   " + user1.getHeroes().get(1).getHp());
         System.out.println(user1.getHeroes().get(1).getDeck());
+
+        UserDataHandler.remove("amir0", "ehsan1234");
+
+ */
 
         /*
         user1.addCard("Flamestike");
