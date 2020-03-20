@@ -43,6 +43,16 @@ public abstract class Card {
         return type;
     }
 
+    public int getPrice(){
+        switch (rarity){
+            case "Common": return 10;
+            case "Rare": return 20;
+            case "Epic": return 30;
+            case "Legendary": return 40;
+        }
+        return 0;
+    }
+
     @Override
     public String toString() {
         return name;

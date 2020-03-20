@@ -1,40 +1,6 @@
 [
   {
-    "gold": 0,
-    "current hero": 0,
-    "user name": "ali",
-    "password": "94419b99b12c11133a4dfeccc3e17885974beb48f7827c48239aabfbcad238d8",
-    "cards": [
-      "Goldshire Footman",
-      "Stonetusk Boar",
-      "Lord of the Arena",
-      "Mosh\u0027gg Enforcer",
-      "Stormwind Champion",
-      "Living Monument",
-      "Sprint",
-      "Sap",
-      "Polymorph"
-    ],
-    "heroes": [
-      {
-        "hero power": "Can attack any enemy with 2 manas and do a one-hp harm to them.",
-        "hp": 30,
-        "type": "Mage",
-        "special power": "Spells are worth 2 manas less than for other heroes.",
-        "stringDeck": [
-          "Sprint",
-          "Living Monument",
-          "Mosh\u0027gg Enforcer"
-        ]
-      }
-    ],
-    "delete time": "none",
-    "user ID": 0,
-    "sign up time": "2020-03-20T18:00:34.754148",
-    "current hero index": 0
-  },
-  {
-    "gold": 0,
+    "gold": 20,
     "current hero": 0,
     "user name": "amir",
     "password": "1574ad62d48a37f847699d7d2157105a5a5fd6ed323a3497fa41c7731229bf23",
@@ -44,52 +10,24 @@
       "Lord of the Arena",
       "Mosh\u0027gg Enforcer",
       "Stormwind Champion",
-      "Living Monument",
       "Sprint",
-      "Sap",
-      "Polymorph"
+      "Novice Engineer"
     ],
     "heroes": [
       {
+        "hero power": "Can attack any enemy with 2 manas and do a one-hp harm to them.",
         "hp": 30,
         "type": "Mage",
-        "stringDeck": []
-      }
-    ],
-    "delete time": "none",
-    "user ID": 1,
-    "sign up time": "2020-03-20T18:02:12.813572",
-    "current hero index": 0
-  },
-  {
-    "gold": 0,
-    "current hero": 0,
-    "user name": "ali",
-    "password": "94419b99b12c11133a4dfeccc3e17885974beb48f7827c48239aabfbcad238d8",
-    "cards": [
-      "Goldshire Footman",
-      "Stonetusk Boar",
-      "Lord of the Arena",
-      "Mosh\u0027gg Enforcer",
-      "Stormwind Champion",
-      "Living Monument",
-      "Sprint",
-      "Sap",
-      "Polymorph"
-    ],
-    "heroes": [
-      {
-        "hp": 30,
-        "type": "Mage",
+        "special power": "Spells are worth 2 manas less than for other heroes.",
         "stringDeck": [
-          "Sap",
-          "Sprint"
+          "Novice Engineer",
+          "Stonetusk Boar"
         ]
       }
     ],
     "delete time": "none",
-    "user ID": 2,
-    "sign up time": "2020-03-20T18:03:39.664787",
+    "user ID": 0,
+    "sign up time": "2020-03-20T19:26:41.535922",
     "current hero index": 0
   }
 ]

@@ -1,6 +1,7 @@
 package Heros;
 
 import Cards.Card;
+import Cards.CardCreator;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
@@ -72,6 +73,14 @@ public abstract class Hero {
 
     public void removeFromDeck(Card card){
         deck.remove(card);
+    }
+
+    public boolean hasCard(Card card){
+        return deck.contains(card);
+    }
+
+    public boolean hasCard(String cardName){
+        return hasCard(CardCreator.createCard(cardName));
     }
 
     public JSONObject getJson(){

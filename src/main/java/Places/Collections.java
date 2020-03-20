@@ -96,10 +96,10 @@ public class Collections extends Place {
         }
 
         if (TextProcessingTools.stringFirstWordMatch(command, "add")) {
-            String bracketedHeroName = command.replaceFirst("add\\s+", "");
-            if (TextProcessingTools.isInBrackets(bracketedHeroName)) {
-                String cardName = TextProcessingTools.unBracket(bracketedHeroName);
-                if (user.getCardsString().contains(cardName)) {
+            String bracketedCardName = command.replaceFirst("add\\s+", "");
+            if (TextProcessingTools.isInBrackets(bracketedCardName)) {
+                String cardName = TextProcessingTools.unBracket(bracketedCardName);
+                if (user.getCardsAsArrayOfString().contains(cardName)) {
                     Card card = CardCreator.createCard(cardName);
                     if (card.getHeroClass().equals("Neutral") || card.getHeroClass().equals(user.getCurrentHero().getType())) {
                         user.getCurrentHero().addToDeck(card);

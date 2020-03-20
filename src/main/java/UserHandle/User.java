@@ -123,6 +123,14 @@ public class User{
         return false;
     }
 
+    public boolean hasCard(String cardName){
+        return hasCard(CardCreator.createCard(cardName));
+    }
+
+    public boolean hasCard(Card card){
+        return  (cards.contains(card));
+    }
+
     public void addHero(Hero hero){
         heroes.add(hero);
     }
@@ -148,7 +156,7 @@ public class User{
         }
     }
 
-    public ArrayList<String> getCardsString(){
+    public ArrayList<String> getCardsAsArrayOfString(){
         ArrayList<String> cardsString = new ArrayList<>();
         for (Card card :
                 cards) {
@@ -157,12 +165,20 @@ public class User{
         return cardsString;
     }
 
-    public void addCard(Card card){
-        addCard(card.getName());
+    public void addCard(String cardName){
+        addCard(CardCreator.createCard(cardName));
     }
 
-    public void addCard(String cardName){
-        cards.add(CardCreator.createCard(cardName));
+    public void addCard(Card card){
+        cards.add(card);
+    }
+
+    public void removeCard(String cardName){
+        removeCard(CardCreator.createCard(cardName));
+    }
+
+    public void removeCard(Card card){
+        cards.remove(card);
     }
 
     public JSONArray getHerosJsonArray(){
