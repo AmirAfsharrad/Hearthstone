@@ -21,19 +21,22 @@
         "hp": 30,
         "type": "Mage",
         "special power": "Spells are worth 2 manas less than for other heroes.",
-        "stringDeck": []
+        "stringDeck": [
+          "Sap",
+          "Sprint"
+        ]
       }
     ],
-    "delete time": "none",
+    "delete time": "2020-03-21T18:47:38.687745",
     "user ID": 0,
-    "sign up time": "2020-03-20T23:53:01.738728",
+    "sign up time": "2020-03-21T18:43:29.669490",
     "current hero index": 0
   },
   {
     "gold": 50,
     "current hero": 0,
-    "user name": "erfan",
-    "password": "8925f20dc372cb1275d7038da5f8e987571eeab194e31addbe409f63736b3246",
+    "user name": "hamid",
+    "password": "b36ffc3cea02a265926cab0e3bb647aace65345d7999c8604b2a3067fdc6f234",
     "cards": [
       "Goldshire Footman",
       "Stonetusk Boar",
@@ -47,23 +50,21 @@
     ],
     "heroes": [
       {
-        "hero power": "Can attack any enemy with 2 manas and do a one-hp harm to them.",
         "hp": 30,
         "type": "Mage",
-        "special power": "Spells are worth 2 manas less than for other heroes.",
         "stringDeck": []
       }
     ],
     "delete time": "none",
     "user ID": 1,
-    "sign up time": "2020-03-20T23:53:10.660582",
+    "sign up time": "2020-03-21T18:46:28.896126",
     "current hero index": 0
   },
   {
     "gold": 50,
     "current hero": 0,
-    "user name": "ehsan",
-    "password": "b3fda94bfdca08a13567a7d916474306de2bf5abf02b7349de441e0be85d14a6",
+    "user name": "amir",
+    "password": "1574ad62d48a37f847699d7d2157105a5a5fd6ed323a3497fa41c7731229bf23",
     "cards": [
       "Goldshire Footman",
       "Stonetusk Boar",
@@ -72,23 +73,19 @@
       "Stormwind Champion",
       "Living Monument",
       "Sprint",
-      "Polymorph",
-      "Depth Charge"
+      "Sap",
+      "Polymorph"
     ],
     "heroes": [
       {
         "hp": 30,
         "type": "Mage",
-        "stringDeck": [
-          "Polymorph",
-          "Depth Charge",
-          "Depth Charge"
-        ]
+        "stringDeck": []
       }
     ],
     "delete time": "none",
     "user ID": 2,
-    "sign up time": "2020-03-20T23:55:49.344349",
+    "sign up time": "2020-03-21T18:47:47.591292",
     "current hero index": 0
   }
 ]

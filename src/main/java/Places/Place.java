@@ -33,5 +33,4 @@ public abstract class Place{
 
     public abstract Place runCommand(String command, User user, Place currentPlace);
     public abstract void defaultResponse();
-
 }

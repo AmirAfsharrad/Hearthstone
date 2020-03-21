@@ -19,6 +19,7 @@ public class User{
     private ArrayList<Card> cards;
     private ArrayList<Hero> heroes;
     private int currentHeroIndex;
+    private boolean loggedIn = false;
 
     public User(String name, String password) {
         this.name = name;
@@ -73,6 +74,14 @@ public class User{
 
     public void setHeroes(ArrayList<Hero> heroes) {
         this.heroes = heroes;
+    }
+
+    public boolean isLoggedIn() {
+        return loggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
     }
 
     public Hero getCurrentHero() {

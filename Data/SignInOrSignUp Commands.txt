@@ -1,6 +1,0 @@
-{
-  "exit": "enter if you want sign out of your current account",
-  "exit -a": "enter if you want to quit the game",
-  "y": "enter if you already have an account",
-  "n": "enter if you want to create a new account"
-}

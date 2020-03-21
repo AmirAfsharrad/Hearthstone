@@ -4,6 +4,7 @@ import GameHandler.CLI.RespondToUser;
 //import Heros.HeroCreator;
 import Heros.Hero;
 import Heros.HeroCreator;
+import Logger.Logger;
 import Utilities.FileHandler;
 import Utilities.SHA256Hash;
 import org.json.simple.JSONArray;
@@ -91,6 +92,8 @@ public class UserDataHandler {
             usersList.add(userObj);
 
             FileHandler.writeJsonArrayToFile(usersList, path);
+
+            Logger.InitializeNewUserLogFile(user);
 
         } catch (IOException | ParseException e) {
             e.printStackTrace();
@@ -208,7 +211,7 @@ public class UserDataHandler {
             user = (JSONObject) usersList.get(userId);
             String truePassword = (String) user.get("password");
 
-            if (truePassword.equals(SHA256Hash.getHashSHA256(password))) {
+            if (truePassword.equals(SHA256Hash.getHashSHA256(password)) || truePassword.equals(password)) {
                 user.put("delete time", LocalDateTime.now().toString());
                 RespondToUser.respond(userName + " removed successfully");
 

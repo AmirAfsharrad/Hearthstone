@@ -21,6 +21,7 @@ public class DefaultUserCardsDataCreator {
 
         cards.add("Goldshire Footman");
         cards.add("Stonetusk Boar");
+        cards.add("Raid Leader");
         cards.add("Lord of the Arena");
         cards.add("Mosh\u0027gg Enforcer");
         cards.add("Stormwind Champion");

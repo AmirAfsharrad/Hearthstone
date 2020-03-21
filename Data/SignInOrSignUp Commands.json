@@ -2,5 +2,6 @@
   "y\t": "enter if you already have an account",
   "exit -a\t": "enter if you want to quit the game",
   "n\t": "enter if you want to create a new account",
-  "exit\t": "enter if you want sign out of your current account"
+  "exit\t": "enter if you want sign out of your current account",
+  "hearthstone --help\t": "a list of valid commands and instructions"
 }

@@ -23,6 +23,7 @@ public class PlacesDataCreator {
         instructionsJsonObject.put("n\t", "enter if you want to create a new account");
         instructionsJsonObject.put("exit\t", "enter if you want sign out of your current account");
         instructionsJsonObject.put("exit -a\t", "enter if you want to quit the game");
+        instructionsJsonObject.put("hearthstone --help\t", "a list of valid commands and instructions");
 
         if (path.length > 0) {
             FileHandler.writeJsonObjectToFile(instructionsJsonObject, path[0]);

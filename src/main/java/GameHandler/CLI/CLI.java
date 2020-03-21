@@ -1,8 +1,11 @@
 package GameHandler.CLI;
 
+import Logger.Logger;
 import Places.Place;
 import Places.SignInOrSignUp;
 import UserHandle.User;
+
+import java.util.Arrays;
 
 public class CLI {
     private static CLI CLI = new CLI();
@@ -20,9 +23,13 @@ public class CLI {
         Place currentPlace = SignInOrSignUp.getSignInOrSignUp();
         String command;
         while (true){
-            currentPlace.defaultResponse();
-            command = GetResponseFromUser.getResponse();
-            currentPlace = currentPlace.runCommand(command, user, currentPlace);
+            try{
+                currentPlace.defaultResponse();
+                command = GetResponseFromUser.getResponse(user);
+                currentPlace = currentPlace.runCommand(command, user, currentPlace);
+            } catch (Exception e){
+                Logger.log(user, "error", Arrays.toString(e.getStackTrace()), true);
+            }
         }
     }
 }

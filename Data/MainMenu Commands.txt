@@ -1,6 +1,0 @@
-delete-player
-exit
-exit -a
-collections
-store
-hearthstone --help
