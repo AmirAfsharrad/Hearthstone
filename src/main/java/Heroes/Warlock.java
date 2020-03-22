@@ -1,4 +1,4 @@
-package Heros;
+package Heroes;
 
 import Cards.Card;
 

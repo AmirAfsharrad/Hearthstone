@@ -59,26 +59,12 @@ public abstract class Card {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Card card = (Card) o;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Card card = (Card) object;
         return Objects.equals(name, card.name);
     }
 
-    /*
-    @Override
-    public String toString() {
-        return "Card{" +
-                "mana=" + mana +
-                ", name='" + name + '\'' +
-                ", rarity='" + rarity + '\'' +
-                ", heroClass='" + heroClass + '\'' +
-                ", description='" + description + '\'' +
-                ", type='" + type + '\'' +
-                '}';
-    }
-
- */
 }
 

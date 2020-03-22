@@ -1,4 +1,5 @@
 import GameHandler.CLI.CLI;
+import GameHandler.GameHandler;
 import Initialization.CardsDataCreator;
 import Initialization.DefaultUserCardsDataCreator;
 import Initialization.PlacesDataCreator;
@@ -12,8 +13,7 @@ public class Hearthstone {
         DefaultUserCardsDataCreator.createDefaultUserCardsData();
         */
 
-        CLI cli = CLI.getGetCLI();
-        cli.run();
+        GameHandler.getGameHandler().runGame();
 
 
     }

@@ -2,8 +2,8 @@ package UserHandle;
 
 import Cards.Card;
 import Cards.CardCreator;
-import Heros.Hero;
-import Heros.Mage;
+import GameHandler.GameHandler;
+import Heroes.*;
 import Initialization.CardsDataCreator;
 import Initialization.DefaultUserCardsDataCreator;
 import Utilities.FileHandler;
@@ -133,7 +133,7 @@ public class User{
     }
 
     public boolean hasCard(String cardName){
-        return hasCard(CardCreator.createCard(cardName));
+        return hasCard(GameHandler.getGameHandler().getCard(cardName));
     }
 
     public boolean hasCard(Card card){
@@ -144,7 +144,7 @@ public class User{
         heroes.add(hero);
     }
 
-    public ArrayList<String> getHeroesString(){
+    public ArrayList<String> getHeroesAsArrayOfString(){
         ArrayList<String> heroesString = new ArrayList<>();
         for (Hero hero :
                 heroes) {
@@ -175,7 +175,7 @@ public class User{
     }
 
     public void addCard(String cardName){
-        addCard(CardCreator.createCard(cardName));
+        addCard(GameHandler.getGameHandler().getCard(cardName));
     }
 
     public void addCard(Card card){
@@ -183,7 +183,7 @@ public class User{
     }
 
     public void removeCard(String cardName){
-        removeCard(CardCreator.createCard(cardName));
+        removeCard(GameHandler.getGameHandler().getCard(cardName));
     }
 
     public void removeCard(Card card){

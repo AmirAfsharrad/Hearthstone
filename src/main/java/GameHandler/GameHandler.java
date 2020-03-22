@@ -2,6 +2,7 @@ package GameHandler;
 
 import Cards.Card;
 import Cards.CardCreator;
+import GameHandler.CLI.CLI;
 import Utilities.FileHandler;
 import org.json.simple.JSONArray;
 
@@ -54,6 +55,11 @@ public class GameHandler {
 
     public Card getCard(String cardName){
         return allCards.get(cardName);
+    }
+
+    public static void runGame(){
+        CLI cli = CLI.getGetCLI();
+        cli.run();
     }
 
 }

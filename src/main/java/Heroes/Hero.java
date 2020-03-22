@@ -1,20 +1,21 @@
-package Heros;
+package Heroes;
 
 import Cards.Card;
 import Cards.CardCreator;
+import GameHandler.GameHandler;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
 public abstract class Hero {
     protected static int defaultHp = 30;
-    private int maxRepetitiveCardsInDeck = 2;
-    private int deckCapacity = 15;
     private int hp;
     private String type;
     private String heroPower;
     private String specialPower;
     private ArrayList<Card> deck = new ArrayList<>();
+    private int deckCapacity = 15;
+    private int maxRepetitiveCardsInDeck = 2;
 
     public Hero(){}
 
@@ -22,15 +23,6 @@ public abstract class Hero {
         this.hp = hp;
         this.deck = deck;
         this.type = type;
-    }
-
-    public ArrayList<String> getDeckAsArrayOfString(){
-        ArrayList<String> stringDeck = new ArrayList<>();
-        for (Card card :
-                deck) {
-            stringDeck.add(card.getName());
-        }
-        return stringDeck;
     }
 
     public int getHp() {
@@ -82,7 +74,7 @@ public abstract class Hero {
     }
 
     public boolean hasCard(String cardName){
-        return hasCard(CardCreator.createCard(cardName));
+        return hasCard(GameHandler.getGameHandler().getCard(cardName));
     }
 
     public int getMaxRepetitiveCardsInDeck() {
@@ -114,6 +106,15 @@ public abstract class Hero {
             }
         }
         return count;
+    }
+
+    public ArrayList<String> getDeckAsArrayOfString(){
+        ArrayList<String> stringDeck = new ArrayList<>();
+        for (Card card :
+                deck) {
+            stringDeck.add(card.getName());
+        }
+        return stringDeck;
     }
 
     public JSONObject getJson(){

@@ -53,7 +53,7 @@ public class MainMenu extends Place {
                 user.setLoggedIn(false);
                 return SignInOrSignUp.getSignInOrSignUp();
             }
-            case "delete-user":{
+            case "delete-player":{
                 Logger.log(user, "delete user", "removal of " + user.getName(), true);
                 String password = GetResponseFromUser.getResponse("Please enter your password", user);
                 if (SHA256Hash.getHashSHA256(password).equals(user.getPassword())){

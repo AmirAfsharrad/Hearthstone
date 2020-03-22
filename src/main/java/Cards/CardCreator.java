@@ -17,7 +17,7 @@ public class CardCreator {
 
     private static String path = "Data/All Cards.json";
 
-    public static Minion createMinion(JSONObject cardObj) {
+    private static Minion createMinion(JSONObject cardObj) {
         Long mana = (Long) cardObj.get("mana");
         String name = (String) cardObj.get("name");
         String heroClass = (String) cardObj.get("heroClass");
@@ -31,7 +31,7 @@ public class CardCreator {
         return minion;
     }
 
-    public static Spell createSpell(JSONObject cardObj) {
+    private static Spell createSpell(JSONObject cardObj) {
         Long mana = (Long) cardObj.get("mana");
         String name = (String) cardObj.get("name");
         String heroClass = (String) cardObj.get("heroClass");
@@ -43,7 +43,7 @@ public class CardCreator {
         return spell;
     }
 
-    public static Weapon createWeapon(JSONObject cardObj) {
+    private static Weapon createWeapon(JSONObject cardObj) {
         Long mana = (Long) cardObj.get("mana");
         String name = (String) cardObj.get("name");
         String heroClass = (String) cardObj.get("heroClass");

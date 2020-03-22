@@ -3,7 +3,8 @@ package Places;
 import Cards.Card;
 import Cards.CardCreator;
 import GameHandler.CLI.RespondToUser;
-import Heros.Hero;
+import GameHandler.GameHandler;
+import Heroes.Hero;
 import Logger.Logger;
 import UserHandle.User;
 import Utilities.TextProcessingTools;
@@ -125,7 +126,7 @@ public class Collections extends Place {
                     return currentPlace;
                 }
                 String cardName = TextProcessingTools.unBracket(bracketedCardName);
-                Card card = CardCreator.createCard(cardName);
+                Card card = GameHandler.getGameHandler().getCard(cardName);
                 if (card == null){
                     RespondToUser.respond("There is no such card as " + cardName + ".", user);
                     return currentPlace;
@@ -156,7 +157,7 @@ public class Collections extends Place {
             if (TextProcessingTools.isInBrackets(bracketedHeroName)) {
                 String cardName = TextProcessingTools.unBracket(bracketedHeroName);
                 if (user.getCurrentHero().getDeckAsArrayOfString().contains(cardName)) {
-                    Card card = CardCreator.createCard(cardName);
+                    Card card = GameHandler.getGameHandler().getCard(cardName);
                     user.getCurrentHero().removeFromDeck(card);
                     RespondToUser.respond(cardName + " removed successfully from your deck", user);
                 } else {

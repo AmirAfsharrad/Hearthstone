@@ -1,9 +1,7 @@
 package UserHandle;
 
 import GameHandler.CLI.RespondToUser;
-//import Heros.HeroCreator;
-import Heros.Hero;
-import Heros.HeroCreator;
+import Heroes.*;
 import Logger.Logger;
 import Utilities.FileHandler;
 import Utilities.SHA256Hash;

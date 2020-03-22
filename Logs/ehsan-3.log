@@ -1,0 +1,62 @@
+USER: ehsan
+CREATED_AT: 2020-03-22T13:38:33.736097
+PASSWORD: b3fda94bfdca08a13567a7d916474306de2bf5abf02b7349de441e0be85d14a6
+DELETED_AT: ----------
+
+sign up, 2020-03-22T13:38:33.767164, ehsan user created
+user input, 2020-03-22T13:38:37.722470, store
+navigate, 2020-03-22T13:38:37.723138, store
+user input, 2020-03-22T13:38:41.723244, sell [Sap]
+sell, 2020-03-22T13:38:41.724420, sell a card
+system response, 2020-03-22T13:38:41.726230, You have successfully sold Sap.
+user input, 2020-03-22T13:38:45.723496, sell [Sprint]
+sell, 2020-03-22T13:38:45.724219, sell a card
+system response, 2020-03-22T13:38:45.725983, You have successfully sold Sprint.
+user input, 2020-03-22T13:38:50.724660, sell [Polymorph]
+sell, 2020-03-22T13:38:50.725315, sell a card
+system response, 2020-03-22T13:38:50.726760, You have successfully sold Polymorph.
+user input, 2020-03-22T13:38:59.725940, sell [Living Monument]
+sell, 2020-03-22T13:38:59.726826, sell a card
+system response, 2020-03-22T13:38:59.728086, You have successfully sold Living Monument.
+user input, 2020-03-22T13:39:02.726405, wallet
+wallet, 2020-03-22T13:39:02.727437, show wallet
+system response, 2020-03-22T13:39:02.728842, You have 100 golds.
+user input, 2020-03-22T13:39:09.727630, main menu
+navigate, 2020-03-22T13:39:09.728696, main menu
+user input, 2020-03-22T13:39:13.728537, exit
+log out, 2020-03-22T13:39:13.729567, log out of ehsan
+system response, 2020-03-22T13:39:13.738251, Signed out of user ehsan
+login, 2020-03-22T17:49:04.965761,  as ehsan
+user input, 2020-03-22T17:49:07.909871, collections
+navigate, 2020-03-22T17:49:07.910793, collections
+user input, 2020-03-22T17:49:19.911540, ls -m -cards
+list, 2020-03-22T17:49:19.912649, Mage: current deck
+system response, 2020-03-22T17:49:19.914227, Here is the list of the cards in your deck:
+user input, 2020-03-22T17:49:29.913392, ls -a -cards
+list, 2020-03-22T17:49:29.914295, all cards
+system response, 2020-03-22T17:49:29.916045, Here is the list of your cards:
+system response, 2020-03-22T17:49:29.916883, Goldshire Footman
+system response, 2020-03-22T17:49:29.917605, Stonetusk Boar
+system response, 2020-03-22T17:49:29.918188, Lord of the Arena
+system response, 2020-03-22T17:49:29.919041, Mosh'gg Enforcer
+system response, 2020-03-22T17:49:29.919803, Stormwind Champion
+user input, 2020-03-22T17:49:38.914053, main menu
+navigate, 2020-03-22T17:49:38.915906, main menu
+user input, 2020-03-22T17:49:42.914550, collections
+navigate, 2020-03-22T17:49:42.915627, collections
+user input, 2020-03-22T17:49:50.915704, add [Lord of the arena]
+add, 2020-03-22T17:49:50.917404, add card for Mage
+system response, 2020-03-22T17:49:50.919534, There is no such card as Lord of the arena.
+user input, 2020-03-22T17:49:58.917332, ADD [Lord of the Arena]
+system response, 2020-03-22T17:49:58.918484, Invalid command!
+user input, 2020-03-22T17:50:09.918626, add [Lord of the rena]
+add, 2020-03-22T17:50:09.919719, add card for Mage
+system response, 2020-03-22T17:50:09.921103, There is no such card as Lord of the rena.
+user input, 2020-03-22T17:50:16.919985, add [Lord of the Arena]
+add, 2020-03-22T17:50:16.921019, add card for Mage
+system response, 2020-03-22T17:50:16.922835, Card Lord of the Arena successfully added to your deck.
+user input, 2020-03-22T17:50:22.920440, main menu
+navigate, 2020-03-22T17:50:22.921169, main menu
+user input, 2020-03-22T17:50:24.921050, exit -a
+quit, 2020-03-22T17:50:24.921858, quit the game
+system response, 2020-03-22T17:50:24.997585, Goodbye!

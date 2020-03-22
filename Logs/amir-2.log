@@ -1,0 +1,116 @@
+login, 2020-03-22T13:36:13.832807,  as amir
+user input, 2020-03-22T13:36:18.700593, collections
+navigate, 2020-03-22T13:36:18.701821, collections
+DELETED_AT: 2020-03-22T13:39:59.752829
+list, 2020-03-22T13:36:22.703579, all cards
+system response, 2020-03-22T13:36:22.706213, Here is the list of your cards:
+system response, 2020-03-22T13:36:22.707029, Goldshire Footman
+system response, 2020-03-22T13:36:22.707907, Stonetusk Boar
+system response, 2020-03-22T13:36:22.708882, Lord of the Arena
+system response, 2020-03-22T13:36:22.709579, Mosh'gg Enforcer
+system response, 2020-03-22T13:36:22.710155, Stormwind Champion
+system response, 2020-03-22T13:36:22.710755, Living Monument
+system response, 2020-03-22T13:36:22.711391, Sprint
+system response, 2020-03-22T13:36:22.712, Sap
+system response, 2020-03-22T13:36:22.712707, Polymorph
+user input, 2020-03-22T13:36:27.702030, ls -n -cards
+list, 2020-03-22T13:36:27.703172, Mage: cards not in deck
+system response, 2020-03-22T13:36:27.704954, Here is the list of the cards you can add to your deck:
+system response, 2020-03-22T13:36:27.706091, Goldshire Footman
+system response, 2020-03-22T13:36:27.707355, Stonetusk Boar
+system response, 2020-03-22T13:36:27.708455, Lord of the Arena
+system response, 2020-03-22T13:36:27.709637, Mosh'gg Enforcer
+system response, 2020-03-22T13:36:27.710911, Stormwind Champion
+system response, 2020-03-22T13:36:27.711843, Living Monument
+system response, 2020-03-22T13:36:27.712571, Sprint
+system response, 2020-03-22T13:36:27.713266, Sap
+system response, 2020-03-22T13:36:27.713976, Polymorph
+user input, 2020-03-22T13:36:32.702709, add [Polymorph]
+add, 2020-03-22T13:36:32.705992, add card for Mage
+system response, 2020-03-22T13:36:32.709595, Card Polymorph successfully added to your deck.
+user input, 2020-03-22T13:36:38.704254, add [Sprint]
+add, 2020-03-22T13:36:38.706210, add card for Mage
+system response, 2020-03-22T13:36:38.708300, Card Sprint successfully added to your deck.
+user input, 2020-03-22T13:36:42.704867, add [Sprint]
+add, 2020-03-22T13:36:42.706035, add card for Mage
+system response, 2020-03-22T13:36:42.707503, Card Sprint successfully added to your deck.
+user input, 2020-03-22T13:36:47.705248, add [Sprint]
+add, 2020-03-22T13:36:47.705921, add card for Mage
+system response, 2020-03-22T13:36:47.707805, You already have 2 of Sprint in your deck. You cannot have more!
+user input, 2020-03-22T13:36:51.706300, main menu
+navigate, 2020-03-22T13:36:51.707531, main menu
+user input, 2020-03-22T13:36:55.706527, store
+navigate, 2020-03-22T13:36:55.707866, store
+user input, 2020-03-22T13:37:00.707119, ls -s
+list, 2020-03-22T13:37:00.708338, cards available to sell
+system response, 2020-03-22T13:37:00.709742, Here is the list of your cards, which could be sold:
+system response, 2020-03-22T13:37:00.710771, Goldshire Footman
+system response, 2020-03-22T13:37:00.711498, Stonetusk Boar
+system response, 2020-03-22T13:37:00.712072, Lord of the Arena
+system response, 2020-03-22T13:37:00.712807, Mosh'gg Enforcer
+system response, 2020-03-22T13:37:00.713513, Stormwind Champion
+system response, 2020-03-22T13:37:00.714275, Living Monument
+system response, 2020-03-22T13:37:00.715119, Sap
+user input, 2020-03-22T13:37:06.708937, sell [Polymorph]
+sell, 2020-03-22T13:37:06.710236, sell a card
+system response, 2020-03-22T13:37:06.712100, You have to remove Polymorph from the deck of all your heroes before selling it.
+user input, 2020-03-22T13:37:14.710158, sell [Novice Engineer]
+sell, 2020-03-22T13:37:14.711156, sell a card
+system response, 2020-03-22T13:37:14.712643, You do not own Novice Engineer so you cannot sell it!
+user input, 2020-03-22T13:37:18.710127, sell [Amir]
+sell, 2020-03-22T13:37:18.711185, sell a card
+system response, 2020-03-22T13:37:18.713272, There is no such card as Amir.
+user input, 2020-03-22T13:37:39.713774, but [Novice Engineer]
+system response, 2020-03-22T13:37:39.714825, Invalid command!
+user input, 2020-03-22T13:37:47.714381, buy [Novice Engineer]
+sell, 2020-03-22T13:37:47.715203, buy a card
+system response, 2020-03-22T13:37:47.716579, You have successfully purchased Novice Engineer.
+user input, 2020-03-22T13:37:55.716074, buy [Sap]
+sell, 2020-03-22T13:37:55.716908, buy a card
+system response, 2020-03-22T13:37:55.718105, You already have this card!
+user input, 2020-03-22T13:38:07.717332, sell [Living Monument]
+sell, 2020-03-22T13:38:07.718071, sell a card
+system response, 2020-03-22T13:38:07.719668, You have successfully sold Living Monument.
+user input, 2020-03-22T13:38:22.720359, main menu
+navigate, 2020-03-22T13:38:22.721703, main menu
+user input, 2020-03-22T13:38:25.721581, exit
+log out, 2020-03-22T13:38:25.722642, log out of amir
+system response, 2020-03-22T13:38:25.815624, Signed out of user amir
+login, 2020-03-22T13:39:18.734389,  as amir
+user input, 2020-03-22T13:39:21.729780, collections
+navigate, 2020-03-22T13:39:21.730953, collections
+user input, 2020-03-22T13:39:25.730353, ls -n -cards
+list, 2020-03-22T13:39:25.731473, Mage: cards not in deck
+system response, 2020-03-22T13:39:25.733478, Here is the list of the cards you can add to your deck:
+system response, 2020-03-22T13:39:25.734130, Goldshire Footman
+system response, 2020-03-22T13:39:25.734812, Stonetusk Boar
+system response, 2020-03-22T13:39:25.735493, Lord of the Arena
+system response, 2020-03-22T13:39:25.736111, Mosh'gg Enforcer
+system response, 2020-03-22T13:39:25.736691, Stormwind Champion
+system response, 2020-03-22T13:39:25.737321, Sap
+system response, 2020-03-22T13:39:25.738017, Novice Engineer
+user input, 2020-03-22T13:39:41.731836, ls -m -cards
+list, 2020-03-22T13:39:41.732460, Mage: current deck
+system response, 2020-03-22T13:39:41.733601, Here is the list of the cards in your deck:
+system response, 2020-03-22T13:39:41.734147, Polymorph
+system response, 2020-03-22T13:39:41.734720, Sprint
+system response, 2020-03-22T13:39:41.735264, Sprint
+user input, 2020-03-22T13:39:49.733228, ls -a -cards
+list, 2020-03-22T13:39:49.733859, all cards
+system response, 2020-03-22T13:39:49.734978, Here is the list of your cards:
+system response, 2020-03-22T13:39:49.735541, Goldshire Footman
+system response, 2020-03-22T13:39:49.736073, Stonetusk Boar
+system response, 2020-03-22T13:39:49.736745, Lord of the Arena
+system response, 2020-03-22T13:39:49.737280, Mosh'gg Enforcer
+system response, 2020-03-22T13:39:49.737819, Stormwind Champion
+system response, 2020-03-22T13:39:49.738023, Sprint
+system response, 2020-03-22T13:39:49.738261, Sap
+system response, 2020-03-22T13:39:49.738514, Polymorph
+system response, 2020-03-22T13:39:49.738672, Novice Engineer
+user input, 2020-03-22T13:39:53.733870, main menu
+navigate, 2020-03-22T13:39:53.734468, main menu
+user input, 2020-03-22T13:39:57.734574, delete-player
+delete user, 2020-03-22T13:39:57.735191, removal of amir
+system response, 2020-03-22T13:39:57.736353, Please enter your password
+user input, 2020-03-22T13:39:59.735148, amir
+system response, 2020-03-22T13:39:59.736673, Account amir successfully removed!

@@ -1,0 +1,47 @@
+login, 2020-03-22T13:36:13.833870,  as amir
+navigate, 2020-03-22T13:36:18.702568, collections
+list, 2020-03-22T13:36:22.705326, all cards
+list, 2020-03-22T13:36:27.704084, Mage: cards not in deck
+add, 2020-03-22T13:36:32.706626, add card for Mage
+add, 2020-03-22T13:36:38.707275, add card for Mage
+add, 2020-03-22T13:36:42.706718, add card for Mage
+add, 2020-03-22T13:36:47.706540, add card for Mage
+navigate, 2020-03-22T13:36:51.708110, main menu
+navigate, 2020-03-22T13:36:55.709031, store
+list, 2020-03-22T13:37:00.709159, cards available to sell
+sell, 2020-03-22T13:37:06.710996, sell a card
+sell, 2020-03-22T13:37:14.711771, sell a card
+sell, 2020-03-22T13:37:18.712204, sell a card
+sell, 2020-03-22T13:37:47.715801, buy a card
+sell, 2020-03-22T13:37:55.717419, buy a card
+sell, 2020-03-22T13:38:07.718740, sell a card
+navigate, 2020-03-22T13:38:22.722523, main menu
+log out, 2020-03-22T13:38:25.723866, log out of amir
+sign up, 2020-03-22T13:38:33.767610, ehsan user created
+navigate, 2020-03-22T13:38:37.723924, store
+sell, 2020-03-22T13:38:41.725348, sell a card
+sell, 2020-03-22T13:38:45.725105, sell a card
+sell, 2020-03-22T13:38:50.725888, sell a card
+sell, 2020-03-22T13:38:59.727365, sell a card
+wallet, 2020-03-22T13:39:02.728122, show wallet
+navigate, 2020-03-22T13:39:09.729808, main menu
+log out, 2020-03-22T13:39:13.730983, log out of ehsan
+login, 2020-03-22T13:39:18.735030,  as amir
+navigate, 2020-03-22T13:39:21.731764, collections
+list, 2020-03-22T13:39:25.732706, Mage: cards not in deck
+list, 2020-03-22T13:39:41.733005, Mage: current deck
+list, 2020-03-22T13:39:49.734402, all cards
+navigate, 2020-03-22T13:39:53.735006, main menu
+delete user, 2020-03-22T13:39:57.735751, removal of amir
+quit, 2020-03-22T13:40:04.735856, quit the game
+login, 2020-03-22T17:49:04.966599,  as ehsan
+navigate, 2020-03-22T17:49:07.911540, collections
+list, 2020-03-22T17:49:19.913364, Mage: current deck
+list, 2020-03-22T17:49:29.915352, all cards
+navigate, 2020-03-22T17:49:38.917349, main menu
+navigate, 2020-03-22T17:49:42.916449, collections
+add, 2020-03-22T17:49:50.917750, add card for Mage
+add, 2020-03-22T17:50:09.920291, add card for Mage
+add, 2020-03-22T17:50:16.921688, add card for Mage
+navigate, 2020-03-22T17:50:22.921681, main menu
+quit, 2020-03-22T17:50:24.922435, quit the game

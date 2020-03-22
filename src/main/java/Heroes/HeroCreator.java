@@ -1,7 +1,8 @@
-package Heros;
+package Heroes;
 
 import Cards.Card;
 import Cards.CardCreator;
+import GameHandler.GameHandler;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class HeroCreator {
         ArrayList<Card> deck = new ArrayList<>();
         for (String card :
                 deckStringArray) {
-            deck.add(CardCreator.createCard(card));
+            deck.add(GameHandler.getGameHandler().getCard(card));
         }
 
         switch (type){

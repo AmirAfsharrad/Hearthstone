@@ -16,7 +16,7 @@ public class DefaultUserCardsDataCreator {
         DefaultUserCardsDataCreator.path = path;
     }
 
-    public static void createDefaultUserCardsData(){
+    public static void createDefaultUserCardsData() {
         ArrayList<String> cards = new ArrayList();
 
         cards.add("Goldshire Footman");

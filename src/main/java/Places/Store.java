@@ -4,7 +4,7 @@ import Cards.Card;
 import Cards.CardCreator;
 import GameHandler.CLI.RespondToUser;
 import GameHandler.GameHandler;
-import Heros.Hero;
+import Heroes.Hero;
 import Logger.Logger;
 import UserHandle.User;
 import Utilities.TextProcessingTools;
@@ -80,7 +80,7 @@ public class Store extends Place {
             String bracketedCardName = command.replaceFirst("(?i)sell\\s*", "");
             if (TextProcessingTools.isInBrackets(bracketedCardName)){
                 String cardName = TextProcessingTools.unBracket(bracketedCardName);
-                Card card = CardCreator.createCard(cardName);
+                Card card = GameHandler.getGameHandler().getCard(cardName);
                 if (card == null){
                     RespondToUser.respond("There is no such card as " + cardName + ".", user);
                     return currentPlace;
@@ -110,7 +110,7 @@ public class Store extends Place {
             String bracketedCardName = command.replaceFirst("(?i)buy\\s+", "");
             if (TextProcessingTools.isInBrackets(bracketedCardName)){
                 String cardName = TextProcessingTools.unBracket(bracketedCardName);
-                Card card = CardCreator.createCard(cardName);
+                Card card = GameHandler.getGameHandler().getCard(cardName);
                 if (card == null){
                     RespondToUser.respond("There is no such card as " + cardName + ".", user);
                     return currentPlace;

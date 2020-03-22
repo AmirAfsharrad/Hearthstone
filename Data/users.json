@@ -71,21 +71,55 @@
       "Lord of the Arena",
       "Mosh\u0027gg Enforcer",
       "Stormwind Champion",
-      "Living Monument",
       "Sprint",
       "Sap",
-      "Polymorph"
+      "Polymorph",
+      "Novice Engineer"
     ],
     "heroes": [
       {
+        "hero power": "Can attack any enemy with 2 manas and do a one-hp harm to them.",
         "hp": 30,
         "type": "Mage",
-        "stringDeck": []
+        "special power": "Spells are worth 2 manas less than for other heroes.",
+        "stringDeck": [
+          "Polymorph",
+          "Sprint",
+          "Sprint"
+        ]
+      }
+    ],
+    "delete time": "2020-03-22T13:39:59.746369",
+    "user ID": 2,
+    "sign up time": "2020-03-21T18:47:47.591292",
+    "current hero index": 0
+  },
+  {
+    "gold": 100,
+    "current hero": 0,
+    "user name": "ehsan",
+    "password": "b3fda94bfdca08a13567a7d916474306de2bf5abf02b7349de441e0be85d14a6",
+    "cards": [
+      "Goldshire Footman",
+      "Stonetusk Boar",
+      "Lord of the Arena",
+      "Mosh\u0027gg Enforcer",
+      "Stormwind Champion"
+    ],
+    "heroes": [
+      {
+        "hero power": "Can attack any enemy with 2 manas and do a one-hp harm to them.",
+        "hp": 30,
+        "type": "Mage",
+        "special power": "Spells are worth 2 manas less than for other heroes.",
+        "stringDeck": [
+          "Lord of the Arena"
+        ]
       }
     ],
     "delete time": "none",
-    "user ID": 2,
-    "sign up time": "2020-03-21T18:47:47.591292",
+    "user ID": 3,
+    "sign up time": "2020-03-22T13:38:33.726298",
     "current hero index": 0
   }
 ]
