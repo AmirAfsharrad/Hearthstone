@@ -17,17 +17,17 @@ public class CLI {
         return CLI;
     }
 
-    public void run(){
+    public void run() {
         RespondToUser.respond("Welcome to HEARTHSTONE!");
         User user = new User("", "");
         Place currentPlace = SignInOrSignUp.getSignInOrSignUp();
         String command;
-        while (true){
-            try{
+        while (true) {
+            try {
                 currentPlace.defaultResponse();
                 command = GetResponseFromUser.getResponse(user);
                 currentPlace = currentPlace.runCommand(command, user, currentPlace);
-            } catch (Exception e){
+            } catch (Exception e) {
                 Logger.log(user, "error", Arrays.toString(e.getStackTrace()), true);
             }
         }

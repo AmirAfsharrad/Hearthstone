@@ -1,0 +1,35 @@
+USER: amirhossein
+CREATED_AT: 2020-04-20T13:51:13.513681
+PASSWORD: 71700cb49a209ec55a9d4de52a587d3f17696e02b832a2215aa78fb21b06f880
+DELETED_AT: ----------
+
+sign up, 2020-04-20T13:51:13.518206, amirhossein user created
+user input, 2020-04-20T13:51:17.297888, collections
+navigate, 2020-04-20T13:51:17.298757, collections
+user input, 2020-04-20T13:51:25.298981, hearthsotne --help
+system response, 2020-04-20T13:51:25.306423, Invalid command!
+user input, 2020-04-20T13:51:33.300144, --help hearthstone
+system response, 2020-04-20T13:51:33.301240, Invalid command!
+user input, 2020-04-20T13:51:58.304377, hearthstone -help
+system response, 2020-04-20T13:51:58.305506, Invalid command!
+user input, 2020-04-20T13:52:05.305716, -help hearthstone
+system response, 2020-04-20T13:52:05.307714, Invalid command!
+user input, 2020-04-20T13:52:32.309178, hearthstone --help
+help, 2020-04-20T13:52:32.310637, show list of instructions in Collections
+system response, 2020-04-20T13:52:32.312787, ls -m -heroes	: your current hero
+system response, 2020-04-20T13:52:32.313520, select [hero name]	: select a hero
+system response, 2020-04-20T13:52:32.314329, main menu	: back to main menu
+system response, 2020-04-20T13:52:32.314974, add [card name]	: add a card to your current deck
+system response, 2020-04-20T13:52:32.315671, ls -a - heroes	: list of all your heroes
+system response, 2020-04-20T13:52:32.316360, ls -n -cards	: list of the cards you can add to your current deck
+system response, 2020-04-20T13:52:32.317096, hearthstone --help	: a list of valid commands and instructions
+system response, 2020-04-20T13:52:32.318243, ls -a -cards	: list of all your cards
+system response, 2020-04-20T13:52:32.320073, ls -m -cards	: list of the cards in your current deck
+system response, 2020-04-20T13:52:32.320855, remove [card name]	: remove a card from your current deck
+user input, 2020-04-20T13:52:42.311245, exit
+system response, 2020-04-20T13:52:42.312456, Invalid command!
+user input, 2020-04-20T13:52:46.311874, main menu
+navigate, 2020-04-20T13:52:46.312917, main menu
+user input, 2020-04-20T13:52:49.312716, exit
+log out, 2020-04-20T13:52:49.313646, log out of amirhossein
+system response, 2020-04-20T13:52:49.322427, Signed out of user amirhossein

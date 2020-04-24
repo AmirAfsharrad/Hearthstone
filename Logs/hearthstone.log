@@ -45,3 +45,9 @@ add, 2020-03-22T17:50:09.920291, add card for Mage
 add, 2020-03-22T17:50:16.921688, add card for Mage
 navigate, 2020-03-22T17:50:22.921681, main menu
 quit, 2020-03-22T17:50:24.922435, quit the game
+sign up, 2020-04-20T13:51:13.518388, amirhossein user created
+navigate, 2020-04-20T13:51:17.299552, collections
+help, 2020-04-20T13:52:32.311890, show list of instructions in Collections
+navigate, 2020-04-20T13:52:46.313905, main menu
+log out, 2020-04-20T13:52:49.314312, log out of amirhossein
+quit, 2020-04-20T13:52:54.313691, quit the game
