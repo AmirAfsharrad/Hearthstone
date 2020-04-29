@@ -1,6 +1,6 @@
 package UserHandle;
 
-import GameHandler.CLI.RespondToUser;
+import GameHandler.RespondToUser;
 import Heroes.*;
 import Logger.Logger;
 import Utilities.FileHandler;

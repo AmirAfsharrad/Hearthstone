@@ -1,6 +1,7 @@
 //Imports are listed in full to show what's being used
 //could just import javax.swing.* and java.awt.* etc..
 import GUI.MainFrame;
+import GameHandler.GameState;
 
 import java.awt.*;
 import javax.swing.BorderFactory;
@@ -21,7 +22,8 @@ public class Hearthstone {
             public void run() {
 //                new Hearthstone();
 //                MainFrame.getMainFrame();
-                new MainFrame();
+//                new MainFrame();
+                GameState.getGameState().init();
             }
         });
     }

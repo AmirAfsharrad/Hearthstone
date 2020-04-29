@@ -1,7 +1,7 @@
 package Places;
 
 import GameHandler.CLI.GetResponseFromUser;
-import GameHandler.CLI.RespondToUser;
+import GameHandler.RespondToUser;
 import Logger.Logger;
 import UserHandle.User;
 import UserHandle.UserDataHandler;

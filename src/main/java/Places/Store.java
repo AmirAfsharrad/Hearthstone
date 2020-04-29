@@ -1,8 +1,7 @@
 package Places;
 
 import Cards.Card;
-import Cards.CardCreator;
-import GameHandler.CLI.RespondToUser;
+import GameHandler.RespondToUser;
 import GameHandler.GameHandler;
 import Heroes.Hero;
 import Logger.Logger;

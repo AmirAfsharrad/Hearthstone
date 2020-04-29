@@ -1,7 +1,7 @@
 package GameHandler.CLI;
 
+import GameHandler.RespondToUser;
 import Logger.Logger;
-import Places.Place;
 import UserHandle.User;
 
 import java.util.Scanner;

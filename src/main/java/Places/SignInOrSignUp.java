@@ -1,7 +1,8 @@
 package Places;
 
 import GameHandler.CLI.GetResponseFromUser;
-import GameHandler.CLI.RespondToUser;
+import GameHandler.RespondToUser;
+import GameHandler.GameState;
 import Logger.Logger;
 import UserHandle.User;
 import UserHandle.UserDataHandler;
@@ -25,6 +26,31 @@ public class SignInOrSignUp extends Place {
     @Override
     public void defaultResponse(){
         RespondToUser.respond("already have an account? (y/n)");
+    }
+
+    public void createNewAccount(String username, String password) {
+        User newUser = new User(username, password);
+        newUser = UserDataHandler.add(newUser);
+        if (newUser != null){
+            newUser.initializeCardsAndHeroesAsDefault();
+            RespondToUser.respond("New user " + newUser.getName() + " created successfully.", newUser);
+            newUser.setLoggedIn(true);
+            Logger.log(newUser, "sign up", newUser.getName() + " user created", true);
+            GameState.getGameState().setUser(newUser);
+            GameState.getGameState().setCurrentPlace(MainMenu.getMainMenu());
+        }
+    }
+
+    public void login(String username, String password) {
+        User newUser = UserDataHandler.load(username, password);
+        if (newUser != null){
+            newUser.copy(newUser);
+            RespondToUser.respond("Signed in as " + username + " successfully.", newUser);
+            newUser.setLoggedIn(true);
+            Logger.log(newUser, "login", " as " + newUser.getName(), true);
+            GameState.getGameState().setUser(newUser);
+            GameState.getGameState().setCurrentPlace(MainMenu.getMainMenu());
+        }
     }
 
     @Override

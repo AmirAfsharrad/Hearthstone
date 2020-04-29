@@ -1,8 +1,14 @@
 package GUI;
 
-import GUI.Events.TestEvent;
+import GUI.Events.LoginEvent;
+import GUI.Events.SignUpEvent;
 import GUI.GamePanels.LoginPanel;
-import GUI.Listeners.TestListener;
+import GUI.GamePanels.MainMenuPanel;
+import GUI.Listeners.LoginListener;
+import GUI.Listeners.SignUpListener;
+import Places.MainMenu;
+import Places.Place;
+import Places.SignInOrSignUp;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,15 +16,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
-//    private static MainFrame mainFrame;
     private JPanel panelCards;
     CardLayout cardLayout = new CardLayout();
-
-//    public static MainFrame getMainFrame() {
-//        if (mainFrame == null)
-//            mainFrame = new MainFrame();
-//        return mainFrame;
-//    }
+    private LoginPanel loginPanel;
+    private MainMenuPanel mainMenuPanel;
 
     public MainFrame() throws HeadlessException {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,58 +28,46 @@ public class MainFrame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
 
-        int h = this.getSize().height;
-        int w = this.getSize().width;
-
-        LoginPanel loginPanel = new LoginPanel(this.getSize().width, this.getSize().height);
-        loginPanel.setTestListener(new TestListener() {
-            @Override
-            public void testEventOccurred(TestEvent testEvent) {
-//                System.out.println(h + " , " + w);
-                nextPage();
-            }
-        });
-        
-        JPanel card2 = new JPanel();
-//        loginPanel.setBackground(Color.BLUE);
-
-//Create the panel that contains the "cards".
-
         panelCards = new JPanel(cardLayout);
-        panelCards.add(loginPanel);
-        panelCards.add(card2);
 
-//        JButton b1 = new JButton("one");
-//        Dimension size = b1.getPreferredSize();
-//        b1.setBounds(w / 10, h / 10, size.width, size.height);
-//        loginPanel.add(b1);
-//
-//        b1.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent actionEvent) {
-//                cardLayout.next(cards);
-//                System.out.println("Hello");
-//            }
-//        });
-
-        JButton b2 = new JButton("two");
-        Dimension size2 = b2.getPreferredSize();
-        b2.setBounds(w / 10, h / 10, size2.width, size2.height);
-        card2.add(b2);
-
-        b2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                nextPage();
-            }
-        });
+        initLoginPanel();
+        initMainMenuPanel();
 
         this.add(panelCards);
     }
 
-    public void nextPage() {
-        cardLayout.next(panelCards);
+    private void initLoginPanel() {
+        loginPanel = new LoginPanel(this.getSize().width, this.getSize().height);
+        loginPanel.setSignUpListener(new SignUpListener() {
+            @Override
+            public void signUpEventOccurred(SignUpEvent signUpEvent) {
+                SignInOrSignUp.getSignInOrSignUp().createNewAccount(signUpEvent.getUsername(), signUpEvent.getPassword());
+            }
+        });
+
+        loginPanel.setLoginListener(new LoginListener() {
+            @Override
+            public void loginEventOccurred(LoginEvent loginEvent) {
+                SignInOrSignUp.getSignInOrSignUp().login(loginEvent.getUsername(), loginEvent.getPassword());
+            }
+        });
+
+        panelCards.add(loginPanel, "SignInOrSignUp");
+    }
+
+    private void initMainMenuPanel() {
+        mainMenuPanel = new MainMenuPanel(this.getSize().width, this.getSize().height);
+
+        panelCards.add(mainMenuPanel, "MainMenu");
+    }
+
+    public void updatePage(Place place) {
+        if (place instanceof SignInOrSignUp) {
+            cardLayout.show(panelCards, "SignInOrSignUp");
+        } else if (place instanceof MainMenu) {
+            cardLayout.show(panelCards, "MainMenu");
+        }
+
     }
 
 }
-

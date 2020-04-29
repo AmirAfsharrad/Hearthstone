@@ -1,6 +1,10 @@
 package GUI.GamePanels;
 
+import GUI.Events.LoginEvent;
+import GUI.Events.SignUpEvent;
 import GUI.Events.TestEvent;
+import GUI.Listeners.LoginListener;
+import GUI.Listeners.SignUpListener;
 import GUI.Listeners.TestListener;
 import GUI.MainFrame;
 import Utilities.ImageLoader;
@@ -14,7 +18,8 @@ import java.awt.event.FocusListener;
 import java.awt.image.BufferedImage;
 
 public class LoginPanel extends GamePanel {
-    TestListener testListener;
+    SignUpListener signUpListener;
+    LoginListener loginListener;
     JButton logInButton;
     JButton signUpButton;
     private JLabel usernameLabel;
@@ -25,32 +30,47 @@ public class LoginPanel extends GamePanel {
 
     public LoginPanel(int screenWidth, int screenHeight) {
         super(screenWidth, screenHeight);
+        initUsernameLabel();
+        initUsernameField();
+        initPasswordLabel();
+        initPasswordField();
+        initLoginButton();
+        initSignUpButton();
+    }
 
+    private void initUsernameLabel() {
         usernameLabel = new JLabel("Username ");
-        passwordLabel = new JLabel("Password ");
-        usernameField = new JTextField(20);
-        passwordField = new JPasswordField(20);
-        
-
-        usernameField.setBounds(screenWidth / 2, screenHeight / 2 - 6 * screenHeight / 40
-                , screenWidth / 8, screenHeight / 20);
-        this.add(usernameField);
-
-        passwordField.setBounds(screenWidth / 2, screenHeight / 2 - 3 * screenHeight / 40
-                , screenWidth / 8, screenHeight / 20);
-        this.add(passwordField);
 
         usernameLabel.setBounds(screenWidth / 2 - screenWidth / 20, screenHeight / 2 - 6 * screenHeight / 40
                 , screenWidth / 8, screenHeight / 20);
         this.add(usernameLabel);
+    }
+
+    private void initUsernameField() {
+        usernameField = new JTextField(20);
+
+        usernameField.setBounds(screenWidth / 2, screenHeight / 2 - 6 * screenHeight / 40
+                , screenWidth / 8, screenHeight / 20);
+        this.add(usernameField);
+    }
+
+    private void initPasswordLabel() {
+        passwordLabel = new JLabel("Password ");
 
         passwordLabel.setBounds(screenWidth / 2 - screenWidth / 20, screenHeight / 2 - 3 * screenHeight / 40
                 , screenWidth / 8, screenHeight / 20);
         this.add(passwordLabel);
+    }
 
+    private void initPasswordField() {
+        passwordField = new JPasswordField(20);
 
+        passwordField.setBounds(screenWidth / 2, screenHeight / 2 - 3 * screenHeight / 40
+                , screenWidth / 8, screenHeight / 20);
+        this.add(passwordField);
+    }
 
-
+    private void initLoginButton() {
         logInButton = new JButton("Log In");
         logInButton.setBounds(screenWidth / 2 + screenWidth / 20 - logInButton.getPreferredSize().width / 2,
                 screenHeight / 2 + logInButton.getPreferredSize().height,
@@ -61,13 +81,18 @@ public class LoginPanel extends GamePanel {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 String username = usernameField.getText();
-//                TestEvent testEvent = new TestEvent(this, "test");
-                System.out.println("Hello " + username);
+                String password = passwordField.getText();
+
+                LoginEvent loginEvent = new LoginEvent(this, username, password);
+                if (loginListener != null) {
+                    loginListener.loginEventOccurred(loginEvent);
+                }
             }
         });
+    }
 
+    private void initSignUpButton() {
         signUpButton = new JButton("Create New Account");
-//        Dimension signUpSize = signUpButton.getPreferredSize();
         signUpButton.setBounds(screenWidth / 2 + screenWidth / 20 - signUpButton.getPreferredSize().width / 2,
                 screenHeight / 2 + 5 * signUpButton.getPreferredSize().height / 2,
                 signUpButton.getPreferredSize().width, signUpButton.getPreferredSize().height);
@@ -77,11 +102,14 @@ public class LoginPanel extends GamePanel {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 String username = usernameField.getText();
-//                TestEvent testEvent = new TestEvent(this, "test");
-                System.out.println("Hello " + username);
+                String password = passwordField.getText();
+
+                SignUpEvent signUpEvent = new SignUpEvent(this, username, password);
+                if (signUpListener != null) {
+                    signUpListener.signUpEventOccurred(signUpEvent);
+                }
             }
         });
-
     }
 
     @Override
@@ -91,10 +119,14 @@ public class LoginPanel extends GamePanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
         BufferedImage image = ImageLoader.getInstance().loadImage("game background2.jpg");
-//        g2d.drawImage(image, 0, 0, null);
+        g2d.drawImage(image, 0, 0, null);
     }
 
-    public void setTestListener(TestListener testListener) {
-        this.testListener = testListener;
+    public void setSignUpListener (SignUpListener signUpListener) {
+        this.signUpListener = signUpListener;
+    }
+
+    public void setLoginListener(LoginListener loginListener) {
+        this.loginListener = loginListener;
     }
 }

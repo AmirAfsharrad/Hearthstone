@@ -149,5 +149,38 @@
     "user ID": 4,
     "sign up time": "2020-04-20T13:51:13.405487",
     "current hero index": 0
+  },
+  {
+    "gold": 50,
+    "user name": "newamir",
+    "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+    "cards": [],
+    "heroes": [],
+    "delete time": "none",
+    "user ID": 5,
+    "sign up time": "2020-04-29T15:15:08.482722200",
+    "current hero index": 0
+  },
+  {
+    "gold": 50,
+    "user name": "newamir2",
+    "password": "d5e4a31f05b3782ae6475f554cae3aba91892121d1a8969baee2f041d4ba121d",
+    "cards": [],
+    "heroes": [],
+    "delete time": "none",
+    "user ID": 6,
+    "sign up time": "2020-04-29T15:25:44.731706800",
+    "current hero index": 0
+  },
+  {
+    "gold": 50,
+    "user name": "amir2",
+    "password": "1c81c255289d93d24d68ad3ef18401af1286b8ab2fe3b6b0ece78d2b11fd93a4",
+    "cards": [],
+    "heroes": [],
+    "delete time": "none",
+    "user ID": 7,
+    "sign up time": "2020-04-29T15:27:31.637648700",
+    "current hero index": 0
   }
 ]
