@@ -1,11 +1,10 @@
 package GUI;
 
-import GUI.Events.LoginEvent;
-import GUI.Events.SignUpEvent;
+import GUI.Events.*;
 import GUI.GamePanels.LoginPanel;
 import GUI.GamePanels.MainMenuPanel;
-import GUI.Listeners.LoginListener;
-import GUI.Listeners.SignUpListener;
+import GUI.Listeners.*;
+import GameHandler.GameState;
 import Places.MainMenu;
 import Places.Place;
 import Places.SignInOrSignUp;
@@ -38,6 +37,7 @@ public class MainFrame extends JFrame {
 
     private void initLoginPanel() {
         loginPanel = new LoginPanel(this.getSize().width, this.getSize().height);
+//        1550 x 878
         loginPanel.setSignUpListener(new SignUpListener() {
             @Override
             public void signUpEventOccurred(SignUpEvent signUpEvent) {
@@ -58,6 +58,28 @@ public class MainFrame extends JFrame {
     private void initMainMenuPanel() {
         mainMenuPanel = new MainMenuPanel(this.getSize().width, this.getSize().height);
 
+        mainMenuPanel.setLogoutListener(new LogoutListener() {
+            @Override
+            public void logoutEventOccurred(LogoutEvent logoutEvent) {
+                MainMenu.getMainMenu().logout();
+            }
+        });
+
+        mainMenuPanel.setExitListener(new ExitListener() {
+            @Override
+            public void exitEventOccurred(ExitEvent exitEvent) {
+                MainMenu.getMainMenu().exit();
+                close();
+            }
+        });
+
+        mainMenuPanel.setChangePlaceListener(new ChangePlaceListener() {
+            @Override
+            public void ChangePlaceOccurred(ChangePlaceEvent changePlaceEvent) {
+                updatePage(changePlaceEvent.getDestination());
+            }
+        });
+
         panelCards.add(mainMenuPanel, "MainMenu");
     }
 
@@ -67,7 +89,10 @@ public class MainFrame extends JFrame {
         } else if (place instanceof MainMenu) {
             cardLayout.show(panelCards, "MainMenu");
         }
+    }
 
+    private void close() {
+        this.dispose();
     }
 
 }

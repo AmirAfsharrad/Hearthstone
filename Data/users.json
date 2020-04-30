@@ -182,5 +182,17 @@
     "user ID": 7,
     "sign up time": "2020-04-29T15:27:31.637648700",
     "current hero index": 0
+  },
+  {
+    "gold": 50,
+    "current hero": 0,
+    "user name": "a",
+    "password": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
+    "cards": [],
+    "heroes": [],
+    "delete time": "none",
+    "user ID": 8,
+    "sign up time": "2020-04-29T20:00:02.487037500",
+    "current hero index": 0
   }
 ]

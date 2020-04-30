@@ -1,0 +1,36 @@
+USER: a
+CREATED_AT: 2020-04-29T20:00:02.549537800
+PASSWORD: ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb
+DELETED_AT: ----------
+
+sign up, 2020-04-29T20:00:02.623378700, a user created
+login, 2020-04-29T20:01:59.416628500,  as a
+login, 2020-04-29T20:04:01.534199500,  as a
+login, 2020-04-29T20:04:20.090979500,  as a
+login, 2020-04-29T20:06:05.683656700,  as a
+login, 2020-04-29T20:07:28.407552700,  as a
+login, 2020-04-29T21:51:16.773163700,  as a
+login, 2020-04-29T21:52:46.938599500,  as a
+log out, 2020-04-29T21:52:49.583272400, log out of a
+system response, 2020-04-29T21:52:49.701320600, Signed out of user a
+login, 2020-04-29T21:52:58.490604800,  as a
+log out, 2020-04-29T21:53:01.459204900, log out of a
+system response, 2020-04-29T21:53:01.516093400, Signed out of user a
+login, 2020-04-29T21:55:05.053630700,  as a
+log out, 2020-04-29T21:55:07.212563100, log out of a
+system response, 2020-04-29T21:55:07.333196200, Signed out of user a
+login, 2020-04-29T22:04:05.566892300,  as a
+login, 2020-04-29T22:08:02.616990400,  as a
+log out, 2020-04-29T22:08:05.032902600, log out of a
+system response, 2020-04-29T22:08:05.149130100, Signed out of user a
+login, 2020-04-29T22:08:09.983127700,  as a
+quit, 2020-04-29T22:08:12.343692600, quit the game
+login, 2020-04-30T04:59:18.374452100,  as a
+log out, 2020-04-30T04:59:53.517032800, log out of a
+system response, 2020-04-30T04:59:53.632633300, Signed out of user a
+login, 2020-04-30T05:00:15.814793300,  as a
+quit, 2020-04-30T05:00:30.754958100, quit the game
+login, 2020-04-30T05:32:49.514035100,  as a
+log out, 2020-04-30T05:32:57.707951700, log out of a
+system response, 2020-04-30T05:32:57.839852800, Signed out of user a
+login, 2020-04-30T05:33:02.870226700,  as a
