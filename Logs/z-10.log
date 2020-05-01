@@ -1,0 +1,11 @@
+USER: z
+CREATED_AT: 2020-05-01T12:11:12.682503300
+PASSWORD: 594e519ae499312b29433b7dd8a97ff068defcba9755b6d5d00e84c524d67b06
+DELETED_AT: ----------
+
+sign up, 2020-05-01T12:11:12.718214100, z user created
+system response, 2020-05-01T12:11:19.223502500, You have successfully purchased Novice Engineer.
+quit, 2020-05-01T12:11:26.590325200, quit the game
+login, 2020-05-01T12:16:29.911203800,  as z
+system response, 2020-05-01T12:16:34.497623700, You have successfully purchased Raid Leader.
+quit, 2020-05-01T12:16:46.310832800, quit the game

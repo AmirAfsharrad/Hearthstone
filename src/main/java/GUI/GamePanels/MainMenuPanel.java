@@ -6,6 +6,7 @@ import GUI.Events.LoginEvent;
 import GUI.Events.LogoutEvent;
 import GUI.Listeners.*;
 import Places.Collections;
+import Places.Store;
 import Utilities.ImageLoader;
 
 import javax.swing.*;
@@ -84,7 +85,10 @@ public class MainMenuPanel extends GamePanel {
         play.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                ChangePlaceEvent changePlaceEvent = new ChangePlaceEvent(this, Store.getStore());
+                if (changePlaceListener != null) {
+                    changePlaceListener.ChangePlaceOccurred(changePlaceEvent);
+                }
             }
         });
     }

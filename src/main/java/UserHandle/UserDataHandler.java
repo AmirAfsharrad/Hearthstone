@@ -66,7 +66,8 @@ public class UserDataHandler {
             int userId = getUserIndexIfExists(user.getName());
 
             if (userId != -1) {
-                RespondToUser.respond("There is another user registered as " + user.getName() + ". Please choose another name and try again.");
+                RespondToUser.respond("There is another user registered as " + user.getName() +
+                        ". Please choose another name and try again.", true);
                 return null;
             }
 
@@ -105,7 +106,7 @@ public class UserDataHandler {
         int userId = getUserIndexIfExists(userName);
 
         if (userId == -1) {
-            RespondToUser.respond("There is no user registered as " + userName +"!");
+            RespondToUser.respond("There is no user registered as " + userName +"!", true);
             return null;
         }
 

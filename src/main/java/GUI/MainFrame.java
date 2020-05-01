@@ -3,11 +3,13 @@ package GUI;
 import GUI.Events.*;
 import GUI.GamePanels.LoginPanel;
 import GUI.GamePanels.MainMenuPanel;
+import GUI.GamePanels.StorePanel;
 import GUI.Listeners.*;
 import GameHandler.GameState;
 import Places.MainMenu;
 import Places.Place;
 import Places.SignInOrSignUp;
+import Places.Store;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +21,21 @@ public class MainFrame extends JFrame {
     CardLayout cardLayout = new CardLayout();
     private LoginPanel loginPanel;
     private MainMenuPanel mainMenuPanel;
+    private StorePanel storePanel;
+    private ChangePlaceListener changePlaceListener = new ChangePlaceListener() {
+        @Override
+        public void ChangePlaceOccurred(ChangePlaceEvent changePlaceEvent) {
+            GameState.getGameState().setCurrentPlace(changePlaceEvent.getDestination());
+            updatePage(changePlaceEvent.getDestination());
+        }
+    };
+    private ExitListener exitListener = new ExitListener() {
+        @Override
+        public void exitEventOccurred(ExitEvent exitEvent) {
+            MainMenu.getMainMenu().exit();
+            close();
+        }
+    };
 
     public MainFrame() throws HeadlessException {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,7 +49,18 @@ public class MainFrame extends JFrame {
         initLoginPanel();
         initMainMenuPanel();
 
+
         this.add(panelCards);
+
+        try {
+            Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+                public void run() {
+                    MainMenu.getMainMenu().exit();
+                }
+            }, "Shutdown-thread"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void initLoginPanel() {
@@ -65,22 +93,19 @@ public class MainFrame extends JFrame {
             }
         });
 
-        mainMenuPanel.setExitListener(new ExitListener() {
-            @Override
-            public void exitEventOccurred(ExitEvent exitEvent) {
-                MainMenu.getMainMenu().exit();
-                close();
-            }
-        });
+        mainMenuPanel.setExitListener(exitListener);
 
-        mainMenuPanel.setChangePlaceListener(new ChangePlaceListener() {
-            @Override
-            public void ChangePlaceOccurred(ChangePlaceEvent changePlaceEvent) {
-                updatePage(changePlaceEvent.getDestination());
-            }
-        });
+        mainMenuPanel.setChangePlaceListener(changePlaceListener);
 
         panelCards.add(mainMenuPanel, "MainMenu");
+    }
+
+    void initStorePanel() {
+        storePanel = new StorePanel(this.getSize().width, this.getSize().height);
+        storePanel.setChangePlaceListener(changePlaceListener);
+        storePanel.setExitListener(exitListener);
+
+        panelCards.add(storePanel, "Store");
     }
 
     public void updatePage(Place place) {
@@ -88,11 +113,18 @@ public class MainFrame extends JFrame {
             cardLayout.show(panelCards, "SignInOrSignUp");
         } else if (place instanceof MainMenu) {
             cardLayout.show(panelCards, "MainMenu");
+        } else if (place instanceof Store) {
+            initStorePanel();
+            cardLayout.show(panelCards, "Store");
         }
     }
 
     private void close() {
         this.dispose();
+    }
+
+    public void refresh() {
+        updatePage(GameState.getGameState().getCurrentPlace());
     }
 
 }

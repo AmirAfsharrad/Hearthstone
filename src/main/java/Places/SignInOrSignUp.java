@@ -43,6 +43,7 @@ public class SignInOrSignUp extends Place {
 
     public void login(String username, String password) {
         User newUser = UserDataHandler.load(username, password);
+        System.out.println();
         if (newUser != null){
             newUser.copy(newUser);
             RespondToUser.respond("Signed in as " + username + " successfully.", newUser);

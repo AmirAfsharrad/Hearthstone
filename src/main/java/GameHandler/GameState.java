@@ -39,4 +39,8 @@ public class GameState {
         this.currentPlace = currentPlace;
         mainFrame.updatePage(currentPlace);
     }
+
+    public void refreshMainFrame() {
+        mainFrame.refresh();
+    }
 }
