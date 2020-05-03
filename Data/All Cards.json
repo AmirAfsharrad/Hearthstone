@@ -4,8 +4,8 @@
     "mana": 1,
     "name": "Goldshire Footman",
     "heroClass": "Neutral",
-    "hp": 2,
     "description": "Taunt",
+    "hp": 2,
     "type": "Minion",
     "rarity": "Common"
   },
@@ -14,8 +14,8 @@
     "mana": 1,
     "name": "Stonetusk Boar",
     "heroClass": "Neutral",
-    "hp": 1,
     "description": "Charge",
+    "hp": 1,
     "type": "Minion",
     "rarity": "Common"
   },
@@ -24,18 +24,8 @@
     "mana": 1,
     "name": "Shieldbearer",
     "heroClass": "Neutral",
-    "hp": 4,
     "description": "Taunt",
-    "type": "Minion",
-    "rarity": "Common"
-  },
-  {
-    "attackPower": 2,
-    "mana": 1,
-    "name": "Worgen Infiltrator",
-    "heroClass": "Neutral",
-    "hp": 1,
-    "description": "Stealth",
+    "hp": 4,
     "type": "Minion",
     "rarity": "Common"
   },
@@ -44,8 +34,8 @@
     "mana": 1,
     "name": "Depth Charge",
     "heroClass": "Neutral",
-    "hp": 5,
     "description": "At the start of your turn, deal 5 damage to all minions",
+    "hp": 5,
     "type": "Minion",
     "rarity": "Common"
   },
@@ -54,8 +44,8 @@
     "mana": 2,
     "name": "Bloodfen Raptor",
     "heroClass": "Neutral",
-    "hp": 2,
     "description": "",
+    "hp": 2,
     "type": "Minion",
     "rarity": "Common"
   },
@@ -64,8 +54,8 @@
     "mana": 2,
     "name": "Novice Engineer",
     "heroClass": "Neutral",
+    "description": "Battlecry: Draw a card.",
     "hp": 1,
-    "description": "Battlecry: Draw a card",
     "type": "Minion",
     "rarity": "Common"
   },
@@ -74,8 +64,8 @@
     "mana": 3,
     "name": "Raid Leader",
     "heroClass": "Neutral",
-    "hp": 2,
     "description": "Your other minions have +1 attack",
+    "hp": 2,
     "type": "Minion",
     "rarity": "Common"
   },
@@ -84,8 +74,8 @@
     "mana": 5,
     "name": "Sunreaver Warmage",
     "heroClass": "Neutral",
+    "description": "Battlecry: If you\u0027re holding a spell that costs 5 or more, deal 4 damage.",
     "hp": 4,
-    "description": "Battlecry: If you are holding a spell that costs 5 or more, deal 4 damage",
     "type": "Minion",
     "rarity": "Common"
   },
@@ -94,8 +84,8 @@
     "mana": 6,
     "name": "Lord of the Arena",
     "heroClass": "Neutral",
-    "hp": 5,
     "description": "Taunt",
+    "hp": 5,
     "type": "Minion",
     "rarity": "Common"
   },
@@ -104,18 +94,18 @@
     "mana": 7,
     "name": "Stormwind Champion",
     "heroClass": "Neutral",
-    "hp": 6,
     "description": "Your other minions have +1/+1",
+    "hp": 6,
     "type": "Minion",
     "rarity": "Common"
   },
   {
     "attackPower": 2,
     "mana": 8,
-    "name": "Mosh\u0027gg Enforcer",
+    "name": "Mosh\u0027Ogg Enforcer",
     "heroClass": "Neutral",
-    "hp": 14,
     "description": "Taunt\n Divine shield",
+    "hp": 14,
     "type": "Minion",
     "rarity": "Common"
   },
@@ -124,24 +114,64 @@
     "mana": 10,
     "name": "Living Monument",
     "heroClass": "Neutral",
-    "hp": 10,
     "description": "Taunt",
+    "hp": 10,
     "type": "Minion",
     "rarity": "Common"
   },
   {
-    "mana": 3,
+    "attackPower": 5,
+    "mana": 9,
+    "name": "Sathrovarr",
+    "heroClass": "Neutral",
+    "description": "Battlecry: Choose a friendly minion. Add a copy of it to your hand, deck, and battlefield.",
+    "hp": 5,
+    "type": "Minion",
+    "rarity": "Legendary"
+  },
+  {
+    "attackPower": 3,
+    "mana": 8,
+    "name": "Tomb warden",
+    "heroClass": "Neutral",
+    "description": "Taunt\nBattlecry: Summon a copy of this minion.",
+    "hp": 6,
+    "type": "Minion",
+    "rarity": "Epic"
+  },
+  {
+    "attackPower": 2,
+    "mana": 6,
+    "name": "Security Rover",
+    "heroClass": "Neutral",
+    "description": "Whenever this minion takes damage, summon a 2/3 Mech with Taunt.",
+    "hp": 6,
+    "type": "Minion",
+    "rarity": "Epic"
+  },
+  {
+    "attackPower": 4,
+    "mana": 5,
+    "name": "Curio Collector",
+    "heroClass": "Neutral",
+    "description": "Whenever you draw a card, gain +1/+1.",
+    "hp": 4,
+    "type": "Minion",
+    "rarity": "Epic"
+  },
+  {
+    "mana": 0,
     "name": "Regenerate",
     "heroClass": "Neutral",
-    "description": "Restore 3 health",
+    "description": "Restore 3 hp",
     "type": "Spell",
     "rarity": "Common"
   },
   {
-    "mana": 3,
+    "mana": 2,
     "name": "Divine Spirit",
     "heroClass": "Neutral",
-    "description": "Double a minion\u0027s health",
+    "description": "Double a minions hp",
     "type": "Spell",
     "rarity": "Common"
   },
@@ -149,7 +179,7 @@
     "mana": 6,
     "name": "Holy Fire",
     "heroClass": "Neutral",
-    "description": "Deal 5 damage. Restore 5 health to your hero",
+    "description": "Deal 5 damage. Restore 5 hp to your here",
     "type": "Spell",
     "rarity": "Rare"
   },
@@ -157,23 +187,15 @@
     "mana": 2,
     "name": "Sap",
     "heroClass": "Neutral",
-    "description": "Return an enemy\u0027s minion to their hand",
+    "description": "Return an enemy\u0027s minion to their hand.",
     "type": "Spell",
     "rarity": "Common"
   },
   {
-    "mana": 7,
-    "name": "Sprint",
-    "heroClass": "Neutral",
-    "description": "Draw 4 cards",
-    "type": "Spell",
-    "rarity": "Rare"
-  },
-  {
-    "mana": 2,
+    "mana": 1,
     "name": "Arcane Missiles",
     "heroClass": "Neutral",
-    "description": "Deal 3 damage to random enemies",
+    "description": "Deal 3 damage to random enemies.",
     "type": "Spell",
     "rarity": "Common"
   },
@@ -181,17 +203,95 @@
     "mana": 5,
     "name": "Fireball",
     "heroClass": "Neutral",
-    "description": "Deal 6 damage",
+    "description": "Deal 6 damage.",
     "type": "Spell",
     "rarity": "Common"
   },
   {
-    "mana": 8,
-    "name": "Flamestike",
+    "mana": 7,
+    "name": "Flamestrike",
     "heroClass": "Neutral",
-    "description": "Deal 4 damage to all enemy minions",
+    "description": "Deal 4 damage to all enemy minions.",
     "type": "Spell",
     "rarity": "Epic"
+  },
+  {
+    "mana": 7,
+    "name": "Sprint",
+    "heroClass": "Neutral",
+    "description": "Draw 4 cards",
+    "type": "Spell",
+    "rarity": "Common"
+  },
+  {
+    "mana": 6,
+    "name": "Swarm of locusts",
+    "heroClass": "Neutral",
+    "description": "Summon seven 1/1 Locusts with Rush",
+    "type": "Spell",
+    "rarity": "Rare"
+  },
+  {
+    "mana": 6,
+    "name": "Pharaoh\u0027s Blessing",
+    "heroClass": "Neutral",
+    "description": "Give a minion +4/+4, Divine Shield, and Taunt.",
+    "type": "Spell",
+    "rarity": "Rare"
+  },
+  {
+    "mana": 2,
+    "name": "Book of Specters",
+    "heroClass": "Neutral",
+    "description": "Draw 3 cards. Discard any spells drawn",
+    "type": "Spell",
+    "rarity": "Epic"
+  },
+  {
+    "mana": 1,
+    "name": "Strength in Numbers",
+    "heroClass": "Neutral",
+    "description": "Sidequest: Spend 10 Mana on minions. Reward: Summon a minion from your deck.",
+    "type": "Quest",
+    "rarity": "Common"
+  },
+  {
+    "mana": 1,
+    "name": "Learn Draconic",
+    "heroClass": "Neutral",
+    "description": "Sidequest: Spend 8 Mana on spells. Reward: Summon a 6/6 Dragon.",
+    "type": "Quest",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 3,
+    "mana": 3,
+    "durability": 8,
+    "name": "Blood Fury",
+    "heroClass": "Neutral",
+    "description": "",
+    "type": "Weapon",
+    "rarity": "Legendary"
+  },
+  {
+    "attackPower": 2,
+    "mana": 1,
+    "durability": 2,
+    "name": "Poisoned Dagger",
+    "heroClass": "Neutral",
+    "description": "",
+    "type": "Weapon",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 5,
+    "mana": 5,
+    "durability": 3,
+    "name": "Ashbringer",
+    "heroClass": "Neutral",
+    "description": "",
+    "type": "Weapon",
+    "rarity": "Rare"
   },
   {
     "mana": 4,
@@ -206,8 +306,8 @@
     "mana": 3,
     "name": "Twilight Flamecaller",
     "heroClass": "Mage",
-    "hp": 2,
     "description": "Battlecry: Deal 1 damage to all enemy minions",
+    "hp": 2,
     "type": "Minion",
     "rarity": "Common"
   },
@@ -222,10 +322,10 @@
   {
     "attackPower": 3,
     "mana": 4,
-    "name": "Plagubringer",
+    "name": "Plaguebringer",
     "heroClass": "Rogue",
+    "description": "Battlecry: Give a friendly minion poisonous.",
     "hp": 3,
-    "description": "Battlecry: Give a friendly minion poisonous",
     "type": "Minion",
     "rarity": "Rare"
   },
@@ -235,7 +335,7 @@
     "durability": 2,
     "name": "Shadowblade",
     "heroClass": "Rogue",
-    "description": "Battlecry: Your hero is immune this turn",
+    "description": "Battlecry: Your hero is immune this turn.",
     "type": "Weapon",
     "rarity": "Rare"
   },
@@ -244,8 +344,8 @@
     "mana": 3,
     "name": "Dreadscale",
     "heroClass": "Warlock",
-    "hp": 2,
     "description": "At the end of your turn, deal 1 damage to all other minions",
+    "hp": 2,
     "type": "Minion",
     "rarity": "Common"
   },
@@ -253,7 +353,7 @@
     "mana": 8,
     "name": "Twisting Nether",
     "heroClass": "Warlock",
-    "description": "Destroy all minions",
+    "description": "Destroy all minions.",
     "type": "Spell",
     "rarity": "Rare"
   },
@@ -266,5 +366,41 @@
     "description": "At the start of your turn, summon a minion from your hand",
     "type": "Weapon",
     "rarity": "Common"
+  },
+  {
+    "mana": 5,
+    "name": "Gnomish Army Knife",
+    "heroClass": "Paladin",
+    "description": "Give a minion Charge, Windfury, Divine Shield, Lifesteal, Poisonous and Taunt",
+    "type": "Spell",
+    "rarity": "Epic"
+  },
+  {
+    "mana": 2,
+    "name": "Seal of Light",
+    "heroClass": "Paladin",
+    "description": "Restore 4 Hp to your hero and gain +2 Attack this turn.",
+    "type": "Spell",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 2,
+    "mana": 4,
+    "name": "High Priest Amet",
+    "heroClass": "Priest",
+    "description": "Whenever you summon a minion, set its Hp equal to this minion\u0027s.",
+    "hp": 7,
+    "type": "Minion",
+    "rarity": "Legendary"
+  },
+  {
+    "attackPower": 3,
+    "mana": 3,
+    "name": "Shadowfiend",
+    "heroClass": "Priest",
+    "description": "Whenever you draw a card, reduce its Cost by (1).",
+    "hp": 3,
+    "type": "Minion",
+    "rarity": "Epic"
   }
 ]

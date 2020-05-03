@@ -1,22 +1,50 @@
 package Places;
 
 import Cards.Card;
-import GameHandler.RespondToUser;
-import GameHandler.GameHandler;
+import GameHandler.*;
 import Heroes.Hero;
 import Logger.Logger;
 import UserHandle.User;
 import Utilities.TextProcessingTools;
 
+import java.util.ArrayList;
+
 public class Collections extends Place {
     private static Collections collections = new Collections();
+    private ArrayList<Card> displayedCards;
     private Collections(){
+//        displayedCards =
         setInstructionsPath("Data/Collections Commands.json");
         loadInstructions();
+        displayedCards = new ArrayList<>();
+        filterDisplayedCards(-1, "all", "", "all");
     }
 
     public static Collections getCollections(){
         return collections;
+    }
+
+    public void filterDisplayedCards(int mana, String heroClass, String searchString, String doesOwn) {
+        displayedCards.clear();
+        for (String cardName : GameHandler.getGameHandler().getAllCardNames()) {
+            Card card = GameHandler.getGameHandler().getCard(cardName);
+            if (mana != -1 && card.getMana() != mana)
+                continue;
+            if (!heroClass.equals("all") && !card.getHeroClass().equals(heroClass)) {
+                continue;
+            }
+            if (!card.getName().toLowerCase().contains(searchString.toLowerCase()))
+                continue;
+            if (doesOwn.equals("owning") && !GameState.getGameState().getUser().hasCard(card))
+                continue;
+            if (doesOwn.equals("notOwning") && GameState.getGameState().getUser().hasCard(card))
+                continue;
+            displayedCards.add(card);
+        }
+    }
+
+    public ArrayList<Card> getDisplayedCards() {
+        return displayedCards;
     }
 
     @Override

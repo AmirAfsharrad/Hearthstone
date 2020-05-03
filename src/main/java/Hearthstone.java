@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+
 public class Hearthstone {
     public static void main(String[] args) {
 
@@ -23,7 +25,11 @@ public class Hearthstone {
 //                new Hearthstone();
 //                MainFrame.getMainFrame();
 //                new MainFrame();
-                GameState.getGameState().init();
+                try {
+                    GameState.getGameState().init();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

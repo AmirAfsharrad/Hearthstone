@@ -22,5 +22,14 @@ public class ImageLoader {
         }
         return image;
     }
-}
 
+    public BufferedImage loadGrayscaleImage(String imageName) {
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(new File("Images/" + imageName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return GrayscaleImage.getGrayscaleImage(image);
+    }
+}

@@ -119,3 +119,30 @@ quit, 2020-05-01T12:01:45.718698800, quit the game
 login, 2020-05-01T12:02:20.815427600,  as a
 system response, 2020-05-01T12:02:27.219460300, You have successfully purchased Raid Leader.
 quit, 2020-05-01T12:02:39.830803400, quit the game
+login, 2020-05-01T17:30:21.559892900,  as a
+quit, 2020-05-01T17:30:51.815894100, quit the game
+login, 2020-05-01T17:31:03.229283100,  as a
+quit, 2020-05-01T17:31:15.083932900, quit the game
+login, 2020-05-01T17:31:29.246706100,  as a
+quit, 2020-05-01T17:33:00.579167500, quit the game
+login, 2020-05-01T17:33:24.061884200,  as a
+system response, 2020-05-01T17:37:18.476254, You have successfully purchased Regenerate.
+quit, 2020-05-01T17:37:41.758408800, quit the game
+login, 2020-05-01T22:07:44.984610500,  as a
+system response, 2020-05-01T22:08:38.624990600, You have successfully purchased Friendly Smith.
+log out, 2020-05-01T22:09:29.931009800, log out of a
+system response, 2020-05-01T22:09:32.233982700, Signed out of user a
+login, 2020-05-01T22:39:36.292530800,  as a
+log out, 2020-05-01T22:40:13.749083700, log out of a
+system response, 2020-05-01T22:40:13.835856900, Signed out of user a
+login, 2020-05-02T05:56:45.600699,  as a
+system response, 2020-05-02T05:57:03.675010400, You don't have enough gold to buy Holy Fire.
+system response, 2020-05-02T05:57:03.705398500, You have successfully purchased Holy Fire.
+quit, 2020-05-02T05:57:26.068283300, quit the game
+quit, 2020-05-02T05:57:27.638109700, quit the game
+login, 2020-05-02T06:01:03.100977700,  as a
+system response, 2020-05-02T06:01:08.845461600, You don't have enough gold to buy Sunreaver Warmage.
+log out, 2020-05-02T06:03:25.653525, log out of a
+system response, 2020-05-02T06:03:25.715030500, Signed out of user a
+login, 2020-05-02T16:24:40.130782800,  as a
+quit, 2020-05-02T16:25:31.046373200, quit the game

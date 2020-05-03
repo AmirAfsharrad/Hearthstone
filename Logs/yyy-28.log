@@ -1,0 +1,12 @@
+USER: yyy
+CREATED_AT: 2020-05-02T17:49:03.377999100
+PASSWORD: f2afd1cacb5441a5e65a7a460a5f9898b7b98b08aa6323a2e53c8b9a9686cd86
+DELETED_AT: ----------
+
+sign up, 2020-05-02T17:49:03.444462200, yyy user created
+quit, 2020-05-02T17:49:39.955817300, quit the game
+login, 2020-05-02T17:50:50.621584,  as yyy
+quit, 2020-05-02T17:51:02.255154, quit the game
+login, 2020-05-02T17:51:12.626752600,  as yyy
+system response, 2020-05-02T17:53:13.516256700, You have successfully purchased Novice Engineer.
+quit, 2020-05-02T19:06:23.546394400, quit the game

@@ -5,6 +5,8 @@ import Places.Place;
 import Places.SignInOrSignUp;
 import UserHandle.User;
 
+import java.io.IOException;
+
 public class GameState {
     public static GameState gameState = new GameState();
     private User user;
@@ -18,7 +20,7 @@ public class GameState {
         return gameState;
     }
 
-    public void init() {
+    public void init() throws IOException {
         mainFrame = new MainFrame();
         currentPlace = SignInOrSignUp.getSignInOrSignUp();
     }
@@ -35,12 +37,12 @@ public class GameState {
         return currentPlace;
     }
 
-    public void setCurrentPlace(Place currentPlace) {
+    public void setCurrentPlace(Place currentPlace) throws IOException {
         this.currentPlace = currentPlace;
         mainFrame.updatePage(currentPlace);
     }
 
-    public void refreshMainFrame() {
+    public void refreshMainFrame() throws IOException {
         mainFrame.refresh();
     }
 }

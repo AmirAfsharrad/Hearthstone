@@ -1,20 +1,19 @@
 package GUI;
 
 import GUI.Events.*;
+import GUI.GamePanels.CollectionsPanel;
 import GUI.GamePanels.LoginPanel;
 import GUI.GamePanels.MainMenuPanel;
 import GUI.GamePanels.StorePanel;
 import GUI.Listeners.*;
 import GameHandler.GameState;
-import Places.MainMenu;
-import Places.Place;
-import Places.SignInOrSignUp;
-import Places.Store;
+import Places.*;
+import com.google.gson.internal.bind.util.ISO8601Utils;
+import org.w3c.dom.ls.LSOutput;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class MainFrame extends JFrame {
     private JPanel panelCards;
@@ -22,11 +21,12 @@ public class MainFrame extends JFrame {
     private LoginPanel loginPanel;
     private MainMenuPanel mainMenuPanel;
     private StorePanel storePanel;
+    private CollectionsPanel collectionsPanel;
     private ChangePlaceListener changePlaceListener = new ChangePlaceListener() {
         @Override
-        public void ChangePlaceOccurred(ChangePlaceEvent changePlaceEvent) {
+        public void ChangePlaceOccurred(ChangePlaceEvent changePlaceEvent) throws IOException {
             GameState.getGameState().setCurrentPlace(changePlaceEvent.getDestination());
-            updatePage(changePlaceEvent.getDestination());
+//            updatePage(changePlaceEvent.getDestination());
         }
     };
     private ExitListener exitListener = new ExitListener() {
@@ -39,7 +39,7 @@ public class MainFrame extends JFrame {
 
     public MainFrame() throws HeadlessException {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("CardLayout Example");
+        this.setTitle("Hearthstone");
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -48,7 +48,6 @@ public class MainFrame extends JFrame {
 
         initLoginPanel();
         initMainMenuPanel();
-
 
         this.add(panelCards);
 
@@ -68,14 +67,14 @@ public class MainFrame extends JFrame {
 //        1550 x 878
         loginPanel.setSignUpListener(new SignUpListener() {
             @Override
-            public void signUpEventOccurred(SignUpEvent signUpEvent) {
+            public void signUpEventOccurred(SignUpEvent signUpEvent) throws IOException {
                 SignInOrSignUp.getSignInOrSignUp().createNewAccount(signUpEvent.getUsername(), signUpEvent.getPassword());
             }
         });
 
         loginPanel.setLoginListener(new LoginListener() {
             @Override
-            public void loginEventOccurred(LoginEvent loginEvent) {
+            public void loginEventOccurred(LoginEvent loginEvent) throws IOException {
                 SignInOrSignUp.getSignInOrSignUp().login(loginEvent.getUsername(), loginEvent.getPassword());
             }
         });
@@ -88,7 +87,7 @@ public class MainFrame extends JFrame {
 
         mainMenuPanel.setLogoutListener(new LogoutListener() {
             @Override
-            public void logoutEventOccurred(LogoutEvent logoutEvent) {
+            public void logoutEventOccurred(LogoutEvent logoutEvent) throws IOException {
                 MainMenu.getMainMenu().logout();
             }
         });
@@ -108,7 +107,23 @@ public class MainFrame extends JFrame {
         panelCards.add(storePanel, "Store");
     }
 
-    public void updatePage(Place place) {
+    void initCollectionsPanel() throws IOException {
+        collectionsPanel = new CollectionsPanel(this.getSize().width, this.getSize().height);
+        collectionsPanel.setChangePlaceListener(changePlaceListener);
+        collectionsPanel.setExitListener(exitListener);
+        collectionsPanel.setCollectionsFilterListener(new CollectionsFilterListener() {
+            @Override
+            public void CollectionsFilterOccurred(CollectionsFilterEvent collectionsFilterEvent) {
+                Collections.getCollections().filterDisplayedCards(collectionsFilterEvent.getMana(),
+                        collectionsFilterEvent.getHeroClass(), collectionsFilterEvent.getSearchString(),
+                        collectionsFilterEvent.getDoesOwn());
+            }
+        });
+
+        panelCards.add(collectionsPanel, "Collections");
+    }
+
+    public void updatePage(Place place) throws IOException {
         if (place instanceof SignInOrSignUp) {
             cardLayout.show(panelCards, "SignInOrSignUp");
         } else if (place instanceof MainMenu) {
@@ -116,6 +131,9 @@ public class MainFrame extends JFrame {
         } else if (place instanceof Store) {
             initStorePanel();
             cardLayout.show(panelCards, "Store");
+        } else if (place instanceof Collections) {
+            initCollectionsPanel();
+            cardLayout.show(panelCards, "Collections");
         }
     }
 
@@ -123,7 +141,7 @@ public class MainFrame extends JFrame {
         this.dispose();
     }
 
-    public void refresh() {
+    public void refresh() throws IOException {
         updatePage(GameState.getGameState().getCurrentPlace());
     }
 

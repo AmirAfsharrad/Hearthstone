@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class LoginPanel extends GamePanel {
     private SignUpListener signUpListener;
@@ -93,7 +94,11 @@ public class LoginPanel extends GamePanel {
 
                 LoginEvent loginEvent = new LoginEvent(this, username, password);
                 if (loginListener != null) {
-                    loginListener.loginEventOccurred(loginEvent);
+                    try {
+                        loginListener.loginEventOccurred(loginEvent);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     usernameField.setText("");
                     passwordField.setText("");
                     usernameField.requestFocus();
@@ -117,7 +122,11 @@ public class LoginPanel extends GamePanel {
 
                 SignUpEvent signUpEvent = new SignUpEvent(this, username, password);
                 if (signUpListener != null) {
-                    signUpListener.signUpEventOccurred(signUpEvent);
+                    try {
+                        signUpListener.signUpEventOccurred(signUpEvent);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     usernameField.setText("");
                     passwordField.setText("");
                     usernameField.requestFocus();

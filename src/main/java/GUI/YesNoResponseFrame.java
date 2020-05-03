@@ -9,6 +9,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.EventObject;
 
 public class YesNoResponseFrame extends JFrame {
@@ -35,7 +36,11 @@ public class YesNoResponseFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 EventObject eventObject = new EventObject(this);
-                yesListener.eventOccurred(eventObject);
+                try {
+                    yesListener.eventOccurred(eventObject);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 close();
             }
         });
@@ -47,7 +52,11 @@ public class YesNoResponseFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 EventObject eventObject = new EventObject(this);
-                noListener.eventOccurred(eventObject);
+                try {
+                    noListener.eventOccurred(eventObject);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 close();
             }
         });

@@ -10,6 +10,7 @@ public class BackgroundedPanel extends JPanel {
     private String backgroundImagePath;
 
     public BackgroundedPanel(String backgroundImagePath) {
+//        this.setBackground(Color.BLUE);
         this.backgroundImagePath = backgroundImagePath;
     }
 
@@ -23,7 +24,7 @@ public class BackgroundedPanel extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
-        BufferedImage image = ImageLoader.getInstance().loadImage(backgroundImagePath);
+        BufferedImage image = ImageLoader.getInstance().loadImage("mainmenu background.jpg");
         g2d.drawImage(image, 0, 0, null);
     }
 }

@@ -10,6 +10,7 @@ import Logger.Logger;
 import UserHandle.User;
 import Utilities.TextProcessingTools;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.EventObject;
 
@@ -53,7 +54,7 @@ public class Store extends Place {
 
             GeneralEventListener yesListener = new GeneralEventListener() {
                 @Override
-                public void eventOccurred(EventObject eventObject) {
+                public void eventOccurred(EventObject eventObject) throws IOException {
                     sellCard(card);
                     GameState.getGameState().refreshMainFrame();
                 }
@@ -72,7 +73,7 @@ public class Store extends Place {
 
             GeneralEventListener yesListener = new GeneralEventListener() {
                 @Override
-                public void eventOccurred(EventObject eventObject) {
+                public void eventOccurred(EventObject eventObject) throws IOException {
                     buyCard(card);
                     GameState.getGameState().refreshMainFrame();
                 }
@@ -92,6 +93,7 @@ public class Store extends Place {
         if (card.getPrice() > GameState.getGameState().getUser().getGold()) {
             RespondToUser.respond("You don't have enough gold to buy " + card.getName() +
                     ".", GameState.getGameState().getUser(), true);
+            return;
         }
         GameState.getGameState().getUser().setGold(GameState.getGameState().getUser().getGold() - card.getPrice());
         GameState.getGameState().getUser().addCard(card);

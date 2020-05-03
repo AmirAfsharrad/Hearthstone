@@ -6,17 +6,13 @@ import GUI.Events.ChangePlaceEvent;
 import GUI.Events.ExitEvent;
 import GUI.Listeners.ChangePlaceListener;
 import GUI.Listeners.ExitListener;
-import GUI.Listeners.GeneralEventListener;
 import GameHandler.*;
-import GameHandler.RespondToUser;
 import Places.MainMenu;
 import Places.Store;
 import Utilities.ImageLoader;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,8 +20,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.EventListener;
-import java.util.EventObject;
 
 public class StorePanel extends GamePanel {
     private JPanel cardsPanel;
@@ -52,12 +46,28 @@ public class StorePanel extends GamePanel {
         cardsPanel.setOpaque(false);
         cardsPanel.setLayout(new GridLayout(0, 3, 50, 50));
         cardsContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 100, 100));
-        cardsContainer.setOpaque(false);
         cardsContainer.add(cardsPanel);
-        cardsScrollPane = new JScrollPane(cardsContainer);
+
+        JViewport viewport = new JViewport()
+        {
+            @Override
+            protected void paintComponent(Graphics g)
+            {
+                super.paintComponent(g);
+
+                BufferedImage image = ImageLoader.getInstance().loadImage("card list bg.jpg");
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+
+        cardsContainer.setOpaque(false);
+        cardsScrollPane = new JScrollPane();
+        cardsScrollPane.setViewport(viewport);
+        cardsScrollPane.setViewportView(cardsContainer);
+
         drawListOfCards(GameState.getGameState().getUser().getCards());
 
-        this.add(cardsScrollPane, BorderLayout.WEST);
+        this.add(cardsScrollPane, BorderLayout.CENTER);
     }
 
     private void initButtonsPanel() {
@@ -79,6 +89,7 @@ public class StorePanel extends GamePanel {
     void initSellCardsButton() {
         JButton button = new JButton("Sell a Card");
         button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
+        button.setToolTipText("click to see the list of the cards you can sell");
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -91,6 +102,7 @@ public class StorePanel extends GamePanel {
     void initBuyCardsButton() {
         JButton button = new JButton("Buy a Card");
         button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
+        button.setToolTipText("click to see the list of the cards you can buy");
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -108,7 +120,11 @@ public class StorePanel extends GamePanel {
             public void actionPerformed(ActionEvent actionEvent) {
                 ChangePlaceEvent changePlaceEvent = new ChangePlaceEvent(this, MainMenu.getMainMenu());
                 if (changePlaceListener != null) {
-                    changePlaceListener.ChangePlaceOccurred(changePlaceEvent);
+                    try {
+                        changePlaceListener.ChangePlaceOccurred(changePlaceEvent);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -138,6 +154,7 @@ public class StorePanel extends GamePanel {
         }
 
         cardsPanel.removeAll();
+        System.out.println("--------------------------------------------------");
         for (Card card : cards) {
             CardButton button = new CardButton(card);
             button.setPreferredSize(new Dimension(cardWidth, cardHeight));
@@ -185,7 +202,7 @@ public class StorePanel extends GamePanel {
         this.exitListener = exitListener;
     }
 
-    //    @Override
+//    @Override
 //    protected void paintComponent(Graphics g) {
 //        super.paintComponent(g);
 //        Graphics2D g2d = (Graphics2D) g;

@@ -8,6 +8,8 @@ import UserHandle.User;
 import UserHandle.UserDataHandler;
 import Utilities.SHA256Hash;
 
+import java.io.IOException;
+
 public class MainMenu extends Place {
     private static MainMenu mainMenu = new MainMenu();
     private MainMenu(){
@@ -19,7 +21,7 @@ public class MainMenu extends Place {
         return mainMenu;
     }
 
-    public void logout() {
+    public void logout() throws IOException {
         Logger.log(GameState.getGameState().getUser(), "log out",
                 "log out of " + GameState.getGameState().getUser().getName(), true);
         UserDataHandler.save(GameState.getGameState().getUser());

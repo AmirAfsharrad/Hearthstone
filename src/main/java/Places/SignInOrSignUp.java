@@ -7,6 +7,8 @@ import Logger.Logger;
 import UserHandle.User;
 import UserHandle.UserDataHandler;
 
+import java.io.IOException;
+
 public class SignInOrSignUp extends Place {
     private static SignInOrSignUp signInOrSignUp = new SignInOrSignUp();
     private SignInOrSignUp(){
@@ -28,7 +30,7 @@ public class SignInOrSignUp extends Place {
         RespondToUser.respond("already have an account? (y/n)");
     }
 
-    public void createNewAccount(String username, String password) {
+    public void createNewAccount(String username, String password) throws IOException {
         User newUser = new User(username, password);
         newUser = UserDataHandler.add(newUser);
         if (newUser != null){
@@ -41,7 +43,7 @@ public class SignInOrSignUp extends Place {
         }
     }
 
-    public void login(String username, String password) {
+    public void login(String username, String password) throws IOException {
         User newUser = UserDataHandler.load(username, password);
         System.out.println();
         if (newUser != null){

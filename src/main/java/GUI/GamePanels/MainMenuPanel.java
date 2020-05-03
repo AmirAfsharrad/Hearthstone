@@ -14,6 +14,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class MainMenuPanel extends GamePanel {
     private JButton exit;
@@ -69,7 +70,11 @@ public class MainMenuPanel extends GamePanel {
             public void actionPerformed(ActionEvent actionEvent) {
                 ChangePlaceEvent changePlaceEvent = new ChangePlaceEvent(this, Collections.getCollections());
                 if (changePlaceListener != null) {
-                    changePlaceListener.ChangePlaceOccurred(changePlaceEvent);
+                    try {
+                        changePlaceListener.ChangePlaceOccurred(changePlaceEvent);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -87,7 +92,11 @@ public class MainMenuPanel extends GamePanel {
             public void actionPerformed(ActionEvent actionEvent) {
                 ChangePlaceEvent changePlaceEvent = new ChangePlaceEvent(this, Store.getStore());
                 if (changePlaceListener != null) {
-                    changePlaceListener.ChangePlaceOccurred(changePlaceEvent);
+                    try {
+                        changePlaceListener.ChangePlaceOccurred(changePlaceEvent);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -135,7 +144,11 @@ public class MainMenuPanel extends GamePanel {
             public void actionPerformed(ActionEvent actionEvent) {
                 LogoutEvent logoutEvent = new LogoutEvent(this);
                 if (logoutListener != null) {
-                    logoutListener.logoutEventOccurred(logoutEvent);
+                    try {
+                        logoutListener.logoutEventOccurred(logoutEvent);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });

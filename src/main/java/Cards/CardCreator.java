@@ -43,6 +43,18 @@ public class CardCreator {
         return spell;
     }
 
+    private static Quest createQuest(JSONObject cardObj) {
+        Long mana = (Long) cardObj.get("mana");
+        String name = (String) cardObj.get("name");
+        String heroClass = (String) cardObj.get("heroClass");
+        String description = (String) cardObj.get("description");
+        String rarity = (String) cardObj.get("rarity");
+
+        Quest quest = new Quest(mana.intValue(), name, rarity, heroClass, description);
+
+        return quest;
+    }
+
     private static Weapon createWeapon(JSONObject cardObj) {
         Long mana = (Long) cardObj.get("mana");
         String name = (String) cardObj.get("name");
@@ -77,6 +89,9 @@ public class CardCreator {
                         }
                         case "Weapon": {
                             return createWeapon(cardObj);
+                        }
+                        case "Quest": {
+                        return createQuest(cardObj);
                         }
                     }
                 }
