@@ -174,10 +174,10 @@ public class Store extends Place {
                 if (user.hasCard(card)) {
                     for (Hero hero :
                             user.getHeroes()) {
-                        if (hero.hasCard(card)) {
-                            RespondToUser.respond("You have to remove " + cardName + " from the deck of all your heroes before selling it.", user);
-                            return currentPlace;
-                        }
+//                        if (hero.hasCard(card)) {
+//                            RespondToUser.respond("You have to remove " + cardName + " from the deck of all your heroes before selling it.", user);
+//                            return currentPlace;
+//                        }
                     }
                     user.setGold(user.getGold() + card.getPrice());
                     user.removeCard(card);

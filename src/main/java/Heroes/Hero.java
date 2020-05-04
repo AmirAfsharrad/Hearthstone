@@ -13,15 +13,13 @@ public abstract class Hero {
     private String type;
     private String heroPower;
     private String specialPower;
-    private ArrayList<Card> deck = new ArrayList<>();
     private int deckCapacity = 15;
     private int maxRepetitiveCardsInDeck = 2;
 
     public Hero(){}
 
-    public Hero(int hp, ArrayList<Card> deck, String type) {
+    public Hero(int hp, String type) {
         this.hp = hp;
-        this.deck = deck;
         this.type = type;
     }
 
@@ -49,32 +47,8 @@ public abstract class Hero {
         this.specialPower = specialPower;
     }
 
-    public ArrayList<Card> getDeck() {
-        return deck;
-    }
-
-    public void setDeck(ArrayList<Card> deck) {
-        this.deck = deck;
-    }
-
     public String getType() {
         return type;
-    }
-
-    public void addToDeck(Card card){
-        deck.add(card);
-    }
-
-    public void removeFromDeck(Card card){
-        deck.remove(card);
-    }
-
-    public boolean hasCard(Card card){
-        return deck.contains(card);
-    }
-
-    public boolean hasCard(String cardName){
-        return hasCard(GameHandler.getGameHandler().getCard(cardName));
     }
 
     public int getMaxRepetitiveCardsInDeck() {
@@ -93,30 +67,6 @@ public abstract class Hero {
         this.deckCapacity = deckCapacity;
     }
 
-    public int getNumberOfCardsInDeck(){
-        return deck.size();
-    }
-
-    public int getHowManyOfThisCardInDeck(Card card){
-        int count = 0;
-        for (Card deckCard :
-                deck) {
-            if (card.equals(deckCard)){
-                count++;
-            }
-        }
-        return count;
-    }
-
-    public ArrayList<String> getDeckAsArrayOfString(){
-        ArrayList<String> stringDeck = new ArrayList<>();
-        for (Card card :
-                deck) {
-            stringDeck.add(card.getName());
-        }
-        return stringDeck;
-    }
-
     public JSONObject getJson(){
         JSONObject heroObject = new JSONObject();
 
@@ -124,7 +74,6 @@ public abstract class Hero {
         heroObject.put("type", type);
         heroObject.put("hero power", heroPower);
         heroObject.put("special power", specialPower);
-        heroObject.put("stringDeck", getDeckAsArrayOfString());
 
         return heroObject;
     }

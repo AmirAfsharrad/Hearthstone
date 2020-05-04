@@ -12,25 +12,26 @@ public class HeroCreator {
     public static Hero createHeroFromJson(JSONObject heroJsonObject){
         String type = (String) heroJsonObject.get("type");
         Long hp = (Long) heroJsonObject.get("hp");
-        ArrayList<String> deckStringArray = (ArrayList<String>) heroJsonObject.get("stringDeck");
-
-        ArrayList<Card> deck = new ArrayList<>();
-        for (String card :
-                deckStringArray) {
-            deck.add(GameHandler.getGameHandler().getCard(card));
-        }
 
         switch (type){
             case "Mage":{
-                Hero hero = new Mage(hp.intValue(), deck);
+                Hero hero = new Mage();
                 return hero;
             }
             case "Rogue":{
-                Hero hero = new Rogue(hp.intValue(), deck);
+                Hero hero = new Rogue();
                 return hero;
             }
             case "Warlock":{
-                Hero hero = new Warlock(hp.intValue(), deck);
+                Hero hero = new Warlock();
+                return hero;
+            }
+            case "Paladin":{
+                Hero hero = new Paladin();
+                return hero;
+            }
+            case "Priest":{
+                Hero hero = new Priest();
                 return hero;
             }
         }

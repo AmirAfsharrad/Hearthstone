@@ -1,6 +1,7 @@
 package Places;
 
 import Cards.Card;
+import Cards.Deck;
 import GameHandler.*;
 import Heroes.Hero;
 import Logger.Logger;
@@ -12,7 +13,8 @@ import java.util.ArrayList;
 public class Collections extends Place {
     private static Collections collections = new Collections();
     private ArrayList<Card> displayedCards;
-    private Collections(){
+
+    private Collections() {
 //        displayedCards =
         setInstructionsPath("Data/Collections Commands.json");
         loadInstructions();
@@ -20,8 +22,62 @@ public class Collections extends Place {
         filterDisplayedCards(-1, "all", "", "all");
     }
 
-    public static Collections getCollections(){
+    public static Collections getCollections() {
         return collections;
+    }
+
+    public void createNewDeck() {
+        String newDeckName = "New Deck 1";
+        int count = 1;
+        boolean flag = true;
+        while (flag) {
+            newDeckName = "New Deck " + count;
+            flag = false;
+            for (Deck deck : GameState.getGameState().getUser().getDecks()) {
+                if (deck.getName().equals("New Deck " + count)) {
+                    flag = true;
+                }
+            }
+            count++;
+        }
+        GameState.getGameState().getUser().addDeck(newDeckName);
+    }
+
+    public void addCardToDeck(Card card, Deck deck) {
+        if (!GameState.getGameState().getUser().hasCard(card)) {
+            Store.getStore().sellOrBuyCard(card);
+            return;
+        }
+        if (deck.getCards().size() >= 15) {
+            RespondToUser.respond("You cannot add more than 15 cards to a deck!", true);
+            return;
+        }
+        if (deck.getHowManyOfThisCardInDeck(card) >= 2) {
+            RespondToUser.respond("You cannot add more than 2 instances" +
+                    "of a single card in a deck!", true);
+            return;
+        }
+        deck.getCards().add(card);
+    }
+
+    public void removeCardFromDeck(Card card, Deck deck) {
+        for (Card deckCard : deck.getCards()) {
+            if (card.equals(deckCard)) {
+                deck.getCards().remove(card);
+                return;
+            }
+        }
+    }
+
+    public void removeDeck(Deck deck) {
+        for (Deck deck1 : GameState.getGameState().getUser().getDecks()) {
+            if (deck.equals(deck1)) {
+                System.out.println(GameState.getGameState().getUser().getDecks().size());
+                GameState.getGameState().getUser().getDecks().remove(deck1);
+                System.out.println(GameState.getGameState().getUser().getDecks().size());
+                return;
+            }
+        }
     }
 
     public void filterDisplayedCards(int mana, String heroClass, String searchString, String doesOwn) {
@@ -35,9 +91,9 @@ public class Collections extends Place {
             }
             if (!card.getName().toLowerCase().contains(searchString.toLowerCase()))
                 continue;
-            if (doesOwn.equals("owning") && !GameState.getGameState().getUser().hasCard(card))
+            if (doesOwn.equals("owned") && !GameState.getGameState().getUser().hasCard(card))
                 continue;
-            if (doesOwn.equals("notOwning") && GameState.getGameState().getUser().hasCard(card))
+            if (doesOwn.equals("not owned") && GameState.getGameState().getUser().hasCard(card))
                 continue;
             displayedCards.add(card);
         }
@@ -61,19 +117,19 @@ public class Collections extends Place {
     public Place runCommand(String command, User user, Place currentPlace) {
         String lowerCaseCommand = command.toLowerCase();
         switch (lowerCaseCommand) {
-            case "hearthstone --help":{
-                Logger.log(user, "help", "show list of instructions in " + currentPlace,true);
+            case "hearthstone --help": {
+                Logger.log(user, "help", "show list of instructions in " + currentPlace, true);
                 for (String commandName :
                         getInstructions().keySet()) {
                     RespondToUser.respond(commandName + ": " + getInstructions().get(commandName), user);
                 }
                 return currentPlace;
             }
-            case "main menu":{
+            case "main menu": {
                 Logger.log(user, "navigate", "main menu", true);
                 return MainMenu.getMainMenu();
             }
-            case "ls -a -heroes":{
+            case "ls -a -heroes": {
                 Logger.log(user, "list", "all heroes", true);
                 RespondToUser.respond("Here is the list of your available heroes:", user);
                 for (Hero hero :
@@ -82,7 +138,7 @@ public class Collections extends Place {
                 }
                 return currentPlace;
             }
-            case "ls -m -heroes":{
+            case "ls -m -heroes": {
                 Logger.log(user, "list", "current hero", true);
                 RespondToUser.respond("Your current hero is " + user.getCurrentHero(), user);
                 return currentPlace;
@@ -98,40 +154,40 @@ public class Collections extends Place {
                 }
                 return currentPlace;
             }
-            case "ls -m -cards":{
+            case "ls -m -cards": {
                 Logger.log(user, "list", user.getCurrentHero() + ": current deck", true);
                 RespondToUser.respond("Here is the list of the cards in your deck:", user);
-                for (Card card :
-                        user.getCurrentHero().getDeck()) {
-                    RespondToUser.respond(card, user);
-                }
+//                for (Card card :
+//                        user.getCurrentHero().getDeck()) {
+//                    RespondToUser.respond(card, user);
+//                }
                 return currentPlace;
             }
-            case "ls -n -cards":{
+            case "ls -n -cards": {
                 Logger.log(user, "list", user.getCurrentHero() + ": cards not in deck", true);
                 RespondToUser.respond("Here is the list of the cards you can add to your deck:", user);
                 for (Card card :
                         user.getCards()) {
-                    if (!user.getCurrentHero().getDeck().contains(card)){
-                        if (card.getHeroClass().equals("Neutral") || card.getHeroClass().equals(user.getCurrentHero().getType())) {
-                            if (user.getCurrentHero().getHowManyOfThisCardInDeck(card) < user.getCurrentHero().getMaxRepetitiveCardsInDeck())
-                            RespondToUser.respond(card, user);
-                        }
-                    }
+//                    if (!user.getCurrentHero().getDeck().contains(card)){
+//                        if (card.getHeroClass().equals("Neutral") || card.getHeroClass().equals(user.getCurrentHero().getType())) {
+//                            if (user.getCurrentHero().getHowManyOfThisCardInDeck(card) < user.getCurrentHero().getMaxRepetitiveCardsInDeck())
+//                            RespondToUser.respond(card, user);
+//                        }
+//                    }
                 }
                 return currentPlace;
             }
 
         }
 
-        if (TextProcessingTools.stringFirstWordMatch(lowerCaseCommand, "select")){
+        if (TextProcessingTools.stringFirstWordMatch(lowerCaseCommand, "select")) {
             Logger.log(user, "select", "select a hero", true);
             String bracketedHeroName = command.replaceFirst("(?i)select\\s*", "");
-            if (TextProcessingTools.isInBrackets(bracketedHeroName)){
+            if (TextProcessingTools.isInBrackets(bracketedHeroName)) {
                 String heroName = TextProcessingTools.unBracket(bracketedHeroName);
                 for (Hero hero :
                         user.getHeroes()) {
-                    if (hero.getType().equals(heroName)){
+                    if (hero.getType().equals(heroName)) {
                         user.setCurrentHero(hero.getType());
                         RespondToUser.respond("You have selected " + hero + " as your hero.", user);
                         return currentPlace;
@@ -148,23 +204,23 @@ public class Collections extends Place {
             Logger.log(user, "add", "add card for " + user.getCurrentHero(), true);
             String bracketedCardName = command.replaceFirst("(?i)add\\s*", "");
             if (TextProcessingTools.isInBrackets(bracketedCardName)) {
-                if (user.getCurrentHero().getNumberOfCardsInDeck() >= user.getCurrentHero().getDeckCapacity()){
-                    RespondToUser.respond("There is no more capacity to add cards to deck.", user);
-                    return currentPlace;
-                }
+//                if (user.getCurrentHero().getNumberOfCardsInDeck() >= user.getCurrentHero().getDeckCapacity()){
+//                    RespondToUser.respond("There is no more capacity to add cards to deck.", user);
+//                    return currentPlace;
+//                }
                 String cardName = TextProcessingTools.unBracket(bracketedCardName);
                 Card card = GameHandler.getGameHandler().getCard(cardName);
-                if (card == null){
+                if (card == null) {
                     RespondToUser.respond("There is no such card as " + cardName + ".", user);
                     return currentPlace;
                 }
                 if (user.hasCard(card)) {
                     if (card.getHeroClass().equals("Neutral") || card.getHeroClass().equals(user.getCurrentHero().getType())) {
-                        if (user.getCurrentHero().getHowManyOfThisCardInDeck(card) >= user.getCurrentHero().getMaxRepetitiveCardsInDeck()){
-                            RespondToUser.respond("You already have " + user.getCurrentHero().getMaxRepetitiveCardsInDeck() + " of " + card + " in your deck. You cannot have more!", user);
-                            return currentPlace;
-                        }
-                        user.getCurrentHero().addToDeck(card);
+//                        if (user.getCurrentHero().getHowManyOfThisCardInDeck(card) >= user.getCurrentHero().getMaxRepetitiveCardsInDeck()){
+//                            RespondToUser.respond("You already have " + user.getCurrentHero().getMaxRepetitiveCardsInDeck() + " of " + card + " in your deck. You cannot have more!", user);
+//                            return currentPlace;
+//                        }
+//                        user.getCurrentHero().addToDeck(card);
                         RespondToUser.respond("Card " + cardName + " successfully added to your deck.", user);
                         return currentPlace;
                     }
@@ -183,13 +239,13 @@ public class Collections extends Place {
             String bracketedHeroName = command.replaceFirst("(?i)remove\\s*", "");
             if (TextProcessingTools.isInBrackets(bracketedHeroName)) {
                 String cardName = TextProcessingTools.unBracket(bracketedHeroName);
-                if (user.getCurrentHero().getDeckAsArrayOfString().contains(cardName)) {
-                    Card card = GameHandler.getGameHandler().getCard(cardName);
-                    user.getCurrentHero().removeFromDeck(card);
-                    RespondToUser.respond(cardName + " removed successfully from your deck", user);
-                } else {
-                    RespondToUser.respond("There is no card " + cardName + " in your deck.", user);
-                }
+//                if (user.getCurrentHero().getDeckAsArrayOfString().contains(cardName)) {
+//                    Card card = GameHandler.getGameHandler().getCard(cardName);
+//                    user.getCurrentHero().removeFromDeck(card);
+//                    RespondToUser.respond(cardName + " removed successfully from your deck", user);
+//                } else {
+//                    RespondToUser.respond("There is no card " + cardName + " in your deck.", user);
+//                }
             } else {
                 RespondToUser.respond("You have to enter your command in the form 'remove [card name]'", user);
             }

@@ -2,6 +2,7 @@ package UserHandle;
 
 import Cards.Card;
 import Cards.CardCreator;
+import Cards.Deck;
 import GameHandler.GameHandler;
 import Heroes.*;
 import Initialization.CardsDataCreator;
@@ -20,12 +21,14 @@ public class User{
     private ArrayList<Hero> heroes;
     private int currentHeroIndex;
     private boolean loggedIn = false;
+    private ArrayList<Deck> decks;
 
     public User(String name, String password) {
         this.name = name;
         this.password = password;
-        cards = new ArrayList<Card>();
-        heroes = new ArrayList<Hero>();
+        cards = new ArrayList<>();
+        heroes = new ArrayList<>();
+        decks = new ArrayList<>();
     }
 
     public int getId() {
@@ -94,6 +97,14 @@ public class User{
 
     public void setCurrentHeroIndex(int currentHeroIndex){
         this.currentHeroIndex = currentHeroIndex;
+    }
+
+    public ArrayList<Deck> getDecks() {
+        return decks;
+    }
+
+    public void addDeck(String name) {
+        decks.add(new Deck(name));
     }
 
     public void setCurrentHero(String heroName) {
@@ -194,16 +205,14 @@ public class User{
         if (!this.hasCard(card)){
             return false;
         }
-        for (Hero hero :
-                heroes) {
-            if (hero.hasCard(card)){
+        for (Deck deck : decks) {
+            if (deck.hasCard(card))
                 return false;
-            }
         }
         return true;
     }
 
-    public JSONArray getHerosJsonArray(){
+    public JSONArray getHeroesJsonArray(){
         JSONArray heroesJsonArray = new JSONArray();
         for (Hero hero :
                 heroes) {

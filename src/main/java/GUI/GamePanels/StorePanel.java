@@ -3,12 +3,16 @@ package GUI.GamePanels;
 import Cards.Card;
 import Cards.CardButton;
 import GUI.Events.ChangePlaceEvent;
+import GUI.Events.CollectionsFilterEvent;
 import GUI.Events.ExitEvent;
 import GUI.Listeners.ChangePlaceListener;
+import GUI.Listeners.CollectionsFilterListener;
 import GUI.Listeners.ExitListener;
-import GameHandler.*;
+import GameHandler.GameState;
+import Places.Collections;
 import Places.MainMenu;
 import Places.Store;
+import Utilities.GrayscaleImage;
 import Utilities.ImageLoader;
 
 import javax.imageio.ImageIO;
@@ -21,100 +25,181 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER;
+
 public class StorePanel extends GamePanel {
     private JPanel cardsPanel;
     private JPanel buttonsPanel;
+    private JPanel heroesButtonsPanel;
     private JPanel cardsContainer;
-    private JPanel buttonsContainer;
+    private JPanel searchPanel;
+    private JPanel doesOwnPanel;
+    private JPanel heroesButtonsContainer;
+    private JPanel manaFilterPanel;
+    private JPanel manaFilterContainer;
+    private JPanel bottomButtonsPanel;
+    private JPanel backAndExitButtonsPanel;
+    private JTextField searchField;
+    private JRadioButton[] manaButtons;
+    private JRadioButton[] heroesButtons;
+    private JRadioButton[] doesOwnButtons;
     private JScrollPane cardsScrollPane;
+    private JScrollPane decksScrollPane;
     private ChangePlaceListener changePlaceListener;
+    private CollectionsFilterListener collectionsFilterListener;
+    private ActionListener collectionsFilterActionListener;
     private ExitListener exitListener;
     private int cardWidth = 315;
     private int cardHeight = 435;
     private int buttonWidth = 150;
     private int buttonHeight = 75;
+    private String[] heroesNames = {"all", "Neutral", "Mage", "Warlock", "Rogue", "Paladin", "Priest"};
+    private String[] doesOwnButtonsNames = {"all", "owned", "not owned"};
 
-    public StorePanel(int screenWidth, int screenHeight) {
+    public StorePanel(int screenWidth, int screenHeight) throws IOException {
         super(screenWidth, screenHeight);
         this.setLayout(new BorderLayout());
+        initCollectionsFilterActionListener();
         initCardsPanel();
+        initBottomButtons();
         initButtonsPanel();
     }
 
-    private void initCardsPanel() {
+    private void initCollectionsFilterActionListener() {
+        collectionsFilterActionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                CollectionsFilterEvent collectionsFilterEvent = new CollectionsFilterEvent
+                        (this, getSelectedManaButton(), getSelectedHeroButton(),
+                                searchField.getText(), getSelectedDoesOwnButton());
+                if (collectionsFilterListener != null) {
+                    collectionsFilterListener.CollectionsFilterOccurred(collectionsFilterEvent);
+                }
+                try {
+                    drawListOfCards(Collections.getCollections().getDisplayedCards());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+    }
+
+    private void initBottomButtons() {
+        bottomButtonsPanel = new JPanel(new BorderLayout());
+        initManaFilterPanel();
+        initBackAndExitButtonsPanel();
+        this.add(bottomButtonsPanel, BorderLayout.SOUTH);
+    }
+
+    private void initBackAndExitButtonsPanel() {
+        backAndExitButtonsPanel = new JPanel();
+        backAndExitButtonsPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 10));
+        initExitButton();
+        initBackToMainMenuButton();
+        bottomButtonsPanel.add(backAndExitButtonsPanel, BorderLayout.EAST);
+    }
+
+    private void initManaFilterPanel() {
+        manaFilterPanel = new JPanel();
+        manaFilterPanel.setLayout(new GridLayout(1, 0, 0, 0));
+
+        JLabel manaFilterLabel = new JLabel("Filter by manas");
+
+        manaButtons = new JRadioButton[12];
+        ButtonGroup buttons = new ButtonGroup();
+
+        manaButtons[11] = new JRadioButton("all");
+        manaFilterPanel.add(manaButtons[11]);
+        manaButtons[11].setSelected(true);
+        buttons.add(manaButtons[11]);
+        manaButtons[11].addActionListener(collectionsFilterActionListener);
+        for (int i = 0; i <= 10; i++) {
+            manaButtons[i] = new JRadioButton(String.valueOf(i));
+            manaFilterPanel.add(manaButtons[i]);
+            buttons.add(manaButtons[i]);
+            manaButtons[i].addActionListener(collectionsFilterActionListener);
+        }
+
+        manaFilterContainer = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        manaFilterContainer.add(manaFilterLabel);
+        manaFilterContainer.add(manaFilterPanel);
+
+        bottomButtonsPanel.add(manaFilterContainer, BorderLayout.WEST);
+    }
+
+    private void initButtonsPanel() {
+        heroesButtonsPanel = new JPanel();
+        heroesButtonsPanel.setLayout(new GridLayout(1, 0, 0, 0));
+
+        JLabel buttonsFilterLabel = new JLabel("Filter by heroes");
+
+        heroesButtons = new JRadioButton[heroesNames.length];
+
+        ButtonGroup heroesButtonGroup = new ButtonGroup();
+
+        for (int i = 0; i < heroesNames.length; i++) {
+            heroesButtons[i] = new JRadioButton(heroesNames[i]);
+            heroesButtonsPanel.add(heroesButtons[i]);
+            heroesButtonGroup.add(heroesButtons[i]);
+            heroesButtons[i].addActionListener(collectionsFilterActionListener);
+        }
+        heroesButtons[0].setSelected(true);
+
+        heroesButtonsContainer = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        heroesButtonsContainer.add(buttonsFilterLabel);
+        heroesButtonsContainer.add(heroesButtonsPanel);
+
+        searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        searchField = new JTextField(20);
+        JButton searchButton = new JButton("search");
+        searchButton.addActionListener(collectionsFilterActionListener);
+        searchPanel.add(searchField);
+        searchPanel.add(searchButton);
+
+        doesOwnPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        doesOwnButtons = new JRadioButton[3];
+        ButtonGroup doesOwnButtonGroup = new ButtonGroup();
+        for (int i = 0; i < 3; i++) {
+            doesOwnButtons[i] = new JRadioButton(doesOwnButtonsNames[i]);
+            doesOwnPanel.add(doesOwnButtons[i]);
+            doesOwnButtonGroup.add(doesOwnButtons[i]);
+            doesOwnButtons[i].addActionListener(collectionsFilterActionListener);
+        }
+        doesOwnButtons[0].setSelected(true);
+
+        buttonsPanel = new JPanel(new BorderLayout());
+        buttonsPanel.add(heroesButtonsContainer, BorderLayout.WEST);
+        buttonsPanel.add(searchPanel, BorderLayout.CENTER);
+        buttonsPanel.add(doesOwnPanel, BorderLayout.EAST);
+
+        this.add(buttonsPanel, BorderLayout.NORTH);
+    }
+
+    private void initCardsPanel() throws IOException {
         cardsPanel = new JPanel();
         cardsPanel.setOpaque(false);
-        cardsPanel.setLayout(new GridLayout(0, 3, 50, 50));
+        cardsPanel.setLayout(new GridLayout(0, 4, 50, 50));
         cardsContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 100, 100));
         cardsContainer.add(cardsPanel);
 
-        JViewport viewport = new JViewport()
-        {
-            @Override
-            protected void paintComponent(Graphics g)
-            {
-                super.paintComponent(g);
-
-                BufferedImage image = ImageLoader.getInstance().loadImage("card list bg.jpg");
-                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-            }
-        };
+        JViewport viewport = new backgroundJViewport("card list bg.jpg");
 
         cardsContainer.setOpaque(false);
         cardsScrollPane = new JScrollPane();
         cardsScrollPane.setViewport(viewport);
         cardsScrollPane.setViewportView(cardsContainer);
+        cardsScrollPane.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
 
-        drawListOfCards(GameState.getGameState().getUser().getCards());
+
+        drawListOfCards(Collections.getCollections().getDisplayedCards());
 
         this.add(cardsScrollPane, BorderLayout.CENTER);
     }
 
-    private void initButtonsPanel() {
-        buttonsPanel = new JPanel();
-        buttonsPanel.setOpaque(false);
-        buttonsPanel.setLayout(new GridLayout(0, 1, 0, 20));
-
-        initSellCardsButton();
-        initBuyCardsButton();
-        initBackToMainMenuButton();
-        initExitButton();
-
-        buttonsContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 100, 100));
-        buttonsContainer.add(buttonsPanel);
-        buttonsContainer.setOpaque(false);
-        this.add(buttonsContainer, BorderLayout.EAST);
-    }
-
-    void initSellCardsButton() {
-        JButton button = new JButton("Sell a Card");
-        button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
-        button.setToolTipText("click to see the list of the cards you can sell");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                drawListOfCards(Store.getStore().sellCardsList());
-            }
-        });
-        buttonsPanel.add(button);
-    }
-
-    void initBuyCardsButton() {
-        JButton button = new JButton("Buy a Card");
-        button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
-        button.setToolTipText("click to see the list of the cards you can buy");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                drawListOfCards(Store.getStore().buyCardsList());
-            }
-        });
-        buttonsPanel.add(button);
-    }
 
     void initBackToMainMenuButton() {
         JButton button = new JButton("Main Menu");
-        button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
+//        button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -128,12 +213,12 @@ public class StorePanel extends GamePanel {
                 }
             }
         });
-        buttonsPanel.add(button);
+        backAndExitButtonsPanel.add(button);
     }
 
     void initExitButton() {
         JButton button = new JButton("Exit");
-        button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
+//        button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -143,23 +228,28 @@ public class StorePanel extends GamePanel {
                 }
             }
         });
-        buttonsPanel.add(button);
+        backAndExitButtonsPanel.add(button);
     }
 
 
-    private void drawListOfCards(ArrayList<Card> cards) {
+    private void drawListOfCards(ArrayList<Card> cards) throws IOException {
         if (cards == null) {
             System.out.println("null cards");
             return;
         }
 
         cardsPanel.removeAll();
-        System.out.println("--------------------------------------------------");
         for (Card card : cards) {
             CardButton button = new CardButton(card);
             button.setPreferredSize(new Dimension(cardWidth, cardHeight));
-            System.out.println(card.getName());
-            ImageIcon imageIcon = new ImageIcon("Images/cards/" + card.getName() + ".png");
+            BufferedImage image = ImageIO.read(new File("Images/cards/" + button.getCard().getName() + ".png"));
+            ImageIcon imageIcon;
+
+            if (GameState.getGameState().getUser().hasCard(card))
+                imageIcon = new ImageIcon(image);
+            else
+                imageIcon = new ImageIcon(GrayscaleImage.getGrayscaleImage(image));
+
             button.setIcon(imageIcon);
             button.setContentAreaFilled(false);
             button.setBorder(BorderFactory.createEmptyBorder());
@@ -194,6 +284,37 @@ public class StorePanel extends GamePanel {
         repaint();
     }
 
+    private int getSelectedManaButton() {
+        for (int i = 0; i < 11; i++) {
+            if (manaButtons[i].isSelected()) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private String getSelectedHeroButton() {
+        int counter = 0;
+        for (JRadioButton heroesButton : heroesButtons) {
+            if (heroesButton.isSelected()) {
+                return heroesNames[counter];
+            }
+            counter++;
+        }
+        return heroesNames[0];
+    }
+
+    private String getSelectedDoesOwnButton() {
+        int counter = 0;
+        for (JRadioButton doesOwnButton : doesOwnButtons) {
+            if (doesOwnButton.isSelected()) {
+                return doesOwnButtonsNames[counter];
+            }
+            counter++;
+        }
+        return doesOwnButtonsNames[0];
+    }
+
     public void setChangePlaceListener(ChangePlaceListener changePlaceListener) {
         this.changePlaceListener = changePlaceListener;
     }
@@ -202,7 +323,11 @@ public class StorePanel extends GamePanel {
         this.exitListener = exitListener;
     }
 
-//    @Override
+    public void setCollectionsFilterListener(CollectionsFilterListener collectionsFilterListener) {
+        this.collectionsFilterListener = collectionsFilterListener;
+    }
+
+//        @Override
 //    protected void paintComponent(Graphics g) {
 //        super.paintComponent(g);
 //        Graphics2D g2d = (Graphics2D) g;
@@ -212,3 +337,4 @@ public class StorePanel extends GamePanel {
 //        g2d.drawImage(image, 0, 0, null);
 //    }
 }
+

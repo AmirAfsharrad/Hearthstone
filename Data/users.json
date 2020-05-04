@@ -875,11 +875,8 @@
     ],
     "heroes": [
       {
-        "hero power": "Can attack any enemy with 2 manas and do a one-hp harm to them.",
         "hp": 30,
-        "type": "Mage",
-        "special power": "Spells are worth 2 manas less than for other heroes.",
-        "stringDeck": []
+        "type": "Mage"
       }
     ],
     "delete time": "none",

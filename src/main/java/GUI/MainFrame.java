@@ -1,5 +1,6 @@
 package GUI;
 
+import Cards.Deck;
 import GUI.Events.*;
 import GUI.GamePanels.CollectionsPanel;
 import GUI.GamePanels.LoginPanel;
@@ -8,16 +9,15 @@ import GUI.GamePanels.StorePanel;
 import GUI.Listeners.*;
 import GameHandler.GameState;
 import Places.*;
-import com.google.gson.internal.bind.util.ISO8601Utils;
-import org.w3c.dom.ls.LSOutput;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainFrame extends JFrame {
     private JPanel panelCards;
-    CardLayout cardLayout = new CardLayout();
+    private CardLayout cardLayout = new CardLayout();
     private LoginPanel loginPanel;
     private MainMenuPanel mainMenuPanel;
     private StorePanel storePanel;
@@ -99,10 +99,18 @@ public class MainFrame extends JFrame {
         panelCards.add(mainMenuPanel, "MainMenu");
     }
 
-    void initStorePanel() {
+    void initStorePanel() throws IOException {
         storePanel = new StorePanel(this.getSize().width, this.getSize().height);
         storePanel.setChangePlaceListener(changePlaceListener);
         storePanel.setExitListener(exitListener);
+        storePanel.setCollectionsFilterListener(new CollectionsFilterListener() {
+            @Override
+            public void CollectionsFilterOccurred(CollectionsFilterEvent collectionsFilterEvent) {
+                Collections.getCollections().filterDisplayedCards(collectionsFilterEvent.getMana(),
+                        collectionsFilterEvent.getHeroClass(), collectionsFilterEvent.getSearchString(),
+                        collectionsFilterEvent.getDoesOwn());
+            }
+        });
 
         panelCards.add(storePanel, "Store");
     }
@@ -117,6 +125,31 @@ public class MainFrame extends JFrame {
                 Collections.getCollections().filterDisplayedCards(collectionsFilterEvent.getMana(),
                         collectionsFilterEvent.getHeroClass(), collectionsFilterEvent.getSearchString(),
                         collectionsFilterEvent.getDoesOwn());
+            }
+        });
+        collectionsPanel.setCreateDeckListener(new CreateDeckListener() {
+            @Override
+            public void CreateDeckOccurred(CreateDeckEvent createDeckEvent) {
+                Collections.getCollections().createNewDeck();
+            }
+        });
+        collectionsPanel.setAddCardToDeckListener(new AddCardToDeckListener() {
+            @Override
+            public void addCardToDeckOccurred(AddCardToDeckEvent addCardToDeckEvent) {
+                Collections.getCollections().addCardToDeck(addCardToDeckEvent.getCard(), addCardToDeckEvent.getDeck());
+            }
+        });
+        collectionsPanel.setRemoveCardFromDeckListener(new RemoveCardFromDeckListener() {
+            @Override
+            public void removeCardFromDeckOccurred(RemoveCardFromDeckEvent removeCardFromDeckEvent) {
+                Collections.getCollections().removeCardFromDeck(removeCardFromDeckEvent.getCard(),
+                        removeCardFromDeckEvent.getDeck());
+            }
+        });
+        collectionsPanel.setRemoveDeckListener(new RemoveDeckListener() {
+            @Override
+            public void removeDeckOccurred(RemoveDeckEvent removeDeckEvent) {
+                Collections.getCollections().removeDeck(removeDeckEvent.getDeck());
             }
         });
 

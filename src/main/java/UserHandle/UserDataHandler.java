@@ -85,7 +85,7 @@ public class UserDataHandler {
             userObj.put("gold", user.getGold());
             userObj.put("delete time", "none");
             userObj.put("cards", user.getCardsAsArrayOfString());
-            userObj.put("heroes", user.getHerosJsonArray());
+            userObj.put("heroes", user.getHeroesJsonArray());
             userObj.put("current hero index", user.getCurrentHeroIndex());
 
             usersList.add(userObj);
@@ -172,7 +172,7 @@ public class UserDataHandler {
             userObj.put("password", user.getPassword());
             userObj.put("gold", user.getGold());
             userObj.put("cards", user.getCardsAsArrayOfString());
-            userObj.put("heroes", user.getHerosJsonArray());
+            userObj.put("heroes", user.getHeroesJsonArray());
             userObj.put("current hero", user.getCurrentHeroIndex());
 
             usersList.set(user.getId(), userObj);
