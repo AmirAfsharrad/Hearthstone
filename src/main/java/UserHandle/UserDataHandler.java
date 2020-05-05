@@ -1,10 +1,13 @@
 package UserHandle;
 
+import Cards.Deck;
+import GameHandler.GameHandler;
 import GameHandler.RespondToUser;
 import Heroes.*;
 import Logger.Logger;
 import Utilities.FileHandler;
 import Utilities.SHA256Hash;
+import com.google.gson.JsonObject;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -87,6 +90,7 @@ public class UserDataHandler {
             userObj.put("cards", user.getCardsAsArrayOfString());
             userObj.put("heroes", user.getHeroesJsonArray());
             userObj.put("current hero index", user.getCurrentHeroIndex());
+            userObj.put("decks", user.getDecksJsonArray());
 
             usersList.add(userObj);
 
@@ -135,6 +139,21 @@ public class UserDataHandler {
                     user.addHero(hero);
                 }
 
+                JSONArray decksListJsonArray = (JSONArray) userObj.get("decks");
+                for (Object deck : decksListJsonArray) {
+                    String heroName = (String) ((JSONObject) deck).get("heroName");
+                    Hero hero = HeroCreator.createHero(heroName);
+                    String name = (String) ((JSONObject) deck).get("name");
+                    JSONArray cards = (JSONArray) ((JSONObject) deck).get("cardsNames");
+
+                    Deck newDeck = new Deck(name);
+                    newDeck.setHero(hero);
+                    for (Object card : cards) {
+                        newDeck.getCards().add(GameHandler.getGameHandler().getCard((String) card));
+                    }
+                    user.addDeck(newDeck);
+                }
+
                 ArrayList<String> cardsList = (ArrayList<String>) userObj.get("cards");
                 for (String cardName :
                         cardsList) {
@@ -174,6 +193,7 @@ public class UserDataHandler {
             userObj.put("cards", user.getCardsAsArrayOfString());
             userObj.put("heroes", user.getHeroesJsonArray());
             userObj.put("current hero", user.getCurrentHeroIndex());
+            userObj.put("decks", user.getDecksJsonArray());
 
             usersList.set(user.getId(), userObj);
 

@@ -107,6 +107,10 @@ public class User{
         decks.add(new Deck(name));
     }
 
+    public void addDeck(Deck deck) {
+        decks.add(deck);
+    }
+
     public void setCurrentHero(String heroName) {
         int counter = 0;
         for (Hero hero :
@@ -219,6 +223,14 @@ public class User{
             heroesJsonArray.add(hero.getJson());
         }
         return heroesJsonArray;
+    }
+
+    public JSONArray getDecksJsonArray() {
+        JSONArray decksJsonArray = new JSONArray();
+        for (Deck deck : decks) {
+            decksJsonArray.add(deck.getJson());
+        }
+        return decksJsonArray;
     }
 
     @Override

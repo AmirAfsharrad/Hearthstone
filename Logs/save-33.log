@@ -1,0 +1,13 @@
+USER: save
+CREATED_AT: 2020-05-05T12:11:23.540550200
+PASSWORD: 157dca92e4250458339d4b835250d44c238f3355e1b7986195188ee434e9baff
+DELETED_AT: ----------
+
+sign up, 2020-05-05T12:11:23.597588400, save user created
+log out, 2020-05-05T12:11:58.896799900, log out of save
+system response, 2020-05-05T12:11:58.906223300, Signed out of user save
+login, 2020-05-05T12:13:14.637381300,  as save
+system response, 2020-05-05T12:13:31.850641300, You have successfully purchased Novice Engineer.
+system response, 2020-05-05T12:14:12.367175600, You have successfully purchased Seal of Light.
+quit, 2020-05-05T12:14:53.808198700, quit the game
+quit, 2020-05-05T12:14:55.314272200, quit the game

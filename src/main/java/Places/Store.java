@@ -1,8 +1,8 @@
 package Places;
 
 import Cards.Card;
+import Cards.Deck;
 import GUI.Listeners.GeneralEventListener;
-import GUI.MainFrame;
 import GameHandler.*;
 import GameHandler.GameHandler;
 import Heroes.Hero;
@@ -102,7 +102,24 @@ public class Store extends Place {
     }
 
     private void sellCard(Card card) {
+        if (cardInvolvedInDecks(card)) {
+            RespondToUser.respond("Remove " + card.getName() + " from all your decks in order to sell it.",
+                    GameState.getGameState().getUser(), true);
+        } else {
+            GameState.getGameState().getUser().getCards().remove(card);
+            GameState.getGameState().getUser().setGold(GameState.getGameState().getUser().getGold() + card.getPrice());
+            RespondToUser.respond("You have successfully sold " + card.getName() + ".",
+                    GameState.getGameState().getUser(), true);
+        }
+    }
 
+    private boolean cardInvolvedInDecks(Card card) {
+        for (Deck deck : GameState.getGameState().getUser().getDecks()) {
+            if (deck.hasCard(card)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 

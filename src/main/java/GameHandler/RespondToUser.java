@@ -1,33 +1,39 @@
 package GameHandler;
 
-import GUI.Events.YesNoEvent;
+import GUI.Dialogs.ChooseFromListDialog;
+import GUI.Dialogs.GetTextDialog;
+import GUI.Listeners.ChooseFromListListener;
 import GUI.Listeners.GeneralEventListener;
-import GUI.Listeners.YesNoListener;
-import GUI.MainFrame;
-import GUI.ResponseFrame;
-import GUI.YesNoResponseFrame;
-import GameHandler.GameHandler;
+import GUI.Dialogs.ResponseDialog;
+import GUI.Dialogs.YesNoResponseDialog;
+import GUI.Listeners.GetTextListener;
 import Logger.Logger;
 import UserHandle.User;
 
 public class RespondToUser {
     public static void yesNoRespond(String message, GeneralEventListener yesListener, GeneralEventListener noListener) {
-        YesNoResponseFrame yesNoResponseFrame = new YesNoResponseFrame("", (String) message);
-        yesNoResponseFrame.setYesListener(yesListener);
-        yesNoResponseFrame.setNoListener(noListener);
+        new YesNoResponseDialog("", message, yesListener, noListener);
+    }
+
+    public static void chooseFromListResponse(String message, String[] listOfItems, ChooseFromListListener okListener) {
+        new ChooseFromListDialog("", message, listOfItems, okListener);
+    }
+
+    public static void getTextResponse(String message, GetTextListener getTextListener) {
+        new GetTextDialog("", message, getTextListener);
     }
 
     public static void respond(Object message, boolean graphicalMessage){
         System.out.println(message);
         if (graphicalMessage) {
-            new ResponseFrame("", (String) message);
+            new ResponseDialog("", (String) message);
         }
     }
 
     public static void respond(Object message, User user, boolean graphicalMessage){
         System.out.println(message);
         if (graphicalMessage) {
-            new ResponseFrame("", (String) message);
+            new ResponseDialog("", (String) message);
         }
         if (user.isLoggedIn()){
             Logger.log(user, "system response", message.toString());

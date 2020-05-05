@@ -45,4 +45,8 @@ public class GameState {
     public void refreshMainFrame() throws IOException {
         mainFrame.refresh();
     }
+
+    public MainFrame getMainFrame() {
+        return mainFrame;
+    }
 }

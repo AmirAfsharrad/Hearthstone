@@ -60,10 +60,12 @@ public class CollectionsPanel extends GamePanel {
     private ChangePlaceListener changePlaceListener;
     private CollectionsFilterListener collectionsFilterListener;
     private CreateDeckListener createDeckListener;
+    private ChangeDeckHeroListener changeDeckHeroListener;
     private ActionListener collectionsFilterActionListener;
     private AddCardToDeckListener addCardToDeckListener;
     private RemoveCardFromDeckListener removeCardFromDeckListener;
     private RemoveDeckListener removeDeckListener;
+    private DeckRenameListener deckRenameListener;
     private ExitListener exitListener;
     private int cardWidth = 315;
     private int cardHeight = 435;
@@ -232,7 +234,11 @@ public class CollectionsPanel extends GamePanel {
         listOfDecksPanel = new JPanel(new BorderLayout());
         listOfDecksPanelOptions = new JPanel(new GridLayout(0, 1, 0, 5));
         listOfDecksPanelAllDecks = new JPanel(new GridLayout(0, 1, 0, 5));
-        listOfDecksPanel.add(listOfDecksPanelAllDecks, BorderLayout.NORTH);
+        JPanel listOfDecksPanelAllDecksContainer = new JPanel(new FlowLayout(FlowLayout.RIGHT, 0, 0));
+        listOfDecksPanelAllDecksContainer.add(listOfDecksPanelAllDecks);
+        JScrollPane listOfDecksPanelAllDecksScrollPane = new JScrollPane(listOfDecksPanelAllDecksContainer);
+        listOfDecksPanelAllDecksScrollPane.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
+        listOfDecksPanel.add(listOfDecksPanelAllDecksScrollPane, BorderLayout.CENTER);
         listOfDecksPanel.add(listOfDecksPanelOptions, BorderLayout.SOUTH);
 
         drawDecks();
@@ -286,15 +292,6 @@ public class CollectionsPanel extends GamePanel {
         cardsOfDeckPanelAllCards.add(new JButton("TEST"));
         initCardsOfDeckPanelOptionButtons();
         drawCardsOfDeck();
-
-//        if (currentDeck.getCards().size() > 0) {
-//            JButton button = new JButton("TEST");
-//            cardsOfDeckPanelAllCards.add(button);
-//        } else {
-//            JButton button = new JButton("fuck");
-//            cardsOfDeckPanelAllCards.add(button);
-//        }
-
     }
 
     private void drawCardsOfDeck() {
@@ -303,6 +300,16 @@ public class CollectionsPanel extends GamePanel {
             System.out.println("NULL current deck!");
             return;
         }
+
+        JButton deckButton = new JButton(currentDeck.getName());
+        deckButton.setContentAreaFilled(false);
+        deckButton.setBorder(BorderFactory.createEmptyBorder());
+        cardsOfDeckPanelAllCards.add(deckButton);
+
+        JButton heroNameButton = new JButton("Hero: " + currentDeck.getHero());
+        heroNameButton.setContentAreaFilled(false);
+        heroNameButton.setBorder(BorderFactory.createEmptyBorder());
+        cardsOfDeckPanelAllCards.add(heroNameButton);
 
         HashMap<Card, Integer> hashMapOfCards = currentDeck.getHashMapOfCards();
         for (Card card : hashMapOfCards.keySet()) {
@@ -327,7 +334,6 @@ public class CollectionsPanel extends GamePanel {
             });
             cardsOfDeckPanelAllCards.add(button);
         }
-
     }
 
     private void initCardsOfDeckPanelOptionButtons() {
@@ -344,8 +350,37 @@ public class CollectionsPanel extends GamePanel {
         });
         JButton renameDeck = new JButton("<html><center> Rename <br /> Deck </center></html>");
         renameDeck.setPreferredSize(new Dimension(buttonWidth / 2, 2 * deckButtonHeight / 3));
+        renameDeck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                DeckRenameEvent deckRenameEvent = new DeckRenameEvent(this, currentDeck);
+                if (deckRenameListener != null) {
+                    deckRenameListener.deckRenameOccurred(deckRenameEvent);
+                }
+                drawDecks();
+                drawCardsOfDeck();
+                revalidate();
+                repaint();
+            }
+        });
+
+
         JButton changeHero = new JButton("<html><center> Change <br /> Hero </center></html>");
         changeHero.setPreferredSize(new Dimension(buttonWidth / 2, 2 * deckButtonHeight / 3));
+        changeHero.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                ChangeDeckHeroEvent changeDeckHeroEvent = new ChangeDeckHeroEvent(this, currentDeck);
+                if (changeDeckHeroListener != null) {
+                    changeDeckHeroListener.changeDeckHeroOccurred(changeDeckHeroEvent);
+                }
+                drawCardsOfDeck();
+                revalidate();
+                repaint();
+            }
+        });
+
+
         JButton removeDeck = new JButton("<html><center> Remove <br /> Deck </center></html>");
         removeDeck.setPreferredSize(new Dimension(buttonWidth / 2, 2 * deckButtonHeight / 3));
         removeDeck.addActionListener(new ActionListener() {
@@ -524,6 +559,14 @@ public class CollectionsPanel extends GamePanel {
 
     public void setRemoveDeckListener(RemoveDeckListener removeDeckListener) {
         this.removeDeckListener = removeDeckListener;
+    }
+
+    public void setChangeDeckHeroListener(ChangeDeckHeroListener changeDeckHeroListener) {
+        this.changeDeckHeroListener = changeDeckHeroListener;
+    }
+
+    public void setDeckRenameListener(DeckRenameListener deckRenameListener) {
+        this.deckRenameListener = deckRenameListener;
     }
 }
 

@@ -2,6 +2,7 @@ package Cards;
 
 import Heroes.Hero;
 import Heroes.Mage;
+import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,5 +78,20 @@ public class Deck {
         if (o == null || getClass() != o.getClass()) return false;
         Deck deck = (Deck) o;
         return Objects.equals(name, deck.name);
+    }
+
+    public JSONObject getJson(){
+        JSONObject deckObject = new JSONObject();
+        ArrayList<String> cardsNames = new ArrayList<>();
+
+        for (Card card : cards) {
+            cardsNames.add(card.getName());
+        }
+
+        deckObject.put("name", name);
+        deckObject.put("cardsNames", cardsNames);
+        deckObject.put("heroName", hero.getType());
+
+        return deckObject;
     }
 }

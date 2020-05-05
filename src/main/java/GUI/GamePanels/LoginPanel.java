@@ -2,19 +2,14 @@ package GUI.GamePanels;
 
 import GUI.Events.LoginEvent;
 import GUI.Events.SignUpEvent;
-import GUI.Events.TestEvent;
 import GUI.Listeners.LoginListener;
 import GUI.Listeners.SignUpListener;
-import GUI.Listeners.TestListener;
-import GUI.MainFrame;
 import Utilities.ImageLoader;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 

@@ -8,29 +8,54 @@ import org.json.simple.JSONObject;
 import java.util.ArrayList;
 
 public class HeroCreator {
-
-    public static Hero createHeroFromJson(JSONObject heroJsonObject){
+    public static Hero createHeroFromJson(JSONObject heroJsonObject) {
         String type = (String) heroJsonObject.get("type");
         Long hp = (Long) heroJsonObject.get("hp");
 
-        switch (type){
-            case "Mage":{
+        switch (type) {
+            case "Mage": {
                 Hero hero = new Mage();
                 return hero;
             }
-            case "Rogue":{
+            case "Rogue": {
                 Hero hero = new Rogue();
                 return hero;
             }
-            case "Warlock":{
+            case "Warlock": {
                 Hero hero = new Warlock();
                 return hero;
             }
-            case "Paladin":{
+            case "Paladin": {
                 Hero hero = new Paladin();
                 return hero;
             }
-            case "Priest":{
+            case "Priest": {
+                Hero hero = new Priest();
+                return hero;
+            }
+        }
+        return null;
+    }
+
+    public static Hero createHero(String heroType) {
+        switch (heroType) {
+            case "Mage": {
+                Hero hero = new Mage();
+                return hero;
+            }
+            case "Rogue": {
+                Hero hero = new Rogue();
+                return hero;
+            }
+            case "Warlock": {
+                Hero hero = new Warlock();
+                return hero;
+            }
+            case "Paladin": {
+                Hero hero = new Paladin();
+                return hero;
+            }
+            case "Priest": {
                 Hero hero = new Priest();
                 return hero;
             }

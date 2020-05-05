@@ -152,6 +152,18 @@ public class MainFrame extends JFrame {
                 Collections.getCollections().removeDeck(removeDeckEvent.getDeck());
             }
         });
+        collectionsPanel.setChangeDeckHeroListener(new ChangeDeckHeroListener() {
+            @Override
+            public void changeDeckHeroOccurred(ChangeDeckHeroEvent changeDeckHeroEvent) {
+                Collections.getCollections().deckSetHero(changeDeckHeroEvent.getDeck());
+            }
+        });
+        collectionsPanel.setDeckRenameListener(new DeckRenameListener() {
+            @Override
+            public void deckRenameOccurred(DeckRenameEvent deckRenameEvent) {
+                Collections.getCollections().renameDeck(deckRenameEvent.getDeck());
+            }
+        });
 
         panelCards.add(collectionsPanel, "Collections");
     }
@@ -177,5 +189,4 @@ public class MainFrame extends JFrame {
     public void refresh() throws IOException {
         updatePage(GameState.getGameState().getCurrentPlace());
     }
-
 }
