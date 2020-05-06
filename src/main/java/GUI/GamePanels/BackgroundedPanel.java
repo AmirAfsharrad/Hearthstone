@@ -4,16 +4,12 @@ import Utilities.ImageLoader;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 
 public class BackgroundedPanel extends JPanel {
     private String backgroundImagePath;
     private double scaleFactorX = 1;
     private double scaleFactorY = 1;
-    private int drawX = 0;
-    private int drawY = 0;
 
     public BackgroundedPanel(String backgroundImagePath) {
         this.setOpaque(false);
@@ -55,8 +51,6 @@ public class BackgroundedPanel extends JPanel {
                     (int) (image.getHeight() * scaleFactorY), java.awt.Image.SCALE_SMOOTH);
             g2d.drawImage(newImage, 0, 0, null);
         }
-
-
 //        double rotationRequired = Math.toRadians (45);
 //        double locationX = image.getWidth() / 2;
 //        double locationY = image.getHeight() / 2;

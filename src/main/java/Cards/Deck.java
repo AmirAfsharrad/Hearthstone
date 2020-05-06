@@ -47,6 +47,14 @@ public class Deck {
         this.hero = hero;
     }
 
+    public double getAverageCost() {
+        double totalCost = 0;
+        for (Card card : cards) {
+            totalCost += card.getMana();
+        }
+        return Math.floor(10 * totalCost / cards.size()) / 10.0;
+    }
+
     public int getHowManyOfThisCardInDeck(Card card) {
         int count = 0;
         for (Card card1 : cards) {
@@ -93,5 +101,10 @@ public class Deck {
         deckObject.put("heroName", hero.getType());
 
         return deckObject;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

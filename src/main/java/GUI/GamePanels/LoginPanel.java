@@ -4,6 +4,7 @@ import GUI.Events.LoginEvent;
 import GUI.Events.SignUpEvent;
 import GUI.Listeners.LoginListener;
 import GUI.Listeners.SignUpListener;
+import Logger.Logger;
 import Utilities.ImageLoader;
 
 import javax.swing.*;
@@ -16,10 +17,6 @@ import java.io.IOException;
 public class LoginPanel extends GamePanel {
     private SignUpListener signUpListener;
     private LoginListener loginListener;
-    private JButton logInButton;
-    private JButton signUpButton;
-    private JLabel usernameLabel;
-    private JLabel passwordLabel;
     private JTextField usernameField;
     private JPasswordField passwordField;
 
@@ -35,7 +32,7 @@ public class LoginPanel extends GamePanel {
     }
 
     private void initUsernameLabel() {
-        usernameLabel = new JLabel("Username ");
+        JLabel usernameLabel = new JLabel("Username ");
         usernameLabel.setFont(new Font("Arial", Font.BOLD, 16));
         usernameLabel.setForeground(Color.WHITE);
 
@@ -55,7 +52,7 @@ public class LoginPanel extends GamePanel {
     }
 
     private void initPasswordLabel() {
-        passwordLabel = new JLabel("Password ");
+        JLabel passwordLabel = new JLabel("Password ");
         passwordLabel.setFont(new Font("Arial", Font.BOLD, 16));
         passwordLabel.setForeground(Color.WHITE);
 
@@ -75,7 +72,7 @@ public class LoginPanel extends GamePanel {
     }
 
     private void initLoginButton() {
-        logInButton = new JButton("Log In");
+        JButton logInButton = new JButton("Log In");
         logInButton.setBounds(screenWidth / 2 - logInButton.getPreferredSize().width / 2,
                 screenHeight / 2 + logInButton.getPreferredSize().height + screenHeight / 40,
                 logInButton.getPreferredSize().width, logInButton.getPreferredSize().height);
@@ -84,6 +81,7 @@ public class LoginPanel extends GamePanel {
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(logInButton);
                 String username = usernameField.getText();
                 String password = passwordField.getText();
 
@@ -103,7 +101,7 @@ public class LoginPanel extends GamePanel {
     }
 
     private void initSignUpButton() {
-        signUpButton = new JButton("Create New Account");
+        JButton signUpButton = new JButton("Create New Account");
         signUpButton.setBounds(screenWidth / 2 - signUpButton.getPreferredSize().width / 2,
                 screenHeight / 2 + 5 * signUpButton.getPreferredSize().height / 2 + screenHeight / 40,
                 signUpButton.getPreferredSize().width, signUpButton.getPreferredSize().height);
@@ -112,6 +110,7 @@ public class LoginPanel extends GamePanel {
         signUpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(signUpButton);
                 String username = usernameField.getText();
                 String password = passwordField.getText();
 

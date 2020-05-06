@@ -146,10 +146,10 @@ public class User{
         return hasHero(hero.toString());
     }
 
-    public boolean hasHero(String hero){
+    public boolean hasHero(String hero) {
         for (Hero userHero :
-             this.heroes) {
-            if (userHero.getClass().equals(hero)){
+                this.heroes) {
+            if (userHero.getClass().equals(hero)) {
                 return true;
             }
         }

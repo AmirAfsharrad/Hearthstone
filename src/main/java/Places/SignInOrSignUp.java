@@ -25,11 +25,6 @@ public class SignInOrSignUp extends Place {
         return "SignInOrSignUp{}";
     }
 
-    @Override
-    public void defaultResponse(){
-        RespondToUser.respond("already have an account? (y/n)");
-    }
-
     public void createNewAccount(String username, String password) throws IOException {
         User newUser = new User(username, password);
         newUser = UserDataHandler.add(newUser);

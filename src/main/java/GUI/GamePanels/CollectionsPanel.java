@@ -6,9 +6,9 @@ import Cards.Deck;
 import GUI.Events.*;
 import GUI.Listeners.*;
 import GameHandler.GameState;
+import Logger.Logger;
 import Places.*;
 import Utilities.GrayscaleImage;
-import org.graalvm.compiler.phases.common.RemoveValueProxyPhase;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -27,37 +27,23 @@ public class CollectionsPanel extends GamePanel {
     private Deck currentDeck;
     private String currentDeckPanelCard;
     private JPanel cardsPanel;
-    private JPanel buttonsPanel;
-    private JPanel heroesButtonsPanel;
-    private JPanel cardsContainer;
-    private JPanel searchPanel;
-    private JPanel doesOwnPanel;
     private JPanel cardsOfDeckPanelAllCards;
     private JPanel cardsOfDeckPanelOptions;
-    ;
-    private JPanel listOfDecksPanelOptions;
     private JPanel listOfDecksPanelAllDecks;
-    private JButton newDeck;
     private JButton deckNameButton;
-    private JPanel buttonsContainer;
-    private JPanel heroesButtonsContainer;
-    private JPanel manaFilterPanel;
-    private JPanel manaFilterContainer;
     private JPanel bottomButtonsPanel;
     private JPanel backAndExitButtonsPanel;
     private JPanel decksPanel;
     private JPanel listOfDecksPanel;
     private JPanel cardsOfDeckPanel;
-    private JPanel decksContainer;
     private CardLayout cardLayout;
     private JTextField searchField;
     private JRadioButton[] manaButtons;
     private JRadioButton[] heroesButtons;
     private JRadioButton[] doesOwnButtons;
     private JScrollPane cardsScrollPane;
-    private JScrollPane decksScrollPane;
     private ChangePlaceListener changePlaceListener;
-    private CollectionsFilterListener collectionsFilterListener;
+    private FilterListener filterListener;
     private CreateDeckListener createDeckListener;
     private ChangeDeckHeroListener changeDeckHeroListener;
     private ActionListener collectionsFilterActionListener;
@@ -71,7 +57,6 @@ public class CollectionsPanel extends GamePanel {
     private int cardHeight = 435;
     private int buttonWidth = 200;
     private int deckButtonHeight = 75;
-    private int cardButtonHeight = 20;
     private String[] heroesNames = {"all", "Neutral", "Mage", "Warlock", "Rogue", "Paladin", "Priest"};
     private String[] doesOwnButtonsNames = {"all", "owned", "not owned"};
 
@@ -89,11 +74,11 @@ public class CollectionsPanel extends GamePanel {
         collectionsFilterActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                CollectionsFilterEvent collectionsFilterEvent = new CollectionsFilterEvent
+                FilterEvent filterEvent = new FilterEvent
                         (this, getSelectedManaButton(), getSelectedHeroButton(),
                                 searchField.getText(), getSelectedDoesOwnButton());
-                if (collectionsFilterListener != null) {
-                    collectionsFilterListener.CollectionsFilterOccurred(collectionsFilterEvent);
+                if (filterListener != null) {
+                    filterListener.filterOccurred(filterEvent);
                 }
                 try {
                     drawListOfCards(Collections.getCollections().getDisplayedCards());
@@ -120,7 +105,7 @@ public class CollectionsPanel extends GamePanel {
     }
 
     private void initManaFilterPanel() {
-        manaFilterPanel = new JPanel();
+        JPanel manaFilterPanel = new JPanel();
         manaFilterPanel.setLayout(new GridLayout(1, 0, 0, 0));
 
         JLabel manaFilterLabel = new JLabel("Filter by manas");
@@ -140,7 +125,7 @@ public class CollectionsPanel extends GamePanel {
             manaButtons[i].addActionListener(collectionsFilterActionListener);
         }
 
-        manaFilterContainer = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        JPanel manaFilterContainer = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
         manaFilterContainer.add(manaFilterLabel);
         manaFilterContainer.add(manaFilterPanel);
 
@@ -148,7 +133,7 @@ public class CollectionsPanel extends GamePanel {
     }
 
     private void initButtonsPanel() {
-        heroesButtonsPanel = new JPanel();
+        JPanel heroesButtonsPanel = new JPanel();
         heroesButtonsPanel.setLayout(new GridLayout(1, 0, 0, 0));
 
         JLabel buttonsFilterLabel = new JLabel("Filter by heroes");
@@ -165,18 +150,18 @@ public class CollectionsPanel extends GamePanel {
         }
         heroesButtons[0].setSelected(true);
 
-        heroesButtonsContainer = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        JPanel heroesButtonsContainer = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
         heroesButtonsContainer.add(buttonsFilterLabel);
         heroesButtonsContainer.add(heroesButtonsPanel);
 
-        searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
         searchField = new JTextField(20);
         JButton searchButton = new JButton("search");
         searchButton.addActionListener(collectionsFilterActionListener);
         searchPanel.add(searchField);
         searchPanel.add(searchButton);
 
-        doesOwnPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        JPanel doesOwnPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
         doesOwnButtons = new JRadioButton[3];
         ButtonGroup doesOwnButtonGroup = new ButtonGroup();
         for (int i = 0; i < 3; i++) {
@@ -187,7 +172,7 @@ public class CollectionsPanel extends GamePanel {
         }
         doesOwnButtons[0].setSelected(true);
 
-        buttonsPanel = new JPanel(new BorderLayout());
+        JPanel buttonsPanel = new JPanel(new BorderLayout());
         buttonsPanel.add(heroesButtonsContainer, BorderLayout.WEST);
         buttonsPanel.add(searchPanel, BorderLayout.CENTER);
         buttonsPanel.add(doesOwnPanel, BorderLayout.EAST);
@@ -199,7 +184,7 @@ public class CollectionsPanel extends GamePanel {
         cardsPanel = new JPanel();
         cardsPanel.setOpaque(false);
         cardsPanel.setLayout(new GridLayout(0, 3, 50, 50));
-        cardsContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 100, 100));
+        JPanel cardsContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 100, 100));
         cardsContainer.add(cardsPanel);
 
         JViewport viewport = new backgroundJViewport("card list bg.jpg");
@@ -232,7 +217,7 @@ public class CollectionsPanel extends GamePanel {
     private void initListOfDecksPanel() throws IOException {
         System.out.println("initListOfDecksPanel");
         listOfDecksPanel = new JPanel(new BorderLayout());
-        listOfDecksPanelOptions = new JPanel(new GridLayout(0, 1, 0, 5));
+        JPanel listOfDecksPanelOptions = new JPanel(new GridLayout(0, 1, 0, 5));
         listOfDecksPanelAllDecks = new JPanel(new GridLayout(0, 1, 0, 5));
         JPanel listOfDecksPanelAllDecksContainer = new JPanel(new FlowLayout(FlowLayout.RIGHT, 0, 0));
         listOfDecksPanelAllDecksContainer.add(listOfDecksPanelAllDecks);
@@ -243,11 +228,12 @@ public class CollectionsPanel extends GamePanel {
 
         drawDecks();
 
-        newDeck = new JButton("New Deck");
+        JButton newDeck = new JButton("New Deck");
         newDeck.setPreferredSize(new Dimension(buttonWidth, 2 * deckButtonHeight / 3));
         newDeck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(newDeck);
                 CreateDeckEvent createDeckEvent = new CreateDeckEvent(this);
                 if (createDeckListener != null) {
                     createDeckListener.CreateDeckOccurred(createDeckEvent);
@@ -281,8 +267,8 @@ public class CollectionsPanel extends GamePanel {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
+                    Logger.buttonPressLog(button);
                     currentDeck = deck;
-//                    initCardsOfDeckPanel();
                     cardLayout.show(decksPanel, "cards");
                     currentDeckPanelCard = "cards";
                     drawCardsOfDeck();
@@ -341,6 +327,7 @@ public class CollectionsPanel extends GamePanel {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
+                    Logger.buttonPressLog(button);
                     RemoveCardFromDeckEvent removeCardFromDeckEvent = new RemoveCardFromDeckEvent(this, card, currentDeck);
                     if (removeCardFromDeckListener != null) {
                         removeCardFromDeckListener.removeCardFromDeckOccurred(removeCardFromDeckEvent);
@@ -360,6 +347,7 @@ public class CollectionsPanel extends GamePanel {
         backToDecksMenu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(backToDecksMenu);
                 cardLayout.show(decksPanel, "decks");
                 currentDeckPanelCard = "decks";
                 revalidate();
@@ -371,6 +359,7 @@ public class CollectionsPanel extends GamePanel {
         renameDeck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(renameDeck);
                 DeckRenameEvent deckRenameEvent = new DeckRenameEvent(this, currentDeck);
                 if (deckRenameListener != null) {
                     deckRenameListener.deckRenameOccurred(deckRenameEvent);
@@ -392,6 +381,7 @@ public class CollectionsPanel extends GamePanel {
         changeHero.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(changeHero);
                 ChangeDeckHeroEvent changeDeckHeroEvent = new ChangeDeckHeroEvent(this, currentDeck);
                 if (changeDeckHeroListener != null) {
                     changeDeckHeroListener.changeDeckHeroOccurred(changeDeckHeroEvent);
@@ -413,6 +403,7 @@ public class CollectionsPanel extends GamePanel {
         removeDeck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(removeDeck);
                 RemoveDeckEvent removeDeckEvent = new RemoveDeckEvent(this, currentDeck);
                 if (removeDeckListener != null) {
                     removeDeckListener.removeDeckOccurred(removeDeckEvent);
@@ -431,6 +422,7 @@ public class CollectionsPanel extends GamePanel {
         setAsSelected.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(setAsSelected);
                 SetDeckAsSelectedEvent setDeckAsSelectedEvent = new SetDeckAsSelectedEvent(this, currentDeck);
                 if (setDeckAsSelectedListener != null) {
                     setDeckAsSelectedListener.setDeckAsSelectedOccurred(setDeckAsSelectedEvent);
@@ -451,6 +443,7 @@ public class CollectionsPanel extends GamePanel {
         Play.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(Play);
                 SetDeckAsSelectedEvent setDeckAsSelectedEvent = new SetDeckAsSelectedEvent(this, currentDeck);
                 if (setDeckAsSelectedListener != null) {
                     setDeckAsSelectedListener.setDeckAsSelectedOccurred(setDeckAsSelectedEvent);
@@ -489,6 +482,7 @@ public class CollectionsPanel extends GamePanel {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(button);
                 ChangePlaceEvent changePlaceEvent = new ChangePlaceEvent(this, MainMenu.getMainMenu());
                 if (changePlaceListener != null) {
                     try {
@@ -504,10 +498,10 @@ public class CollectionsPanel extends GamePanel {
 
     void initExitButton() {
         JButton button = new JButton("Exit");
-//        button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(button);
                 ExitEvent exitEvent = new ExitEvent(this);
                 if (exitListener != null) {
                     exitListener.exitEventOccurred(exitEvent);
@@ -525,9 +519,6 @@ public class CollectionsPanel extends GamePanel {
         }
 
         cardsPanel.removeAll();
-//        if (cards.size() == 0) {
-//            cardsPanel.add(new CardButton);
-//        }
         for (Card card : cards) {
             CardButton button = new CardButton(card);
             button.setPreferredSize(new Dimension(cardWidth, cardHeight));
@@ -548,6 +539,7 @@ public class CollectionsPanel extends GamePanel {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
+                    Logger.buttonPressLog(button);
                     AddCardToDeckEvent addCardToDeckEvent = new AddCardToDeckEvent(this, button.getCard(), currentDeck);
                     if (addCardToDeckListener != null) {
                         if (currentDeckPanelCard.equals("cards") && currentDeck != null) {
@@ -556,7 +548,6 @@ public class CollectionsPanel extends GamePanel {
                             Store.getStore().sellOrBuyCard(button.getCard());
                         }
                     }
-
                     drawCardsOfDeck();
                     revalidate();
                     repaint();
@@ -626,8 +617,8 @@ public class CollectionsPanel extends GamePanel {
         this.exitListener = exitListener;
     }
 
-    public void setCollectionsFilterListener(CollectionsFilterListener collectionsFilterListener) {
-        this.collectionsFilterListener = collectionsFilterListener;
+    public void setFilterListener(FilterListener filterListener) {
+        this.filterListener = filterListener;
     }
 
     public void setCreateDeckListener(CreateDeckListener createDeckListener) {

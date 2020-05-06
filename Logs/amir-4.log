@@ -1,0 +1,171 @@
+USER: amir
+CREATED_AT: 2020-05-06T17:37:55.561608200
+PASSWORD: 1574ad62d48a37f847699d7d2157105a5a5fd6ed323a3497fa41c7731229bf23
+DELETED_AT: ----------
+
+sign up, 2020-05-06T17:37:55.617595900, amir user created
+Button Pressed, 2020-05-06T17:38:06.003323400, null
+Button Pressed, 2020-05-06T17:38:30.577888600, Goldshire Footman
+Button Pressed, 2020-05-06T17:38:38.850153800, null
+Create New Deck, 2020-05-06T17:38:38.851109900, New Deck 1
+Button Pressed, 2020-05-06T17:38:57.925524400, null
+Create New Deck, 2020-05-06T17:38:57.926516800, New Deck 2
+Button Pressed, 2020-05-06T17:39:04.926495, null
+Button Pressed, 2020-05-06T17:39:09.821255100, null
+Rename Deck, 2020-05-06T17:39:15.435877600, Amirhossein
+Button Pressed, 2020-05-06T17:39:24.632199300, Shieldbearer
+Add Card to Deck, 2020-05-06T17:39:24.634201900, Shieldbearer -> Cards.Deck@4c9f8f4c
+Button Pressed, 2020-05-06T17:39:43.750763100, Shieldbearer
+Add Card to Deck, 2020-05-06T17:39:43.751258900, Shieldbearer -> Cards.Deck@4c9f8f4c
+Button Pressed, 2020-05-06T17:39:44.751032500, Stonetusk Boar
+Add Card to Deck, 2020-05-06T17:39:44.751531500, Stonetusk Boar -> Cards.Deck@4c9f8f4c
+Button Pressed, 2020-05-06T17:39:45.734352700, Goldshire Footman
+Add Card to Deck, 2020-05-06T17:39:45.735343500, Goldshire Footman -> Cards.Deck@4c9f8f4c
+Button Pressed, 2020-05-06T17:39:48.165276, Depth Charge
+Add Card to Deck, 2020-05-06T17:39:48.165773400, Depth Charge -> Cards.Deck@4c9f8f4c
+Button Pressed, 2020-05-06T17:39:49.571804700, null
+Remove Card from Deck, 2020-05-06T17:39:49.572795900, Shieldbearer -> Cards.Deck@4c9f8f4c
+Button Pressed, 2020-05-06T17:40:05.718301300, null
+Deck Set Hero, 2020-05-06T17:40:09.079401900, Cards.Deck@4c9f8f4c<-Paladin
+Button Pressed, 2020-05-06T17:40:14.776190, null
+Button Pressed, 2020-05-06T17:40:41.531596900, null
+Button Pressed, 2020-05-06T17:40:43.510352900, null
+Button Pressed, 2020-05-06T17:41:08.381535700, Stormwind Champion
+Button Pressed, 2020-05-06T17:41:16.955893100, null
+Button Pressed, 2020-05-06T17:41:18.408878700, null
+Button Pressed, 2020-05-06T17:41:23.743875600, Lord of the Arena
+Sell Card, 2020-05-06T17:41:25.040569, Lord of the Arena
+system response, 2020-05-06T17:41:26.476973800, You have successfully sold Lord of the Arena.
+Button Pressed, 2020-05-06T17:41:49.506987800, Novice Engineer
+Buy Card, 2020-05-06T17:41:51.842831, Novice Engineer
+system response, 2020-05-06T17:41:55.621192500, You have successfully purchased Novice Engineer.
+Button Pressed, 2020-05-06T17:42:55.919126, null
+Button Pressed, 2020-05-06T17:42:59.228313600, null
+Button Pressed, 2020-05-06T17:43:00.933164500, null
+Button Pressed, 2020-05-06T17:43:06.585412200, null
+Button Pressed, 2020-05-06T17:43:10.121743, null
+Button Pressed, 2020-05-06T17:43:11.443500700, null
+Button Pressed, 2020-05-06T17:43:17.222356800, null
+Button Pressed, 2020-05-06T17:43:18.613927700, null
+Button Pressed, 2020-05-06T17:43:19.470194900, null
+Button Pressed, 2020-05-06T17:43:27.614617900, null
+Button Pressed, 2020-05-06T17:43:34.828334600, Goldshire Footman
+Card Played, 2020-05-06T17:43:34.829327, Goldshire Footman
+Button Pressed, 2020-05-06T17:43:38.547596100, end turn
+Next Turn, 2020-05-06T17:43:38.549030200, 
+Button Pressed, 2020-05-06T17:43:42.734617700, end turn
+Next Turn, 2020-05-06T17:43:42.735123, 
+Button Pressed, 2020-05-06T17:43:52.203617900, Shieldbearer
+Card Played, 2020-05-06T17:43:52.204120800, Shieldbearer
+Button Pressed, 2020-05-06T17:44:01.726119600, Depth Charge
+Card Played, 2020-05-06T17:44:01.726579400, Depth Charge
+Button Pressed, 2020-05-06T17:44:09.145464100, end turn
+Next Turn, 2020-05-06T17:44:09.145960300, 
+Button Pressed, 2020-05-06T17:44:09.345446800, end turn
+Next Turn, 2020-05-06T17:44:09.345942700, 
+Button Pressed, 2020-05-06T17:44:10.282996800, end turn
+Next Turn, 2020-05-06T17:44:10.283978100, 
+Button Pressed, 2020-05-06T17:44:10.454602300, end turn
+Next Turn, 2020-05-06T17:44:10.455098500, 
+Button Pressed, 2020-05-06T17:44:16.336231700, Stonetusk Boar
+Card Played, 2020-05-06T17:44:16.336751600, Stonetusk Boar
+Button Pressed, 2020-05-06T17:44:20.456034400, null
+Button Pressed, 2020-05-06T17:44:26.557192200, null
+Button Pressed, 2020-05-06T17:44:28.932054, null
+log out, 2020-05-06T17:44:28.933545300, log out of amir
+system response, 2020-05-06T17:44:28.938504100, Signed out of user amir
+login, 2020-05-06T18:08:35.639898300,  as amir
+Button Pressed, 2020-05-06T18:08:46.295776600, null
+Button Pressed, 2020-05-06T18:15:03.148966300, Shieldbearer
+Button Pressed, 2020-05-06T18:15:13.456139500, Stonetusk Boar
+Button Pressed, 2020-05-06T18:15:17.592151500, Goldshire Footman
+Button Pressed, 2020-05-06T18:15:25.197470700, Bloodfen Raptor
+Button Pressed, 2020-05-06T18:15:46.319760, Lord of the Arena
+Button Pressed, 2020-05-06T18:15:49.652718400, null
+quit, 2020-05-06T18:18:17.434823500, quit the game
+login, 2020-05-06T18:18:31.312654400,  as amir
+Button Pressed, 2020-05-06T18:18:34.788045, null
+quit, 2020-05-06T18:19:03.347895, quit the game
+login, 2020-05-06T18:19:30.942810700,  as amir
+Button Pressed, 2020-05-06T18:19:36.439996900, Collections
+Button Pressed, 2020-05-06T18:19:42.301670500, Amirhossein
+Button Pressed, 2020-05-06T18:19:47.039404700, Depth Charge
+Remove Card from Deck, 2020-05-06T18:19:47.040397100, Depth Charge -> Cards.Deck@184725c7
+quit, 2020-05-06T18:19:51.218648400, quit the game
+login, 2020-05-06T18:21:00.035675,  as amir
+Button Pressed, 2020-05-06T18:21:05.684661500, Collections
+Button Pressed, 2020-05-06T18:21:10.394142500, New Deck 1
+Button Pressed, 2020-05-06T18:21:14.424825700, 
+Add Card to Deck, 2020-05-06T18:21:14.425817700, Shieldbearer -> New Deck 1
+Button Pressed, 2020-05-06T18:21:17.583210100, 
+Add Card to Deck, 2020-05-06T18:21:17.583705100, Stonetusk Boar -> New Deck 1
+Button Pressed, 2020-05-06T18:21:17.821623700, 
+Add Card to Deck, 2020-05-06T18:21:17.822593100, Stonetusk Boar -> New Deck 1
+Button Pressed, 2020-05-06T18:21:18.997395900, 
+Button Pressed, 2020-05-06T18:21:33.135495900, 
+Add Card to Deck, 2020-05-06T18:21:33.136004700, Goldshire Footman -> New Deck 1
+quit, 2020-05-06T18:22:15.256999700, quit the game
+login, 2020-05-06T18:23:04.382928300,  as amir
+Button Pressed, 2020-05-06T18:23:05.679404400, Collections
+Button Pressed, 2020-05-06T18:23:12.044086600, Stonetusk Boar
+Button Pressed, 2020-05-06T18:23:17.378035100, Amirhossein
+Button Pressed, 2020-05-06T18:23:19.018946100, Stonetusk Boar
+Add Card to Deck, 2020-05-06T18:23:19.019906500, Stonetusk Boar -> Amirhossein
+Button Pressed, 2020-05-06T18:23:24.842824200, <html><center> Remove <br /> Deck </center></html>
+Remove Deck, 2020-05-06T18:23:24.844333800, Amirhossein
+Button Pressed, 2020-05-06T18:23:26.311853200, New Deck 1
+Button Pressed, 2020-05-06T18:23:50.921132500, Stormwind Champion
+Add Card to Deck, 2020-05-06T18:23:50.921593500, Stormwind Champion -> New Deck 1
+Button Pressed, 2020-05-06T18:23:51.788239400, Stormwind Champion
+Add Card to Deck, 2020-05-06T18:23:51.789228600, Stormwind Champion -> New Deck 1
+Button Pressed, 2020-05-06T18:23:53.137296200, Novice Engineer
+Add Card to Deck, 2020-05-06T18:23:53.138287, Novice Engineer -> New Deck 1
+Button Pressed, 2020-05-06T18:23:53.271218800, Novice Engineer
+Add Card to Deck, 2020-05-06T18:23:53.272207600, Novice Engineer -> New Deck 1
+Button Pressed, 2020-05-06T18:23:54.471873600, Depth Charge
+Add Card to Deck, 2020-05-06T18:23:54.472338600, Depth Charge -> New Deck 1
+Button Pressed, 2020-05-06T18:23:54.473826400, Depth Charge
+Add Card to Deck, 2020-05-06T18:23:54.474322900, Depth Charge -> New Deck 1
+Button Pressed, 2020-05-06T18:23:57.840999400, Living Monument
+Add Card to Deck, 2020-05-06T18:23:57.841495600, Living Monument -> New Deck 1
+Button Pressed, 2020-05-06T18:23:57.978887300, Living Monument
+Add Card to Deck, 2020-05-06T18:23:57.979901, Living Monument -> New Deck 1
+Button Pressed, 2020-05-06T18:24:02.976247500, Shadowblade
+Buy Card, 2020-05-06T18:24:04.219194800, Shadowblade
+system response, 2020-05-06T18:24:06.639630, You have successfully purchased Shadowblade.
+Button Pressed, 2020-05-06T18:24:10.917171200, New Deck 1
+Button Pressed, 2020-05-06T18:24:24.783395200, Shadowblade
+Button Pressed, 2020-05-06T18:24:33.478935700, Play
+Button Pressed, 2020-05-06T18:24:37.225084300, mana jump
+Button Pressed, 2020-05-06T18:24:52.143170700, Novice Engineer
+Card Played, 2020-05-06T18:24:52.144658900, Novice Engineer
+Button Pressed, 2020-05-06T18:24:55.268149600, end turn
+Next Turn, 2020-05-06T18:24:55.269139600, 
+Button Pressed, 2020-05-06T18:24:56.174030600, end turn
+Next Turn, 2020-05-06T18:24:56.174525600, 
+Button Pressed, 2020-05-06T18:24:56.633820200, end turn
+Next Turn, 2020-05-06T18:24:56.634812200, 
+Button Pressed, 2020-05-06T18:24:57.601703300, end turn
+Next Turn, 2020-05-06T18:24:57.602696500, 
+Button Pressed, 2020-05-06T18:24:57.808905100, end turn
+Next Turn, 2020-05-06T18:24:57.809362900, 
+Button Pressed, 2020-05-06T18:24:58.043084700, end turn
+Next Turn, 2020-05-06T18:24:58.043581300, 
+Button Pressed, 2020-05-06T18:24:59.109341600, end turn
+Next Turn, 2020-05-06T18:24:59.109842600, 
+Button Pressed, 2020-05-06T18:24:59.373748200, end turn
+Next Turn, 2020-05-06T18:24:59.374740600, 
+Button Pressed, 2020-05-06T18:24:59.649096900, end turn
+Next Turn, 2020-05-06T18:24:59.650088900, 
+Button Pressed, 2020-05-06T18:24:59.671416600, end turn
+Next Turn, 2020-05-06T18:24:59.671912800, 
+Button Pressed, 2020-05-06T18:25:13.827754200, Depth Charge
+Card Played, 2020-05-06T18:25:13.828416700, Depth Charge
+Button Pressed, 2020-05-06T18:25:23.853823500, Stonetusk Boar
+Card Played, 2020-05-06T18:25:23.854799700, Stonetusk Boar
+Button Pressed, 2020-05-06T18:25:26.402147200, Stormwind Champion
+Card Played, 2020-05-06T18:25:26.403139600, Stormwind Champion
+Button Pressed, 2020-05-06T18:25:28.680366, Stormwind Champion
+Button Pressed, 2020-05-06T18:25:30.224045700, Stormwind Champion
+Button Pressed, 2020-05-06T18:25:31.353019, Stormwind Champion
+quit, 2020-05-06T18:25:41.512822500, quit the game

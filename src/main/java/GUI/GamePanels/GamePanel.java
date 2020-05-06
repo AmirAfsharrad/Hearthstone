@@ -1,7 +1,6 @@
 package GUI.GamePanels;
 
 import javax.swing.*;
-import java.awt.*;
 
 public abstract class GamePanel extends JPanel {
     int screenWidth;

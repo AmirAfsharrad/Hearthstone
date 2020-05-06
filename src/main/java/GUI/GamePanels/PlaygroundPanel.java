@@ -4,6 +4,7 @@ import Cards.Card;
 import GUI.Events.*;
 import GUI.Listeners.*;
 import GameHandler.GameHandler;
+import Logger.Logger;
 import Places.MainMenu;
 import Places.Playground;
 import Utilities.ImageLoader;
@@ -21,8 +22,6 @@ import java.util.TimerTask;
 
 public class PlaygroundPanel extends GamePanel {
     private int cardCanGetLargeOwner = -1;
-    private BackgroundedPanel heroPanel;
-    private BackgroundedPanel heroPowerPanel;
     private BackgroundedPanel[] handPanels;
     private BackgroundedPanel[] largerHandPanels;
     private BackgroundedPanel[] playCardsOdd;
@@ -30,10 +29,6 @@ public class PlaygroundPanel extends GamePanel {
     private JButton backToMainMenuButton;
     private JButton exitButton;
     private BackgroundedPanel[] manas;
-    private JPanel gameLog;
-    private JPanel gameLogContainer;
-    private JButton endTurnButton;
-    private JPanel numberOfDeckCards;
     private BackgroundedPanel[] lostManas;
     private ExitListener exitListener;
     private EndTurnListener endTurnListener;
@@ -42,7 +37,6 @@ public class PlaygroundPanel extends GamePanel {
 
     public PlaygroundPanel(int screenWidth, int screenHeight) {
         super(screenWidth, screenHeight);
-//        gameLogContainer.setVisible(false);
         draw();
     }
 
@@ -58,12 +52,10 @@ public class PlaygroundPanel extends GamePanel {
         initEndTrunButton();
         drawManasPanel();
         drawPlantedCards();
-
-//        playCardsOdd[0].setBackgroundImagePath("cards/Sap.png");
     }
 
     void initEndTrunButton() {
-        endTurnButton = new JButton("");
+        JButton endTurnButton = new JButton("");
         endTurnButton.setContentAreaFilled(false);
         endTurnButton.setBorder(BorderFactory.createEmptyBorder());
         endTurnButton.setBounds((int) (0.85 * screenWidth),
@@ -71,6 +63,7 @@ public class PlaygroundPanel extends GamePanel {
         endTurnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog("end turn");
                 EndTurnEvent endTurnEvent = new EndTurnEvent(this);
                 if (endTurnListener != null) {
                     endTurnListener.endTurnOccurred(endTurnEvent);
@@ -173,7 +166,7 @@ public class PlaygroundPanel extends GamePanel {
     }
 
     private void showNumberOfDeckCards() {
-        numberOfDeckCards = new JPanel();
+        JPanel numberOfDeckCards = new JPanel();
         numberOfDeckCards.setBounds((int) (0.92 * screenWidth), (int) (0.575 * screenHeight), 30, 30);
         JLabel label = new JLabel(String.valueOf(Playground.getPlayground().getRemainingDeckSize()));
         label.setFont(new Font("Arial", Font.BOLD, 15));
@@ -186,8 +179,8 @@ public class PlaygroundPanel extends GamePanel {
 
     private void drawGameLog() {
         JPanel outer = new JPanel();
-        gameLogContainer = new JPanel(new BorderLayout());
-        gameLog = new JPanel(new GridLayout(0, 1, 0, 5));
+        JPanel gameLogContainer = new JPanel(new BorderLayout());
+        JPanel gameLog = new JPanel(new GridLayout(0, 1, 0, 5));
         for (String log : Playground.getPlayground().getGameLog()) {
             gameLog.add(new JLabel(log));
         }
@@ -200,37 +193,6 @@ public class PlaygroundPanel extends GamePanel {
         outer.setBounds(5, (int) (0.4 * screenHeight), 90, 120);
         outer.add(scrollPane);
         this.add(outer);
-
-//        gameLog.addMouseListener(new MouseListener() {
-//            @Override
-//            public void mouseClicked(MouseEvent mouseEvent) {
-//            }
-//
-//            @Override
-//            public void mousePressed(MouseEvent mouseEvent) {
-//            }
-//
-//            @Override
-//            public void mouseReleased(MouseEvent mouseEvent) {
-//            }
-//
-//            @Override
-//            public void mouseEntered(MouseEvent mouseEvent) {
-//                System.out.println("HEllooooo");
-//                gameLogContainer.setVisible(true);
-////                draw();
-//                revalidate();
-//                repaint();
-//            }
-//
-//            @Override
-//            public void mouseExited(MouseEvent mouseEvent) {
-//                gameLogContainer.setVisible(false);
-////                draw();
-//                revalidate();
-//                repaint();
-//            }
-//        });
     }
 
 
@@ -248,6 +210,7 @@ public class PlaygroundPanel extends GamePanel {
         handPanels[index].addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
+                Logger.buttonPressLog(handPanels[index], cardName);
                 PlayCardEvent playCardEvent = new PlayCardEvent(this, GameHandler.getGameHandler().getCard(cardName));
                 if (playCardEventListener != null) {
                     playCardEventListener.PlayCardOccurred(playCardEvent);
@@ -310,12 +273,12 @@ public class PlaygroundPanel extends GamePanel {
 
 
     private void initHeroPanel() {
-        heroPanel = new BackgroundedPanel("heroes/" + Playground.getPlayground().getHero() + ".png");
+        BackgroundedPanel heroPanel = new BackgroundedPanel("heroes/" + Playground.getPlayground().getHero() + ".png");
         heroPanel.setScaleFactor(0.75, 0.6);
         heroPanel.setDrawLocation((int) (0.491 * screenWidth), (int) (0.67 * screenHeight), 210, 210);
         this.add(heroPanel);
 
-        heroPowerPanel = new BackgroundedPanel("hero powers/" +
+        BackgroundedPanel heroPowerPanel = new BackgroundedPanel("hero powers/" +
                 Playground.getPlayground().getHero().getHeroPower() + ".png");
         heroPowerPanel.setScaleFactor(0.25, 0.25);
         heroPowerPanel.setDrawLocation((int) (0.6 * screenWidth), (int) (0.7 * screenHeight), 210, 210);
@@ -335,6 +298,7 @@ public class PlaygroundPanel extends GamePanel {
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(exitButton);
                 ExitEvent exitEvent = new ExitEvent(this);
                 if (exitListener != null) {
                     exitListener.exitEventOccurred(exitEvent);
@@ -344,13 +308,14 @@ public class PlaygroundPanel extends GamePanel {
     }
 
     private void initBackToMainMenuButton() {
-        exitButton = new JButton("Main Menu");
-        exitButton.setBounds(10, (int) (0.87 * screenHeight), 110, 30);
-        this.add(exitButton);
+        backToMainMenuButton = new JButton("Main Menu");
+        backToMainMenuButton.setBounds(10, (int) (0.87 * screenHeight), 110, 30);
+        this.add(backToMainMenuButton);
 
-        exitButton.addActionListener(new ActionListener() {
+        backToMainMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Logger.buttonPressLog(backToMainMenuButton);
                 ChangePlaceEvent changePlaceEvent = new ChangePlaceEvent(this, MainMenu.getMainMenu());
                 if (changePlaceListener != null) {
                     try {

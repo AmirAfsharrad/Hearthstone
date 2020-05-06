@@ -1,5 +1,7 @@
 package Places;
 
+import Logger.Logger;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -16,7 +18,6 @@ public class InfoPassive extends Place {
     }
 
     public ArrayList<String> getPassives(int n) {
-        System.out.println("here");
         ArrayList<String> out = new ArrayList<>();
         boolean[] check = new boolean[passives.length];
         Random random = new Random();
@@ -29,12 +30,7 @@ public class InfoPassive extends Place {
                 count++;
             }
         }
-        System.out.println(out);
         return out;
     }
 
-    @Override
-    public void defaultResponse() {
-
-    }
 }

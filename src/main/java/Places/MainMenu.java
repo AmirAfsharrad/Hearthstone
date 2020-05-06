@@ -42,9 +42,4 @@ public class MainMenu extends Place {
         return "MainMenu";
     }
 
-    @Override
-    public void defaultResponse(){
-        RespondToUser.respond("You are in main menu. Where to go?");
-    }
-
 }

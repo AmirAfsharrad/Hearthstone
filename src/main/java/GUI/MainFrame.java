@@ -14,17 +14,10 @@ import java.io.IOException;
 public class MainFrame extends JFrame {
     private JPanel panelCards;
     private CardLayout cardLayout = new CardLayout();
-    private LoginPanel loginPanel;
-    private MainMenuPanel mainMenuPanel;
-    private StorePanel storePanel;
-    private CollectionsPanel collectionsPanel;
-    private PlaygroundPanel playgroundPanel;
-    private InfoPassivePanel infoPassivePanel;
     private ChangePlaceListener changePlaceListener = new ChangePlaceListener() {
         @Override
         public void ChangePlaceOccurred(ChangePlaceEvent changePlaceEvent) throws IOException {
             GameState.getGameState().setCurrentPlace(changePlaceEvent.getDestination());
-//            updatePage(changePlaceEvent.getDestination());
         }
     };
     private ExitListener exitListener = new ExitListener() {
@@ -50,7 +43,7 @@ public class MainFrame extends JFrame {
 //        initPlaygroundPanel();
 
         this.add(panelCards);
-        System.out.println(this.getSize().width+ "  " + this.getSize().height);
+        System.out.println(this.getSize().width + "  " + this.getSize().height);
 
         try {
             Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
@@ -64,7 +57,7 @@ public class MainFrame extends JFrame {
     }
 
     private void initLoginPanel() {
-        loginPanel = new LoginPanel(this.getSize().width, this.getSize().height);
+        LoginPanel loginPanel = new LoginPanel(this.getSize().width, this.getSize().height);
 //        1550 x 878
         loginPanel.setSignUpListener(new SignUpListener() {
             @Override
@@ -84,7 +77,7 @@ public class MainFrame extends JFrame {
     }
 
     private void initMainMenuPanel() throws IOException {
-        mainMenuPanel = new MainMenuPanel(this.getSize().width, this.getSize().height);
+        MainMenuPanel mainMenuPanel = new MainMenuPanel(this.getSize().width, this.getSize().height);
 
         mainMenuPanel.setLogoutListener(new LogoutListener() {
             @Override
@@ -101,7 +94,7 @@ public class MainFrame extends JFrame {
     }
 
     private void initInfoPassivePanel() throws IOException {
-        infoPassivePanel = new InfoPassivePanel(this.getSize().width, this.getSize().height);
+        InfoPassivePanel infoPassivePanel = new InfoPassivePanel(this.getSize().width, this.getSize().height);
         panelCards.add(infoPassivePanel, "InfoPassive");
         infoPassivePanel.setPassiveChosenListener(new PassiveChosenListener() {
             @Override
@@ -113,15 +106,15 @@ public class MainFrame extends JFrame {
     }
 
     private void initStorePanel() throws IOException {
-        storePanel = new StorePanel(this.getSize().width, this.getSize().height);
+        StorePanel storePanel = new StorePanel(this.getSize().width, this.getSize().height);
         storePanel.setChangePlaceListener(changePlaceListener);
         storePanel.setExitListener(exitListener);
-        storePanel.setCollectionsFilterListener(new CollectionsFilterListener() {
+        storePanel.setFilterListener(new FilterListener() {
             @Override
-            public void CollectionsFilterOccurred(CollectionsFilterEvent collectionsFilterEvent) {
-                Collections.getCollections().filterDisplayedCards(collectionsFilterEvent.getMana(),
-                        collectionsFilterEvent.getHeroClass(), collectionsFilterEvent.getSearchString(),
-                        collectionsFilterEvent.getDoesOwn());
+            public void filterOccurred(FilterEvent filterEvent) {
+                Store.getStore().filterDisplayedCards(filterEvent.getMana(),
+                        filterEvent.getHeroClass(), filterEvent.getSearchString(),
+                        filterEvent.getDoesOwn());
             }
         });
 
@@ -129,15 +122,15 @@ public class MainFrame extends JFrame {
     }
 
     private void initCollectionsPanel() throws IOException {
-        collectionsPanel = new CollectionsPanel(this.getSize().width, this.getSize().height);
+        CollectionsPanel collectionsPanel = new CollectionsPanel(this.getSize().width, this.getSize().height);
         collectionsPanel.setChangePlaceListener(changePlaceListener);
         collectionsPanel.setExitListener(exitListener);
-        collectionsPanel.setCollectionsFilterListener(new CollectionsFilterListener() {
+        collectionsPanel.setFilterListener(new FilterListener() {
             @Override
-            public void CollectionsFilterOccurred(CollectionsFilterEvent collectionsFilterEvent) {
-                Collections.getCollections().filterDisplayedCards(collectionsFilterEvent.getMana(),
-                        collectionsFilterEvent.getHeroClass(), collectionsFilterEvent.getSearchString(),
-                        collectionsFilterEvent.getDoesOwn());
+            public void filterOccurred(FilterEvent filterEvent) {
+                Collections.getCollections().filterDisplayedCards(filterEvent.getMana(),
+                        filterEvent.getHeroClass(), filterEvent.getSearchString(),
+                        filterEvent.getDoesOwn());
             }
         });
         collectionsPanel.setCreateDeckListener(new CreateDeckListener() {
@@ -183,14 +176,13 @@ public class MainFrame extends JFrame {
                 Collections.getCollections().setSelectedDeck(setDeckAsSelectedEvent.getDeck());
             }
         });
-        collectionsPanel.setChangePlaceListener(changePlaceListener);
 
         panelCards.add(collectionsPanel, "Collections");
     }
 
     private void initPlaygroundPanel() {
         Playground.getPlayground().initGame(GameState.getGameState().getUser().getSelectedDeck());
-        playgroundPanel = new PlaygroundPanel(this.getSize().width, this.getSize().height);
+        PlaygroundPanel playgroundPanel = new PlaygroundPanel(this.getSize().width, this.getSize().height);
         panelCards.add(playgroundPanel, "Playground");
         playgroundPanel.setEndTurnListener(new EndTurnListener() {
             @Override
@@ -208,24 +200,37 @@ public class MainFrame extends JFrame {
         });
     }
 
+    private void initStatusPanel() throws IOException {
+        StatusPanel statusPanel = new StatusPanel(this.getSize().width, this.getSize().height);
+        statusPanel.setChangePlaceListener(changePlaceListener);
+        statusPanel.setExitListener(exitListener);
+        panelCards.add(statusPanel, "Status");
+
+    }
+
     public void updatePage(Place place) throws IOException {
         if (place instanceof SignInOrSignUp) {
             cardLayout.show(panelCards, "SignInOrSignUp");
         } else if (place instanceof MainMenu) {
             cardLayout.show(panelCards, "MainMenu");
         } else if (place instanceof Store) {
+            Store.getStore().resetDisplayedCards();
             initStorePanel();
             cardLayout.show(panelCards, "Store");
         } else if (place instanceof Collections) {
+            Collections.getCollections().resetDisplayedCards();
             initCollectionsPanel();
             cardLayout.show(panelCards, "Collections");
         } else if (place instanceof Playground) {
             initPlaygroundPanel();
             cardLayout.show(panelCards, "Playground");
+        } else if (place instanceof Status) {
+            initStatusPanel();
+            cardLayout.show(panelCards, "Status");
         } else if (place instanceof InfoPassive) {
             if (GameState.getGameState().getUser().getSelectedDeck() == null) {
                 RespondToUser.respond("You have to select a deck to play!", true);
-                updatePage(Collections.getCollections());
+                GameState.getGameState().setCurrentPlace(Collections.getCollections());
                 return;
             }
             initInfoPassivePanel();

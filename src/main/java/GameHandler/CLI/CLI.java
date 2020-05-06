@@ -25,7 +25,6 @@ public class CLI {
         String command;
         while (true) {
             try {
-                currentPlace.defaultResponse();
                 command = GetResponseFromUser.getResponse(user);
 //                currentPlace = currentPlace.runCommand(command, user, currentPlace);
             } catch (Exception e) {

@@ -7,6 +7,7 @@ public class CardButton extends JButton {
 
     public CardButton(Card card) {
         this.card = card;
+        this.setName(card.getName());
     }
 
     public Card getCard() {

@@ -2,6 +2,7 @@ package GUI.GamePanels;
 
 import GUI.Events.PassiveChosenEvent;
 import GUI.Listeners.PassiveChosenListener;
+import Logger.Logger;
 import Places.InfoPassive;
 
 import javax.imageio.ImageIO;
@@ -16,9 +17,6 @@ import java.util.ArrayList;
 
 public class InfoPassivePanel extends GamePanel {
     private JPanel cardsPanel;
-    private JPanel cardsContainer;
-    private JLabel title;
-    private JScrollPane cardsScrollPane;
     private int cardWidth = 315;
     private int cardHeight = 435;
     private PassiveChosenListener passiveChosenListener;
@@ -34,13 +32,13 @@ public class InfoPassivePanel extends GamePanel {
         cardsPanel = new JPanel();
         cardsPanel.setOpaque(false);
         cardsPanel.setLayout(new GridLayout(0, 3, 50, 50));
-        cardsContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 100, 100));
+        JPanel cardsContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 100, 100));
         cardsContainer.setOpaque(false);
 
         drawListOfCards(InfoPassive.getInfoPassive().getPassives(3));
 
         Font font = new Font("Helvetica", Font.BOLD, 80);
-        title = new JLabel("Choose a Passive!");
+        JLabel title = new JLabel("Choose a Passive!");
         title.setFont(font);
         title.setForeground(Color.WHITE);
         BackgroundedPanel container = new BackgroundedPanel("passive bg.jpg");
@@ -57,7 +55,7 @@ public class InfoPassivePanel extends GamePanel {
 
     private void drawListOfCards(ArrayList<String> passives) throws IOException {
         for (String passive : passives) {
-            JButton button = new JButton();
+            JButton button = new JButton(passive);
             button.setPreferredSize(new Dimension(cardWidth, cardHeight));
             BufferedImage image = ImageIO.read(new File("Images/passives/" + passive + ".png"));
             ImageIcon imageIcon;
@@ -71,6 +69,7 @@ public class InfoPassivePanel extends GamePanel {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
+                    Logger.buttonPressLog(button);
                     PassiveChosenEvent passiveChosenEvent = new PassiveChosenEvent(this, passive);
                     if (passiveChosenListener != null) {
                         try {

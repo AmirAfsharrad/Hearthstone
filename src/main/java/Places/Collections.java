@@ -6,12 +6,12 @@ import GUI.Events.ChooseFromListEvent;
 import GUI.Events.GetTextEvent;
 import GUI.Listeners.ChooseFromListListener;
 import GUI.Listeners.GetTextListener;
-import GameHandler.*;
+import GameHandler.GameHandler;
+import GameHandler.GameState;
+import GameHandler.RespondToUser;
 import Heroes.Hero;
 import Heroes.HeroCreator;
 import Logger.Logger;
-import UserHandle.User;
-import Utilities.TextProcessingTools;
 
 import java.util.ArrayList;
 
@@ -20,7 +20,6 @@ public class Collections extends Place {
     private ArrayList<Card> displayedCards;
 
     private Collections() {
-//        displayedCards =
         setInstructionsPath("Data/Collections Commands.json");
         loadInstructions();
         displayedCards = new ArrayList<>();
@@ -29,6 +28,10 @@ public class Collections extends Place {
 
     public static Collections getCollections() {
         return collections;
+    }
+
+    public void resetDisplayedCards() {
+        filterDisplayedCards(-1, "all", "", "all");
     }
 
     public void createNewDeck() {
@@ -46,6 +49,7 @@ public class Collections extends Place {
             count++;
         }
         GameState.getGameState().getUser().addDeck(newDeckName);
+        Logger.log("Create New Deck", newDeckName);
     }
 
     public void setSelectedDeck(Deck deck) {
@@ -64,6 +68,7 @@ public class Collections extends Place {
                     }
                 }
                 deck.setName(newName);
+                Logger.log("Rename Deck", newName);
             }
         };
 
@@ -90,12 +95,14 @@ public class Collections extends Place {
             return;
         }
         deck.getCards().add(card);
+        Logger.log("Add Card to Deck", card + " -> " + deck);
     }
 
     public void removeCardFromDeck(Card card, Deck deck) {
         for (Card deckCard : deck.getCards()) {
             if (card.equals(deckCard)) {
                 deck.getCards().remove(card);
+                Logger.log("Remove Card from Deck", card + " -> " + deck);
                 return;
             }
         }
@@ -104,9 +111,8 @@ public class Collections extends Place {
     public void removeDeck(Deck deck) {
         for (Deck deck1 : GameState.getGameState().getUser().getDecks()) {
             if (deck.equals(deck1)) {
-                System.out.println(GameState.getGameState().getUser().getDecks().size());
                 GameState.getGameState().getUser().getDecks().remove(deck1);
-                System.out.println(GameState.getGameState().getUser().getDecks().size());
+                Logger.log("Remove Deck", deck.getName());
                 return;
             }
         }
@@ -126,6 +132,7 @@ public class Collections extends Place {
                     }
                 }
                 deck.setHero(hero);
+                Logger.log("Deck Set Hero", deck + "<-" + hero);
             }
         };
         RespondToUser.chooseFromListResponse("Choose a hero", listOfHeroes, chooseFromListListener);
@@ -157,10 +164,5 @@ public class Collections extends Place {
     @Override
     public String toString() {
         return "Collections";
-    }
-
-    @Override
-    public void defaultResponse() {
-        RespondToUser.respond("You are going through your collections. Run a command.");
     }
 }

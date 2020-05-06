@@ -3,12 +3,11 @@ package Places;
 import Cards.Card;
 import Cards.Deck;
 import GUI.Listeners.GeneralEventListener;
-import GameHandler.*;
 import GameHandler.GameHandler;
-import Heroes.Hero;
+import GameHandler.GameState;
+import GameHandler.RespondToUser;
 import Logger.Logger;
-import UserHandle.User;
-import Utilities.TextProcessingTools;
+import sun.rmi.runtime.Log;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,37 +15,45 @@ import java.util.EventObject;
 
 public class Store extends Place {
     private static Store store = new Store();
+    private ArrayList<Card> displayedCards;
 
     private Store() {
         setInstructionsPath("Data/Store Commands.json");
         loadInstructions();
+        displayedCards = new ArrayList<>();
+        filterDisplayedCards(-1, "all", "", "all");
     }
 
     public static Store getStore() {
         return store;
     }
 
-    public ArrayList<Card> sellCardsList() {
-        ArrayList<Card> sellCardsList = new ArrayList<>();
-        for (Card card :
-                GameState.getGameState().getUser().getCards()) {
-            if (GameState.getGameState().getUser().isForSale(card)) {
-                sellCardsList.add(card);
-            }
-        }
-        return sellCardsList;
+    public void resetDisplayedCards() {
+        filterDisplayedCards(-1, "all", "", "all");
     }
 
-    public ArrayList<Card> buyCardsList() {
-        ArrayList<Card> buyCardsList = new ArrayList<>();
-        for (String cardName :
-                GameHandler.getGameHandler().getAllCardNames()) {
-            if (!GameState.getGameState().getUser().hasCard(cardName)) {
-                buyCardsList.add(GameHandler.getGameHandler().getCard(cardName));
-            }
-        }
-        return buyCardsList;
+    public ArrayList<Card> getDisplayedCards() {
+        return displayedCards;
     }
+
+    public void filterDisplayedCards(int mana, String heroClass, String searchString, String doesOwn) {
+        displayedCards.clear();
+        for (String cardName : GameHandler.getGameHandler().getAllCardNames()) {
+            Card card = GameHandler.getGameHandler().getCard(cardName);
+            if (mana != -1 && card.getMana() != mana)
+                continue;
+            if (!heroClass.equals("all") && !card.getHeroClass().equals(heroClass))
+                continue;
+            if (!card.getName().toLowerCase().contains(searchString.toLowerCase()))
+                continue;
+            if (doesOwn.equals("buyable") && GameState.getGameState().getUser().hasCard(card))
+                continue;
+            if (doesOwn.equals("sellable") && !GameState.getGameState().getUser().isForSale(card))
+                continue;
+            displayedCards.add(card);
+        }
+    }
+
 
     public void sellOrBuyCard(Card card) {
         if (GameState.getGameState().getUser().hasCard(card)) {
@@ -55,6 +62,7 @@ public class Store extends Place {
             GeneralEventListener yesListener = new GeneralEventListener() {
                 @Override
                 public void eventOccurred(EventObject eventObject) throws IOException {
+                    Logger.log("Sell Card", card.getName());
                     sellCard(card);
                     GameState.getGameState().refreshMainFrame();
                 }
@@ -74,6 +82,7 @@ public class Store extends Place {
             GeneralEventListener yesListener = new GeneralEventListener() {
                 @Override
                 public void eventOccurred(EventObject eventObject) throws IOException {
+                    Logger.log("Buy Card", card.getName());
                     buyCard(card);
                     GameState.getGameState().refreshMainFrame();
                 }
@@ -128,8 +137,4 @@ public class Store extends Place {
         return "Store{}";
     }
 
-    @Override
-    public void defaultResponse() {
-        RespondToUser.respond("You are in the store. Run a command.");
-    }
 }

@@ -2,8 +2,6 @@ package GUI.GamePanels;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.font.FontRenderContext;
-import java.awt.geom.Rectangle2D;
 
 public class DynamicIcon extends ImageIcon {
     Font font = new Font("Wide Latin", Font.BOLD, 14);
@@ -35,9 +33,6 @@ public class DynamicIcon extends ImageIcon {
 //
         g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-        //FontColor
-//        g2d.drawString(iconText, 4, height - font.getSize() - 10);
         g2d.drawImage(this.getImage(), 0, 0, null);
     }
 }

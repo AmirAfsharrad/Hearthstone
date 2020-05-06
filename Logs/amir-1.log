@@ -8,3 +8,7 @@ quit, 2020-05-05T13:15:25.417438500, quit the game
 login, 2020-05-05T15:02:24.817700300,  as amir
 quit, 2020-05-05T15:04:33.931050100, quit the game
 quit, 2020-05-05T15:04:35.491993600, quit the game
+login, 2020-05-06T13:25:30.292661500,  as amir
+system response, 2020-05-06T13:25:36.930458300, You have successfully sold Shieldbearer.
+system response, 2020-05-06T13:25:41.737231900, You have successfully purchased Shieldbearer.
+quit, 2020-05-06T13:25:53.933131700, quit the game

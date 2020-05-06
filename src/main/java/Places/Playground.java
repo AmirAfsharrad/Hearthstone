@@ -2,12 +2,10 @@ package Places;
 
 import Cards.Card;
 import Cards.Deck;
-import Cards.Minion;
 import GameHandler.GameState;
 import Heroes.Hero;
+import Logger.Logger;
 
-import javax.swing.*;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -35,52 +33,67 @@ public class Playground extends Place {
         turnFullManas = 1;
         planted = new ArrayList<>();
         hand = new ArrayList<>();
-        int deckInitialSize = deck.size();
-        for (int i = 0; i < Math.min(3, deckInitialSize); i++) {
-            System.out.println(i);
-            hand.add(popRandomCard(deck));
-        }
+        initHand();
         drawTwice = false;
         initPassiveProcess();
     }
 
+    private void initHand() {
+        int count = 0;
+        for (Card card : deck) {
+            if (card.getType().equals("Quest")) {
+                if (count < 3) {
+                    hand.add(card);
+                    deck.remove(card);
+                    count++;
+                }
+            }
+        }
+        for (int i = 0; i < Math.min(3 - count, deck.size()); i++) {
+            System.out.println(i);
+            hand.add(popRandomCard(deck));
+        }
+    }
+
     public void initPassiveProcess() {
         switch (passive) {
-            case "zombie" : {
+            case "zombie": {
                 hero.setHeroPower("Zombie");
                 break;
             }
-            case "mana jump" : {
+            case "mana jump": {
                 mana = 2;
                 turnFullManas = 2;
                 break;
             }
-            case "draw twice" : {
+            case "draw twice": {
                 drawTwice = true;
             }
         }
     }
 
-    public void stepOneTurn() {
-        mana = Math.min(turnFullManas + 1, 10);
-        turnFullManas = mana;
+    private void drawRandomCard() {
         if (hand.size() < 12) {
             if (deck.size() > 0) {
                 hand.add(popRandomCard(deck));
-                if (drawTwice) {
-                    if (hand.size() < 12) {
-                        if (deck.size() > 0) {
-                            hand.add(popRandomCard(deck));
-                        }
-                    }
-                }
             }
+        }
+    }
+
+    public void stepOneTurn() {
+        Logger.log("Next Turn", "");
+        mana = Math.min(turnFullManas + 1, 10);
+        turnFullManas = mana;
+        drawRandomCard();
+        if (drawTwice) {
+            drawRandomCard();
         }
     }
 
     public void playCard(Card card) {
         if (planted.size() < 7) {
             if (card.getMana() <= mana) {
+                Logger.log("Card Played", card.getName());
                 if (card.getType().equals("Minion")) {
                     planted.add(card);
                 }
@@ -138,11 +151,4 @@ public class Playground extends Place {
     public void setPassive(String passive) {
         this.passive = passive;
     }
-
-    @Override
-    public void defaultResponse() {
-
-    }
-
-
 }
