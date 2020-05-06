@@ -6,6 +6,8 @@ import GUI.Events.LoginEvent;
 import GUI.Events.LogoutEvent;
 import GUI.Listeners.*;
 import Places.Collections;
+import Places.InfoPassive;
+import Places.Playground;
 import Places.Store;
 import Utilities.ImageLoader;
 
@@ -48,24 +50,32 @@ public class MainMenuPanel extends GamePanel {
         play.setBounds(xPositionOfButtons,
                 screenHeight / 2 - screenHeight / 5,
                 2 * screenWidth / 10, screenHeight / 10);
+
         this.add(play);
 
         play.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                ChangePlaceEvent changePlaceEvent = new ChangePlaceEvent(this, InfoPassive.getInfoPassive());
+                if (changePlaceListener != null) {
+                    try {
+                        changePlaceListener.ChangePlaceOccurred(changePlaceEvent);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
     }
 
     private void initCollectionButton() {
-        play = new JButton("Collection");
-        play.setBounds(xPositionOfButtons,
+        collections = new JButton("Collection");
+        collections.setBounds(xPositionOfButtons,
                 screenHeight / 2 - screenHeight / 5 + screenHeight / 10 + interButtonSpace,
                 standardButtonWidth, standardButtonHeight);
-        this.add(play);
+        this.add(collections);
 
-        play.addActionListener(new ActionListener() {
+        collections.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 ChangePlaceEvent changePlaceEvent = new ChangePlaceEvent(this, Collections.getCollections());
@@ -81,13 +91,13 @@ public class MainMenuPanel extends GamePanel {
     }
 
     private void initStoreButton() {
-        play = new JButton("Store");
-        play.setBounds(xPositionOfButtons + standardButtonWidth + interButtonSpace,
+        store = new JButton("Store");
+        store.setBounds(xPositionOfButtons + standardButtonWidth + interButtonSpace,
                 screenHeight / 2 - screenHeight / 5 + screenHeight / 10 + interButtonSpace,
                 standardButtonWidth, standardButtonHeight);
-        this.add(play);
+        this.add(store);
 
-        play.addActionListener(new ActionListener() {
+        store.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 ChangePlaceEvent changePlaceEvent = new ChangePlaceEvent(this, Store.getStore());
@@ -103,13 +113,13 @@ public class MainMenuPanel extends GamePanel {
     }
 
     private void initSettingButton() {
-        play = new JButton("Setting");
-        play.setBounds(xPositionOfButtons,
+        setting = new JButton("Setting");
+        setting.setBounds(xPositionOfButtons,
                 screenHeight / 2 - screenHeight / 5 + screenHeight / 10 + 2 * interButtonSpace + standardButtonHeight,
                 standardButtonWidth, standardButtonHeight);
-        this.add(play);
+        this.add(setting);
 
-        play.addActionListener(new ActionListener() {
+        setting.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
@@ -118,13 +128,13 @@ public class MainMenuPanel extends GamePanel {
     }
 
     private void initStatusButton() {
-        play = new JButton("Status");
-        play.setBounds(xPositionOfButtons + standardButtonWidth + interButtonSpace,
+        status = new JButton("Status");
+        status.setBounds(xPositionOfButtons + standardButtonWidth + interButtonSpace,
                 screenHeight / 2 - screenHeight / 5 + screenHeight / 10 + 2 * interButtonSpace + standardButtonHeight,
                 standardButtonWidth, standardButtonHeight);
-        this.add(play);
+        this.add(status);
 
-        play.addActionListener(new ActionListener() {
+        status.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
@@ -133,13 +143,13 @@ public class MainMenuPanel extends GamePanel {
     }
 
     private void initLogoutButton() {
-        play = new JButton("Log Out");
-        play.setBounds(xPositionOfButtons,
+        logout = new JButton("Log Out");
+        logout.setBounds(xPositionOfButtons,
                 screenHeight / 2 - screenHeight / 5 + screenHeight / 10 + 3 * interButtonSpace + 2 * standardButtonHeight,
                 standardButtonWidth, standardButtonHeight);
-        this.add(play);
+        this.add(logout);
 
-        play.addActionListener(new ActionListener() {
+        logout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 LogoutEvent logoutEvent = new LogoutEvent(this);
@@ -155,13 +165,13 @@ public class MainMenuPanel extends GamePanel {
     }
 
     private void initExitButton() {
-        play = new JButton("Exit");
-        play.setBounds(xPositionOfButtons + standardButtonWidth + interButtonSpace,
+        exit = new JButton("Exit");
+        exit.setBounds(xPositionOfButtons + standardButtonWidth + interButtonSpace,
                 screenHeight / 2 - screenHeight / 5 + screenHeight / 10 + 3 * interButtonSpace + 2 * standardButtonHeight,
                 standardButtonWidth, standardButtonHeight);
-        this.add(play);
+        this.add(exit);
 
-        play.addActionListener(new ActionListener() {
+        exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 ExitEvent exitEvent = new ExitEvent(this);

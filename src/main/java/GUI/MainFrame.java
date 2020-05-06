@@ -1,19 +1,15 @@
 package GUI;
 
-import Cards.Deck;
 import GUI.Events.*;
-import GUI.GamePanels.CollectionsPanel;
-import GUI.GamePanels.LoginPanel;
-import GUI.GamePanels.MainMenuPanel;
-import GUI.GamePanels.StorePanel;
+import GUI.GamePanels.*;
 import GUI.Listeners.*;
 import GameHandler.GameState;
+import GameHandler.RespondToUser;
 import Places.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class MainFrame extends JFrame {
     private JPanel panelCards;
@@ -22,6 +18,8 @@ public class MainFrame extends JFrame {
     private MainMenuPanel mainMenuPanel;
     private StorePanel storePanel;
     private CollectionsPanel collectionsPanel;
+    private PlaygroundPanel playgroundPanel;
+    private InfoPassivePanel infoPassivePanel;
     private ChangePlaceListener changePlaceListener = new ChangePlaceListener() {
         @Override
         public void ChangePlaceOccurred(ChangePlaceEvent changePlaceEvent) throws IOException {
@@ -37,7 +35,7 @@ public class MainFrame extends JFrame {
         }
     };
 
-    public MainFrame() throws HeadlessException {
+    public MainFrame() throws HeadlessException, IOException {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Hearthstone");
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -49,7 +47,10 @@ public class MainFrame extends JFrame {
         initLoginPanel();
         initMainMenuPanel();
 
+//        initPlaygroundPanel();
+
         this.add(panelCards);
+        System.out.println(this.getSize().width+ "  " + this.getSize().height);
 
         try {
             Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
@@ -82,7 +83,7 @@ public class MainFrame extends JFrame {
         panelCards.add(loginPanel, "SignInOrSignUp");
     }
 
-    private void initMainMenuPanel() {
+    private void initMainMenuPanel() throws IOException {
         mainMenuPanel = new MainMenuPanel(this.getSize().width, this.getSize().height);
 
         mainMenuPanel.setLogoutListener(new LogoutListener() {
@@ -99,7 +100,19 @@ public class MainFrame extends JFrame {
         panelCards.add(mainMenuPanel, "MainMenu");
     }
 
-    void initStorePanel() throws IOException {
+    private void initInfoPassivePanel() throws IOException {
+        infoPassivePanel = new InfoPassivePanel(this.getSize().width, this.getSize().height);
+        panelCards.add(infoPassivePanel, "InfoPassive");
+        infoPassivePanel.setPassiveChosenListener(new PassiveChosenListener() {
+            @Override
+            public void passiveChosenOccurred(PassiveChosenEvent passiveChosenEvent) throws IOException {
+                Playground.getPlayground().setPassive(passiveChosenEvent.getPassive());
+                updatePage(Playground.getPlayground());
+            }
+        });
+    }
+
+    private void initStorePanel() throws IOException {
         storePanel = new StorePanel(this.getSize().width, this.getSize().height);
         storePanel.setChangePlaceListener(changePlaceListener);
         storePanel.setExitListener(exitListener);
@@ -115,7 +128,7 @@ public class MainFrame extends JFrame {
         panelCards.add(storePanel, "Store");
     }
 
-    void initCollectionsPanel() throws IOException {
+    private void initCollectionsPanel() throws IOException {
         collectionsPanel = new CollectionsPanel(this.getSize().width, this.getSize().height);
         collectionsPanel.setChangePlaceListener(changePlaceListener);
         collectionsPanel.setExitListener(exitListener);
@@ -164,8 +177,35 @@ public class MainFrame extends JFrame {
                 Collections.getCollections().renameDeck(deckRenameEvent.getDeck());
             }
         });
+        collectionsPanel.setSetDeckAsSelectedListener(new SetDeckAsSelectedListener() {
+            @Override
+            public void setDeckAsSelectedOccurred(SetDeckAsSelectedEvent setDeckAsSelectedEvent) {
+                Collections.getCollections().setSelectedDeck(setDeckAsSelectedEvent.getDeck());
+            }
+        });
+        collectionsPanel.setChangePlaceListener(changePlaceListener);
 
         panelCards.add(collectionsPanel, "Collections");
+    }
+
+    private void initPlaygroundPanel() {
+        Playground.getPlayground().initGame(GameState.getGameState().getUser().getSelectedDeck());
+        playgroundPanel = new PlaygroundPanel(this.getSize().width, this.getSize().height);
+        panelCards.add(playgroundPanel, "Playground");
+        playgroundPanel.setEndTurnListener(new EndTurnListener() {
+            @Override
+            public void endTurnOccurred(EndTurnEvent endTurnEvent) {
+                Playground.getPlayground().stepOneTurn();
+            }
+        });
+        playgroundPanel.setExitListener(exitListener);
+        playgroundPanel.setChangePlaceListener(changePlaceListener);
+        playgroundPanel.setPlayCardEventListener(new PlayCardListener() {
+            @Override
+            public void PlayCardOccurred(PlayCardEvent playCardEvent) {
+                Playground.getPlayground().playCard(playCardEvent.getCard());
+            }
+        });
     }
 
     public void updatePage(Place place) throws IOException {
@@ -179,6 +219,17 @@ public class MainFrame extends JFrame {
         } else if (place instanceof Collections) {
             initCollectionsPanel();
             cardLayout.show(panelCards, "Collections");
+        } else if (place instanceof Playground) {
+            initPlaygroundPanel();
+            cardLayout.show(panelCards, "Playground");
+        } else if (place instanceof InfoPassive) {
+            if (GameState.getGameState().getUser().getSelectedDeck() == null) {
+                RespondToUser.respond("You have to select a deck to play!", true);
+                updatePage(Collections.getCollections());
+                return;
+            }
+            initInfoPassivePanel();
+            cardLayout.show(panelCards, "InfoPassive");
         }
     }
 

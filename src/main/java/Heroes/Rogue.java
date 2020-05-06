@@ -6,13 +6,7 @@ import java.util.ArrayList;
 
 public class Rogue extends Hero {
     public Rogue() {
-        super();
-    }
-
-    public Rogue(int hp) {
-        super(hp, "Rogue");
-        super.setHeroPower("Steal a card from enemies hand for 3 manas.");
-        super.setSpecialPower("Cards of other heroes type are worth 2 manas less than for other heroes.");
+        super(defaultHp, "Rogue", "Burgle");
     }
 
     @Override

@@ -22,6 +22,7 @@ public class User{
     private int currentHeroIndex;
     private boolean loggedIn = false;
     private ArrayList<Deck> decks;
+    private Deck selectedDeck;
 
     public User(String name, String password) {
         this.name = name;
@@ -97,6 +98,14 @@ public class User{
 
     public void setCurrentHeroIndex(int currentHeroIndex){
         this.currentHeroIndex = currentHeroIndex;
+    }
+
+    public Deck getSelectedDeck() {
+        return selectedDeck;
+    }
+
+    public void setSelectedDeck(Deck selectedDeck) {
+        this.selectedDeck = selectedDeck;
     }
 
     public ArrayList<Deck> getDecks() {

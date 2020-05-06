@@ -27,7 +27,7 @@ public class CLI {
             try {
                 currentPlace.defaultResponse();
                 command = GetResponseFromUser.getResponse(user);
-                currentPlace = currentPlace.runCommand(command, user, currentPlace);
+//                currentPlace = currentPlace.runCommand(command, user, currentPlace);
             } catch (Exception e) {
                 Logger.log(user, "error", Arrays.toString(e.getStackTrace()), true);
             }

@@ -2,7 +2,7 @@ package Heroes;
 
 public class Paladin extends Hero {
     public Paladin() {
-        super(defaultHp, "Paladin");
+        super(defaultHp, "Paladin", "The Silver Hand");
     }
 
     @Override

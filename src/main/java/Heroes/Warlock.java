@@ -6,13 +6,7 @@ import java.util.ArrayList;
 
 public class Warlock extends Hero {
     public Warlock() {
-        super();
-    }
-
-    public Warlock(int hp, ArrayList<Card> deck) {
-        super(hp, "Warlock");
-        super.setHeroPower("Loses 2 hps for a random choice of adding a card to current hand or adding an hp and an attackPower to a random minion.");
-        super.setSpecialPower("Starts the game with hp = 35.");
+        super(defaultHp, "Warlock", "Sacrificer");
     }
 
     @Override

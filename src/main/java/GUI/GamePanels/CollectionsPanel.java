@@ -6,9 +6,7 @@ import Cards.Deck;
 import GUI.Events.*;
 import GUI.Listeners.*;
 import GameHandler.GameState;
-import Places.Collections;
-import Places.MainMenu;
-import Places.Store;
+import Places.*;
 import Utilities.GrayscaleImage;
 import org.graalvm.compiler.phases.common.RemoveValueProxyPhase;
 
@@ -35,11 +33,12 @@ public class CollectionsPanel extends GamePanel {
     private JPanel searchPanel;
     private JPanel doesOwnPanel;
     private JPanel cardsOfDeckPanelAllCards;
-    private JPanel cardsOfDeckPanelOptions;;
+    private JPanel cardsOfDeckPanelOptions;
+    ;
     private JPanel listOfDecksPanelOptions;
     private JPanel listOfDecksPanelAllDecks;
     private JButton newDeck;
-
+    private JButton deckNameButton;
     private JPanel buttonsContainer;
     private JPanel heroesButtonsContainer;
     private JPanel manaFilterPanel;
@@ -66,6 +65,7 @@ public class CollectionsPanel extends GamePanel {
     private RemoveCardFromDeckListener removeCardFromDeckListener;
     private RemoveDeckListener removeDeckListener;
     private DeckRenameListener deckRenameListener;
+    private SetDeckAsSelectedListener setDeckAsSelectedListener;
     private ExitListener exitListener;
     private int cardWidth = 315;
     private int cardHeight = 435;
@@ -215,7 +215,7 @@ public class CollectionsPanel extends GamePanel {
         this.add(cardsScrollPane, BorderLayout.CENTER);
     }
 
-    private void initDecksPanel() {
+    private void initDecksPanel() throws IOException {
         System.out.println("initDecksPanel");
         currentDeckPanelCard = "decks";
         cardLayout = new CardLayout();
@@ -229,7 +229,7 @@ public class CollectionsPanel extends GamePanel {
         this.add(decksPanel, BorderLayout.EAST);
     }
 
-    private void initListOfDecksPanel() {
+    private void initListOfDecksPanel() throws IOException {
         System.out.println("initListOfDecksPanel");
         listOfDecksPanel = new JPanel(new BorderLayout());
         listOfDecksPanelOptions = new JPanel(new GridLayout(0, 1, 0, 5));
@@ -252,7 +252,11 @@ public class CollectionsPanel extends GamePanel {
                 if (createDeckListener != null) {
                     createDeckListener.CreateDeckOccurred(createDeckEvent);
                 }
-                drawDecks();
+                try {
+                    drawDecks();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 revalidate();
                 repaint();
             }
@@ -260,12 +264,20 @@ public class CollectionsPanel extends GamePanel {
         listOfDecksPanelOptions.add(newDeck);
     }
 
-    private void drawDecks() {
+    private void drawDecks() throws IOException {
         System.out.println("drawDecks");
         listOfDecksPanelAllDecks.removeAll();
         for (Deck deck : GameState.getGameState().getUser().getDecks()) {
             JButton button = new JButton(deck.getName());
+            button.setForeground(Color.YELLOW);
+            button.setHorizontalAlignment(SwingConstants.LEFT);
+            button.setVerticalAlignment(SwingConstants.BOTTOM);
             button.setPreferredSize(new Dimension(buttonWidth, deckButtonHeight));
+            BufferedImage image = ImageIO.read(new File("Images/decks/" + deck.getHero() + "DeckBackground.jpg"));
+            DynamicIcon imageIcon = new DynamicIcon();
+            imageIcon.setImage(image);
+            button.setIcon(imageIcon);
+
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
@@ -301,10 +313,15 @@ public class CollectionsPanel extends GamePanel {
             return;
         }
 
-        JButton deckButton = new JButton(currentDeck.getName());
-        deckButton.setContentAreaFilled(false);
-        deckButton.setBorder(BorderFactory.createEmptyBorder());
-        cardsOfDeckPanelAllCards.add(deckButton);
+        if (GameState.getGameState().getUser().getSelectedDeck() == currentDeck) {
+            deckNameButton = new JButton(currentDeck.getName() + " : SELECTED");
+        } else {
+            deckNameButton = new JButton(currentDeck.getName());
+        }
+
+        deckNameButton.setContentAreaFilled(false);
+        deckNameButton.setBorder(BorderFactory.createEmptyBorder());
+        cardsOfDeckPanelAllCards.add(deckNameButton);
 
         JButton heroNameButton = new JButton("Hero: " + currentDeck.getHero());
         heroNameButton.setContentAreaFilled(false);
@@ -320,6 +337,7 @@ public class CollectionsPanel extends GamePanel {
             } else {
                 button = new JButton(card.getName());
             }
+
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
@@ -357,7 +375,11 @@ public class CollectionsPanel extends GamePanel {
                 if (deckRenameListener != null) {
                     deckRenameListener.deckRenameOccurred(deckRenameEvent);
                 }
-                drawDecks();
+                try {
+                    drawDecks();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 drawCardsOfDeck();
                 revalidate();
                 repaint();
@@ -375,6 +397,11 @@ public class CollectionsPanel extends GamePanel {
                     changeDeckHeroListener.changeDeckHeroOccurred(changeDeckHeroEvent);
                 }
                 drawCardsOfDeck();
+                try {
+                    drawDecks();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 revalidate();
                 repaint();
             }
@@ -391,13 +418,68 @@ public class CollectionsPanel extends GamePanel {
                     removeDeckListener.removeDeckOccurred(removeDeckEvent);
                 }
                 cardLayout.show(decksPanel, "decks");
-                drawDecks();
+                try {
+                    drawDecks();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        JButton setAsSelected = new JButton("<html><center> Set As <br /> Selected </center></html>");
+        setAsSelected.setPreferredSize(new Dimension(buttonWidth / 2, 2 * deckButtonHeight / 3));
+        setAsSelected.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                SetDeckAsSelectedEvent setDeckAsSelectedEvent = new SetDeckAsSelectedEvent(this, currentDeck);
+                if (setDeckAsSelectedListener != null) {
+                    setDeckAsSelectedListener.setDeckAsSelectedOccurred(setDeckAsSelectedEvent);
+                }
+                deckNameButton.setText(currentDeck.getName() + " : SELECTED");
+                try {
+                    drawDecks();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                revalidate();
+                repaint();
+            }
+        });
+
+        JButton Play = new JButton("Play");
+        Play.setPreferredSize(new Dimension(buttonWidth / 2, 2 * deckButtonHeight / 3));
+        Play.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                SetDeckAsSelectedEvent setDeckAsSelectedEvent = new SetDeckAsSelectedEvent(this, currentDeck);
+                if (setDeckAsSelectedListener != null) {
+                    setDeckAsSelectedListener.setDeckAsSelectedOccurred(setDeckAsSelectedEvent);
+                }
+                deckNameButton.setText(currentDeck.getName() + " : SELECTED");
+                try {
+                    drawDecks();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                revalidate();
+                repaint();
+
+                ChangePlaceEvent changePlaceEvent = new ChangePlaceEvent(this, InfoPassive.getInfoPassive());
+                if (changePlaceListener != null) {
+                    try {
+                        changePlaceListener.ChangePlaceOccurred(changePlaceEvent);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
         cardsOfDeckPanelOptions.add(backToDecksMenu);
         cardsOfDeckPanelOptions.add(renameDeck);
         cardsOfDeckPanelOptions.add(changeHero);
         cardsOfDeckPanelOptions.add(removeDeck);
+        cardsOfDeckPanelOptions.add(setAsSelected);
+        cardsOfDeckPanelOptions.add(Play);
     }
 
 
@@ -460,6 +542,9 @@ public class CollectionsPanel extends GamePanel {
             button.setIcon(imageIcon);
             button.setContentAreaFilled(false);
             button.setBorder(BorderFactory.createEmptyBorder());
+            button.setToolTipText("<html><center> Price: " + card.getPrice() + " <br /> Rarity: " +
+                    card.getRarity() + " </center></html>");
+
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
@@ -567,6 +652,10 @@ public class CollectionsPanel extends GamePanel {
 
     public void setDeckRenameListener(DeckRenameListener deckRenameListener) {
         this.deckRenameListener = deckRenameListener;
+    }
+
+    public void setSetDeckAsSelectedListener(SetDeckAsSelectedListener setDeckAsSelectedListener) {
+        this.setDeckAsSelectedListener = setDeckAsSelectedListener;
     }
 }
 

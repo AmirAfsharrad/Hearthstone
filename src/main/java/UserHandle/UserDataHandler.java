@@ -166,7 +166,7 @@ public class UserDataHandler {
 
                 return user;
             } else {
-                RespondToUser.respond("Incorrect password!");
+                RespondToUser.respond("Incorrect password!", true);
             }
 
         } catch (ParseException | IOException e) {

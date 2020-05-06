@@ -1,24 +1,24 @@
 [
   {
-    "gold": 20,
+    "gold": 0,
     "current hero": 0,
     "user name": " ",
     "password": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
     "cards": [
       "Goldshire Footman",
-      "Stonetusk Boar",
-      "Lord of the Arena",
-      "Shieldbearer",
       "Living Monument",
       "Sprint",
       "Sap",
       "Polymorph",
       "Gnomish Army Knife",
       "Poisoned Dagger",
-      "Sunreaver Warmage"
+      "Sunreaver Warmage",
+      "High Priest Amet",
+      "Arcane Missiles"
     ],
     "heroes": [
       {
+        "hero power": "Fireblast",
         "hp": 30,
         "type": "Mage"
       }
@@ -29,20 +29,91 @@
     "decks": [
       {
         "cardsNames": [
-          "Shieldbearer",
-          "Shieldbearer",
-          "Stonetusk Boar"
+          "Goldshire Footman",
+          "Sunreaver Warmage",
+          "Sunreaver Warmage",
+          "Living Monument",
+          "Living Monument",
+          "Arcane Missiles",
+          "Sprint",
+          "Sprint"
         ],
-        "name": "Mage Deck",
-        "heroName": "Mage"
+        "name": "Dekkk",
+        "heroName": "Rogue"
       },
       {
         "cardsNames": [
+          "Goldshire Footman",
+          "Goldshire Footman",
+          "Sunreaver Warmage",
+          "Sunreaver Warmage",
+          "Sap",
+          "Sprint",
+          "Sap",
+          "Sprint",
+          "Poisoned Dagger",
+          "Poisoned Dagger",
           "Gnomish Army Knife",
-          "Gnomish Army Knife"
+          "Gnomish Army Knife",
+          "Living Monument",
+          "Living Monument"
+        ],
+        "name": "Amir",
+        "heroName": "Paladin"
+      },
+      {
+        "cardsNames": [
+          "High Priest Amet",
+          "High Priest Amet",
+          "Sunreaver Warmage",
+          "Sunreaver Warmage",
+          "Goldshire Footman",
+          "Goldshire Footman",
+          "Living Monument",
+          "Living Monument"
         ],
         "name": "New Deck 1",
-        "heroName": "Paladin"
+        "heroName": "Priest"
+      }
+    ],
+    "current hero index": 0
+  },
+  {
+    "gold": 50,
+    "current hero": 0,
+    "user name": "amir",
+    "password": "1574ad62d48a37f847699d7d2157105a5a5fd6ed323a3497fa41c7731229bf23",
+    "cards": [
+      "Goldshire Footman",
+      "Stonetusk Boar",
+      "Lord of the Arena",
+      "Shieldbearer",
+      "Depth Charge",
+      "Stormwind Champion",
+      "Living Monument",
+      "Sprint",
+      "Sap",
+      "Polymorph"
+    ],
+    "heroes": [
+      {
+        "hp": 30,
+        "type": "Mage"
+      }
+    ],
+    "delete time": "none",
+    "user ID": 1,
+    "sign up time": "2020-05-05T13:15:14.722670700",
+    "decks": [
+      {
+        "cardsNames": [],
+        "name": "New Deck 1",
+        "heroName": "Mage"
+      },
+      {
+        "cardsNames": [],
+        "name": "New Deck 2",
+        "heroName": "Rogue"
       }
     ],
     "current hero index": 0

@@ -31,6 +31,6 @@ public abstract class Place{
         return instructions;
     }
 
-    public abstract Place runCommand(String command, User user, Place currentPlace);
+//    public abstract Place runCommand(String command, User user, Place currentPlace);
     public abstract void defaultResponse();
 }

@@ -39,6 +39,8 @@ public class StorePanel extends GamePanel {
     private JPanel manaFilterContainer;
     private JPanel bottomButtonsPanel;
     private JPanel backAndExitButtonsPanel;
+    private JPanel middlePanel;
+    private JPanel goldPanel;
     private JTextField searchField;
     private JRadioButton[] manaButtons;
     private JRadioButton[] heroesButtons;
@@ -149,12 +151,21 @@ public class StorePanel extends GamePanel {
         heroesButtonsContainer.add(buttonsFilterLabel);
         heroesButtonsContainer.add(heroesButtonsPanel);
 
+        middlePanel = new JPanel(new BorderLayout());
+
         searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
         searchField = new JTextField(20);
         JButton searchButton = new JButton("search");
         searchButton.addActionListener(collectionsFilterActionListener);
         searchPanel.add(searchField);
         searchPanel.add(searchButton);
+
+        goldPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 200, 15));
+        JLabel gold = new JLabel("Gold: " + GameState.getGameState().getUser().getGold());
+        goldPanel.add(gold);
+
+        middlePanel.add(searchPanel, BorderLayout.WEST);
+        middlePanel.add(goldPanel, BorderLayout.CENTER);
 
         doesOwnPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
         doesOwnButtons = new JRadioButton[3];
@@ -169,7 +180,7 @@ public class StorePanel extends GamePanel {
 
         buttonsPanel = new JPanel(new BorderLayout());
         buttonsPanel.add(heroesButtonsContainer, BorderLayout.WEST);
-        buttonsPanel.add(searchPanel, BorderLayout.CENTER);
+        buttonsPanel.add(middlePanel, BorderLayout.CENTER);
         buttonsPanel.add(doesOwnPanel, BorderLayout.EAST);
 
         this.add(buttonsPanel, BorderLayout.NORTH);
@@ -253,6 +264,10 @@ public class StorePanel extends GamePanel {
             button.setIcon(imageIcon);
             button.setContentAreaFilled(false);
             button.setBorder(BorderFactory.createEmptyBorder());
+            button.setToolTipText("<html><center> Price: " + card.getPrice() + " <br /> Rarity: " +
+                    card.getRarity() + " </center></html>"  + " <br /> Description: " +
+                    card.getDescription() + " </center></html>");
+
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
@@ -326,15 +341,5 @@ public class StorePanel extends GamePanel {
     public void setCollectionsFilterListener(CollectionsFilterListener collectionsFilterListener) {
         this.collectionsFilterListener = collectionsFilterListener;
     }
-
-//        @Override
-//    protected void paintComponent(Graphics g) {
-//        super.paintComponent(g);
-//        Graphics2D g2d = (Graphics2D) g;
-//        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-//                RenderingHints.VALUE_ANTIALIAS_ON);
-//        BufferedImage image = ImageLoader.getInstance().loadImage("mainmenu background.jpg");
-//        g2d.drawImage(image, 0, 0, null);
-//    }
 }
 

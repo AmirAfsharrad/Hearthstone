@@ -18,9 +18,10 @@ public abstract class Hero {
 
     public Hero(){}
 
-    public Hero(int hp, String type) {
+    public Hero(int hp, String type, String heroPower) {
         this.hp = hp;
         this.type = type;
+        this.heroPower = heroPower;
     }
 
     public int getHp() {
