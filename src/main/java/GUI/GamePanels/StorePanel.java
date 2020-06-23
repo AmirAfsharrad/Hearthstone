@@ -8,6 +8,7 @@ import GUI.Events.FilterEvent;
 import GUI.Listeners.ChangePlaceListener;
 import GUI.Listeners.ExitListener;
 import GUI.Listeners.FilterListener;
+import GUI.Utils.backgroundJViewport;
 import GameHandler.GameState;
 import Logger.Logger;
 import Places.MainMenu;

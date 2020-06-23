@@ -5,6 +5,8 @@ import Cards.CardButton;
 import Cards.Deck;
 import GUI.Events.*;
 import GUI.Listeners.*;
+import GUI.Utils.DynamicIcon;
+import GUI.Utils.backgroundJViewport;
 import GameHandler.GameState;
 import Logger.Logger;
 import Places.*;

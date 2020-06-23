@@ -2,6 +2,7 @@ package GUI.GamePanels;
 
 import GUI.Events.PassiveChosenEvent;
 import GUI.Listeners.PassiveChosenListener;
+import GUI.Utils.BackgroundedPanel;
 import Logger.Logger;
 import Places.InfoPassive;
 

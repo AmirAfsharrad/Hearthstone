@@ -3,6 +3,7 @@ package GUI.GamePanels;
 import Cards.Card;
 import GUI.Events.*;
 import GUI.Listeners.*;
+import GUI.Utils.BackgroundedPanel;
 import GameHandler.GameHandler;
 import Logger.Logger;
 import Places.MainMenu;
@@ -18,7 +19,6 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.TimerTask;
 
 public class PlaygroundPanel extends GamePanel {
     private int cardCanGetLargeOwner = -1;

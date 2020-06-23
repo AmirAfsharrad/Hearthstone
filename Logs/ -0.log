@@ -465,3 +465,143 @@ login, 2020-05-06T18:22:54.200869800,  as
 Button Pressed, 2020-05-06T18:22:55.672084300, Log Out
 log out, 2020-05-06T18:22:55.674051700, log out of  
 system response, 2020-05-06T18:22:55.735555200, Signed out of user  
+login, 2020-05-06T19:43:33.604325800,  as  
+Button Pressed, 2020-05-06T19:44:02.210606500, Collections
+Button Pressed, 2020-05-06T19:44:06.670855600, Dekkk
+Button Pressed, 2020-05-06T19:44:12.526843600, <html><center> Rename <br /> Deck </center></html>
+Rename Deck, 2020-05-06T19:44:18.344199600, Sample Deck
+Button Pressed, 2020-05-06T19:44:26.305073600, Back
+Button Pressed, 2020-05-06T19:44:49.149089900, Amir
+Button Pressed, 2020-05-06T19:45:10.928907700, Back
+Button Pressed, 2020-05-06T19:45:15.505185100, Main Menu
+Button Pressed, 2020-05-06T19:45:17.721108200, Store
+Button Pressed, 2020-05-06T19:45:57.625704900, Main Menu
+Button Pressed, 2020-05-06T19:45:59.960277900, Status
+Button Pressed, 2020-05-06T19:46:02.333774800, Amir
+Button Pressed, 2020-05-06T19:46:05.296137700, Back
+Button Pressed, 2020-05-06T19:46:23.102324200, Amir
+Button Pressed, 2020-05-06T19:46:44.126990600, Back
+Button Pressed, 2020-05-06T19:46:45.228755600, Exit
+quit, 2020-05-06T19:46:45.230223700, quit the game
+quit, 2020-05-06T19:46:46.795828900, quit the game
+login, 2020-05-06T19:46:54.278083800,  as  
+Button Pressed, 2020-05-06T19:46:57.621578900, Collections
+Button Pressed, 2020-05-06T19:47:01.282681900, Amir
+Button Pressed, 2020-05-06T19:47:07.238697300, Play
+Button Pressed, 2020-05-06T19:47:44.760033200, zombie
+Button Pressed, 2020-05-06T19:47:47.367548600, end turn
+Next Turn, 2020-05-06T19:47:47.368576900, 
+Button Pressed, 2020-05-06T19:47:47.534700600, end turn
+Next Turn, 2020-05-06T19:47:47.535196700, 
+Button Pressed, 2020-05-06T19:47:47.717228300, end turn
+Next Turn, 2020-05-06T19:47:47.717724500, 
+Button Pressed, 2020-05-06T19:47:47.920276, end turn
+Next Turn, 2020-05-06T19:47:47.920771400, 
+Button Pressed, 2020-05-06T19:47:48.163315300, end turn
+Next Turn, 2020-05-06T19:47:48.164308900, 
+Button Pressed, 2020-05-06T19:47:48.187564600, end turn
+Next Turn, 2020-05-06T19:47:48.188558500, 
+Button Pressed, 2020-05-06T19:47:48.458804100, end turn
+Next Turn, 2020-05-06T19:47:48.459273900, 
+Button Pressed, 2020-05-06T19:47:48.479114600, end turn
+Next Turn, 2020-05-06T19:47:48.479608900, 
+Button Pressed, 2020-05-06T19:47:48.773404900, end turn
+Next Turn, 2020-05-06T19:47:48.773871400, 
+Button Pressed, 2020-05-06T19:47:48.797981200, end turn
+Next Turn, 2020-05-06T19:47:48.798975600, 
+Button Pressed, 2020-05-06T19:47:52.701170300, Goldshire Footman
+Card Played, 2020-05-06T19:47:52.702154, Goldshire Footman
+Button Pressed, 2020-05-06T19:47:54.983487800, Gnomish Army Knife
+Card Played, 2020-05-06T19:47:54.983982400, Gnomish Army Knife
+Button Pressed, 2020-05-06T19:47:57.743225700, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:47:58.883601300, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:48:00.657068800, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:48:02.103015100, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:48:04.766602300, end turn
+Next Turn, 2020-05-06T19:48:04.767601400, 
+Button Pressed, 2020-05-06T19:48:07.457348, Sunreaver Warmage
+Card Played, 2020-05-06T19:48:07.457849300, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:48:13.159930800, Main Menu
+Button Pressed, 2020-05-06T19:48:14.331310800, Play
+Button Pressed, 2020-05-06T19:48:17.802572200, zombie
+Button Pressed, 2020-05-06T19:48:26.350469300, Strength in Numbers
+Card Played, 2020-05-06T19:48:26.351474300, Strength in Numbers
+Button Pressed, 2020-05-06T19:48:28.379851500, end turn
+Next Turn, 2020-05-06T19:48:28.380364700, 
+Button Pressed, 2020-05-06T19:48:28.591643100, end turn
+Next Turn, 2020-05-06T19:48:28.592138900, 
+Button Pressed, 2020-05-06T19:48:31.311914, Strength in Numbers
+Card Played, 2020-05-06T19:48:31.312905700, Strength in Numbers
+Button Pressed, 2020-05-06T19:48:34.613047500, end turn
+Next Turn, 2020-05-06T19:48:34.613531900, 
+Button Pressed, 2020-05-06T19:48:37.756020600, Goldshire Footman
+Card Played, 2020-05-06T19:48:37.757004700, Goldshire Footman
+Button Pressed, 2020-05-06T19:48:41.213355, end turn
+Next Turn, 2020-05-06T19:48:41.214346200, 
+Button Pressed, 2020-05-06T19:48:43.467468600, Sunreaver Warmage
+Card Played, 2020-05-06T19:48:43.467964, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:48:47.863664500, end turn
+Next Turn, 2020-05-06T19:48:47.864659300, 
+Button Pressed, 2020-05-06T19:48:54.207533300, Main Menu
+Button Pressed, 2020-05-06T19:48:55.094615700, Play
+Button Pressed, 2020-05-06T19:48:56.454940400, draw twice
+Button Pressed, 2020-05-06T19:48:59.795651900, Strength in Numbers
+Card Played, 2020-05-06T19:48:59.796645500, Strength in Numbers
+Button Pressed, 2020-05-06T19:49:01.217948300, end turn
+Next Turn, 2020-05-06T19:49:01.218277, 
+Button Pressed, 2020-05-06T19:49:04.467375, Goldshire Footman
+Card Played, 2020-05-06T19:49:04.468368200, Goldshire Footman
+Button Pressed, 2020-05-06T19:49:07.165457300, end turn
+Next Turn, 2020-05-06T19:49:07.166467900, 
+Button Pressed, 2020-05-06T19:49:11.291258300, end turn
+Next Turn, 2020-05-06T19:49:11.291753700, 
+Button Pressed, 2020-05-06T19:49:13.847729300, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:49:14.875381600, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:49:15.944233700, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:49:17.369359100, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:49:20.626774300, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:49:21.906877100, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:49:25.751937600, end turn
+Next Turn, 2020-05-06T19:49:25.752436600, 
+Button Pressed, 2020-05-06T19:49:30.962276900, Sunreaver Warmage
+Card Played, 2020-05-06T19:49:30.962772700, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:49:34.355718800, end turn
+Next Turn, 2020-05-06T19:49:34.356709700, 
+Button Pressed, 2020-05-06T19:49:40.396591500, Living Monument
+Button Pressed, 2020-05-06T19:49:41.609006400, Sunreaver Warmage
+Card Played, 2020-05-06T19:49:41.609503800, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:49:43.986058400, end turn
+Next Turn, 2020-05-06T19:49:43.987044500, 
+Button Pressed, 2020-05-06T19:49:47.151775600, Living Monument
+Button Pressed, 2020-05-06T19:49:48.455236300, Poisoned Dagger
+Card Played, 2020-05-06T19:49:48.455731800, Poisoned Dagger
+Button Pressed, 2020-05-06T19:49:51.816986400, Goldshire Footman
+Card Played, 2020-05-06T19:49:51.817957900, Goldshire Footman
+Button Pressed, 2020-05-06T19:49:56.048806400, Strength in Numbers
+Card Played, 2020-05-06T19:49:56.049787300, Strength in Numbers
+Button Pressed, 2020-05-06T19:50:00.534399900, end turn
+Next Turn, 2020-05-06T19:50:00.535164400, 
+Button Pressed, 2020-05-06T19:50:06.462567900, Main Menu
+Button Pressed, 2020-05-06T19:50:07.298604800, Play
+Button Pressed, 2020-05-06T19:50:08.366145300, draw twice
+Button Pressed, 2020-05-06T19:50:11.818759100, end turn
+Next Turn, 2020-05-06T19:50:11.819751500, 
+Button Pressed, 2020-05-06T19:50:14.409533700, end turn
+Next Turn, 2020-05-06T19:50:14.410029500, 
+Button Pressed, 2020-05-06T19:50:16.129878500, end turn
+Next Turn, 2020-05-06T19:50:16.130871300, 
+Button Pressed, 2020-05-06T19:50:17.499360300, end turn
+Next Turn, 2020-05-06T19:50:17.500367800, 
+Button Pressed, 2020-05-06T19:50:18.572309200, end turn
+Next Turn, 2020-05-06T19:50:18.573317800, 
+Button Pressed, 2020-05-06T19:50:23.122185100, Goldshire Footman
+Card Played, 2020-05-06T19:50:23.123193700, Goldshire Footman
+Button Pressed, 2020-05-06T19:50:29.789355500, Sunreaver Warmage
+Card Played, 2020-05-06T19:50:29.789863500, Sunreaver Warmage
+Button Pressed, 2020-05-06T19:50:36.422309600, end turn
+Next Turn, 2020-05-06T19:50:36.423298400, 
+Button Pressed, 2020-05-06T19:50:41.601484100, Goldshire Footman
+Card Played, 2020-05-06T19:50:41.601990200, Goldshire Footman
+Button Pressed, 2020-05-06T19:50:48.500665200, Strength in Numbers
+Card Played, 2020-05-06T19:50:48.501161400, Strength in Numbers
+quit, 2020-05-06T20:22:10.960129800, quit the game
