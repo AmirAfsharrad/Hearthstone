@@ -693,3 +693,80 @@ Next Turn, 2020-07-09T19:08:05.948026100,
 Button Pressed, 2020-07-09T19:08:05.973956700, end turn
 Next Turn, 2020-07-09T19:08:05.974954600, 
 quit, 2020-07-09T19:08:08.154922900, quit the game
+login, 2020-07-09T20:09:00.532879700,  as  
+Button Pressed, 2020-07-09T20:09:02.971541700, Collections
+Button Pressed, 2020-07-09T20:09:06.091540, Amir
+Button Pressed, 2020-07-09T20:09:07.833136300, Play
+Button Pressed, 2020-07-09T20:09:11.521771, zombie
+quit, 2020-07-09T20:11:40.832394400, quit the game
+login, 2020-07-09T20:11:55.732691100,  as  
+Button Pressed, 2020-07-09T20:11:57.679927500, Collections
+Button Pressed, 2020-07-09T20:12:01.961348300, Amir
+Button Pressed, 2020-07-09T20:12:04.905184400, Play
+Button Pressed, 2020-07-09T20:12:08.427001300, zombie
+quit, 2020-07-09T20:14:44.828919, quit the game
+login, 2020-07-09T20:14:55.594237900,  as  
+Button Pressed, 2020-07-09T20:14:57.878091500, Collections
+Button Pressed, 2020-07-09T20:15:00.945765900, Amir
+Button Pressed, 2020-07-09T20:15:02.471801300, Play
+Button Pressed, 2020-07-09T20:15:05.740447, mana jump
+quit, 2020-07-09T20:19:31.503117400, quit the game
+login, 2020-07-09T20:20:46.119078200,  as  
+Button Pressed, 2020-07-09T20:20:47.611094400, Collections
+Button Pressed, 2020-07-09T20:20:50.857523400, Amir
+Button Pressed, 2020-07-09T20:20:52.225688300, Play
+Button Pressed, 2020-07-09T20:20:55.041742500, zombie
+Button Pressed, 2020-07-09T20:21:00.702985300, Poisoned Dagger
+Card Played, 2020-07-09T20:21:00.705018300, Poisoned Dagger
+Button Pressed, 2020-07-09T20:21:02.562535, end turn
+End turn, 2020-07-09T20:21:02.564517, end of  's turn
+Start turn, 2020-07-09T20:21:02.565500300, start of  's turn
+Button Pressed, 2020-07-09T20:21:03.287456900, end turn
+End turn, 2020-07-09T20:21:03.288454, end of  's turn
+Start turn, 2020-07-09T20:21:03.289467400, start of  's turn
+Button Pressed, 2020-07-09T20:21:03.820359600, end turn
+End turn, 2020-07-09T20:21:03.820359600, end of  's turn
+Start turn, 2020-07-09T20:21:03.821368200, start of  's turn
+Button Pressed, 2020-07-09T20:21:04.362917200, end turn
+End turn, 2020-07-09T20:21:04.363912700, end of  's turn
+Start turn, 2020-07-09T20:21:04.363912700, start of  's turn
+Button Pressed, 2020-07-09T20:21:04.931957300, end turn
+End turn, 2020-07-09T20:21:04.932954900, end of  's turn
+Start turn, 2020-07-09T20:21:04.932954900, start of  's turn
+Button Pressed, 2020-07-09T20:21:05.296419700, end turn
+End turn, 2020-07-09T20:21:05.297410100, end of  's turn
+Start turn, 2020-07-09T20:21:05.297410100, start of  's turn
+Button Pressed, 2020-07-09T20:21:06.823343500, Gnomish Army Knife
+Card Played, 2020-07-09T20:21:06.823343500, Gnomish Army Knife
+Button Pressed, 2020-07-09T20:21:08.370654900, Gnomish Army Knife
+Button Pressed, 2020-07-09T20:21:10.001788800, Gnomish Army Knife
+Button Pressed, 2020-07-09T20:21:12.553986700, Goldshire Footman
+Card Played, 2020-07-09T20:21:12.554978300, Goldshire Footman
+Button Pressed, 2020-07-09T20:21:15.572433700, Goldshire Footman
+Card Played, 2020-07-09T20:21:15.573472300, Goldshire Footman
+Button Pressed, 2020-07-09T20:21:18.848296, end turn
+End turn, 2020-07-09T20:21:18.849309300, end of  's turn
+Start turn, 2020-07-09T20:21:18.849309300, start of  's turn
+Button Pressed, 2020-07-09T20:21:19.488457, end turn
+End turn, 2020-07-09T20:21:19.489418600, end of  's turn
+Start turn, 2020-07-09T20:21:19.489418600, start of  's turn
+Button Pressed, 2020-07-09T20:21:19.990132100, end turn
+End turn, 2020-07-09T20:21:19.991143900, end of  's turn
+Start turn, 2020-07-09T20:21:19.991143900, start of  's turn
+Button Pressed, 2020-07-09T20:21:20.668993, end turn
+End turn, 2020-07-09T20:21:20.669989700, end of  's turn
+Start turn, 2020-07-09T20:21:20.671001900, start of  's turn
+Button Pressed, 2020-07-09T20:21:21.349856500, end turn
+End turn, 2020-07-09T20:21:21.350870600, end of  's turn
+Start turn, 2020-07-09T20:21:21.351851500, start of  's turn
+Button Pressed, 2020-07-09T20:21:29.319795100, Strength in Numbers
+Card Played, 2020-07-09T20:21:29.320782300, Strength in Numbers
+Button Pressed, 2020-07-09T20:21:30.838280400, Sunreaver Warmage
+Card Played, 2020-07-09T20:21:30.839277900, Sunreaver Warmage
+Button Pressed, 2020-07-09T20:21:32.913128300, end turn
+End turn, 2020-07-09T20:21:32.914129400, end of  's turn
+Start turn, 2020-07-09T20:21:32.914129400, start of  's turn
+Button Pressed, 2020-07-09T20:21:33.367667800, end turn
+End turn, 2020-07-09T20:21:33.368663800, end of  's turn
+Start turn, 2020-07-09T20:21:33.368663800, start of  's turn
+quit, 2020-07-09T20:21:35.476166700, quit the game

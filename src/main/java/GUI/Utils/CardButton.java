@@ -1,4 +1,6 @@
-package Cards;
+package GUI.Utils;
+
+import Cards.Card;
 
 import javax.swing.*;
 

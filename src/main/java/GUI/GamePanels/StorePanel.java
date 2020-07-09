@@ -1,7 +1,7 @@
 package GUI.GamePanels;
 
 import Cards.Card;
-import Cards.CardButton;
+import GUI.Utils.CardButton;
 import GUI.Events.ChangePlaceEvent;
 import GUI.Events.ExitEvent;
 import GUI.Events.FilterEvent;

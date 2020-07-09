@@ -101,8 +101,8 @@ public class PlaygroundPanel extends GamePanel {
     }
 
     private void drawManasPanel() {
-        int currentManas = Playground.getPlayground().getMana();
-        int fullManas = Playground.getPlayground().getTurnFullManas();
+        int currentManas = Playground.getPlayground().getCurrentContestant().getMana();
+        int fullManas = Playground.getPlayground().getCurrentContestant().getTurnFullManas();
         for (int i = 0; i < currentManas; i++) {
             manas[i].setVisible(true);
         }
@@ -134,7 +134,7 @@ public class PlaygroundPanel extends GamePanel {
     }
 
     void drawPlantedCards() {
-        ArrayList<Card> cards = Playground.getPlayground().getPlanted();
+        ArrayList<Card> cards = Playground.getPlayground().getCurrentContestant().getPlanted();
         if (cards.size() % 2 == 0) {
             for (int i = 0; i < cards.size(); i++) {
                 playCardsEven[i].setCard(cards.get(i));
@@ -151,7 +151,7 @@ public class PlaygroundPanel extends GamePanel {
     }
 
     private void drawHandPanels() {
-        ArrayList<Card> cards = Playground.getPlayground().getHand();
+        ArrayList<Card> cards = Playground.getPlayground().getCurrentContestant().getHand();
         handPanels = new CardPanel[cards.size()];
         largerHandPanels = new CardPanel[cards.size()];
 
@@ -171,7 +171,7 @@ public class PlaygroundPanel extends GamePanel {
     private void showNumberOfDeckCards() {
         JPanel numberOfDeckCards = new JPanel();
         numberOfDeckCards.setBounds((int) (0.92 * screenWidth), (int) (0.575 * screenHeight), 30, 30);
-        JLabel label = new JLabel(String.valueOf(Playground.getPlayground().getRemainingDeckSize()));
+        JLabel label = new JLabel(String.valueOf(Playground.getPlayground().getCurrentContestant().getRemainingDeckSize()));
         label.setFont(new Font("Arial", Font.BOLD, 15));
         label.setForeground(Color.WHITE);
         numberOfDeckCards.add(label);
@@ -278,13 +278,14 @@ public class PlaygroundPanel extends GamePanel {
 
 
     private void initHeroPanel() {
-        BackgroundedPanel heroPanel = new BackgroundedPanel("heroes/" + Playground.getPlayground().getHero() + ".png");
+        BackgroundedPanel heroPanel = new BackgroundedPanel("heroes/" +
+                Playground.getPlayground().getCurrentContestant().getHero() + ".png");
         heroPanel.setScaleFactor(0.75, 0.6);
         heroPanel.setDrawLocation((int) (0.491 * screenWidth), (int) (0.67 * screenHeight), 210, 210);
         this.add(heroPanel);
 
         BackgroundedPanel heroPowerPanel = new BackgroundedPanel("hero powers/" +
-                Playground.getPlayground().getHero().getHeroPower() + ".png");
+                Playground.getPlayground().getCurrentContestant().getHero().getHeroPower() + ".png");
         heroPowerPanel.setScaleFactor(0.25, 0.25);
         heroPowerPanel.setDrawLocation((int) (0.6 * screenWidth), (int) (0.7 * screenHeight), 210, 210);
         this.add(heroPowerPanel);

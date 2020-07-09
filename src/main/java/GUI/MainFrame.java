@@ -99,7 +99,7 @@ public class MainFrame extends JFrame {
         infoPassivePanel.setPassiveChosenListener(new PassiveChosenListener() {
             @Override
             public void passiveChosenOccurred(PassiveChosenEvent passiveChosenEvent) throws IOException {
-                Playground.getPlayground().setPassive(passiveChosenEvent.getPassive());
+                Playground.getPlayground().getContestant0().setPassive(passiveChosenEvent.getPassive());
                 updatePage(Playground.getPlayground());
             }
         });
@@ -187,7 +187,7 @@ public class MainFrame extends JFrame {
         playgroundPanel.setEndTurnListener(new EndTurnListener() {
             @Override
             public void endTurnOccurred(EndTurnEvent endTurnEvent) {
-                Playground.getPlayground().stepOneTurn();
+                Playground.getPlayground().nextTurn();
             }
         });
         playgroundPanel.setExitListener(exitListener);
@@ -195,7 +195,7 @@ public class MainFrame extends JFrame {
         playgroundPanel.setPlayCardEventListener(new PlayCardListener() {
             @Override
             public void PlayCardOccurred(PlayCardEvent playCardEvent) {
-                Playground.getPlayground().playCard(playCardEvent.getCard());
+                Playground.getPlayground().getCurrentContestant().playCard(playCardEvent.getCard());
             }
         });
     }

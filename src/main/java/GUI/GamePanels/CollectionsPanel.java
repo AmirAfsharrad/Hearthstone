@@ -1,7 +1,7 @@
 package GUI.GamePanels;
 
 import Cards.Card;
-import Cards.CardButton;
+import GUI.Utils.CardButton;
 import Cards.Deck;
 import GUI.Events.*;
 import GUI.Listeners.*;
