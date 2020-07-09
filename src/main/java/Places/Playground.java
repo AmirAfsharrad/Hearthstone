@@ -25,7 +25,6 @@ public class Playground extends Place {
 
     public void changeTurn() {
         turn = 1 - turn;
-        turn = 0;
     }
 
     public void initGame(Deck inputDeck) {
@@ -36,6 +35,14 @@ public class Playground extends Place {
 
     public static Playground getPlayground() {
         return playground;
+    }
+
+    public Contestant getContestant(int index) {
+        if (index == 0)
+            return contestant0;
+        if (index == 1)
+            return contestant1;
+        return null;
     }
 
     public Contestant getContestant0() {

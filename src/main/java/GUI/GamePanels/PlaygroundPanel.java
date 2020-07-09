@@ -11,6 +11,7 @@ import GUI.Utils.CardPanel;
 import Logger.Logger;
 import Places.MainMenu;
 import Places.Playground;
+import UserHandle.Contestant;
 import Utilities.ImageLoader;
 
 import javax.swing.*;
@@ -64,11 +65,11 @@ public class PlaygroundPanel extends GamePanel {
 
         drawGameLog();
 
-        showNumberOfDeckCards(lowerHalfConstants);
-        showNumberOfDeckCards(upperHalfConstants);
+        showNumberOfDeckCards(lowerHalfConstants, 0);
+        showNumberOfDeckCards(upperHalfConstants, 1);
 
-        drawHandPanels(lowerHalfConstants);
-        drawHandPanels(upperHalfConstants);
+        drawHandPanels(lowerHalfConstants, 0);
+        drawHandPanels(upperHalfConstants, 1);
 
         initPlayCardsOdd(lowerHalfConstants, playCardsOddDown);
         initPlayCardsOdd(upperHalfConstants, playCardsOddUp);
@@ -76,20 +77,20 @@ public class PlaygroundPanel extends GamePanel {
         initPlayCardsEven(lowerHalfConstants, playCardsEvenDown);
         initPlayCardsEven(upperHalfConstants, playCardsEvenUp);
 
-        initHeroPanel(lowerHalfConstants);
-        initHeroPanel(upperHalfConstants);
+        initHeroPanel(lowerHalfConstants, 0);
+        initHeroPanel(upperHalfConstants, 1);
 
-        initHeroPowerPanel(lowerHalfConstants);
-        initHeroPowerPanel(upperHalfConstants);
+        initHeroPowerPanel(lowerHalfConstants, 0);
+        initHeroPowerPanel(upperHalfConstants, 1);
 
         initManasPanel(lowerHalfConstants, manasDown, lostManasDown);
         initManasPanel(upperHalfConstants, manasUp, lostManasUp);
 
-        drawPlantedCards(playCardsEvenDown, playCardsOddDown);
-        drawPlantedCards(playCardsEvenUp, playCardsOddUp);
+        drawPlantedCards(playCardsEvenDown, playCardsOddDown, 0);
+        drawPlantedCards(playCardsEvenUp, playCardsOddUp, 1);
 
-        drawManasPanel(manasUp, lostManasUp);
-        drawManasPanel(manasDown, lostManasDown);
+        drawManasPanel(manasDown, lostManasDown, 0);
+        drawManasPanel(manasUp, lostManasUp, 1);
 
         initEndTrunButton();
     }
@@ -137,9 +138,10 @@ public class PlaygroundPanel extends GamePanel {
         }
     }
 
-    private void drawManasPanel(BackgroundedPanel[] manas, BackgroundedPanel[] lostManas) {
-        int currentManas = Playground.getPlayground().getCurrentContestant().getMana();
-        int fullManas = Playground.getPlayground().getCurrentContestant().getTurnFullManas();
+    private void drawManasPanel(BackgroundedPanel[] manas, BackgroundedPanel[] lostManas, int index) {
+        Contestant contestant = Playground.getPlayground().getContestant(index);
+        int currentManas = contestant.getMana();
+        int fullManas = contestant.getTurnFullManas();
         for (int i = 0; i < currentManas; i++) {
             manas[i].setVisible(true);
         }
@@ -170,8 +172,10 @@ public class PlaygroundPanel extends GamePanel {
         }
     }
 
-    void drawPlantedCards(CardPanel[] playCardsEven, CardPanel[] playCardsOdd) {
-        ArrayList<Card> cards = Playground.getPlayground().getCurrentContestant().getPlanted();
+    void drawPlantedCards(CardPanel[] playCardsEven, CardPanel[] playCardsOdd, int index) {
+        Contestant contestant = Playground.getPlayground().getContestant(index);
+        ArrayList<Card> cards = contestant.getPlanted();
+
         if (cards.size() % 2 == 0) {
             for (int i = 0; i < cards.size(); i++) {
                 playCardsEven[i].setCard(cards.get(i));
@@ -187,8 +191,9 @@ public class PlaygroundPanel extends GamePanel {
         }
     }
 
-    private void drawHandPanels(PlaygroundConstants constants) {
-        ArrayList<Card> cards = Playground.getPlayground().getCurrentContestant().getHand();
+    private void drawHandPanels(PlaygroundConstants constants, int index) {
+        Contestant contestant = Playground.getPlayground().getContestant(index);
+        ArrayList<Card> cards = contestant.getHand();
         CardPanel[] handPanels = new CardPanel[cards.size()];
         CardPanel[] largerHandPanels = new CardPanel[cards.size()];
 
@@ -205,12 +210,13 @@ public class PlaygroundPanel extends GamePanel {
         }
     }
 
-    private void showNumberOfDeckCards(PlaygroundConstants constants) {
+    private void showNumberOfDeckCards(PlaygroundConstants constants, int index) {
+        Contestant contestant = Playground.getPlayground().getContestant(index);
         JPanel numberOfDeckCards = new JPanel();
         numberOfDeckCards.setBounds((int) (constants.NUMBER_OF_CARDS_X * screenWidth),
                 (int) (constants.NUMBER_OF_CARDS_Y * screenHeight),
                 constants.NUMBER_OF_CARDS_WIDTH, constants.NUMBER_OF_CARDS_HEIGHT);
-        JLabel label = new JLabel(String.valueOf(Playground.getPlayground().getCurrentContestant().getRemainingDeckSize()));
+        JLabel label = new JLabel(String.valueOf(contestant.getRemainingDeckSize()));
         label.setFont(new Font(constants.NUMBER_OF_CARDS_FONT, Font.BOLD, constants.NUMBER_OF_CARDS_FONT_SIZE));
         label.setForeground(Color.WHITE);
         numberOfDeckCards.add(label);
@@ -322,18 +328,19 @@ public class PlaygroundPanel extends GamePanel {
     }
 
 
-    private void initHeroPanel(PlaygroundConstants constants) {
-        BackgroundedPanel heroPanel = new BackgroundedPanel("heroes/" +
-                Playground.getPlayground().getCurrentContestant().getHero() + ".png");
+    private void initHeroPanel(PlaygroundConstants constants, int index) {
+        Contestant contestant = Playground.getPlayground().getContestant(index);
+        BackgroundedPanel heroPanel = new BackgroundedPanel("heroes/" + contestant.getHero() + ".png");
         heroPanel.setScaleFactor(constants.HERO_PANEL_X_SCALE_FACTOR, constants.HERO_PANEL_Y_SCALE_FACTOR);
         heroPanel.setDrawLocation((int) (constants.HERO_PANEL_X * screenWidth),
                 (int) (constants.HERO_PANEL_Y * screenHeight), constants.HERO_PANEL_WIDTH, constants.HERO_PANEL_HEIGHT);
         this.add(heroPanel);
     }
 
-    private void initHeroPowerPanel(PlaygroundConstants constants) {
-        BackgroundedPanel heroPowerPanel = new BackgroundedPanel("hero powers/" +
-                Playground.getPlayground().getCurrentContestant().getHero().getHeroPower() + ".png");
+    private void initHeroPowerPanel(PlaygroundConstants constants, int index) {
+        Contestant contestant = Playground.getPlayground().getContestant(index);
+        BackgroundedPanel heroPowerPanel = new BackgroundedPanel("hero powers/"
+                + contestant.getHero().getHeroPower() + ".png");
         heroPowerPanel.setScaleFactor(constants.HERO_POWER_PANEL_SCALE_FACTOR);
         heroPowerPanel.setDrawLocation((int) (constants.HERO_POWER_PANEL_X * screenWidth),
                 (int) (constants.HERO_POWER_PANEL_Y * screenHeight), constants.HERO_POWER_PANEL_WIDTH,
