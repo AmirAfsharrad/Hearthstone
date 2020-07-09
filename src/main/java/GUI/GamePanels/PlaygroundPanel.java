@@ -8,7 +8,6 @@ import GUI.Events.*;
 import GUI.Listeners.*;
 import GUI.Utils.BackgroundedPanel;
 import GUI.Utils.CardPanel;
-import GameHandler.GameHandler;
 import Logger.Logger;
 import Places.MainMenu;
 import Places.Playground;
@@ -26,14 +25,16 @@ import java.util.ArrayList;
 
 public class PlaygroundPanel extends GamePanel {
     private int cardCanGetLargeOwner = -1;
-    private CardPanel[] handPanels;
-    private CardPanel[] largerHandPanels;
-    private CardPanel[] playCardsOdd;
-    private CardPanel[] playCardsEven;
+    private CardPanel[] playCardsOddUp;
+    private CardPanel[] playCardsEvenUp;
+    private CardPanel[] playCardsOddDown;
+    private CardPanel[] playCardsEvenDown;
+    private BackgroundedPanel[] manasUp;
+    private BackgroundedPanel[] lostManasUp;
+    private BackgroundedPanel[] manasDown;
+    private BackgroundedPanel[] lostManasDown;
     private JButton backToMainMenuButton;
     private JButton exitButton;
-    private BackgroundedPanel[] manas;
-    private BackgroundedPanel[] lostManas;
     private ExitListener exitListener;
     private EndTurnListener endTurnListener;
     private ChangePlaceListener changePlaceListener;
@@ -47,22 +48,50 @@ public class PlaygroundPanel extends GamePanel {
         constants = new PlaygroundConstants();
         lowerHalfConstants = new LowerHalfConstants();
         upperHalfConstants = new UpperHalfConstants();
+        playCardsOddUp = new CardPanel[7];
+        playCardsOddDown = new CardPanel[7];
+        playCardsEvenUp = new CardPanel[6];
+        playCardsEvenDown = new CardPanel[6];
+        manasUp = new BackgroundedPanel[10];
+        lostManasUp = new BackgroundedPanel[10];
+        manasDown = new BackgroundedPanel[10];
+        lostManasDown = new BackgroundedPanel[10];
         draw();
     }
 
     private void draw() {
         initReturnButtons();
+
         drawGameLog();
+
         showNumberOfDeckCards(lowerHalfConstants);
+        showNumberOfDeckCards(upperHalfConstants);
+
         drawHandPanels(lowerHalfConstants);
+        drawHandPanels(upperHalfConstants);
+
+        initPlayCardsOdd(lowerHalfConstants, playCardsOddDown);
+        initPlayCardsOdd(upperHalfConstants, playCardsOddUp);
+
+        initPlayCardsEven(lowerHalfConstants, playCardsEvenDown);
+        initPlayCardsEven(upperHalfConstants, playCardsEvenUp);
+
         initHeroPanel(lowerHalfConstants);
+        initHeroPanel(upperHalfConstants);
+
         initHeroPowerPanel(lowerHalfConstants);
-        initPlayCardsOdd(lowerHalfConstants);
-        initPlayCardsEven(lowerHalfConstants);
-        initManasPanel(lowerHalfConstants);
+        initHeroPowerPanel(upperHalfConstants);
+
+        initManasPanel(lowerHalfConstants, manasDown, lostManasDown);
+        initManasPanel(upperHalfConstants, manasUp, lostManasUp);
+
+        drawPlantedCards(playCardsEvenDown, playCardsOddDown);
+        drawPlantedCards(playCardsEvenUp, playCardsOddUp);
+
+        drawManasPanel(manasUp, lostManasUp);
+        drawManasPanel(manasDown, lostManasDown);
+
         initEndTrunButton();
-        drawManasPanel();
-        drawPlantedCards();
     }
 
     void initEndTrunButton() {
@@ -88,9 +117,7 @@ public class PlaygroundPanel extends GamePanel {
         this.add(endTurnButton);
     }
 
-    void initManasPanel(PlaygroundConstants constants) {
-        manas = new BackgroundedPanel[10];
-        lostManas = new BackgroundedPanel[10];
+    void initManasPanel(PlaygroundConstants constants, BackgroundedPanel[] manas, BackgroundedPanel[] lostManas) {
         for (int i = 0; i < 10; i++) {
             manas[i] = new BackgroundedPanel(("utils/mana.png"));
             manas[i].setScaleFactor(constants.MANA_SCALE_FACTOR);
@@ -110,7 +137,7 @@ public class PlaygroundPanel extends GamePanel {
         }
     }
 
-    private void drawManasPanel() {
+    private void drawManasPanel(BackgroundedPanel[] manas, BackgroundedPanel[] lostManas) {
         int currentManas = Playground.getPlayground().getCurrentContestant().getMana();
         int fullManas = Playground.getPlayground().getCurrentContestant().getTurnFullManas();
         for (int i = 0; i < currentManas; i++) {
@@ -121,8 +148,7 @@ public class PlaygroundPanel extends GamePanel {
         }
     }
 
-    private void initPlayCardsOdd(PlaygroundConstants constants) {
-        playCardsOdd = new CardPanel[7];
+    private void initPlayCardsOdd(PlaygroundConstants constants, CardPanel[] playCardsOdd) {
         for (int i = 0; i < 7; i++) {
             playCardsOdd[i] = new CardPanel();
             playCardsOdd[i].setScaleFactor(constants.CARD_PANEL_SCALE_FACTOR);
@@ -133,8 +159,7 @@ public class PlaygroundPanel extends GamePanel {
         }
     }
 
-    void initPlayCardsEven(PlaygroundConstants constants) {
-        playCardsEven = new CardPanel[6];
+    void initPlayCardsEven(PlaygroundConstants constants, CardPanel[] playCardsEven) {
         for (int i = 0; i < 6; i++) {
             playCardsEven[i] = new CardPanel();
             playCardsEven[i].setScaleFactor(constants.CARD_PANEL_SCALE_FACTOR);
@@ -145,7 +170,7 @@ public class PlaygroundPanel extends GamePanel {
         }
     }
 
-    void drawPlantedCards() {
+    void drawPlantedCards(CardPanel[] playCardsEven, CardPanel[] playCardsOdd) {
         ArrayList<Card> cards = Playground.getPlayground().getCurrentContestant().getPlanted();
         if (cards.size() % 2 == 0) {
             for (int i = 0; i < cards.size(); i++) {
@@ -164,18 +189,18 @@ public class PlaygroundPanel extends GamePanel {
 
     private void drawHandPanels(PlaygroundConstants constants) {
         ArrayList<Card> cards = Playground.getPlayground().getCurrentContestant().getHand();
-        handPanels = new CardPanel[cards.size()];
-        largerHandPanels = new CardPanel[cards.size()];
+        CardPanel[] handPanels = new CardPanel[cards.size()];
+        CardPanel[] largerHandPanels = new CardPanel[cards.size()];
 
         int count = 0;
         for (Card card : cards) {
-            drawHandLargerCard(card, cards.size() - count - 1, cards.size(), constants);
+            drawHandLargerCard(card, cards.size() - count - 1, cards.size(), constants, largerHandPanels);
             count++;
         }
 
         count = 0;
         for (Card card : cards) {
-            drawHandCard(card, cards.size() - count - 1, cards.size(), constants);
+            drawHandCard(card, cards.size() - count - 1, cards.size(), constants, handPanels, largerHandPanels);
             count++;
         }
     }
@@ -215,8 +240,8 @@ public class PlaygroundPanel extends GamePanel {
     }
 
 
-    private void drawHandCard(Card card, int index, int totalCapacity, PlaygroundConstants constants) {
-//        handPanels[index] = new BackgroundedPanel("cards/" + cardName + ".png");
+    private void drawHandCard(Card card, int index, int totalCapacity, PlaygroundConstants constants,
+                              CardPanel[] handPanels, CardPanel[] largerHandPanels) {
         handPanels[index] = new CardPanel(card, "cards/" + card.getName() + ".png");
         handPanels[index].setScaleFactor(constants.HAND_PANEL_SCALE_FACTOR);
         if (totalCapacity == 1) {
@@ -277,7 +302,8 @@ public class PlaygroundPanel extends GamePanel {
         this.add(handPanels[index]);
     }
 
-    private void drawHandLargerCard(Card card, int index, int totalCapacity, PlaygroundConstants constants) {
+    private void drawHandLargerCard(Card card, int index, int totalCapacity, PlaygroundConstants constants,
+                                    CardPanel[] largerHandPanels) {
         largerHandPanels[index] = new CardPanel(card, "cards/" + card.getName() + ".png");
         largerHandPanels[index].setScaleFactor(constants.LARGER_HAND_PANEL_SCALE_FACTOR);
         if (totalCapacity == 1) {
