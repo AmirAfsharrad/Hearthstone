@@ -2,7 +2,10 @@ package GameHandler;
 
 import Cards.Card;
 import Cards.CardCreator;
+import Cards.Deck;
 import GameHandler.CLI.CLI;
+import Heroes.Mage;
+import Initialization.DefaultUserCardsDataCreator;
 import Utilities.FileHandler;
 import org.json.simple.JSONArray;
 
@@ -15,7 +18,7 @@ public class GameHandler {
     private ArrayList<String> allCardNames;
     private String path = "Data/All Cards.json";
 
-    GameHandler(){
+    GameHandler() {
         refreshCardsDatabase();
     }
 
@@ -31,7 +34,7 @@ public class GameHandler {
         return allCardNames;
     }
 
-    public void refreshCardsDatabase(){
+    public void refreshCardsDatabase() {
         allCards = new HashMap();
         allCardNames = new ArrayList<>();
         JSONArray cardsJsonList = FileHandler.getJsonArrayFromFile(path);
@@ -49,15 +52,26 @@ public class GameHandler {
         }
     }
 
-    public static GameHandler getGameHandler(){
+    public static GameHandler getGameHandler() {
         return gameHandler;
     }
 
-    public Card getCard(String cardName){
-        return allCards.get(cardName);
+    public Card getCard(String cardName) {
+        return allCards.get(cardName).clone();
     }
 
-    public static void runGame(){
+    public Deck getDefaultOpponentDeck() {
+        Deck deck = new Deck("system");
+        ArrayList<String> stringListOfCards = (ArrayList) FileHandler.readFileInList("Data/Default Opponent Deck Cards.txt");
+
+        for (String cardName :
+                stringListOfCards) {
+            deck.getCards().add(getCard(cardName));
+        }
+        return deck;
+    }
+
+    public static void runGame() {
         CLI cli = CLI.getGetCLI();
         cli.run();
     }

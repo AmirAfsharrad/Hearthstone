@@ -53,6 +53,8 @@ public abstract class Card {
         return 0;
     }
 
+    public abstract Card clone();
+
     @Override
     public String toString() {
         return name;

@@ -19,4 +19,8 @@ public class Minion extends Card {
     public int getAttackPower() {
         return attackPower;
     }
+
+    public Card clone() {
+        return new Minion(getMana(), getName(), getRarity(), getHeroClass(), getDescription(), getAttackPower(), getHp());
+    }
 }

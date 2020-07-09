@@ -30,7 +30,7 @@ public class Playground extends Place {
     public void initGame(Deck inputDeck) {
         gameLog = new ArrayList<>();
         contestant0.init(inputDeck);
-        contestant1.init(inputDeck);
+        contestant1.init(GameHandler.getGameHandler().getDefaultOpponentDeck());
     }
 
     public static Playground getPlayground() {
