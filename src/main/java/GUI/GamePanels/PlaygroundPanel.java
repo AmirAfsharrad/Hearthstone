@@ -205,7 +205,7 @@ public class PlaygroundPanel extends GamePanel {
 
         count = 0;
         for (Card card : cards) {
-            drawHandCard(card, cards.size() - count - 1, cards.size(), constants, handPanels, largerHandPanels);
+            drawHandCard(card, cards.size() - count - 1, cards.size(), constants, handPanels, largerHandPanels, index);
             count++;
         }
     }
@@ -247,7 +247,7 @@ public class PlaygroundPanel extends GamePanel {
 
 
     private void drawHandCard(Card card, int index, int totalCapacity, PlaygroundConstants constants,
-                              CardPanel[] handPanels, CardPanel[] largerHandPanels) {
+                              CardPanel[] handPanels, CardPanel[] largerHandPanels, int turnIndex) {
         handPanels[index] = new CardPanel(card, "cards/" + card.getName() + ".png");
         handPanels[index].setScaleFactor(constants.HAND_PANEL_SCALE_FACTOR);
         if (totalCapacity == 1) {
@@ -263,6 +263,10 @@ public class PlaygroundPanel extends GamePanel {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
                 Logger.buttonPressLog(handPanels[index], card.getName());
+
+                if (turnIndex != Playground.getPlayground().getTurn())
+                    return;
+
                 PlayCardEvent playCardEvent = new PlayCardEvent(this, card);
                 if (playCardEventListener != null) {
                     playCardEventListener.PlayCardOccurred(playCardEvent);
@@ -285,6 +289,9 @@ public class PlaygroundPanel extends GamePanel {
 
             @Override
             public void mouseEntered(MouseEvent mouseEvent) {
+                if (turnIndex != Playground.getPlayground().getTurn())
+                    return;
+
                 if (cardCanGetLargeOwner == -1) {
                     cardCanGetLargeOwner = index;
                     handPanels[index].setVisible(false);

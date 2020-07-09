@@ -27,6 +27,10 @@ public class Playground extends Place {
         turn = 1 - turn;
     }
 
+    public int getTurn() {
+        return turn;
+    }
+
     public void initGame(Deck inputDeck) {
         gameLog = new ArrayList<>();
         contestant0.init(inputDeck);

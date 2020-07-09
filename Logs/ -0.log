@@ -1320,3 +1320,45 @@ Start turn, 2020-07-10T01:34:36.860461900, start of system's turn
 Button Pressed, 2020-07-10T01:34:39.193290500, Sap
 Card Played, 2020-07-10T01:34:39.193290500, Sap
 quit, 2020-07-10T01:34:46.206452700, quit the game
+login, 2020-07-10T01:43:21.081986700,  as  
+Button Pressed, 2020-07-10T01:43:22.506272300, Collections
+Button Pressed, 2020-07-10T01:43:25.614077900, Amir
+Button Pressed, 2020-07-10T01:43:27.097640200, Play
+Button Pressed, 2020-07-10T01:43:30.104748500, zombie
+Button Pressed, 2020-07-10T01:43:37.173829300, end turn
+End turn, 2020-07-10T01:43:37.174827300, end of  's turn
+Start turn, 2020-07-10T01:43:37.175864300, start of system's turn
+Button Pressed, 2020-07-10T01:43:39.152012100, end turn
+End turn, 2020-07-10T01:43:39.153035700, end of system's turn
+Start turn, 2020-07-10T01:43:39.154005200, start of  's turn
+Button Pressed, 2020-07-10T01:43:39.702534100, end turn
+End turn, 2020-07-10T01:43:39.703531600, end of  's turn
+Start turn, 2020-07-10T01:43:39.703531600, start of system's turn
+Button Pressed, 2020-07-10T01:43:39.992788900, end turn
+End turn, 2020-07-10T01:43:39.992788900, end of system's turn
+Start turn, 2020-07-10T01:43:39.993776500, start of  's turn
+Button Pressed, 2020-07-10T01:43:41.000599300, end turn
+End turn, 2020-07-10T01:43:41.001598, end of  's turn
+Start turn, 2020-07-10T01:43:41.001598, start of system's turn
+Button Pressed, 2020-07-10T01:43:52.237194400, Stonetusk Boar
+Card Played, 2020-07-10T01:43:52.238200700, Stonetusk Boar
+Button Pressed, 2020-07-10T01:43:56.162680700, Sap
+Card Played, 2020-07-10T01:43:56.163679, Sap
+Button Pressed, 2020-07-10T01:43:58.228896200, Living Monument
+Button Pressed, 2020-07-10T01:43:58.986927, Gnomish Army Knife
+Button Pressed, 2020-07-10T01:43:59.647254700, Gnomish Army Knife
+Button Pressed, 2020-07-10T01:44:00.619368500, Sunreaver Warmage
+Button Pressed, 2020-07-10T01:44:01.614158100, Strength in Numbers
+Button Pressed, 2020-07-10T01:44:04.784446500, Lord of the Arena
+Button Pressed, 2020-07-10T01:44:06.334586500, end turn
+End turn, 2020-07-10T01:44:06.335583300, end of system's turn
+Start turn, 2020-07-10T01:44:06.335583300, start of  's turn
+Button Pressed, 2020-07-10T01:44:08.611084100, Polymorph
+Button Pressed, 2020-07-10T01:44:10.687810600, Goldshire Footman
+Card Played, 2020-07-10T01:44:10.688810100, Goldshire Footman
+Button Pressed, 2020-07-10T01:44:13.522463500, Strength in Numbers
+Card Played, 2020-07-10T01:44:13.523482800, Strength in Numbers
+Button Pressed, 2020-07-10T01:44:16.959957700, end turn
+End turn, 2020-07-10T01:44:16.959957700, end of  's turn
+Start turn, 2020-07-10T01:44:16.960954800, start of system's turn
+quit, 2020-07-10T01:44:20.118570500, quit the game
