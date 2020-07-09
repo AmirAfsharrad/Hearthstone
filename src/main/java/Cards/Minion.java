@@ -12,4 +12,11 @@ public class Minion extends Card {
         this.attackPower = attackPower;
     }
 
+    public int getHp() {
+        return hp;
+    }
+
+    public int getAttackPower() {
+        return attackPower;
+    }
 }

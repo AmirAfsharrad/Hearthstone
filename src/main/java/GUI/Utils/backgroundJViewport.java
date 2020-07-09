@@ -1,4 +1,4 @@
-package GUI.GamePanels;
+package GUI.Utils;
 
 import Utilities.ImageLoader;
 

@@ -1,5 +1,6 @@
-package GUI.GamePanels;
+package GUI.Utils;
 
+import Places.Playground;
 import Utilities.ImageLoader;
 
 import javax.swing.*;

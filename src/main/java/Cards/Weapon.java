@@ -9,4 +9,12 @@ public class Weapon extends Card {
         this.durability = durability;
         this.attackPower = attackPower;
     }
+
+    public int getDurability() {
+        return durability;
+    }
+
+    public int getAttackPower() {
+        return attackPower;
+    }
 }

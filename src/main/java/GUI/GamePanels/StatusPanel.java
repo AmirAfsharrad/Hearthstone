@@ -6,6 +6,8 @@ import GUI.Events.ChangePlaceEvent;
 import GUI.Events.ExitEvent;
 import GUI.Listeners.ChangePlaceListener;
 import GUI.Listeners.ExitListener;
+import GUI.Utils.DynamicIcon;
+import GUI.Utils.backgroundJViewport;
 import GameHandler.GameState;
 import Heroes.Hero;
 import Logger.Logger;
