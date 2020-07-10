@@ -13,6 +13,7 @@ import Places.MainMenu;
 import Places.Playground;
 import UserHandle.Contestant;
 import Utilities.ImageLoader;
+import Utilities.TurnTimer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,6 +24,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.TimerTask;
 
 public class PlaygroundPanel extends GamePanel {
     private int cardCanGetLargeOwner = -1;
@@ -36,6 +38,8 @@ public class PlaygroundPanel extends GamePanel {
     private BackgroundedPanel[] lostManasDown;
     private JButton backToMainMenuButton;
     private JButton exitButton;
+    private JPanel timerPanel;
+    private JProgressBar progressBar;
     private ExitListener exitListener;
     private EndTurnListener endTurnListener;
     private ChangePlaceListener changePlaceListener;
@@ -43,6 +47,7 @@ public class PlaygroundPanel extends GamePanel {
     private PlaygroundConstants constants;
     private LowerHalfConstants lowerHalfConstants;
     private UpperHalfConstants upperHalfConstants;
+    private TurnTimer turnTimer;
 
     public PlaygroundPanel(int screenWidth, int screenHeight) {
         super(screenWidth, screenHeight);
@@ -57,7 +62,25 @@ public class PlaygroundPanel extends GamePanel {
         lostManasUp = new BackgroundedPanel[10];
         manasDown = new BackgroundedPanel[10];
         lostManasDown = new BackgroundedPanel[10];
+        timerPanel = new JPanel();
+        progressBar = new JProgressBar(SwingConstants.VERTICAL);
         draw();
+        initTurnTimer();
+    }
+
+    private void initTurnTimer() {
+        turnTimer = new TurnTimer(10000, progressBar);
+        turnTimer.setTurnTimeFinishListener(new TurnTimeFinishListener() {
+            @Override
+            public void turnTimeFinishEventOccurred(TurnTimeFinishEvent turnTimeFinishEvent) {
+                EndTurnEvent endTurnEvent = new EndTurnEvent(this);
+                if (endTurnListener != null) {
+                    endTurnListener.endTurnOccurred(endTurnEvent);
+                }
+                refresh();
+            }
+        });
+        turnTimer.start();
     }
 
     private void draw() {
@@ -92,10 +115,23 @@ public class PlaygroundPanel extends GamePanel {
         drawManasPanel(manasDown, lostManasDown, 0);
         drawManasPanel(manasUp, lostManasUp, 1);
 
-        initEndTrunButton();
+        initEndTurnButton();
+
+        initTimerPanel();
     }
 
-    void initEndTrunButton() {
+    void initTimerPanel() {
+        timerPanel.setVisible(true);
+        timerPanel.setOpaque(false);
+        progressBar.setValue(100);
+        progressBar.setForeground(Color.GREEN);
+        timerPanel.add(progressBar);
+        timerPanel.setBounds((int) (constants.TIMER_PANEL_X * screenWidth),
+                (int) (constants.TIMER_PANEL_Y * screenHeight), constants.TIMER_PANEL_WIDTH, constants.TIMER_PANEL_HEIGHT);
+        this.add(timerPanel);
+    }
+
+    void initEndTurnButton() {
         JButton endTurnButton = new JButton("");
         endTurnButton.setContentAreaFilled(false);
         endTurnButton.setBorder(BorderFactory.createEmptyBorder());
@@ -109,10 +145,8 @@ public class PlaygroundPanel extends GamePanel {
                 if (endTurnListener != null) {
                     endTurnListener.endTurnOccurred(endTurnEvent);
                 }
-                clear();
-                draw();
-                revalidate();
-                repaint();
+                turnTimer.reset();
+                refresh();
             }
         });
         this.add(endTurnButton);
@@ -271,10 +305,7 @@ public class PlaygroundPanel extends GamePanel {
                 if (playCardEventListener != null) {
                     playCardEventListener.PlayCardOccurred(playCardEvent);
                 }
-                clear();
-                draw();
-                revalidate();
-                repaint();
+                refresh();
             }
 
             @Override
@@ -431,5 +462,19 @@ public class PlaygroundPanel extends GamePanel {
 
     public void setPlayCardEventListener(PlayCardListener playCardEventListener) {
         this.playCardEventListener = playCardEventListener;
+    }
+
+    private class Ticker extends TimerTask {
+        @Override
+        public void run() {
+            refresh();
+        }
+    }
+
+    public void refresh() {
+        clear();
+        draw();
+        revalidate();
+        repaint();
     }
 }

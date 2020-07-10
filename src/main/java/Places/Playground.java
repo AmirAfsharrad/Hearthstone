@@ -1,26 +1,27 @@
 package Places;
 
-import Cards.Card;
 import Cards.Deck;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
-import Heroes.Hero;
 import Logger.Logger;
 import UserHandle.Contestant;
+import Utilities.TurnTimer;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Playground extends Place {
     private static Playground playground = new Playground();
     private ArrayList<String> gameLog;
     private Contestant contestant0;
     private Contestant contestant1;
+//    private TurnTimer turnTimer;
     private int turn = 0;
 
     private Playground() {
         contestant0 = new Contestant(GameState.getGameState().getUser().getName());
         contestant1 = new Contestant("system");
+//        turnTimer = new TurnTimer(10000);
+//        turnTimer.start();
     }
 
     public void changeTurn() {
@@ -67,6 +68,7 @@ public class Playground extends Place {
     }
 
     public void nextTurn() {
+//        turnTimer.reset();
         getCurrentContestant().endTurn();
         changeTurn();
         getCurrentContestant().startTrun();

@@ -73,4 +73,9 @@ public class PlaygroundConstants {
     public double MAIN_MENU_BUTTON_Y = 0.87;
     public int MAIN_MENU_BUTTON_WIDTH = 110;
     public int MAIN_MENU_BUTTON_HEIGHT = 30;
+
+    public double TIMER_PANEL_X = 0.95;
+    public double TIMER_PANEL_Y = 0.35;
+    public int TIMER_PANEL_WIDTH = 50;
+    public int TIMER_PANEL_HEIGHT = 200;
 }
