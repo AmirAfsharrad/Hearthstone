@@ -2301,3 +2301,324 @@ Button Pressed, 2020-07-11T03:38:24.953514200, end turn by time
 End turn, 2020-07-11T03:38:24.953514200, end of system's turn
 Start turn, 2020-07-11T03:38:24.954467900, start of  's turn
 quit, 2020-07-11T03:38:27.292215400, quit the game
+login, 2020-07-11T03:39:42.543614700,  as  
+Button Pressed, 2020-07-11T03:39:43.846355, Collections
+Button Pressed, 2020-07-11T03:39:47.480801100, Amir
+Button Pressed, 2020-07-11T03:39:48.965714500, Play
+Button Pressed, 2020-07-11T03:39:53.362641400, zombie
+quit, 2020-07-11T03:40:03.224286100, quit the game
+login, 2020-07-14T09:56:40.249383700,  as  
+Button Pressed, 2020-07-14T09:56:41.594883800, Play
+Button Pressed, 2020-07-14T09:56:47.594811900, Amir
+Button Pressed, 2020-07-14T09:56:49.445106200, Play
+Button Pressed, 2020-07-14T09:57:01.422889500, zombie
+Button Pressed, 2020-07-14T09:57:38.138879800, end turn
+End turn, 2020-07-14T09:57:38.139877400, end of  's turn
+Start turn, 2020-07-14T09:57:38.139877400, start of system's turn
+Button Pressed, 2020-07-14T09:57:38.716336800, end turn
+End turn, 2020-07-14T09:57:38.717333900, end of system's turn
+Start turn, 2020-07-14T09:57:38.717333900, start of  's turn
+quit, 2020-07-14T09:57:44.312369900, quit the game
+login, 2020-07-14T10:05:22.174962400,  as  
+Button Pressed, 2020-07-14T10:05:23.222592600, Collections
+Button Pressed, 2020-07-14T10:05:26.391995300, Amir
+Button Pressed, 2020-07-14T10:05:27.691217200, Play
+Button Pressed, 2020-07-14T10:05:30.900580400, mana jump
+Button Pressed, 2020-07-14T10:05:41.749443300, end turn
+End turn, 2020-07-14T10:05:41.750446800, end of  's turn
+Start turn, 2020-07-14T10:05:41.751435200, start of system's turn
+Button Pressed, 2020-07-14T10:05:45.014758700, end turn
+End turn, 2020-07-14T10:05:45.015760900, end of system's turn
+Start turn, 2020-07-14T10:05:45.015760900, start of  's turn
+quit, 2020-07-14T10:06:00.864810700, quit the game
+login, 2020-07-14T10:08:04.630102,  as  
+Button Pressed, 2020-07-14T10:08:06.088787600, Collections
+Button Pressed, 2020-07-14T10:08:09.249255700, Amir
+Button Pressed, 2020-07-14T10:08:11.235745300, Play
+Button Pressed, 2020-07-14T10:08:14.067147400, draw twice
+Button Pressed, 2020-07-14T10:08:21.071963900, Strength in Numbers
+Card Played, 2020-07-14T10:08:21.073958600, Strength in Numbers
+Button Pressed, 2020-07-14T10:08:26.818594100, Depth Charge
+Button Pressed, 2020-07-14T10:08:37.765320800, end turn
+End turn, 2020-07-14T10:08:37.766312, end of  's turn
+Start turn, 2020-07-14T10:08:37.767325, start of system's turn
+Button Pressed, 2020-07-14T10:08:43.923844800, Depth Charge
+Card Played, 2020-07-14T10:08:43.924841900, Depth Charge
+Button Pressed, 2020-07-14T10:08:48.208382600, Polymorph
+Button Pressed, 2020-07-14T10:08:51.753281300, Polymorph
+Button Pressed, 2020-07-14T10:08:57.710348800, end turn
+End turn, 2020-07-14T10:08:57.711359, end of system's turn
+Start turn, 2020-07-14T10:08:57.711359, start of  's turn
+Button Pressed, 2020-07-14T10:09:00.789687400, Goldshire Footman
+Card Played, 2020-07-14T10:09:00.790686900, Goldshire Footman
+Button Pressed, 2020-07-14T10:09:15.349743100, end turn
+End turn, 2020-07-14T10:09:15.350750100, end of  's turn
+Start turn, 2020-07-14T10:09:15.350750100, start of system's turn
+Button Pressed, 2020-07-14T10:09:20.719383500, end turn
+End turn, 2020-07-14T10:09:20.719383500, end of system's turn
+Start turn, 2020-07-14T10:09:20.720380600, start of  's turn
+Button Pressed, 2020-07-14T10:09:23.886920700, Poisoned Dagger
+Card Played, 2020-07-14T10:09:23.886920700, Poisoned Dagger
+Button Pressed, 2020-07-14T10:09:29.430278300, Polymorph
+Button Pressed, 2020-07-14T10:09:39.618032800, Lord of the Arena
+Button Pressed, 2020-07-14T10:09:40.713103200, Sap
+Button Pressed, 2020-07-14T10:09:41.662582300, Stonetusk Boar
+Button Pressed, 2020-07-14T10:09:43.931503800, end turn
+End turn, 2020-07-14T10:09:43.932511200, end of  's turn
+Start turn, 2020-07-14T10:09:43.933488600, start of system's turn
+Button Pressed, 2020-07-14T10:09:48.700723900, Polymorph
+Card Played, 2020-07-14T10:09:48.701732900, Polymorph
+Button Pressed, 2020-07-14T10:09:52.974292900, end turn
+End turn, 2020-07-14T10:09:52.975290800, end of system's turn
+Start turn, 2020-07-14T10:09:52.975290800, start of  's turn
+Button Pressed, 2020-07-14T10:10:01.290052500, Poisoned Dagger
+Card Played, 2020-07-14T10:10:01.291052800, Poisoned Dagger
+Button Pressed, 2020-07-14T10:10:06.356501800, end turn
+End turn, 2020-07-14T10:10:06.356501800, end of  's turn
+Start turn, 2020-07-14T10:10:06.357498500, start of system's turn
+Button Pressed, 2020-07-14T10:10:22.301325500, Goldshire Footman
+Card Played, 2020-07-14T10:10:22.302326200, Goldshire Footman
+Button Pressed, 2020-07-14T10:10:26.284671700, Stormwind Champion
+Button Pressed, 2020-07-14T10:10:43.290225500, Stonetusk Boar
+Card Played, 2020-07-14T10:10:43.291189400, Stonetusk Boar
+quit, 2020-07-14T10:10:48.423468700, quit the game
+login, 2020-07-14T10:12:13.741585500,  as  
+Button Pressed, 2020-07-14T10:12:14.750557, Collections
+Button Pressed, 2020-07-14T10:12:18.209178600, Amir
+Button Pressed, 2020-07-14T10:12:19.564855200, Play
+Button Pressed, 2020-07-14T10:12:22.014695800, draw twice
+Button Pressed, 2020-07-14T10:12:24.091234200, end turn
+End turn, 2020-07-14T10:12:24.093223800, end of  's turn
+Start turn, 2020-07-14T10:12:24.093223800, start of system's turn
+Button Pressed, 2020-07-14T10:12:25.471537400, end turn
+End turn, 2020-07-14T10:12:25.472546300, end of system's turn
+Start turn, 2020-07-14T10:12:25.473534400, start of  's turn
+Button Pressed, 2020-07-14T10:12:32.654108300, Goldshire Footman
+Card Played, 2020-07-14T10:12:32.657100500, Goldshire Footman
+Button Pressed, 2020-07-14T10:12:38.731853600, end turn
+End turn, 2020-07-14T10:12:38.732850300, end of  's turn
+Start turn, 2020-07-14T10:12:38.732850300, start of system's turn
+Button Pressed, 2020-07-14T10:12:39.786068700, end turn
+End turn, 2020-07-14T10:12:39.787032600, end of system's turn
+Start turn, 2020-07-14T10:12:39.788027800, start of  's turn
+Button Pressed, 2020-07-14T10:12:51.413932700, Poisoned Dagger
+Card Played, 2020-07-14T10:12:51.413932700, Poisoned Dagger
+Button Pressed, 2020-07-14T10:12:57.101721500, end turn
+End turn, 2020-07-14T10:12:57.101721500, end of  's turn
+Start turn, 2020-07-14T10:12:57.102727, start of system's turn
+Button Pressed, 2020-07-14T10:12:57.440817800, end turn
+End turn, 2020-07-14T10:12:57.441813300, end of system's turn
+Start turn, 2020-07-14T10:12:57.442808100, start of  's turn
+Button Pressed, 2020-07-14T10:13:03.414836600, Strength in Numbers
+Card Played, 2020-07-14T10:13:03.415832100, Strength in Numbers
+Button Pressed, 2020-07-14T10:13:07.029178, Strength in Numbers
+Card Played, 2020-07-14T10:13:07.030166800, Strength in Numbers
+Button Pressed, 2020-07-14T10:13:20.167587800, end turn
+End turn, 2020-07-14T10:13:20.168586500, end of  's turn
+Start turn, 2020-07-14T10:13:20.169585200, start of system's turn
+Button Pressed, 2020-07-14T10:13:23.728069700, Depth Charge
+Card Played, 2020-07-14T10:13:23.728069700, Depth Charge
+Button Pressed, 2020-07-14T10:13:33.969981200, Stonetusk Boar
+Card Played, 2020-07-14T10:13:33.970978300, Stonetusk Boar
+Button Pressed, 2020-07-14T10:13:37.381703200, Goldshire Footman
+Card Played, 2020-07-14T10:13:37.382662400, Goldshire Footman
+Button Pressed, 2020-07-14T10:13:43.860344200, Sap
+Card Played, 2020-07-14T10:13:43.861335800, Sap
+quit, 2020-07-14T10:13:49.073830200, quit the game
+login, 2020-07-14T10:32:49.759936100,  as  
+Button Pressed, 2020-07-14T10:32:50.748116700, Collections
+Button Pressed, 2020-07-14T10:32:53.967157700, Amir
+Button Pressed, 2020-07-14T10:32:55.580481500, Play
+Button Pressed, 2020-07-14T10:32:57.817471700, zombie
+Button Pressed, 2020-07-14T10:33:00.305800400, end turn
+End turn, 2020-07-14T10:33:00.306799500, end of  's turn
+Start turn, 2020-07-14T10:33:00.306799500, start of system's turn
+Button Pressed, 2020-07-14T10:33:01.188467900, end turn
+End turn, 2020-07-14T10:33:01.188467900, end of system's turn
+Start turn, 2020-07-14T10:33:01.189441800, start of  's turn
+Button Pressed, 2020-07-14T10:33:02.205484400, end turn
+End turn, 2020-07-14T10:33:02.206472100, end of  's turn
+Start turn, 2020-07-14T10:33:02.206472100, start of system's turn
+Button Pressed, 2020-07-14T10:33:02.955470600, end turn
+End turn, 2020-07-14T10:33:02.955470600, end of system's turn
+Start turn, 2020-07-14T10:33:02.956465800, start of  's turn
+quit, 2020-07-14T10:33:03.844099200, quit the game
+login, 2020-07-14T10:33:33.823605,  as  
+Button Pressed, 2020-07-14T10:33:35.286746200, Collections
+Button Pressed, 2020-07-14T10:33:38.320856600, Amir
+Button Pressed, 2020-07-14T10:33:39.825694900, Play
+Button Pressed, 2020-07-14T10:33:42.407531500, mana jump
+Button Pressed, 2020-07-14T10:34:00.873109800, Strength in Numbers
+Card Played, 2020-07-14T10:34:00.875106, Strength in Numbers
+Button Pressed, 2020-07-14T10:34:09.651633200, end turn
+End turn, 2020-07-14T10:34:09.652630, end of  's turn
+Start turn, 2020-07-14T10:34:09.653627500, start of system's turn
+Button Pressed, 2020-07-14T10:34:27.474177900, Depth Charge
+Card Played, 2020-07-14T10:34:27.474177900, Depth Charge
+quit, 2020-07-14T10:34:39.196485700, quit the game
+login, 2020-07-14T10:34:56.216066500,  as  
+Button Pressed, 2020-07-14T10:34:57.349360300, Collections
+Button Pressed, 2020-07-14T10:35:00.354577100, Amir
+Button Pressed, 2020-07-14T10:35:01.644244400, Play
+Button Pressed, 2020-07-14T10:35:03.851532700, zombie
+Button Pressed, 2020-07-14T10:35:12.432521900, Goldshire Footman
+Card Played, 2020-07-14T10:35:12.434513, Goldshire Footman
+quit, 2020-07-14T10:35:29.816023, quit the game
+login, 2020-07-14T10:35:42.291853200,  as  
+Button Pressed, 2020-07-14T10:35:43.456600500, Collections
+Button Pressed, 2020-07-14T10:35:46.883710500, Amir
+Button Pressed, 2020-07-14T10:35:48.243391400, Play
+Button Pressed, 2020-07-14T10:35:50.966634200, warriors
+Button Pressed, 2020-07-14T10:35:57.651615800, Poisoned Dagger
+Card Played, 2020-07-14T10:35:57.654609200, Poisoned Dagger
+quit, 2020-07-14T10:36:00.633076400, quit the game
+login, 2020-07-14T10:36:26.218399,  as  
+Button Pressed, 2020-07-14T10:36:27.489102600, Collections
+Button Pressed, 2020-07-14T10:36:30.647741900, Amir
+Button Pressed, 2020-07-14T10:36:32.123181700, Play
+Button Pressed, 2020-07-14T10:36:35.152296500, draw twice
+Button Pressed, 2020-07-14T10:36:48.259554100, Strength in Numbers
+Card Played, 2020-07-14T10:36:48.262536, Strength in Numbers
+Button Pressed, 2020-07-14T10:36:51.682388, Goldshire Footman
+Button Pressed, 2020-07-14T10:36:53.304064900, end turn
+End turn, 2020-07-14T10:36:53.305047800, end of  's turn
+Start turn, 2020-07-14T10:36:53.306044200, start of system's turn
+Button Pressed, 2020-07-14T10:37:00.351240400, end turn
+End turn, 2020-07-14T10:37:00.352199200, end of system's turn
+Start turn, 2020-07-14T10:37:00.352199200, start of  's turn
+Button Pressed, 2020-07-14T10:37:07.388408500, Poisoned Dagger
+Card Played, 2020-07-14T10:37:07.389377200, Poisoned Dagger
+Button Pressed, 2020-07-14T10:37:13.940303400, Poisoned Dagger
+Card Played, 2020-07-14T10:37:13.941301700, Poisoned Dagger
+Button Pressed, 2020-07-14T10:37:17.044374400, Goldshire Footman
+quit, 2020-07-14T10:37:28.533655200, quit the game
+login, 2020-07-14T10:37:36.115775100,  as  
+Button Pressed, 2020-07-14T10:37:37.283276400, Collections
+Button Pressed, 2020-07-14T10:37:40.206773900, Amir
+Button Pressed, 2020-07-14T10:37:41.583758100, Play
+Button Pressed, 2020-07-14T10:37:43.714878200, zombie
+Button Pressed, 2020-07-14T10:37:57.774809, Goldshire Footman
+Card Played, 2020-07-14T10:37:57.777799600, Goldshire Footman
+quit, 2020-07-14T10:37:58.965620900, quit the game
+login, 2020-07-14T10:38:06.388533800,  as  
+Button Pressed, 2020-07-14T10:38:07.635250, Collections
+Button Pressed, 2020-07-14T10:38:10.727471600, Amir
+Button Pressed, 2020-07-14T10:38:12.267240800, Play
+Button Pressed, 2020-07-14T10:38:14.616891100, nurse
+Button Pressed, 2020-07-14T10:38:28.039311700, Strength in Numbers
+Card Played, 2020-07-14T10:38:28.042305500, Strength in Numbers
+Button Pressed, 2020-07-14T10:38:32.865391100, end turn
+End turn, 2020-07-14T10:38:32.866416300, end of  's turn
+Start turn, 2020-07-14T10:38:32.866416300, start of system's turn
+Button Pressed, 2020-07-14T10:38:46.156292200, Stonetusk Boar
+Card Played, 2020-07-14T10:38:46.157246600, Stonetusk Boar
+Button Pressed, 2020-07-14T10:38:48.509955100, end turn
+End turn, 2020-07-14T10:38:48.510952200, end of system's turn
+Start turn, 2020-07-14T10:38:48.510952200, start of  's turn
+Button Pressed, 2020-07-14T10:39:10.328060100, Poisoned Dagger
+Card Played, 2020-07-14T10:39:10.329076200, Poisoned Dagger
+Button Pressed, 2020-07-14T10:39:13.021854, Living Monument
+Button Pressed, 2020-07-14T10:39:14.694379600, end turn
+End turn, 2020-07-14T10:39:14.695387400, end of  's turn
+Start turn, 2020-07-14T10:39:14.695387400, start of system's turn
+Button Pressed, 2020-07-14T10:39:14.964658200, end turn
+End turn, 2020-07-14T10:39:14.965655700, end of system's turn
+Start turn, 2020-07-14T10:39:14.965655700, start of  's turn
+quit, 2020-07-14T10:39:19.212532700, quit the game
+login, 2020-07-14T10:39:57.111509200,  as  
+Button Pressed, 2020-07-14T10:39:58.089514200, Collections
+Button Pressed, 2020-07-14T10:40:01.340454800, Amir
+Button Pressed, 2020-07-14T10:40:02.617596300, Play
+Button Pressed, 2020-07-14T10:40:04.668550500, zombie
+Button Pressed, 2020-07-14T10:40:10.518700600, Poisoned Dagger
+Card Played, 2020-07-14T10:40:10.521678200, Poisoned Dagger
+Button Pressed, 2020-07-14T10:40:13.042909500, end turn
+End turn, 2020-07-14T10:40:13.043939500, end of  's turn
+Start turn, 2020-07-14T10:40:13.043939500, start of system's turn
+Button Pressed, 2020-07-14T10:40:28.389175300, Lord of the Arena
+Button Pressed, 2020-07-14T10:40:31.532767900, Shieldbearer
+Card Played, 2020-07-14T10:40:31.533764300, Shieldbearer
+quit, 2020-07-14T10:40:33.111544800, quit the game
+login, 2020-07-14T10:40:43.447225300,  as  
+Button Pressed, 2020-07-14T10:40:44.672552100, Collections
+Button Pressed, 2020-07-14T10:40:47.683274500, Amir
+Button Pressed, 2020-07-14T10:40:49.042923800, Play
+Button Pressed, 2020-07-14T10:40:51.303950700, mana jump
+Button Pressed, 2020-07-14T10:41:02.170165500, Goldshire Footman
+Card Played, 2020-07-14T10:41:02.172159, Goldshire Footman
+Button Pressed, 2020-07-14T10:41:09.899786300, Goldshire Footman
+Card Played, 2020-07-14T10:41:09.900783800, Goldshire Footman
+Button Pressed, 2020-07-14T10:41:12.179701900, end turn
+End turn, 2020-07-14T10:41:12.180684400, end of  's turn
+Start turn, 2020-07-14T10:41:12.180684400, start of system's turn
+Button Pressed, 2020-07-14T10:41:27.187657300, Sap
+Card Played, 2020-07-14T10:41:27.188662300, Sap
+Button Pressed, 2020-07-14T10:41:30.060988300, Stonetusk Boar
+Button Pressed, 2020-07-14T10:41:35.852497800, Polymorph
+Button Pressed, 2020-07-14T10:41:40.192875600, Stonetusk Boar
+quit, 2020-07-14T10:41:41.677903200, quit the game
+login, 2020-07-14T10:42:57.761546400,  as  
+Button Pressed, 2020-07-14T10:42:59.150766800, Collections
+Button Pressed, 2020-07-14T10:43:02.843174400, Amir
+Button Pressed, 2020-07-14T10:43:04.515988500, Play
+Button Pressed, 2020-07-14T10:43:06.999414100, zombie
+Button Pressed, 2020-07-14T10:43:13.002321700, Strength in Numbers
+Card Played, 2020-07-14T10:43:13.006312200, Strength in Numbers
+Button Pressed, 2020-07-14T10:43:14.524251600, end turn
+End turn, 2020-07-14T10:43:14.526246600, end of  's turn
+Start turn, 2020-07-14T10:43:14.526246600, start of system's turn
+quit, 2020-07-14T10:43:44.396671600, quit the game
+login, 2020-07-14T10:43:53.810308800,  as  
+Button Pressed, 2020-07-14T10:43:54.904638100, Collections
+Button Pressed, 2020-07-14T10:43:58.471099600, Amir
+Button Pressed, 2020-07-14T10:43:59.848166800, Play
+Button Pressed, 2020-07-14T10:44:02.442620400, warriors
+Button Pressed, 2020-07-14T10:44:18.358044100, Strength in Numbers
+Card Played, 2020-07-14T10:44:18.362034200, Strength in Numbers
+Button Pressed, 2020-07-14T10:44:33.438907300, Poisoned Dagger
+quit, 2020-07-14T10:44:48.825072300, quit the game
+login, 2020-07-14T10:45:10.266498100,  as  
+Button Pressed, 2020-07-14T10:45:11.231148400, Collections
+Button Pressed, 2020-07-14T10:45:14.239193400, Amir
+Button Pressed, 2020-07-14T10:45:16.308245, Play
+Button Pressed, 2020-07-14T10:45:18.759458500, nurse
+Button Pressed, 2020-07-14T10:45:26.455864100, Goldshire Footman
+Card Played, 2020-07-14T10:45:26.458856300, Goldshire Footman
+Button Pressed, 2020-07-14T10:45:29.816896100, Living Monument
+Button Pressed, 2020-07-14T10:45:33.778299, Strength in Numbers
+quit, 2020-07-14T10:45:36.976742700, quit the game
+login, 2020-07-14T10:47:56.593424900,  as  
+Button Pressed, 2020-07-14T10:47:58.066029700, Collections
+Button Pressed, 2020-07-14T10:48:01.245040700, Amir
+Button Pressed, 2020-07-14T10:48:02.622359200, Play
+Button Pressed, 2020-07-14T10:48:04.982328100, zombie
+Button Pressed, 2020-07-14T10:48:26.600047700, Poisoned Dagger
+Card Played, 2020-07-14T10:48:26.604036600, Poisoned Dagger
+quit, 2020-07-14T10:48:29.196103300, quit the game
+login, 2020-07-14T10:48:43.849470500,  as  
+Button Pressed, 2020-07-14T10:48:44.899525200, Collections
+Button Pressed, 2020-07-14T10:48:48.214457100, Amir
+Button Pressed, 2020-07-14T10:48:49.356977400, Play
+Button Pressed, 2020-07-14T10:48:51.661819500, zombie
+Button Pressed, 2020-07-14T10:49:00.480268200, Poisoned Dagger
+Card Played, 2020-07-14T10:49:00.483263600, Poisoned Dagger
+Button Pressed, 2020-07-14T10:49:04.763810900, Gnomish Army Knife
+Button Pressed, 2020-07-14T10:49:09.574944700, end turn
+End turn, 2020-07-14T10:49:09.575957200, end of  's turn
+Start turn, 2020-07-14T10:49:09.576940500, start of system's turn
+Button Pressed, 2020-07-14T10:49:12.132121900, Polymorph
+Button Pressed, 2020-07-14T10:49:16.294969, Lord of the Arena
+quit, 2020-07-14T10:49:20.625388500, quit the game
+login, 2020-07-14T10:50:23.473203700,  as  
+Button Pressed, 2020-07-14T10:50:24.609257300, Collections
+Button Pressed, 2020-07-14T10:50:27.806237300, Amir
+Button Pressed, 2020-07-14T10:50:29.134848600, Play
+Button Pressed, 2020-07-14T10:50:31.203763900, mana jump
+Button Pressed, 2020-07-14T10:50:41.216722, Strength in Numbers
+Card Played, 2020-07-14T10:50:41.217708, Strength in Numbers
+Button Pressed, 2020-07-14T10:50:43.743959900, end turn
+End turn, 2020-07-14T10:50:43.744945900, end of  's turn
+Start turn, 2020-07-14T10:50:43.744945900, start of system's turn
+Button Pressed, 2020-07-14T10:51:00.992659300, Goldshire Footman
+Card Played, 2020-07-14T10:51:00.993673, Goldshire Footman
+quit, 2020-07-14T10:51:05.425810200, quit the game

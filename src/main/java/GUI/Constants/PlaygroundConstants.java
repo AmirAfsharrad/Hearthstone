@@ -1,6 +1,8 @@
 package GUI.Constants;
 
 public class PlaygroundConstants {
+    public int TURN_TIME_MILLIS = 60000;
+
     public double MANA_SCALE_FACTOR = 0.28;
     public double MANA_X_OFFSET = 0.755;
     public double MANA_X_DISTANCE = 0.02;

@@ -8,6 +8,7 @@ import GUI.Events.*;
 import GUI.Listeners.*;
 import GUI.Utils.BackgroundedPanel;
 import GUI.Utils.CardPanel;
+import GUI.Utils.MovingPanelHandler;
 import Logger.Logger;
 import Places.MainMenu;
 import Places.Playground;
@@ -68,21 +69,6 @@ public class PlaygroundPanel extends GamePanel {
         initTurnTimer();
     }
 
-    private void initTurnTimer() {
-        turnTimer = new TurnTimer(10000, progressBar);
-        turnTimer.setTurnTimeFinishListener(new TurnTimeFinishListener() {
-            @Override
-            public void turnTimeFinishEventOccurred(TurnTimeFinishEvent turnTimeFinishEvent) {
-                EndTurnEvent endTurnEvent = new EndTurnEvent(this);
-                if (endTurnListener != null) {
-                    endTurnListener.endTurnOccurred(endTurnEvent);
-                }
-                refresh();
-            }
-        });
-        turnTimer.start();
-    }
-
     private void draw() {
         initReturnButtons();
 
@@ -119,6 +105,22 @@ public class PlaygroundPanel extends GamePanel {
 
         initTimerPanel();
     }
+
+    private void initTurnTimer() {
+        turnTimer = new TurnTimer(constants.TURN_TIME_MILLIS, progressBar);
+        turnTimer.setTurnTimeFinishListener(new TurnTimeFinishListener() {
+            @Override
+            public void turnTimeFinishEventOccurred(TurnTimeFinishEvent turnTimeFinishEvent) {
+                EndTurnEvent endTurnEvent = new EndTurnEvent(this);
+                if (endTurnListener != null) {
+                    endTurnListener.endTurnOccurred(endTurnEvent);
+                }
+                refresh();
+            }
+        });
+        turnTimer.start();
+    }
+
 
     void initTimerPanel() {
         timerPanel.setVisible(true);
@@ -282,6 +284,7 @@ public class PlaygroundPanel extends GamePanel {
 
     private void drawHandCard(Card card, int index, int totalCapacity, PlaygroundConstants constants,
                               CardPanel[] handPanels, CardPanel[] largerHandPanels, int turnIndex) {
+        final MovingPanelHandler[] movingCardThread = new MovingPanelHandler[1];
         handPanels[index] = new CardPanel(card, "cards/" + card.getName() + ".png");
         handPanels[index].setScaleFactor(constants.HAND_PANEL_SCALE_FACTOR);
         if (totalCapacity == 1) {
@@ -296,6 +299,32 @@ public class PlaygroundPanel extends GamePanel {
         handPanels[index].addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
+//                Logger.buttonPressLog(handPanels[index], card.getName());
+//
+//                if (turnIndex != Playground.getPlayground().getTurn())
+//                    return;
+//
+//                PlayCardEvent playCardEvent = new PlayCardEvent(this, card);
+//                if (playCardEventListener != null) {
+//                    playCardEventListener.PlayCardOccurred(playCardEvent);
+//                }
+//                refresh();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+                if (turnIndex != Playground.getPlayground().getTurn())
+                    return;
+                movingCardThread[0] = new MovingPanelHandler(handPanels[index]);
+                movingCardThread[0].start();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+                if (turnIndex != Playground.getPlayground().getTurn())
+                    return;
+                movingCardThread[0].setFinished();
+
                 Logger.buttonPressLog(handPanels[index], card.getName());
 
                 if (turnIndex != Playground.getPlayground().getTurn())
@@ -306,16 +335,6 @@ public class PlaygroundPanel extends GamePanel {
                     playCardEventListener.PlayCardOccurred(playCardEvent);
                 }
                 refresh();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent mouseEvent) {
-
             }
 
             @Override

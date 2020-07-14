@@ -13,6 +13,8 @@ import java.awt.image.BufferedImage;
 public class CardPanel extends JPanel {
     private String backgroundImagePath;
     private Card card;
+    private int width;
+    private int height;
     private double scaleFactorX = 1;
     private double scaleFactorY = 1;
 
@@ -45,8 +47,22 @@ public class CardPanel extends JPanel {
     }
 
     public void setDrawLocation(int x, int y, int width, int height) {
+        this.width = width;
+        this.height = height;
         int realWidth = (int) (scaleFactorX * width);
         this.setBounds(x - realWidth / 2, y, width, height);
+    }
+
+//    @Override
+//    public void setLocation(Point point) {
+//        int realWidth = (int) (scaleFactorX * width);
+//        this.setBounds(point.x - realWidth / 2 - 40, point.y - 75, width, height);
+////        System.out.println("HELLO");
+////        super.setLocation(new Point(point.x - 50, point.y - 75));
+//    }
+
+    public Point getAdjustedLocation(Point point) {
+        return new Point((int) (point.x - width * scaleFactorX / 2), point.y - 100);
     }
 
     @Override
