@@ -95,18 +95,28 @@ public class Contestant {
         Logger.log("End turn", "end of " + name + "'s turn");
     }
 
-    public void playCard(Card card) {
+    public void playCard(Card card, int numberOnLeft) {
         if (planted.size() < 7) {
             if (card.getMana() <= mana) {
                 Logger.log("Card Played", card.getName());
                 if (card.getType().equals("Minion")) {
-                    planted.add(card);
+                    planted.add(getNewPlantedCardIndex(numberOnLeft), card);
                 }
                 hand.remove(card);
                 mana -= card.getMana();
                 Playground.getPlayground().getGameLog().add(name + ": " + card);
             }
         }
+    }
+
+    private int getNewPlantedCardIndex(int numberOnLeft) {
+        int maxSize;
+        if (planted.size() % 2 == 0) {
+            maxSize = 6;
+        } else {
+            maxSize = 7;
+        }
+        return numberOnLeft - (maxSize - planted.size()) / 2;
     }
 
     private Card popRandomCard(ArrayList<Card> cards) {

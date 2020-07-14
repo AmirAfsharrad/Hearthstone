@@ -195,7 +195,8 @@ public class MainFrame extends JFrame {
         playgroundPanel.setPlayCardEventListener(new PlayCardListener() {
             @Override
             public void PlayCardOccurred(PlayCardEvent playCardEvent) {
-                Playground.getPlayground().getCurrentContestant().playCard(playCardEvent.getCard());
+                Playground.getPlayground().getCurrentContestant().playCard(playCardEvent.getCard(),
+                        playCardEvent.getNumberOnLeft());
             }
         });
     }

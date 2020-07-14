@@ -16,6 +16,11 @@ public class MovingPanelTread extends Thread {
         this.finished = true;
     }
 
+    public Point finish() {
+        setFinished();
+        return MouseInfo.getPointerInfo().getLocation();
+    }
+
 //    public void setCard(String cardName){
 //        movingCard.setImage(cardName);
 //    }
@@ -31,11 +36,6 @@ public class MovingPanelTread extends Thread {
             p = MouseInfo.getPointerInfo().getLocation();
 //            movingCard.setLocation(movingCard.getAdjustedLocation(p));
             movingCard.setLocation(p);
-//            try {
-//                Thread.sleep(50);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
         }
         finished = false;
         movingCard.setVisible(false);

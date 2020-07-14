@@ -15,6 +15,7 @@ import Places.Playground;
 import UserHandle.Contestant;
 import Utilities.ImageLoader;
 import Utilities.TurnTimer;
+import com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -331,14 +332,17 @@ public class PlaygroundPanel extends GamePanel {
             public void mouseReleased(MouseEvent mouseEvent) {
                 if (turnIndex != Playground.getPlayground().getTurn())
                     return;
-                movingCardThread[0].setFinished();
+                Point releasePoint = movingCardThread[0].finish();
+                int numberOnLeft = getHowManyPanelsOnTheLeftOfReleasedPoint(releasePoint,
+                        Playground.getPlayground().getCurrentContestant().getPlanted().size() % 2);
+                System.out.println("numberOnLeft = " + numberOnLeft);
 
                 Logger.buttonPressLog(handPanels[index], card.getName());
 
                 if (turnIndex != Playground.getPlayground().getTurn())
                     return;
 
-                PlayCardEvent playCardEvent = new PlayCardEvent(this, card);
+                PlayCardEvent playCardEvent = new PlayCardEvent(this, card, numberOnLeft);
                 if (playCardEventListener != null) {
                     playCardEventListener.PlayCardOccurred(playCardEvent);
                 }
@@ -503,5 +507,17 @@ public class PlaygroundPanel extends GamePanel {
         draw();
         revalidate();
         repaint();
+    }
+
+    public int getHowManyPanelsOnTheLeftOfReleasedPoint(Point point, int parity) {
+        int initX;
+        if (parity == 0) {
+            initX = (int) (constants.CARD_PANEL_EVEN_X_OFFSET_NEW * screenWidth);
+        } else {
+            initX = (int) (constants.CARD_PANEL_ODD_X_OFFSET_NEW * screenWidth);
+        }
+        int x = point.x;
+        int delta = (int) (constants.CARD_PANEL_X_DISTANCE * screenWidth);
+        return (x - initX) / delta + 1;
     }
 }
