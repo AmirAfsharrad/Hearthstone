@@ -8,7 +8,7 @@ import GUI.Events.*;
 import GUI.Listeners.*;
 import GUI.Utils.BackgroundedPanel;
 import GUI.Utils.CardPanel;
-import GUI.Utils.MovingPanelHandler;
+import GUI.Utils.MovingPanelTread;
 import Logger.Logger;
 import Places.MainMenu;
 import Places.Playground;
@@ -190,8 +190,11 @@ public class PlaygroundPanel extends GamePanel {
         for (int i = 0; i < 7; i++) {
             playCardsOdd[i] = new CardPanel();
             playCardsOdd[i].setScaleFactor(constants.CARD_PANEL_SCALE_FACTOR);
-            playCardsOdd[i].setDrawLocation((int) ((constants.CARD_PANEL_ODD_X_OFFSET
-                            + constants.CARD_PANEL_X_DISTANCE * Math.pow(-1, i) * ((i + 1) / 2)) * screenWidth),
+//            playCardsOdd[i].setDrawLocation((int) ((constants.CARD_PANEL_ODD_X_OFFSET
+//                            + constants.CARD_PANEL_X_DISTANCE * Math.pow(-1, i) * ((i + 1) / 2)) * screenWidth),
+//                    (int) (constants.CARD_PANEL_Y * screenHeight), constants.CARD_PANEL_WIDTH, constants.CARD_PANEL_HEIGHT);
+            playCardsOdd[i].setDrawLocation((int) ((constants.CARD_PANEL_ODD_X_OFFSET_NEW
+                            + constants.CARD_PANEL_X_DISTANCE * i) * screenWidth),
                     (int) (constants.CARD_PANEL_Y * screenHeight), constants.CARD_PANEL_WIDTH, constants.CARD_PANEL_HEIGHT);
             this.add(playCardsOdd[i]);
         }
@@ -201,8 +204,11 @@ public class PlaygroundPanel extends GamePanel {
         for (int i = 0; i < 6; i++) {
             playCardsEven[i] = new CardPanel();
             playCardsEven[i].setScaleFactor(constants.CARD_PANEL_SCALE_FACTOR);
-            playCardsEven[i].setDrawLocation((int) ((constants.CARD_PANEL_EVEN_X_OFFSET
-                            + constants.CARD_PANEL_X_DISTANCE * Math.pow(-1, i) * ((i + 1) / 2)) * screenWidth),
+//            playCardsEven[i].setDrawLocation((int) ((constants.CARD_PANEL_EVEN_X_OFFSET
+//                            + constants.CARD_PANEL_X_DISTANCE * Math.pow(-1, i) * ((i + 1) / 2)) * screenWidth),
+//                    (int) (constants.CARD_PANEL_Y * screenHeight), constants.CARD_PANEL_WIDTH, constants.CARD_PANEL_HEIGHT);
+            playCardsEven[i].setDrawLocation((int) ((constants.CARD_PANEL_EVEN_X_OFFSET_NEW
+                            + constants.CARD_PANEL_X_DISTANCE * i) * screenWidth),
                     (int) (constants.CARD_PANEL_Y * screenHeight), constants.CARD_PANEL_WIDTH, constants.CARD_PANEL_HEIGHT);
             this.add(playCardsEven[i]);
         }
@@ -213,16 +219,18 @@ public class PlaygroundPanel extends GamePanel {
         ArrayList<Card> cards = contestant.getPlanted();
 
         if (cards.size() % 2 == 0) {
+            int offset = (6 - cards.size()) / 2;
             for (int i = 0; i < cards.size(); i++) {
-                playCardsEven[i].setCard(cards.get(i));
-                playCardsEven[i].setBackgroundImagePath("cards/" + cards.get(i).getName() + ".png");
-                playCardsEven[i].setVisible(true);
+                playCardsEven[offset + i].setCard(cards.get(i));
+                playCardsEven[offset + i].setBackgroundImagePath("cards/" + cards.get(i).getName() + ".png");
+                playCardsEven[offset + i].setVisible(true);
             }
         } else {
+            int offset = (7 - cards.size()) / 2;
             for (int i = 0; i < cards.size(); i++) {
-                playCardsOdd[i].setCard(cards.get(i));
-                playCardsOdd[i].setBackgroundImagePath("cards/" + cards.get(i).getName() + ".png");
-                playCardsOdd[i].setVisible(true);
+                playCardsOdd[offset + i].setCard(cards.get(i));
+                playCardsOdd[offset + i].setBackgroundImagePath("cards/" + cards.get(i).getName() + ".png");
+                playCardsOdd[offset + i].setVisible(true);
             }
         }
     }
@@ -284,7 +292,7 @@ public class PlaygroundPanel extends GamePanel {
 
     private void drawHandCard(Card card, int index, int totalCapacity, PlaygroundConstants constants,
                               CardPanel[] handPanels, CardPanel[] largerHandPanels, int turnIndex) {
-        final MovingPanelHandler[] movingCardThread = new MovingPanelHandler[1];
+        final MovingPanelTread[] movingCardThread = new MovingPanelTread[1];
         handPanels[index] = new CardPanel(card, "cards/" + card.getName() + ".png");
         handPanels[index].setScaleFactor(constants.HAND_PANEL_SCALE_FACTOR);
         if (totalCapacity == 1) {
@@ -315,7 +323,7 @@ public class PlaygroundPanel extends GamePanel {
             public void mousePressed(MouseEvent mouseEvent) {
                 if (turnIndex != Playground.getPlayground().getTurn())
                     return;
-                movingCardThread[0] = new MovingPanelHandler(handPanels[index]);
+                movingCardThread[0] = new MovingPanelTread(handPanels[index]);
                 movingCardThread[0].start();
             }
 

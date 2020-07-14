@@ -17,7 +17,9 @@ public class PlaygroundConstants {
 
     public double CARD_PANEL_SCALE_FACTOR = 0.4;
     public double CARD_PANEL_ODD_X_OFFSET = 0.5;
+    public double CARD_PANEL_ODD_X_OFFSET_NEW = 0.225;
     public double CARD_PANEL_EVEN_X_OFFSET = 0.545;
+    public double CARD_PANEL_EVEN_X_OFFSET_NEW = 0.27;
     public double CARD_PANEL_X_DISTANCE = 0.09;
     public double CARD_PANEL_Y;
     public int CARD_PANEL_WIDTH = 200;

@@ -3,11 +3,11 @@ package GUI.Utils;
 import javax.swing.*;
 import java.awt.*;
 
-public class MovingPanelHandler extends Thread {
+public class MovingPanelTread extends Thread {
     private CardPanel movingCard;
     private boolean finished;
 
-    public MovingPanelHandler(CardPanel cardPanel){
+    public MovingPanelTread(CardPanel cardPanel){
         movingCard = cardPanel;
         finished = false;
     }
@@ -29,13 +29,13 @@ public class MovingPanelHandler extends Thread {
         Point p;
         while (!finished) {
             p = MouseInfo.getPointerInfo().getLocation();
-            movingCard.setLocation(movingCard.getAdjustedLocation(p));
-//            movingCard.setLocation(p);
-            try {
-                Thread.sleep(50);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            movingCard.setLocation(movingCard.getAdjustedLocation(p));
+            movingCard.setLocation(p);
+//            try {
+//                Thread.sleep(50);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         }
         finished = false;
         movingCard.setVisible(false);
