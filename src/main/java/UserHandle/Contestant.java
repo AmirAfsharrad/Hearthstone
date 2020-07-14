@@ -4,6 +4,7 @@ import Cards.Card;
 import Cards.Deck;
 import Cards.Spell;
 import Cards.Weapon;
+import GameHandler.ContestantState;
 import GameHandler.GameState;
 import Heroes.Hero;
 import Logger.Logger;
@@ -26,6 +27,7 @@ public class Contestant {
     private int turnFullManas;
     private String passive;
     private boolean drawTwice;
+    private ContestantState state;
 
     public Contestant(String name) {
         this.name = name;
@@ -33,8 +35,7 @@ public class Contestant {
     }
 
     public void init(Deck inputDeck) {
-        deck = new ArrayList<>();
-        deck.addAll(inputDeck.getCards());
+        initDeck(inputDeck);
         hero = inputDeck.getHero();
         mana = 1;
         turnFullManas = 1;
@@ -43,6 +44,14 @@ public class Contestant {
         initHand();
         drawTwice = false;
         initPassiveProcess();
+    }
+
+    private void initDeck(Deck inputDeck) {
+        deck = new ArrayList<>();
+        deck.addAll(inputDeck.getCards());
+        for (Card card : deck) {
+            card.setContestant(this);
+        }
     }
 
     private void initHand() {
@@ -88,6 +97,7 @@ public class Contestant {
     }
 
     public void startTrun() {
+        state = ContestantState.Normal;
         Logger.log("Start turn", "start of " + name + "'s turn");
         mana = Math.min(turnFullManas + 1, 10);
         turnFullManas = mana;
@@ -194,5 +204,9 @@ public class Contestant {
 
     public Spell getCurrentSpell() {
         return currentSpell;
+    }
+
+    public ContestantState getState() {
+        return state;
     }
 }

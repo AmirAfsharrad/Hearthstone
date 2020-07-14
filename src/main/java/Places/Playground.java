@@ -1,6 +1,7 @@
 package Places;
 
 import Cards.Deck;
+import GUI.Events.PlantedCardPressedEvent;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
 import Logger.Logger;
@@ -72,6 +73,10 @@ public class Playground extends Place {
         getCurrentContestant().endTurn();
         changeTurn();
         getCurrentContestant().startTrun();
+    }
+
+    public void manageSelectedPlantedCard(PlantedCardPressedEvent plantedCardPressedEvent) {
+//        System.out.println(plantedCardPressedEvent.getCard().getName());
     }
 
     //    private void initHand() {

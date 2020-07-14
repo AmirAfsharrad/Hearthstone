@@ -138,4 +138,8 @@ public class CardPanel extends JPanel {
     int getProperUpYPosition(int y) {
         return (int) (0.2 * y);
     }
+
+    public Card getCard() {
+        return card;
+    }
 }

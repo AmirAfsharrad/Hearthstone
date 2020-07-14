@@ -1,5 +1,7 @@
 package Cards;
 
+import UserHandle.Contestant;
+
 import java.util.Objects;
 
 public abstract class Card {
@@ -9,6 +11,7 @@ public abstract class Card {
     private String heroClass;
     private String description;
     private String type;
+    private Contestant contestant;
 
     public Card(int mana, String name, String rarity, String heroClass, String description, String type) {
         this.mana = mana;
@@ -41,6 +44,10 @@ public abstract class Card {
 
     public String getType() {
         return type;
+    }
+
+    public void setContestant(Contestant contestant) {
+        this.contestant = contestant;
     }
 
     public int getPrice(){

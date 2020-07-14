@@ -199,6 +199,12 @@ public class MainFrame extends JFrame {
                         playCardEvent.getNumberOnLeft());
             }
         });
+        playgroundPanel.setPlantedCardPressedListener(new PlantedCardPressedListener() {
+            @Override
+            public void plantedCardPressedEventOccurred(PlantedCardPressedEvent plantedCardPressedEvent) {
+                Playground.getPlayground().manageSelectedPlantedCard(plantedCardPressedEvent);
+            }
+        });
     }
 
     private void initStatusPanel() throws IOException {

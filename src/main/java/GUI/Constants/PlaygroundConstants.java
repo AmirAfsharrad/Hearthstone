@@ -22,8 +22,8 @@ public class PlaygroundConstants {
     public double CARD_PANEL_EVEN_X_OFFSET_NEW = 0.27;
     public double CARD_PANEL_X_DISTANCE = 0.09;
     public double CARD_PANEL_Y;
-    public int CARD_PANEL_WIDTH = 200;
-    public int CARD_PANEL_HEIGHT = 300;
+    public int CARD_PANEL_WIDTH = 110;
+    public int CARD_PANEL_HEIGHT = 157;
 
     public double NUMBER_OF_CARDS_X = 0.92;
     public double NUMBER_OF_CARDS_Y;

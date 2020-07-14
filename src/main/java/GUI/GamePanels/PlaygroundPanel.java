@@ -10,6 +10,7 @@ import GUI.Listeners.*;
 import GUI.Utils.BackgroundedPanel;
 import GUI.Utils.CardPanel;
 import GUI.Utils.MovingPanelThread;
+import GameHandler.ContestantState;
 import Logger.Logger;
 import Places.MainMenu;
 import Places.Playground;
@@ -47,6 +48,7 @@ public class PlaygroundPanel extends GamePanel {
     private EndTurnListener endTurnListener;
     private ChangePlaceListener changePlaceListener;
     private PlayCardListener playCardEventListener;
+    private PlantedCardPressedListener plantedCardPressedListener;
     private PlaygroundConstants constants;
     private LowerHalfConstants lowerHalfConstants;
     private UpperHalfConstants upperHalfConstants;
@@ -72,6 +74,7 @@ public class PlaygroundPanel extends GamePanel {
     }
 
     private void draw() {
+        System.out.println("draw method run");
         initReturnButtons();
 
         drawGameLog();
@@ -198,12 +201,43 @@ public class PlaygroundPanel extends GamePanel {
         for (int i = 0; i < 7; i++) {
             playCardsOdd[i] = new CardPanel();
             playCardsOdd[i].setScaleFactor(constants.CARD_PANEL_SCALE_FACTOR);
-//            playCardsOdd[i].setDrawLocation((int) ((constants.CARD_PANEL_ODD_X_OFFSET
-//                            + constants.CARD_PANEL_X_DISTANCE * Math.pow(-1, i) * ((i + 1) / 2)) * screenWidth),
-//                    (int) (constants.CARD_PANEL_Y * screenHeight), constants.CARD_PANEL_WIDTH, constants.CARD_PANEL_HEIGHT);
             playCardsOdd[i].setDrawLocation((int) ((constants.CARD_PANEL_ODD_X_OFFSET_NEW
                             + constants.CARD_PANEL_X_DISTANCE * i) * screenWidth),
                     (int) (constants.CARD_PANEL_Y * screenHeight), constants.CARD_PANEL_WIDTH, constants.CARD_PANEL_HEIGHT);
+
+            Card card = playCardsOdd[i].getCard();
+//            playCardsOdd[i].addMouseListener(new MouseListener() {
+//                @Override
+//                public void mouseClicked(MouseEvent mouseEvent) {
+//                    if (card == null)
+//                        return;
+//                    if (plantedCardPressedListener == null)
+//                        return;
+//                    PlantedCardPressedEvent plantedCardPressedEvent = new PlantedCardPressedEvent(this, card);
+//                    plantedCardPressedListener.plantedCardPressedEventOccurred(plantedCardPressedEvent);
+//                }
+//
+//                @Override
+//                public void mousePressed(MouseEvent mouseEvent) {
+//
+//                }
+//
+//                @Override
+//                public void mouseReleased(MouseEvent mouseEvent) {
+//
+//                }
+//
+//                @Override
+//                public void mouseEntered(MouseEvent mouseEvent) {
+//
+//                }
+//
+//                @Override
+//                public void mouseExited(MouseEvent mouseEvent) {
+//
+//                }
+//            });
+//
             this.add(playCardsOdd[i]);
         }
     }
@@ -212,12 +246,43 @@ public class PlaygroundPanel extends GamePanel {
         for (int i = 0; i < 6; i++) {
             playCardsEven[i] = new CardPanel();
             playCardsEven[i].setScaleFactor(constants.CARD_PANEL_SCALE_FACTOR);
-//            playCardsEven[i].setDrawLocation((int) ((constants.CARD_PANEL_EVEN_X_OFFSET
-//                            + constants.CARD_PANEL_X_DISTANCE * Math.pow(-1, i) * ((i + 1) / 2)) * screenWidth),
-//                    (int) (constants.CARD_PANEL_Y * screenHeight), constants.CARD_PANEL_WIDTH, constants.CARD_PANEL_HEIGHT);
             playCardsEven[i].setDrawLocation((int) ((constants.CARD_PANEL_EVEN_X_OFFSET_NEW
                             + constants.CARD_PANEL_X_DISTANCE * i) * screenWidth),
                     (int) (constants.CARD_PANEL_Y * screenHeight), constants.CARD_PANEL_WIDTH, constants.CARD_PANEL_HEIGHT);
+
+            Card card = playCardsEven[i].getCard();
+//            playCardsEven[i].addMouseListener(new MouseListener() {
+//                @Override
+//                public void mouseClicked(MouseEvent mouseEvent) {
+//                    if (card == null)
+//                        return;
+//                    if (plantedCardPressedListener == null)
+//                        return;
+//                    PlantedCardPressedEvent plantedCardPressedEvent = new PlantedCardPressedEvent(this, card);
+//                    plantedCardPressedListener.plantedCardPressedEventOccurred(plantedCardPressedEvent);
+//                }
+//
+//                @Override
+//                public void mousePressed(MouseEvent mouseEvent) {
+//
+//                }
+//
+//                @Override
+//                public void mouseReleased(MouseEvent mouseEvent) {
+//
+//                }
+//
+//                @Override
+//                public void mouseEntered(MouseEvent mouseEvent) {
+//
+//                }
+//
+//                @Override
+//                public void mouseExited(MouseEvent mouseEvent) {
+//
+//                }
+//            });
+
             this.add(playCardsEven[i]);
         }
     }
@@ -240,6 +305,44 @@ public class PlaygroundPanel extends GamePanel {
                 playCardsOdd[offset + i].setBackgroundImagePath("cards/" + cards.get(i).getName() + ".png");
                 playCardsOdd[offset + i].setVisible(true);
             }
+        }
+        setPlantedCardsMouseListeners(playCardsEven);
+        setPlantedCardsMouseListeners(playCardsOdd);
+    }
+
+    private void setPlantedCardsMouseListeners(CardPanel[] cardPanels) {
+        for (CardPanel cardPanel : cardPanels) {
+            if (cardPanel.getCard() == null) {
+                continue;
+            }
+            cardPanel.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    PlantedCardPressedEvent plantedCardPressedEvent = new PlantedCardPressedEvent(this, cardPanel.getCard());
+                    plantedCardPressedListener.plantedCardPressedEventOccurred(plantedCardPressedEvent);
+                    System.out.println("HELOOOO " + cardPanel.getCard().getName());
+                }
+
+                @Override
+                public void mousePressed(MouseEvent mouseEvent) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent mouseEvent) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent mouseEvent) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent mouseEvent) {
+
+                }
+            });
         }
     }
 
@@ -329,6 +432,8 @@ public class PlaygroundPanel extends GamePanel {
 
             @Override
             public void mousePressed(MouseEvent mouseEvent) {
+                if (Playground.getPlayground().getCurrentContestant().getState() != ContestantState.Normal)
+                    return;
                 if (turnIndex != Playground.getPlayground().getTurn())
                     return;
                 movingCardThread[0] = new MovingPanelThread(handPanels[index]);
@@ -337,6 +442,8 @@ public class PlaygroundPanel extends GamePanel {
 
             @Override
             public void mouseReleased(MouseEvent mouseEvent) {
+                if (Playground.getPlayground().getCurrentContestant().getState() != ContestantState.Normal)
+                    return;
                 if (turnIndex != Playground.getPlayground().getTurn())
                     return;
                 Point releasePoint = movingCardThread[0].finish();
@@ -358,6 +465,8 @@ public class PlaygroundPanel extends GamePanel {
 
             @Override
             public void mouseEntered(MouseEvent mouseEvent) {
+                if (Playground.getPlayground().getCurrentContestant().getState() != ContestantState.Normal)
+                    return;
                 if (turnIndex != Playground.getPlayground().getTurn())
                     return;
 
@@ -554,12 +663,7 @@ public class PlaygroundPanel extends GamePanel {
         return Math.max((x - initX) / delta + 1, 0);
     }
 
-    public void activateSpell(Spell spell) {
-        spellPanel.setBackgroundImagePath("cards/" + spell.getName() + ".png");
-        spellPanel.setVisible(true);
-    }
-
-    public void deactivateSpell() {
-        spellPanel.setVisible(false);
+    public void setPlantedCardPressedListener(PlantedCardPressedListener plantedCardPressedListener) {
+        this.plantedCardPressedListener = plantedCardPressedListener;
     }
 }
