@@ -62,6 +62,12 @@ public class PlaygroundConstants {
     public int HERO_PANEL_WIDTH = 210;
     public int HERO_PANEL_HEIGHT = 210;
 
+    public double SPELL_PANEL_SCALE_FACTOR = 0.5;
+    public double SPELL_PANEL_X = 0.1;
+    public double SPELL_PANEL_Y;
+    public int SPELL_PANEL_WIDTH = 210;
+    public int SPELL_PANEL_HEIGHT = 210;
+
     public double HERO_POWER_PANEL_SCALE_FACTOR = 0.25;
     public double HERO_POWER_PANEL_X = 0.6;
     public double HERO_POWER_PANEL_Y;

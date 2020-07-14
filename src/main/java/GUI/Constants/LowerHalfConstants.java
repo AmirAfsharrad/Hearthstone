@@ -10,5 +10,6 @@ public class LowerHalfConstants extends PlaygroundConstants {
         HERO_PANEL_Y = 0.67;
         HERO_POWER_PANEL_Y = 0.7;
         WEAPON_PANEL_Y = 0.7;
+        SPELL_PANEL_Y = 0.67;
     }
 }

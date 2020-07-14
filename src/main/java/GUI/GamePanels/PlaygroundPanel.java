@@ -1,6 +1,7 @@
 package GUI.GamePanels;
 
 import Cards.Card;
+import Cards.Spell;
 import GUI.Constants.LowerHalfConstants;
 import GUI.Constants.PlaygroundConstants;
 import GUI.Constants.UpperHalfConstants;
@@ -8,14 +9,13 @@ import GUI.Events.*;
 import GUI.Listeners.*;
 import GUI.Utils.BackgroundedPanel;
 import GUI.Utils.CardPanel;
-import GUI.Utils.MovingPanelTread;
+import GUI.Utils.MovingPanelThread;
 import Logger.Logger;
 import Places.MainMenu;
 import Places.Playground;
 import UserHandle.Contestant;
 import Utilities.ImageLoader;
 import Utilities.TurnTimer;
-import com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,7 +34,7 @@ public class PlaygroundPanel extends GamePanel {
     private CardPanel[] playCardsEvenUp;
     private CardPanel[] playCardsOddDown;
     private CardPanel[] playCardsEvenDown;
-    private BackgroundedPanel spell;
+    private BackgroundedPanel spellPanel;
     private BackgroundedPanel[] manasUp;
     private BackgroundedPanel[] lostManasUp;
     private BackgroundedPanel[] manasDown;
@@ -90,6 +90,9 @@ public class PlaygroundPanel extends GamePanel {
 
         initHeroPanel(lowerHalfConstants, 0);
         initHeroPanel(upperHalfConstants, 1);
+
+        initSpellPanel(lowerHalfConstants, 0);
+        initSpellPanel(upperHalfConstants, 1);
 
         initHeroPowerPanel(lowerHalfConstants, 0);
         initHeroPowerPanel(upperHalfConstants, 1);
@@ -297,7 +300,7 @@ public class PlaygroundPanel extends GamePanel {
 
     private void drawHandCard(Card card, int index, int totalCapacity, PlaygroundConstants constants,
                               CardPanel[] handPanels, CardPanel[] largerHandPanels, int turnIndex) {
-        final MovingPanelTread[] movingCardThread = new MovingPanelTread[1];
+        final MovingPanelThread[] movingCardThread = new MovingPanelThread[1];
         handPanels[index] = new CardPanel(card);
         handPanels[index].setScaleFactor(constants.HAND_PANEL_SCALE_FACTOR);
         if (totalCapacity == 1) {
@@ -328,7 +331,7 @@ public class PlaygroundPanel extends GamePanel {
             public void mousePressed(MouseEvent mouseEvent) {
                 if (turnIndex != Playground.getPlayground().getTurn())
                     return;
-                movingCardThread[0] = new MovingPanelTread(handPanels[index]);
+                movingCardThread[0] = new MovingPanelThread(handPanels[index]);
                 movingCardThread[0].start();
             }
 
@@ -421,7 +424,18 @@ public class PlaygroundPanel extends GamePanel {
         this.add(heroPowerPanel);
     }
 
-
+    private void initSpellPanel(PlaygroundConstants constants, int index) {
+        Contestant contestant = Playground.getPlayground().getContestant(index);
+        if (!contestant.isWaitingForSpellTarget()) {
+            return;
+        }
+        BackgroundedPanel spellPanel = new BackgroundedPanel("cards/"
+                + contestant.getCurrentSpell().getName() + ".png");
+        spellPanel.setScaleFactor(constants.SPELL_PANEL_SCALE_FACTOR);
+        spellPanel.setDrawLocation((int) (constants.SPELL_PANEL_X * screenWidth),
+                (int) (constants.SPELL_PANEL_Y * screenHeight), constants.SPELL_PANEL_WIDTH, constants.SPELL_PANEL_HEIGHT);
+        this.add(spellPanel);
+    }
 
     private void initWeaponPanel(PlaygroundConstants constants, int index) {
         Contestant contestant = Playground.getPlayground().getContestant(index);
@@ -538,5 +552,14 @@ public class PlaygroundPanel extends GamePanel {
         int x = point.x;
         int delta = (int) (constants.CARD_PANEL_X_DISTANCE * screenWidth);
         return Math.max((x - initX) / delta + 1, 0);
+    }
+
+    public void activateSpell(Spell spell) {
+        spellPanel.setBackgroundImagePath("cards/" + spell.getName() + ".png");
+        spellPanel.setVisible(true);
+    }
+
+    public void deactivateSpell() {
+        spellPanel.setVisible(false);
     }
 }

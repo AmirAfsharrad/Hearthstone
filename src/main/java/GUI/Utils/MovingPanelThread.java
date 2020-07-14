@@ -3,11 +3,11 @@ package GUI.Utils;
 import javax.swing.*;
 import java.awt.*;
 
-public class MovingPanelTread extends Thread {
+public class MovingPanelThread extends Thread {
     private CardPanel movingCard;
     private boolean finished;
 
-    public MovingPanelTread(CardPanel cardPanel){
+    public MovingPanelThread(CardPanel cardPanel){
         movingCard = cardPanel;
         finished = false;
     }

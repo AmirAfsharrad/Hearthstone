@@ -2,6 +2,7 @@ package UserHandle;
 
 import Cards.Card;
 import Cards.Deck;
+import Cards.Spell;
 import Cards.Weapon;
 import GameHandler.GameState;
 import Heroes.Hero;
@@ -18,7 +19,9 @@ public class Contestant {
     private ArrayList<Card> deck;
     private Hero hero;
     private Weapon currentWeapon;
+    private Spell currentSpell;
     private boolean hasWeapon;
+    private boolean waitingForSpellTarget;
     private int mana;
     private int turnFullManas;
     private String passive;
@@ -96,20 +99,29 @@ public class Contestant {
 
     public void endTurn() {
         Logger.log("End turn", "end of " + name + "'s turn");
+        waitingForSpellTarget = false;
     }
 
     public void playCard(Card card, int numberOnLeft) {
         if (card.getMana() <= mana) {
+            waitingForSpellTarget = false;
             Logger.log("Card Played", card.getName());
-            if (card.getType().equals("Minion")) {
-                if (planted.size() < 7) {
-                    planted.add(getNewPlantedCardIndex(numberOnLeft), card);
-                    System.out.println("card name = " + card.getName());
-                    System.out.println(card.getType());
-                }
-            } else if (card.getType().equals("Weapon")) {
-                currentWeapon = (Weapon) card;
-                hasWeapon = true;
+            switch (card.getType()) {
+                case "Minion":
+                    if (planted.size() < 7) {
+                        planted.add(getNewPlantedCardIndex(numberOnLeft), card);
+                        System.out.println("card name = " + card.getName());
+                        System.out.println(card.getType());
+                    }
+                    break;
+                case "Weapon":
+                    currentWeapon = (Weapon) card;
+                    hasWeapon = true;
+                    break;
+                case "Spell":
+                    currentSpell = (Spell) card;
+                    waitingForSpellTarget = true;
+                    break;
             }
             hand.remove(card);
             mana -= card.getMana();
@@ -174,5 +186,13 @@ public class Contestant {
 
     public boolean hasWeapon() {
         return hasWeapon;
+    }
+
+    public boolean isWaitingForSpellTarget() {
+        return waitingForSpellTarget;
+    }
+
+    public Spell getCurrentSpell() {
+        return currentSpell;
     }
 }
