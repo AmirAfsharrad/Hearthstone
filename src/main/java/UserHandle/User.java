@@ -199,7 +199,9 @@ public class User{
     }
 
     public void addCard(String cardName){
-        addCard(GameHandler.getGameHandler().getCard(cardName));
+        Card card = GameHandler.getGameHandler().getCard(cardName);
+        System.out.println(card.getName() + ", " + card.getType());
+        addCard(card);
     }
 
     public void addCard(Card card){

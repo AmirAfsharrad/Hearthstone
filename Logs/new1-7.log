@@ -1,0 +1,82 @@
+USER: new1
+CREATED_AT: 2020-07-14T16:39:17.601436700
+PASSWORD: 6039092f70864b935e614eaf0ff41bcb91357e8e746997f9af55f5b9f7f8f684
+DELETED_AT: ----------
+
+sign up, 2020-07-14T16:39:17.617394, new1 user created
+Button Pressed, 2020-07-14T16:39:18.651615400, Collections
+Button Pressed, 2020-07-14T16:39:24.904849800, Blood Fury
+Buy Card, 2020-07-14T16:39:25.974166100, Blood Fury
+system response, 2020-07-14T16:39:27.125665800, You have successfully purchased Blood Fury.
+Button Pressed, 2020-07-14T16:39:29.635418300, New Deck
+Create New Deck, 2020-07-14T16:39:29.636415800, New Deck 1
+Button Pressed, 2020-07-14T16:39:31.171130300, New Deck 1
+Button Pressed, 2020-07-14T16:39:33.050372300, <html><center> Rename <br /> Deck </center></html>
+Rename Deck, 2020-07-14T16:39:38.016508400, Amir
+Button Pressed, 2020-07-14T16:39:42.612190700, Shieldbearer
+Add Card to Deck, 2020-07-14T16:39:42.613189, Shieldbearer -> Amir
+Button Pressed, 2020-07-14T16:39:42.932780300, Shieldbearer
+Add Card to Deck, 2020-07-14T16:39:42.933737900, Shieldbearer -> Amir
+Button Pressed, 2020-07-14T16:39:43.836819400, Stonetusk Boar
+Add Card to Deck, 2020-07-14T16:39:43.837851700, Stonetusk Boar -> Amir
+Button Pressed, 2020-07-14T16:39:44.065429200, Stonetusk Boar
+Add Card to Deck, 2020-07-14T16:39:44.066442600, Stonetusk Boar -> Amir
+Button Pressed, 2020-07-14T16:39:44.628046100, Goldshire Footman
+Add Card to Deck, 2020-07-14T16:39:44.628046100, Goldshire Footman -> Amir
+Button Pressed, 2020-07-14T16:39:44.850485800, Goldshire Footman
+Add Card to Deck, 2020-07-14T16:39:44.850485800, Goldshire Footman -> Amir
+Button Pressed, 2020-07-14T16:39:49.294351100, Lord of the Arena
+Add Card to Deck, 2020-07-14T16:39:49.295349800, Lord of the Arena -> Amir
+Button Pressed, 2020-07-14T16:39:49.520770700, Lord of the Arena
+Add Card to Deck, 2020-07-14T16:39:49.521756800, Lord of the Arena -> Amir
+Button Pressed, 2020-07-14T16:39:57.317545200, Blood Fury
+Add Card to Deck, 2020-07-14T16:39:57.318541900, Blood Fury -> Amir
+Button Pressed, 2020-07-14T16:39:57.537988300, Blood Fury
+Add Card to Deck, 2020-07-14T16:39:57.538952200, Blood Fury -> Amir
+Button Pressed, 2020-07-14T16:40:05.199765500, Sap
+Add Card to Deck, 2020-07-14T16:40:05.200748400, Sap -> Amir
+Button Pressed, 2020-07-14T16:40:05.424188100, Sap
+Add Card to Deck, 2020-07-14T16:40:05.425147300, Sap -> Amir
+Button Pressed, 2020-07-14T16:40:07.493715300, Living Monument
+Add Card to Deck, 2020-07-14T16:40:07.493715300, Living Monument -> Amir
+Button Pressed, 2020-07-14T16:40:07.717131200, Living Monument
+Add Card to Deck, 2020-07-14T16:40:07.718118100, Living Monument -> Amir
+Button Pressed, 2020-07-14T16:40:08.508796800, Sprint
+Add Card to Deck, 2020-07-14T16:40:08.508796800, Sprint -> Amir
+Button Pressed, 2020-07-14T16:40:08.731240900, Sprint
+Button Pressed, 2020-07-14T16:40:11.011202300, Play
+Button Pressed, 2020-07-14T16:40:13.169462700, zombie
+Button Pressed, 2020-07-14T16:40:20.613554400, Goldshire Footman
+Card Played, 2020-07-14T16:40:20.616549, Goldshire Footman
+Button Pressed, 2020-07-14T16:40:22.026102400, end turn
+End turn, 2020-07-14T16:40:22.028123600, end of new1's turn
+Start turn, 2020-07-14T16:40:22.028123600, start of system's turn
+Button Pressed, 2020-07-14T16:40:22.342258600, end turn
+End turn, 2020-07-14T16:40:22.343255400, end of system's turn
+Start turn, 2020-07-14T16:40:22.343255400, start of new1's turn
+Button Pressed, 2020-07-14T16:40:25.198616700, Shieldbearer
+Card Played, 2020-07-14T16:40:25.199615400, Shieldbearer
+Button Pressed, 2020-07-14T16:40:26.271792700, end turn
+End turn, 2020-07-14T16:40:26.272786700, end of new1's turn
+Start turn, 2020-07-14T16:40:26.273753400, start of system's turn
+Button Pressed, 2020-07-14T16:40:26.571033200, end turn
+End turn, 2020-07-14T16:40:26.571033200, end of system's turn
+Start turn, 2020-07-14T16:40:26.572040600, start of new1's turn
+Button Pressed, 2020-07-14T16:40:27.901474800, end turn
+End turn, 2020-07-14T16:40:27.902473500, end of new1's turn
+Start turn, 2020-07-14T16:40:27.902473500, start of system's turn
+Button Pressed, 2020-07-14T16:40:28.590631400, end turn
+End turn, 2020-07-14T16:40:28.591630100, end of system's turn
+Start turn, 2020-07-14T16:40:28.591630100, start of new1's turn
+Button Pressed, 2020-07-14T16:40:31.640473900, Blood Fury
+Card Played, 2020-07-14T16:40:31.640473900, Blood Fury
+Button Pressed, 2020-07-14T16:41:28.593551300, end turn by time
+End turn, 2020-07-14T16:41:28.594549200, end of new1's turn
+Start turn, 2020-07-14T16:41:28.594549200, start of system's turn
+Button Pressed, 2020-07-14T16:42:28.613138400, end turn by time
+End turn, 2020-07-14T16:42:28.614070, end of system's turn
+Start turn, 2020-07-14T16:42:28.614070, start of new1's turn
+Button Pressed, 2020-07-14T16:43:28.630170300, end turn by time
+End turn, 2020-07-14T16:43:28.630170300, end of new1's turn
+Start turn, 2020-07-14T16:43:28.631172200, start of system's turn
+quit, 2020-07-14T16:44:21.473669900, quit the game

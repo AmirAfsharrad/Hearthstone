@@ -34,6 +34,7 @@ public class PlaygroundPanel extends GamePanel {
     private CardPanel[] playCardsEvenUp;
     private CardPanel[] playCardsOddDown;
     private CardPanel[] playCardsEvenDown;
+    private BackgroundedPanel spell;
     private BackgroundedPanel[] manasUp;
     private BackgroundedPanel[] lostManasUp;
     private BackgroundedPanel[] manasDown;
@@ -92,6 +93,9 @@ public class PlaygroundPanel extends GamePanel {
 
         initHeroPowerPanel(lowerHalfConstants, 0);
         initHeroPowerPanel(upperHalfConstants, 1);
+
+        initWeaponPanel(lowerHalfConstants, 0);
+        initWeaponPanel(upperHalfConstants, 1);
 
         initManasPanel(lowerHalfConstants, manasDown, lostManasDown);
         initManasPanel(upperHalfConstants, manasUp, lostManasUp);
@@ -294,7 +298,7 @@ public class PlaygroundPanel extends GamePanel {
     private void drawHandCard(Card card, int index, int totalCapacity, PlaygroundConstants constants,
                               CardPanel[] handPanels, CardPanel[] largerHandPanels, int turnIndex) {
         final MovingPanelTread[] movingCardThread = new MovingPanelTread[1];
-        handPanels[index] = new CardPanel(card, "cards/" + card.getName() + ".png");
+        handPanels[index] = new CardPanel(card);
         handPanels[index].setScaleFactor(constants.HAND_PANEL_SCALE_FACTOR);
         if (totalCapacity == 1) {
             handPanels[index].setDrawLocation((int) (constants.HAND_PANEL_X * screenWidth),
@@ -379,7 +383,7 @@ public class PlaygroundPanel extends GamePanel {
 
     private void drawHandLargerCard(Card card, int index, int totalCapacity, PlaygroundConstants constants,
                                     CardPanel[] largerHandPanels) {
-        largerHandPanels[index] = new CardPanel(card, "cards/" + card.getName() + ".png");
+        largerHandPanels[index] = new CardPanel(card);
         largerHandPanels[index].setScaleFactor(constants.LARGER_HAND_PANEL_SCALE_FACTOR);
         if (totalCapacity == 1) {
             largerHandPanels[index].setDrawLocation((int) (constants.LARGER_HAND_PANEL_X * screenWidth),
@@ -415,6 +419,21 @@ public class PlaygroundPanel extends GamePanel {
                 (int) (constants.HERO_POWER_PANEL_Y * screenHeight), constants.HERO_POWER_PANEL_WIDTH,
                 constants.HERO_POWER_PANEL_HEIGHT);
         this.add(heroPowerPanel);
+    }
+
+
+
+    private void initWeaponPanel(PlaygroundConstants constants, int index) {
+        Contestant contestant = Playground.getPlayground().getContestant(index);
+        if (!contestant.hasWeapon()) {
+            return;
+        }
+        CardPanel weaponPanel = new CardPanel(contestant.getCurrentWeapon());
+        weaponPanel.setScaleFactor(constants.WEAPON_PANEL_SCALE_FACTOR);
+        weaponPanel.setDrawLocation((int) (constants.WEAPON_PANEL_X * screenWidth),
+                (int) (constants.WEAPON_PANEL_Y * screenHeight), constants.WEAPON_PANEL_WIDTH,
+                constants.WEAPON_PANEL_HEIGHT);
+        this.add(weaponPanel);
     }
 
     private void initReturnButtons() {
@@ -518,6 +537,6 @@ public class PlaygroundPanel extends GamePanel {
         }
         int x = point.x;
         int delta = (int) (constants.CARD_PANEL_X_DISTANCE * screenWidth);
-        return (x - initX) / delta + 1;
+        return Math.max((x - initX) / delta + 1, 0);
     }
 }

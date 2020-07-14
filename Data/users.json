@@ -354,5 +354,58 @@
       }
     ],
     "current hero index": 0
+  },
+  {
+    "gold": 10,
+    "current hero": 0,
+    "user name": "new1",
+    "password": "6039092f70864b935e614eaf0ff41bcb91357e8e746997f9af55f5b9f7f8f684",
+    "cards": [
+      "Goldshire Footman",
+      "Stonetusk Boar",
+      "Lord of the Arena",
+      "Shieldbearer",
+      "Depth Charge",
+      "Stormwind Champion",
+      "Living Monument",
+      "Sprint",
+      "Sap",
+      "Polymorph",
+      "Blood Fury"
+    ],
+    "heroes": [
+      {
+        "hero power": "Fireblast",
+        "hp": 30,
+        "type": "Mage"
+      }
+    ],
+    "delete time": "none",
+    "user ID": 7,
+    "sign up time": "2020-07-14T16:39:17.597444200",
+    "decks": [
+      {
+        "cardsNames": [
+          "Shieldbearer",
+          "Shieldbearer",
+          "Stonetusk Boar",
+          "Stonetusk Boar",
+          "Goldshire Footman",
+          "Goldshire Footman",
+          "Lord of the Arena",
+          "Lord of the Arena",
+          "Blood Fury",
+          "Blood Fury",
+          "Sap",
+          "Sap",
+          "Living Monument",
+          "Living Monument",
+          "Sprint"
+        ],
+        "name": "Amir",
+        "heroName": "Mage"
+      }
+    ],
+    "current hero index": 0
   }
 ]

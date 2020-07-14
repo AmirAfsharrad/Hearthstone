@@ -2,6 +2,7 @@ package UserHandle;
 
 import Cards.Card;
 import Cards.Deck;
+import Cards.Weapon;
 import GameHandler.GameState;
 import Heroes.Hero;
 import Logger.Logger;
@@ -16,6 +17,8 @@ public class Contestant {
     private ArrayList<Card> hand;
     private ArrayList<Card> deck;
     private Hero hero;
+    private Weapon currentWeapon;
+    private boolean hasWeapon;
     private int mana;
     private int turnFullManas;
     private String passive;
@@ -96,17 +99,23 @@ public class Contestant {
     }
 
     public void playCard(Card card, int numberOnLeft) {
-        if (planted.size() < 7) {
-            if (card.getMana() <= mana) {
-                Logger.log("Card Played", card.getName());
-                if (card.getType().equals("Minion")) {
+        if (card.getMana() <= mana) {
+            Logger.log("Card Played", card.getName());
+            if (card.getType().equals("Minion")) {
+                if (planted.size() < 7) {
                     planted.add(getNewPlantedCardIndex(numberOnLeft), card);
+                    System.out.println("card name = " + card.getName());
+                    System.out.println(card.getType());
                 }
-                hand.remove(card);
-                mana -= card.getMana();
-                Playground.getPlayground().getGameLog().add(name + ": " + card);
+            } else if (card.getType().equals("Weapon")) {
+                currentWeapon = (Weapon) card;
+                hasWeapon = true;
             }
+            hand.remove(card);
+            mana -= card.getMana();
+            Playground.getPlayground().getGameLog().add(name + ": " + card);
         }
+
     }
 
     private int getNewPlantedCardIndex(int numberOnLeft) {
@@ -116,7 +125,7 @@ public class Contestant {
         } else {
             maxSize = 7;
         }
-        return numberOnLeft - (maxSize - planted.size()) / 2;
+        return Math.min(Math.max(numberOnLeft - (maxSize - planted.size()) / 2, 0), planted.size());
     }
 
     private Card popRandomCard(ArrayList<Card> cards) {
@@ -157,5 +166,13 @@ public class Contestant {
 
     public void setPassive(String passive) {
         this.passive = passive;
+    }
+
+    public Weapon getCurrentWeapon() {
+        return currentWeapon;
+    }
+
+    public boolean hasWeapon() {
+        return hasWeapon;
     }
 }

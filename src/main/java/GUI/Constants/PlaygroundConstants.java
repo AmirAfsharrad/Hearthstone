@@ -68,6 +68,12 @@ public class PlaygroundConstants {
     public int HERO_POWER_PANEL_WIDTH = 210;
     public int HERO_POWER_PANEL_HEIGHT = 210;
 
+    public double WEAPON_PANEL_SCALE_FACTOR = 0.3;
+    public double WEAPON_PANEL_X = 2 * HERO_PANEL_X - HERO_POWER_PANEL_X;
+    public double WEAPON_PANEL_Y;
+    public int WEAPON_PANEL_WIDTH = 210;
+    public int WEAPON_PANEL_HEIGHT = 210;
+
     public double EXIT_BUTTON_X = 0.02;
     public double EXIT_BUTTON_Y = 0.91;
     public int EXIT_BUTTON_WIDTH = 110;

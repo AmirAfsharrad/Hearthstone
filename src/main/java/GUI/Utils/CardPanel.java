@@ -18,9 +18,15 @@ public class CardPanel extends JPanel {
     private double scaleFactorX = 1;
     private double scaleFactorY = 1;
 
-    public CardPanel(Card card, String backgroundImagePath) {
+//    public CardPanel(Card card, String backgroundImagePath) {
+//        this.setOpaque(false);
+//        this.backgroundImagePath = backgroundImagePath;
+//        this.card = card;
+//    }
+
+    public CardPanel(Card card) {
         this.setOpaque(false);
-        this.backgroundImagePath = backgroundImagePath;
+        this.backgroundImagePath = "cards/" + card.getName() + ".png";
         this.card = card;
     }
 

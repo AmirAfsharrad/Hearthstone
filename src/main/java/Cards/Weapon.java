@@ -19,6 +19,6 @@ public class Weapon extends Card {
     }
 
     public Card clone() {
-        return new Minion(getMana(), getName(), getRarity(), getHeroClass(), getDescription(), getAttackPower(), getDurability());
+        return new Weapon(getMana(), getName(), getRarity(), getHeroClass(), getDescription(), getAttackPower(), getDurability());
     }
 }
