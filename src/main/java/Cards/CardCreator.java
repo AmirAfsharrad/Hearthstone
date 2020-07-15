@@ -1,5 +1,7 @@
 package Cards;
 
+import com.google.gson.JsonArray;
+import com.google.gson.internal.bind.util.ISO8601Utils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -37,8 +39,13 @@ public class CardCreator {
         String heroClass = (String) cardObj.get("heroClass");
         String description = (String) cardObj.get("description");
         String rarity = (String) cardObj.get("rarity");
+        JSONArray target = (JSONArray) cardObj.get("target");
+        JSONArray damage = (JSONArray) cardObj.get("damage");
+        System.out.println(name);
+        System.out.println(target);
 
-        Spell spell = new Spell(mana.intValue(), name, rarity, heroClass, description);
+        Spell spell = new Spell(mana.intValue(), name, rarity, heroClass, description, jsonArrayToInt(target),
+                jsonArrayToInt(damage));
 
         return spell;
     }
@@ -100,6 +107,29 @@ public class CardCreator {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private static int[] longArrayToInt(Long[] arr) {
+        int[] result = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            result[i] = arr[i].intValue();
+        }
+        return result;
+    }
+
+    private static int[] jsonArrayToInt(JSONArray jsonArray) {
+        int[] result = new int[jsonArray.size()];
+        System.out.println("inside: " + jsonArray);
+        System.out.println("jsonarray size = " + jsonArray.size());
+
+        for (int i = 0; i < jsonArray.size(); i++) {
+            System.out.println(i);
+            result[i] = Integer.parseInt(jsonArray.get(i).toString());
+            System.out.println("result[" + i + "]" + " = " + result[i]);
+        }
+
+        System.out.println("done");
+        return result;
     }
 }
 

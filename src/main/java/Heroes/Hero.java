@@ -3,11 +3,16 @@ package Heroes;
 import Cards.Card;
 import Cards.CardCreator;
 import GameHandler.GameHandler;
+import GameLogic.Interfaces.Damageable;
+import GameLogic.Interfaces.HealthTaker;
+import GameLogic.Visitors.DealDamageVisitor;
+import GameLogic.Visitors.GiveHealthVisitor;
+import UserHandle.Contestant;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
-public abstract class Hero {
+public abstract class Hero implements Damageable, HealthTaker {
     protected static int defaultHp = 30;
     private int hp;
     private String type;
@@ -15,6 +20,7 @@ public abstract class Hero {
     private String specialPower;
     private int deckCapacity = 15;
     private int maxRepetitiveCardsInDeck = 2;
+    private Contestant contestant;
 
     public Hero(){}
 
@@ -30,6 +36,14 @@ public abstract class Hero {
 
     public void setHp(int hp) {
         this.hp = hp;
+    }
+
+    public Contestant getContestant() {
+        return contestant;
+    }
+
+    public void setContestant(Contestant contestant) {
+        this.contestant = contestant;
     }
 
     public String getHeroPower() {
@@ -77,5 +91,15 @@ public abstract class Hero {
         heroObject.put("special power", specialPower);
 
         return heroObject;
+    }
+
+    @Override
+    public void acceptDamage(DealDamageVisitor dealDamageVisitor, int damageValue) {
+        dealDamageVisitor.visit(this, damageValue);
+    }
+
+    @Override
+    public void acceptHealth(GiveHealthVisitor giveHealthVisitor, int healthValue, boolean multiplicative) {
+        giveHealthVisitor.visit(this, healthValue, multiplicative);
     }
 }

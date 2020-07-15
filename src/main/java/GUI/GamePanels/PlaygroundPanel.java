@@ -1,7 +1,6 @@
 package GUI.GamePanels;
 
 import Cards.Card;
-import Cards.Spell;
 import GUI.Constants.LowerHalfConstants;
 import GUI.Constants.PlaygroundConstants;
 import GUI.Constants.UpperHalfConstants;
@@ -320,7 +319,8 @@ public class PlaygroundPanel extends GamePanel {
                 public void mouseClicked(MouseEvent mouseEvent) {
                     PlantedCardPressedEvent plantedCardPressedEvent = new PlantedCardPressedEvent(this, cardPanel.getCard());
                     plantedCardPressedListener.plantedCardPressedEventOccurred(plantedCardPressedEvent);
-                    System.out.println("HELOOOO " + cardPanel.getCard().getName());
+                    System.out.println("pressed: " + cardPanel.getCard().getName());
+                    refresh();
                 }
 
                 @Override
@@ -346,7 +346,7 @@ public class PlaygroundPanel extends GamePanel {
         }
     }
 
-    private void drawHandPanels(PlaygroundConstants constants, int index) {
+    private synchronized void drawHandPanels(PlaygroundConstants constants, int index) {
         Contestant contestant = Playground.getPlayground().getContestant(index);
         ArrayList<Card> cards = contestant.getHand();
         CardPanel[] handPanels = new CardPanel[cards.size()];
@@ -535,7 +535,7 @@ public class PlaygroundPanel extends GamePanel {
 
     private void initSpellPanel(PlaygroundConstants constants, int index) {
         Contestant contestant = Playground.getPlayground().getContestant(index);
-        if (!contestant.isWaitingForSpellTarget()) {
+        if (!contestant.isWaitingForTarget()) {
             return;
         }
         BackgroundedPanel spellPanel = new BackgroundedPanel("cards/"
@@ -544,6 +544,19 @@ public class PlaygroundPanel extends GamePanel {
         spellPanel.setDrawLocation((int) (constants.SPELL_PANEL_X * screenWidth),
                 (int) (constants.SPELL_PANEL_Y * screenHeight), constants.SPELL_PANEL_WIDTH, constants.SPELL_PANEL_HEIGHT);
         this.add(spellPanel);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (Playground.getPlayground().getCurrentContestant().isWaitingForTarget()) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                spellPanel.setVisible(false);
+            }
+        }).start();
     }
 
     private void initWeaponPanel(PlaygroundConstants constants, int index) {

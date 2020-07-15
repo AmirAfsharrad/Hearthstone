@@ -1,8 +1,12 @@
 package Cards;
 
+import GameLogic.Interfaces.Damageable;
+import GameLogic.Interfaces.HealthTaker;
+import GameLogic.Visitors.DealDamageVisitor;
+import GameLogic.Visitors.GiveHealthVisitor;
 import UserHandle.User;
 
-public class Minion extends Card {
+public class Minion extends Card implements Damageable, HealthTaker {
     private int hp;
     private int attackPower;
 
@@ -16,11 +20,25 @@ public class Minion extends Card {
         return hp;
     }
 
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
     public int getAttackPower() {
         return attackPower;
     }
 
     public Card clone() {
         return new Minion(getMana(), getName(), getRarity(), getHeroClass(), getDescription(), getAttackPower(), getHp());
+    }
+
+    @Override
+    public void acceptDamage(DealDamageVisitor dealDamageVisitor, int damageValue) {
+        dealDamageVisitor.visit(this, damageValue);
+    }
+
+    @Override
+    public void acceptHealth(GiveHealthVisitor giveHealthVisitor, int healthValue, boolean multiplicative) {
+        giveHealthVisitor.visit(this, healthValue, multiplicative);
     }
 }

@@ -165,7 +165,9 @@
     "heroClass": "Neutral",
     "description": "Restore 3 hp",
     "type": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "target": [1, 1],
+    "damage": [0]
   },
   {
     "mana": 2,
@@ -173,7 +175,9 @@
     "heroClass": "Neutral",
     "description": "Double a minions hp",
     "type": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "target": [1, 1],
+    "damage": [0]
   },
   {
     "mana": 6,
@@ -181,7 +185,9 @@
     "heroClass": "Neutral",
     "description": "Deal 5 damage. Restore 5 hp to your here",
     "type": "Spell",
-    "rarity": "Rare"
+    "rarity": "Rare",
+    "target": [1, 0],
+    "damage": [5, 0]
   },
   {
     "mana": 2,
@@ -189,7 +195,9 @@
     "heroClass": "Neutral",
     "description": "Return an enemy\u0027s minion to their hand.",
     "type": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "target": [1, 0],
+    "damage": [0]
   },
   {
     "mana": 1,
@@ -197,7 +205,9 @@
     "heroClass": "Neutral",
     "description": "Deal 3 damage to random enemies.",
     "type": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "target": [0],
+    "damage": [3, 2]
   },
   {
     "mana": 5,
@@ -205,7 +215,9 @@
     "heroClass": "Neutral",
     "description": "Deal 6 damage.",
     "type": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "target": [1, 0],
+    "damage": [6, 0]
   },
   {
     "mana": 7,
@@ -213,7 +225,9 @@
     "heroClass": "Neutral",
     "description": "Deal 4 damage to all enemy minions.",
     "type": "Spell",
-    "rarity": "Epic"
+    "rarity": "Epic",
+    "target": [0],
+    "damage": [4, 1]
   },
   {
     "mana": 7,
@@ -221,7 +235,9 @@
     "heroClass": "Neutral",
     "description": "Draw 4 cards",
     "type": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "target": [0],
+    "damage": [0]
   },
   {
     "mana": 6,
@@ -229,7 +245,9 @@
     "heroClass": "Neutral",
     "description": "Summon seven 1/1 Locusts with Rush",
     "type": "Spell",
-    "rarity": "Rare"
+    "rarity": "Rare",
+    "target": [0],
+    "damage": [0]
   },
   {
     "mana": 6,
@@ -237,7 +255,9 @@
     "heroClass": "Neutral",
     "description": "Give a minion +4/+4, Divine Shield, and Taunt.",
     "type": "Spell",
-    "rarity": "Rare"
+    "rarity": "Rare",
+    "target": [1, 1],
+    "damage": [0]
   },
   {
     "mana": 2,
@@ -245,7 +265,9 @@
     "heroClass": "Neutral",
     "description": "Draw 3 cards. Discard any spells drawn",
     "type": "Spell",
-    "rarity": "Epic"
+    "rarity": "Epic",
+    "target": [0],
+    "damage": [0]
   },
   {
     "mana": 1,
@@ -299,7 +321,9 @@
     "heroClass": "Mage",
     "description": "Transform a minion into a 1/1 sheep",
     "type": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "target": [1, 0],
+    "damage": [0]
   },
   {
     "attackPower": 2,
@@ -317,7 +341,9 @@
     "heroClass": "Rogue",
     "description": "Discover a weapon from any class and add it to your deck with +2/+2",
     "type": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "target": [0],
+    "damage": [0]
   },
   {
     "attackPower": 3,
@@ -355,7 +381,9 @@
     "heroClass": "Warlock",
     "description": "Destroy all minions.",
     "type": "Spell",
-    "rarity": "Rare"
+    "rarity": "Rare",
+    "target": [0],
+    "damage": [0]
   },
   {
     "attackPower": 0,
@@ -373,7 +401,9 @@
     "heroClass": "Paladin",
     "description": "Give a minion Charge, Windfury, Divine Shield, Lifesteal, Poisonous and Taunt",
     "type": "Spell",
-    "rarity": "Epic"
+    "rarity": "Epic",
+    "target": [1, 1],
+    "damage": [0]
   },
   {
     "mana": 2,
@@ -381,7 +411,9 @@
     "heroClass": "Paladin",
     "description": "Restore 4 Hp to your hero and gain +2 Attack this turn.",
     "type": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "target": [0],
+    "damage": [0]
   },
   {
     "attackPower": 2,

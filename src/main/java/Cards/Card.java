@@ -1,5 +1,7 @@
 package Cards;
 
+import GameLogic.Interfaces.Damageable;
+import GameLogic.Interfaces.HealthTaker;
 import UserHandle.Contestant;
 
 import java.util.Objects;
@@ -50,6 +52,10 @@ public abstract class Card {
         this.contestant = contestant;
     }
 
+    public Contestant getContestant() {
+        return contestant;
+    }
+
     public int getPrice(){
         switch (rarity){
             case "Common": return 10;
@@ -75,5 +81,9 @@ public abstract class Card {
         return Objects.equals(name, card.name);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }
 

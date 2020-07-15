@@ -1,6 +1,6 @@
 [
   {
-    "gold": 20,
+    "gold": 980,
     "current hero": 0,
     "user name": " ",
     "password": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
@@ -12,7 +12,9 @@
       "Sunreaver Warmage",
       "High Priest Amet",
       "Arcane Missiles",
-      "Strength in Numbers"
+      "Strength in Numbers",
+      "Divine Spirit",
+      "Fireball"
     ],
     "heroes": [
       {
@@ -40,17 +42,19 @@
       {
         "cardsNames": [
           "Goldshire Footman",
-          "Goldshire Footman",
           "Sunreaver Warmage",
           "Sunreaver Warmage",
-          "Poisoned Dagger",
-          "Poisoned Dagger",
           "Gnomish Army Knife",
           "Gnomish Army Knife",
-          "Living Monument",
-          "Living Monument",
           "Strength in Numbers",
-          "Strength in Numbers"
+          "Strength in Numbers",
+          "Divine Spirit",
+          "Divine Spirit",
+          "Goldshire Footman",
+          "Arcane Missiles",
+          "Arcane Missiles",
+          "Fireball",
+          "Fireball"
         ],
         "name": "Amir",
         "heroName": "Paladin"

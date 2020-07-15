@@ -1,12 +1,12 @@
 package Places;
 
 import Cards.Deck;
+import Cards.Minion;
 import GUI.Events.PlantedCardPressedEvent;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
 import Logger.Logger;
 import UserHandle.Contestant;
-import Utilities.TurnTimer;
 
 import java.util.ArrayList;
 
@@ -68,6 +68,15 @@ public class Playground extends Place {
         return contestant0;
     }
 
+    public Contestant getOpponentContestant() {
+        switch (turn) {
+            case 0 : return contestant1;
+            case 1 : return contestant0;
+        }
+        Logger.log("Turn Error", "turn value different from 0 or 1");
+        return contestant0;
+    }
+
     public void nextTurn() {
 //        turnTimer.reset();
         getCurrentContestant().endTurn();
@@ -76,113 +85,13 @@ public class Playground extends Place {
     }
 
     public void manageSelectedPlantedCard(PlantedCardPressedEvent plantedCardPressedEvent) {
-//        System.out.println(plantedCardPressedEvent.getCard().getName());
+        if (getCurrentContestant().isWaitingForTarget()) {
+            System.out.println("manageSelectedPlanedCard method begin");
+//            getCurrentContestant().getWaitingForTargetThread().setTarget(plantedCardPressedEvent.getCard());
+            getCurrentContestant().setTarget((Minion) plantedCardPressedEvent.getCard());
+        }
     }
 
-    //    private void initHand() {
-//        int count = 0;
-//        for (Card card : deck) {
-//            if (card.getType().equals("Quest")) {
-//                if (count < 3) {
-//                    hand.add(card);
-//                    deck.remove(card);
-//                    count++;
-//                }
-//            }
-//        }
-//        for (int i = 0; i < Math.min(3 - count, deck.size()); i++) {
-//            System.out.println(i);
-//            hand.add(popRandomCard(deck));
-//        }
-//    }
-//
-//    public void initPassiveProcess() {
-//        switch (passive) {
-//            case "zombie": {
-//                hero.setHeroPower("Zombie");
-//                break;
-//            }
-//            case "mana jump": {
-//                mana = 2;
-//                turnFullManas = 2;
-//                break;
-//            }
-//            case "draw twice": {
-//                drawTwice = true;
-//            }
-//        }
-//    }
-//
-//    private void drawRandomCard() {
-//        if (hand.size() < 12) {
-//            if (deck.size() > 0) {
-//                hand.add(popRandomCard(deck));
-//            }
-//        }
-//    }
-//
-//    public void stepOneTurn() {
-//        Logger.log("Next Turn", "");
-//        mana = Math.min(turnFullManas + 1, 10);
-//        turnFullManas = mana;
-//        drawRandomCard();
-//        if (drawTwice) {
-//            drawRandomCard();
-//        }
-//    }
-//
-//    public void playCard(Card card) {
-//        if (planted.size() < 7) {
-//            if (card.getMana() <= mana) {
-//                Logger.log("Card Played", card.getName());
-//                if (card.getType().equals("Minion")) {
-//                    planted.add(card);
-//                }
-//                hand.remove(card);
-//                mana -= card.getMana();
-//                gameLog.add(GameState.getGameState().getUser().getName() + ": " + card);
-//            }
-//        }
-//    }
-//
-//    private Card popRandomCard(ArrayList<Card> cards) {
-//        if (!cards.isEmpty()) {
-//            Random random = new Random();
-//            int rand = random.nextInt(cards.size());
-//            Card randomCard = cards.get(rand);
-//            cards.remove(rand);
-//            return randomCard;
-//        } else {
-//            return null;
-//        }
-//    }
-//
-//    public int getRemainingDeckSize() {
-//        return deck.size();
-//    }
-//
-
-//
-//    public int getMana() {
-//        return mana;
-//    }
-//
-//    public int getTurnFullManas() {
-//        return turnFullManas;
-//    }
-//
-//    public ArrayList<Card> getPlanted() {
-//        return planted;
-//    }
-//
-//    public ArrayList<Card> getHand() {
-//        return hand;
-//    }
-//
-//    public Hero getHero() {
-//        return hero;
-//    }
-//
     public ArrayList<String> getGameLog() {
         return gameLog;
     }

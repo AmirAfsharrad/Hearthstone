@@ -1,11 +1,10 @@
 package UserHandle;
 
-import Cards.Card;
-import Cards.Deck;
-import Cards.Spell;
-import Cards.Weapon;
+import Cards.*;
 import GameHandler.ContestantState;
-import GameHandler.GameState;
+import GameLogic.PlayCards;
+import GameLogic.Visitors.GiveHealthVisitor;
+import GameLogic.WaitingForTargetThread;
 import Heroes.Hero;
 import Logger.Logger;
 import Places.Playground;
@@ -22,12 +21,21 @@ public class Contestant {
     private Weapon currentWeapon;
     private Spell currentSpell;
     private boolean hasWeapon;
-    private boolean waitingForSpellTarget;
+    private boolean waitingForTarget;
     private int mana;
     private int turnFullManas;
     private String passive;
     private boolean drawTwice;
     private ContestantState state;
+    private Minion target;
+
+    public Minion getTarget() {
+        return target;
+    }
+
+    public void setTarget(Minion target) {
+        this.target = target;
+    }
 
     public Contestant(String name) {
         this.name = name;
@@ -36,7 +44,7 @@ public class Contestant {
 
     public void init(Deck inputDeck) {
         initDeck(inputDeck);
-        hero = inputDeck.getHero();
+        initHero(inputDeck);
         mana = 1;
         turnFullManas = 1;
         planted = new ArrayList<>();
@@ -54,17 +62,22 @@ public class Contestant {
         }
     }
 
+    private void initHero(Deck inputDeck) {
+        hero = inputDeck.getHero();
+        hero.setContestant(this);
+    }
+
     private void initHand() {
         int count = 0;
-        for (Card card : deck) {
-            if (card.getType().equals("Quest")) {
-                if (count < 3) {
-                    hand.add(card);
-                    deck.remove(card);
-                    count++;
-                }
-            }
-        }
+//        for (Card card : deck) {
+//            if (card.getType().equals("Quest")) {
+//                if (count < 3) {
+//                    hand.add(card);
+//                    deck.remove(card);
+//                    count++;
+//                }
+//            }
+//        }
         for (int i = 0; i < Math.min(3 - count, deck.size()); i++) {
             System.out.println(i);
             hand.add(popRandomCard(deck));
@@ -109,35 +122,38 @@ public class Contestant {
 
     public void endTurn() {
         Logger.log("End turn", "end of " + name + "'s turn");
-        waitingForSpellTarget = false;
+        waitingForTarget = false;
     }
 
     public void playCard(Card card, int numberOnLeft) {
-        if (card.getMana() <= mana) {
-            waitingForSpellTarget = false;
-            Logger.log("Card Played", card.getName());
-            switch (card.getType()) {
-                case "Minion":
-                    if (planted.size() < 7) {
-                        planted.add(getNewPlantedCardIndex(numberOnLeft), card);
-                        System.out.println("card name = " + card.getName());
-                        System.out.println(card.getType());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (card.getMana() <= mana) {
+                    waitingForTarget = false;
+                    Logger.log("Card Played", card.getName());
+                    switch (card.getType()) {
+                        case "Minion":
+                            if (planted.size() < 7) {
+                                planted.add(getNewPlantedCardIndex(numberOnLeft), card);
+                                System.out.println("card name = " + card.getName());
+                                System.out.println(card.getType());
+                            }
+                            break;
+                        case "Weapon":
+                            currentWeapon = (Weapon) card;
+                            hasWeapon = true;
+                            break;
+                        case "Spell":
+                            PlayCards.playSpell((Spell) card);
+                            break;
                     }
-                    break;
-                case "Weapon":
-                    currentWeapon = (Weapon) card;
-                    hasWeapon = true;
-                    break;
-                case "Spell":
-                    currentSpell = (Spell) card;
-                    waitingForSpellTarget = true;
-                    break;
+                    hand.remove(card);
+                    mana -= card.getMana();
+                    Playground.getPlayground().getGameLog().add(name + ": " + card);
+                }
             }
-            hand.remove(card);
-            mana -= card.getMana();
-            Playground.getPlayground().getGameLog().add(name + ": " + card);
-        }
-
+        }).start();
     }
 
     private int getNewPlantedCardIndex(int numberOnLeft) {
@@ -198,8 +214,8 @@ public class Contestant {
         return hasWeapon;
     }
 
-    public boolean isWaitingForSpellTarget() {
-        return waitingForSpellTarget;
+    public boolean isWaitingForTarget() {
+        return waitingForTarget;
     }
 
     public Spell getCurrentSpell() {
@@ -208,5 +224,81 @@ public class Contestant {
 
     public ContestantState getState() {
         return state;
+    }
+
+    public boolean hasTaunt() {
+        return false;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPlanted(ArrayList<Card> planted) {
+        this.planted = planted;
+    }
+
+    public void setHand(ArrayList<Card> hand) {
+        this.hand = hand;
+    }
+
+    public ArrayList<Card> getDeck() {
+        return deck;
+    }
+
+    public void setDeck(ArrayList<Card> deck) {
+        this.deck = deck;
+    }
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
+
+    public void setCurrentWeapon(Weapon currentWeapon) {
+        this.currentWeapon = currentWeapon;
+    }
+
+    public void setCurrentSpell(Spell currentSpell) {
+        this.currentSpell = currentSpell;
+    }
+
+    public boolean isHasWeapon() {
+        return hasWeapon;
+    }
+
+    public void setHasWeapon(boolean hasWeapon) {
+        this.hasWeapon = hasWeapon;
+    }
+
+    public void setWaitingForTarget(boolean waitingForTarget) {
+        this.waitingForTarget = waitingForTarget;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    public void setTurnFullManas(int turnFullManas) {
+        this.turnFullManas = turnFullManas;
+    }
+
+    public String getPassive() {
+        return passive;
+    }
+
+    public boolean isDrawTwice() {
+        return drawTwice;
+    }
+
+    public void setDrawTwice(boolean drawTwice) {
+        this.drawTwice = drawTwice;
+    }
+
+    public void setState(ContestantState state) {
+        this.state = state;
     }
 }
