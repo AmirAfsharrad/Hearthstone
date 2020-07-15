@@ -56,7 +56,9 @@ public class Contestant {
 
     private void initDeck(Deck inputDeck) {
         deck = new ArrayList<>();
-        deck.addAll(inputDeck.getCards());
+        for (Card card : inputDeck.getCards()) {
+            deck.add(card.clone());
+        }
         for (Card card : deck) {
             card.setContestant(this);
         }
@@ -131,6 +133,8 @@ public class Contestant {
             public void run() {
                 if (card.getMana() <= mana) {
                     waitingForTarget = false;
+                    hand.remove(card);
+                    mana -= card.getMana();
                     Logger.log("Card Played", card.getName());
                     switch (card.getType()) {
                         case "Minion":
@@ -148,8 +152,6 @@ public class Contestant {
                             PlayCards.playSpell((Spell) card);
                             break;
                     }
-                    hand.remove(card);
-                    mana -= card.getMana();
                     Playground.getPlayground().getGameLog().add(name + ": " + card);
                 }
             }

@@ -3,6 +3,7 @@ package GameHandler;
 import Cards.Card;
 import Cards.CardCreator;
 import Cards.Deck;
+import Cards.Minion;
 import GameHandler.CLI.CLI;
 import Heroes.Mage;
 import Initialization.DefaultUserCardsDataCreator;
@@ -57,7 +58,8 @@ public class GameHandler {
     }
 
     public Card getCard(String cardName) {
-        return allCards.get(cardName).clone();
+        Card newCard = allCards.get(cardName).clone();
+        return newCard;
     }
 
     public Deck getDefaultOpponentDeck() {

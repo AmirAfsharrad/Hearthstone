@@ -6187,3 +6187,617 @@ Start turn, 2020-07-15T20:54:40.982770500, start of  's turn
 Button Pressed, 2020-07-15T20:54:44.388636600, Fireball
 Card Played, 2020-07-15T20:54:44.390634, Fireball
 quit, 2020-07-15T20:54:48.631348300, quit the game
+login, 2020-07-15T23:37:02.037642200,  as  
+Button Pressed, 2020-07-15T23:37:03.392130700, Collections
+Button Pressed, 2020-07-15T23:37:07.070642500, Amir
+Button Pressed, 2020-07-15T23:37:11.351616700, Fireball x2
+Remove Card from Deck, 2020-07-15T23:37:11.353069800, Fireball -> Amir
+Button Pressed, 2020-07-15T23:37:11.508651, Fireball
+Remove Card from Deck, 2020-07-15T23:37:11.509702300, Fireball -> Amir
+Button Pressed, 2020-07-15T23:37:14.035518800, Arcane Missiles x2
+Remove Card from Deck, 2020-07-15T23:37:14.036522600, Arcane Missiles -> Amir
+Button Pressed, 2020-07-15T23:37:14.222226100, Arcane Missiles
+Remove Card from Deck, 2020-07-15T23:37:14.222226100, Arcane Missiles -> Amir
+Button Pressed, 2020-07-15T23:37:33.831367900, Regenerate
+Buy Card, 2020-07-15T23:37:34.915447700, Regenerate
+system response, 2020-07-15T23:37:35.986637, You have successfully purchased Regenerate.
+Button Pressed, 2020-07-15T23:37:39.842521200, Amir
+Button Pressed, 2020-07-15T23:37:44.214376200, Regenerate
+Add Card to Deck, 2020-07-15T23:37:44.215390400, Regenerate -> Amir
+Button Pressed, 2020-07-15T23:37:45.107050600, Regenerate
+Add Card to Deck, 2020-07-15T23:37:45.108171, Regenerate -> Amir
+Button Pressed, 2020-07-15T23:38:35.435051800, Holy Fire
+Buy Card, 2020-07-15T23:38:36.595751900, Holy Fire
+system response, 2020-07-15T23:38:37.616603200, You have successfully purchased Holy Fire.
+Button Pressed, 2020-07-15T23:38:40.944013800, Amir
+Button Pressed, 2020-07-15T23:38:48.934522, Holy Fire
+Add Card to Deck, 2020-07-15T23:38:48.935778300, Holy Fire -> Amir
+Button Pressed, 2020-07-15T23:38:49.486741700, Holy Fire
+Add Card to Deck, 2020-07-15T23:38:49.488163500, Holy Fire -> Amir
+Button Pressed, 2020-07-15T23:38:51.350949900, Play
+Button Pressed, 2020-07-15T23:38:54.705848, draw twice
+Button Pressed, 2020-07-15T23:38:58.987555500, end turn
+End turn, 2020-07-15T23:38:58.988866700, end of  's turn
+Start turn, 2020-07-15T23:38:58.990537, start of system's turn
+Button Pressed, 2020-07-15T23:38:59.912145300, end turn
+End turn, 2020-07-15T23:38:59.912734400, end of system's turn
+Start turn, 2020-07-15T23:38:59.913309200, start of  's turn
+Button Pressed, 2020-07-15T23:39:04.433293, Goldshire Footman
+Card Played, 2020-07-15T23:39:04.435976200, Goldshire Footman
+Button Pressed, 2020-07-15T23:39:05.625890700, end turn
+End turn, 2020-07-15T23:39:05.626791900, end of  's turn
+Start turn, 2020-07-15T23:39:05.627147400, start of system's turn
+Button Pressed, 2020-07-15T23:39:09.459546400, Depth Charge
+Card Played, 2020-07-15T23:39:09.460591400, Depth Charge
+Button Pressed, 2020-07-15T23:39:10.644405300, end turn
+End turn, 2020-07-15T23:39:10.645375200, end of system's turn
+Start turn, 2020-07-15T23:39:10.645861500, start of  's turn
+Button Pressed, 2020-07-15T23:39:14.516021700, Goldshire Footman
+Card Played, 2020-07-15T23:39:14.517065800, Goldshire Footman
+Button Pressed, 2020-07-15T23:39:15.935228, end turn
+End turn, 2020-07-15T23:39:15.936224700, end of  's turn
+Start turn, 2020-07-15T23:39:15.937224200, start of system's turn
+Button Pressed, 2020-07-15T23:39:25.072797600, end turn
+End turn, 2020-07-15T23:39:25.074297200, end of system's turn
+Start turn, 2020-07-15T23:39:25.074787900, start of  's turn
+Button Pressed, 2020-07-15T23:39:25.957446700, end turn
+End turn, 2020-07-15T23:39:25.959203500, end of  's turn
+Start turn, 2020-07-15T23:39:25.959690600, start of system's turn
+Button Pressed, 2020-07-15T23:39:32.174849500, end turn
+End turn, 2020-07-15T23:39:32.175845900, end of system's turn
+Start turn, 2020-07-15T23:39:32.176842600, start of  's turn
+Button Pressed, 2020-07-15T23:39:38.435110700, Sunreaver Warmage
+Card Played, 2020-07-15T23:39:38.436502500, Sunreaver Warmage
+Button Pressed, 2020-07-15T23:39:39.768558200, end turn
+End turn, 2020-07-15T23:39:39.770111200, end of  's turn
+Start turn, 2020-07-15T23:39:39.770703, start of system's turn
+Button Pressed, 2020-07-15T23:39:40.335029700, end turn
+End turn, 2020-07-15T23:39:40.335630600, end of system's turn
+Start turn, 2020-07-15T23:39:40.336027200, start of  's turn
+Button Pressed, 2020-07-15T23:39:43.622241500, Holy Fire
+Card Played, 2020-07-15T23:39:43.623420400, Holy Fire
+Button Pressed, 2020-07-15T23:40:08.386345800, end turn
+End turn, 2020-07-15T23:40:08.387341, end of  's turn
+Start turn, 2020-07-15T23:40:08.388326700, start of system's turn
+Button Pressed, 2020-07-15T23:40:24.437411100, Stonetusk Boar
+Card Played, 2020-07-15T23:40:24.439407, Stonetusk Boar
+Button Pressed, 2020-07-15T23:40:36.580942600, end turn
+End turn, 2020-07-15T23:40:36.581844100, end of system's turn
+Start turn, 2020-07-15T23:40:36.582270400, start of  's turn
+Button Pressed, 2020-07-15T23:40:39.064600400, end turn
+End turn, 2020-07-15T23:40:39.065598400, end of  's turn
+Start turn, 2020-07-15T23:40:39.066017900, start of system's turn
+quit, 2020-07-15T23:40:45.788622600, quit the game
+login, 2020-07-15T23:41:01.976130700,  as  
+Button Pressed, 2020-07-15T23:41:04.235385200, Collections
+Button Pressed, 2020-07-15T23:41:07.157117600, Amir
+Button Pressed, 2020-07-15T23:41:08.811113, Play
+Button Pressed, 2020-07-15T23:41:11.135308600, warriors
+Button Pressed, 2020-07-15T23:41:17.950520800, end turn
+End turn, 2020-07-15T23:41:17.951171500, end of  's turn
+Start turn, 2020-07-15T23:41:17.952168200, start of system's turn
+Button Pressed, 2020-07-15T23:41:20.615407400, end turn
+End turn, 2020-07-15T23:41:20.616311700, end of system's turn
+Start turn, 2020-07-15T23:41:20.617058700, start of  's turn
+Button Pressed, 2020-07-15T23:41:24.501881200, end turn
+End turn, 2020-07-15T23:41:24.502663100, end of  's turn
+Start turn, 2020-07-15T23:41:24.503183, start of system's turn
+Button Pressed, 2020-07-15T23:41:24.800860400, end turn
+End turn, 2020-07-15T23:41:24.801658400, end of system's turn
+Start turn, 2020-07-15T23:41:24.802418500, start of  's turn
+Button Pressed, 2020-07-15T23:41:25.133966200, end turn
+End turn, 2020-07-15T23:41:25.134964100, end of  's turn
+Start turn, 2020-07-15T23:41:25.135408100, start of system's turn
+Button Pressed, 2020-07-15T23:41:25.169871800, end turn
+End turn, 2020-07-15T23:41:25.170552, end of system's turn
+Start turn, 2020-07-15T23:41:25.171111100, start of  's turn
+Button Pressed, 2020-07-15T23:41:25.537936100, end turn
+End turn, 2020-07-15T23:41:25.538541400, end of  's turn
+Start turn, 2020-07-15T23:41:25.538950300, start of system's turn
+Button Pressed, 2020-07-15T23:41:25.945796700, end turn
+End turn, 2020-07-15T23:41:25.946793, end of system's turn
+Start turn, 2020-07-15T23:41:25.947795700, start of  's turn
+Button Pressed, 2020-07-15T23:41:28.766254200, Sunreaver Warmage
+Card Played, 2020-07-15T23:41:28.774281400, Sunreaver Warmage
+Button Pressed, 2020-07-15T23:41:35.177114, end turn
+End turn, 2020-07-15T23:41:35.178117900, end of  's turn
+Start turn, 2020-07-15T23:41:35.178635400, start of system's turn
+Button Pressed, 2020-07-15T23:41:52.823846700, end turn
+End turn, 2020-07-15T23:41:52.824843800, end of system's turn
+Start turn, 2020-07-15T23:41:52.825129800, start of  's turn
+Button Pressed, 2020-07-15T23:41:59.683568100, Regenerate
+Card Played, 2020-07-15T23:41:59.684501700, Regenerate
+Button Pressed, 2020-07-15T23:42:07.743004, end turn
+End turn, 2020-07-15T23:42:07.743959700, end of  's turn
+Start turn, 2020-07-15T23:42:07.744524200, start of system's turn
+quit, 2020-07-15T23:42:30.873403200, quit the game
+login, 2020-07-15T23:42:40.902641700,  as  
+Button Pressed, 2020-07-15T23:42:42.533052400, Collections
+Button Pressed, 2020-07-15T23:42:45.907848200, Amir
+Button Pressed, 2020-07-15T23:42:47.678721900, Play
+Button Pressed, 2020-07-15T23:42:49.839570500, nurse
+Button Pressed, 2020-07-15T23:42:53.218573, end turn
+End turn, 2020-07-15T23:42:53.219528200, end of  's turn
+Start turn, 2020-07-15T23:42:53.220525800, start of system's turn
+Button Pressed, 2020-07-15T23:42:54.222911200, end turn
+End turn, 2020-07-15T23:42:54.223237100, end of system's turn
+Start turn, 2020-07-15T23:42:54.223844700, start of  's turn
+Button Pressed, 2020-07-15T23:42:54.555957700, end turn
+End turn, 2020-07-15T23:42:54.556961500, end of  's turn
+Start turn, 2020-07-15T23:42:54.557967800, start of system's turn
+Button Pressed, 2020-07-15T23:43:02.056910600, Goldshire Footman
+Card Played, 2020-07-15T23:43:02.059891700, Goldshire Footman
+Button Pressed, 2020-07-15T23:43:03.482090200, end turn
+End turn, 2020-07-15T23:43:03.483094100, end of system's turn
+Start turn, 2020-07-15T23:43:03.485085200, start of  's turn
+Button Pressed, 2020-07-15T23:43:05.863721400, end turn
+End turn, 2020-07-15T23:43:05.863721400, end of  's turn
+Start turn, 2020-07-15T23:43:05.864719400, start of system's turn
+Button Pressed, 2020-07-15T23:43:06.241727200, end turn
+End turn, 2020-07-15T23:43:06.242232400, end of system's turn
+Start turn, 2020-07-15T23:43:06.242742500, start of  's turn
+Button Pressed, 2020-07-15T23:43:06.601911700, end turn
+End turn, 2020-07-15T23:43:06.601911700, end of  's turn
+Start turn, 2020-07-15T23:43:06.602957800, start of system's turn
+Button Pressed, 2020-07-15T23:43:06.974750800, end turn
+End turn, 2020-07-15T23:43:06.974750800, end of system's turn
+Start turn, 2020-07-15T23:43:06.976231500, start of  's turn
+Button Pressed, 2020-07-15T23:43:09.267621100, Sunreaver Warmage
+Card Played, 2020-07-15T23:43:09.267621100, Sunreaver Warmage
+Button Pressed, 2020-07-15T23:43:12.396290300, end turn
+End turn, 2020-07-15T23:43:12.396290300, end of  's turn
+Start turn, 2020-07-15T23:43:12.397452600, start of system's turn
+Button Pressed, 2020-07-15T23:43:12.854033300, end turn
+End turn, 2020-07-15T23:43:12.855027700, end of system's turn
+Start turn, 2020-07-15T23:43:12.855144600, start of  's turn
+Button Pressed, 2020-07-15T23:43:22.960861200, Sunreaver Warmage
+Card Played, 2020-07-15T23:43:22.961841700, Sunreaver Warmage
+Button Pressed, 2020-07-15T23:43:26.311872300, Goldshire Footman
+Card Played, 2020-07-15T23:43:26.312878200, Goldshire Footman
+Button Pressed, 2020-07-15T23:43:28.264651800, end turn
+End turn, 2020-07-15T23:43:28.265648100, end of  's turn
+Start turn, 2020-07-15T23:43:28.266174800, start of system's turn
+Button Pressed, 2020-07-15T23:43:28.723425100, end turn
+End turn, 2020-07-15T23:43:28.724427800, end of system's turn
+Start turn, 2020-07-15T23:43:28.724973800, start of  's turn
+Button Pressed, 2020-07-15T23:43:30.471769200, end turn
+End turn, 2020-07-15T23:43:30.472747, end of  's turn
+Start turn, 2020-07-15T23:43:30.473126700, start of system's turn
+Button Pressed, 2020-07-15T23:43:30.964433300, end turn
+End turn, 2020-07-15T23:43:30.965697900, end of system's turn
+Start turn, 2020-07-15T23:43:30.965697900, start of  's turn
+Button Pressed, 2020-07-15T23:43:38.045534800, end turn
+End turn, 2020-07-15T23:43:38.046133300, end of  's turn
+Start turn, 2020-07-15T23:43:38.046639800, start of system's turn
+Button Pressed, 2020-07-15T23:43:38.554177500, end turn
+End turn, 2020-07-15T23:43:38.555320, end of system's turn
+Start turn, 2020-07-15T23:43:38.555755400, start of  's turn
+Button Pressed, 2020-07-15T23:43:41.573067400, Regenerate
+Card Played, 2020-07-15T23:43:41.574428800, Regenerate
+quit, 2020-07-15T23:44:24.607924900, quit the game
+login, 2020-07-15T23:44:32.177295,  as  
+Button Pressed, 2020-07-15T23:44:32.989423800, Collections
+Button Pressed, 2020-07-15T23:44:36.391969500, Amir
+Button Pressed, 2020-07-15T23:44:37.919077100, Play
+Button Pressed, 2020-07-15T23:44:41.520229500, draw twice
+Button Pressed, 2020-07-15T23:44:43.371452, end turn
+End turn, 2020-07-15T23:44:43.372439700, end of  's turn
+Start turn, 2020-07-15T23:44:43.373635100, start of system's turn
+Button Pressed, 2020-07-15T23:44:43.684606, end turn
+End turn, 2020-07-15T23:44:43.685842900, end of system's turn
+Start turn, 2020-07-15T23:44:43.686294900, start of  's turn
+Button Pressed, 2020-07-15T23:44:44.313059500, end turn
+End turn, 2020-07-15T23:44:44.313542300, end of  's turn
+Start turn, 2020-07-15T23:44:44.313945200, start of system's turn
+Button Pressed, 2020-07-15T23:44:44.697895900, end turn
+End turn, 2020-07-15T23:44:44.697895900, end of system's turn
+Start turn, 2020-07-15T23:44:44.699118600, start of  's turn
+Button Pressed, 2020-07-15T23:44:45.531665700, end turn
+End turn, 2020-07-15T23:44:45.532950900, end of  's turn
+Start turn, 2020-07-15T23:44:45.533697900, start of system's turn
+Button Pressed, 2020-07-15T23:44:45.915642, end turn
+End turn, 2020-07-15T23:44:45.916968600, end of system's turn
+Start turn, 2020-07-15T23:44:45.917633100, start of  's turn
+Button Pressed, 2020-07-15T23:44:51.121825100, Sunreaver Warmage
+Button Pressed, 2020-07-15T23:44:54.660260300, Regenerate
+Card Played, 2020-07-15T23:44:54.661263, Regenerate
+Button Pressed, 2020-07-15T23:44:57.482804500, end turn
+End turn, 2020-07-15T23:44:57.484018100, end of  's turn
+Start turn, 2020-07-15T23:44:57.484018100, start of system's turn
+Button Pressed, 2020-07-15T23:44:57.949497600, end turn
+End turn, 2020-07-15T23:44:57.950810, end of system's turn
+Start turn, 2020-07-15T23:44:57.951457900, start of  's turn
+Button Pressed, 2020-07-15T23:45:02.360116100, Sunreaver Warmage
+Card Played, 2020-07-15T23:45:02.360829600, Sunreaver Warmage
+Button Pressed, 2020-07-15T23:45:04.478118300, end turn
+End turn, 2020-07-15T23:45:04.478637, end of  's turn
+Start turn, 2020-07-15T23:45:04.479126100, start of system's turn
+Button Pressed, 2020-07-15T23:45:04.960810600, end turn
+End turn, 2020-07-15T23:45:04.961461700, end of system's turn
+Start turn, 2020-07-15T23:45:04.961881600, start of  's turn
+Button Pressed, 2020-07-15T23:45:11.142558400, Goldshire Footman
+Card Played, 2020-07-15T23:45:11.143186500, Goldshire Footman
+Button Pressed, 2020-07-15T23:45:15.040088, Sunreaver Warmage
+Card Played, 2020-07-15T23:45:15.040764, Sunreaver Warmage
+Button Pressed, 2020-07-15T23:45:17.603164, end turn
+End turn, 2020-07-15T23:45:17.604201, end of  's turn
+Start turn, 2020-07-15T23:45:17.604813, start of system's turn
+Button Pressed, 2020-07-15T23:45:18.192338100, end turn
+End turn, 2020-07-15T23:45:18.193336400, end of system's turn
+Start turn, 2020-07-15T23:45:18.194332800, start of  's turn
+Button Pressed, 2020-07-15T23:45:22.850883100, Goldshire Footman
+Card Played, 2020-07-15T23:45:22.852878200, Goldshire Footman
+Button Pressed, 2020-07-15T23:45:28.025048400, Divine Spirit
+Card Played, 2020-07-15T23:45:28.026044400, Divine Spirit
+Button Pressed, 2020-07-15T23:45:37.576522200, end turn
+End turn, 2020-07-15T23:45:37.577221900, end of  's turn
+Start turn, 2020-07-15T23:45:37.577727900, start of system's turn
+Button Pressed, 2020-07-15T23:45:38.096120800, end turn
+End turn, 2020-07-15T23:45:38.096120800, end of system's turn
+Start turn, 2020-07-15T23:45:38.097118, start of  's turn
+Button Pressed, 2020-07-15T23:45:42.027149400, Regenerate
+Card Played, 2020-07-15T23:45:42.028542400, Regenerate
+Button Pressed, 2020-07-15T23:46:38.098619600, end turn by time
+End turn, 2020-07-15T23:46:38.098619600, end of  's turn
+Start turn, 2020-07-15T23:46:38.099618300, start of system's turn
+Button Pressed, 2020-07-15T23:47:38.122223, end turn by time
+End turn, 2020-07-15T23:47:38.122223, end of system's turn
+Start turn, 2020-07-15T23:47:38.123267100, start of  's turn
+quit, 2020-07-15T23:48:28.596510800, quit the game
+login, 2020-07-15T23:49:51.969675800,  as  
+Button Pressed, 2020-07-15T23:49:53.109458100, Collections
+Button Pressed, 2020-07-15T23:49:56.247706800, Amir
+Button Pressed, 2020-07-15T23:49:57.338789900, Play
+Button Pressed, 2020-07-15T23:50:01.490409800, draw twice
+Button Pressed, 2020-07-15T23:50:07.968020100, end turn
+End turn, 2020-07-15T23:50:07.969220300, end of  's turn
+Start turn, 2020-07-15T23:50:07.971020600, start of system's turn
+Button Pressed, 2020-07-15T23:50:10.054386100, end turn
+End turn, 2020-07-15T23:50:10.055511300, end of system's turn
+Start turn, 2020-07-15T23:50:10.056039500, start of  's turn
+Button Pressed, 2020-07-15T23:50:12.649849200, end turn
+End turn, 2020-07-15T23:50:12.650444600, end of  's turn
+Start turn, 2020-07-15T23:50:12.650900900, start of system's turn
+Button Pressed, 2020-07-15T23:50:13.004519100, end turn
+End turn, 2020-07-15T23:50:13.006060600, end of system's turn
+Start turn, 2020-07-15T23:50:13.006662300, start of  's turn
+Button Pressed, 2020-07-15T23:50:14.272283200, end turn
+End turn, 2020-07-15T23:50:14.273132200, end of  's turn
+Start turn, 2020-07-15T23:50:14.274215100, start of system's turn
+Button Pressed, 2020-07-15T23:50:14.643125300, end turn
+End turn, 2020-07-15T23:50:14.644178500, end of system's turn
+Start turn, 2020-07-15T23:50:14.644764800, start of  's turn
+Button Pressed, 2020-07-15T23:50:15.630477400, end turn
+End turn, 2020-07-15T23:50:15.631039900, end of  's turn
+Start turn, 2020-07-15T23:50:15.631486400, start of system's turn
+Button Pressed, 2020-07-15T23:50:16.042591200, end turn
+End turn, 2020-07-15T23:50:16.043386400, end of system's turn
+Start turn, 2020-07-15T23:50:16.043848600, start of  's turn
+Button Pressed, 2020-07-15T23:50:19.584248800, Sunreaver Warmage
+Card Played, 2020-07-15T23:50:19.587901200, Sunreaver Warmage
+Button Pressed, 2020-07-15T23:50:22.008448300, end turn
+End turn, 2020-07-15T23:50:22.009434400, end of  's turn
+Start turn, 2020-07-15T23:50:22.010431200, start of system's turn
+Button Pressed, 2020-07-15T23:50:22.523169500, end turn
+End turn, 2020-07-15T23:50:22.524272500, end of system's turn
+Start turn, 2020-07-15T23:50:22.524574400, start of  's turn
+Button Pressed, 2020-07-15T23:50:28.173240800, Sunreaver Warmage
+Card Played, 2020-07-15T23:50:28.175188100, Sunreaver Warmage
+Button Pressed, 2020-07-15T23:50:31.714489600, Goldshire Footman
+Card Played, 2020-07-15T23:50:31.715711600, Goldshire Footman
+Button Pressed, 2020-07-15T23:50:36.163971900, end turn
+End turn, 2020-07-15T23:50:36.165132600, end of  's turn
+Start turn, 2020-07-15T23:50:36.165507100, start of system's turn
+Button Pressed, 2020-07-15T23:50:36.659523500, end turn
+End turn, 2020-07-15T23:50:36.660732400, end of system's turn
+Start turn, 2020-07-15T23:50:36.661331300, start of  's turn
+Button Pressed, 2020-07-15T23:50:39.701357400, Regenerate
+Card Played, 2020-07-15T23:50:39.702620, Regenerate
+Button Pressed, 2020-07-15T23:50:55.063227200, Regenerate
+Card Played, 2020-07-15T23:50:55.065222700, Regenerate
+Button Pressed, 2020-07-15T23:51:04.311566600, end turn
+End turn, 2020-07-15T23:51:04.312557800, end of  's turn
+Start turn, 2020-07-15T23:51:04.313005800, start of system's turn
+Button Pressed, 2020-07-15T23:51:05.441529200, end turn
+End turn, 2020-07-15T23:51:05.442133300, end of system's turn
+Start turn, 2020-07-15T23:51:05.442642500, start of  's turn
+Button Pressed, 2020-07-15T23:51:09.829822800, Goldshire Footman
+Card Played, 2020-07-15T23:51:09.831331900, Goldshire Footman
+quit, 2020-07-15T23:51:15.801827100, quit the game
+login, 2020-07-15T23:54:15.203328700,  as  
+Button Pressed, 2020-07-15T23:54:16.051706400, Collections
+Button Pressed, 2020-07-15T23:54:19.013990700, Amir
+Button Pressed, 2020-07-15T23:54:28.779510500, Play
+Button Pressed, 2020-07-15T23:54:34.297926700, mana jump
+Button Pressed, 2020-07-15T23:55:34.319701700, end turn by time
+End turn, 2020-07-15T23:55:34.320698400, end of  's turn
+Start turn, 2020-07-15T23:55:34.322046400, start of system's turn
+quit, 2020-07-15T23:56:34.150734600, quit the game
+login, 2020-07-15T23:56:43.289753200,  as  
+quit, 2020-07-16T00:00:51.993244, quit the game
+login, 2020-07-16T00:01:05.454220200,  as  
+quit, 2020-07-16T00:05:32.612069900, quit the game
+login, 2020-07-16T00:05:44.517947200,  as  
+quit, 2020-07-16T00:06:29.845938500, quit the game
+login, 2020-07-16T00:06:38.089653300,  as  
+quit, 2020-07-16T00:07:39.104626500, quit the game
+login, 2020-07-16T00:07:45.910407500,  as  
+Button Pressed, 2020-07-16T00:07:57.591753400, Collections
+Button Pressed, 2020-07-16T00:08:00.584674700, Amir
+Button Pressed, 2020-07-16T00:08:01.934634200, Play
+Button Pressed, 2020-07-16T00:08:05.064925200, mana jump
+Button Pressed, 2020-07-16T00:08:07.490479800, end turn
+End turn, 2020-07-16T00:08:07.491437400, end of  's turn
+Start turn, 2020-07-16T00:08:07.492434500, start of system's turn
+Button Pressed, 2020-07-16T00:08:08.425937300, end turn
+End turn, 2020-07-16T00:08:08.427351700, end of system's turn
+Start turn, 2020-07-16T00:08:08.427945800, start of  's turn
+Button Pressed, 2020-07-16T00:08:08.767028500, end turn
+End turn, 2020-07-16T00:08:08.768412400, end of  's turn
+Start turn, 2020-07-16T00:08:08.769246, start of system's turn
+Button Pressed, 2020-07-16T00:08:08.807920900, end turn
+End turn, 2020-07-16T00:08:08.808985600, end of system's turn
+Start turn, 2020-07-16T00:08:08.809298500, start of  's turn
+Button Pressed, 2020-07-16T00:08:11.261361700, end turn
+End turn, 2020-07-16T00:08:11.262617600, end of  's turn
+Start turn, 2020-07-16T00:08:11.262876400, start of system's turn
+Button Pressed, 2020-07-16T00:08:11.624395400, end turn
+End turn, 2020-07-16T00:08:11.625401600, end of system's turn
+Start turn, 2020-07-16T00:08:11.625795500, start of  's turn
+Button Pressed, 2020-07-16T00:08:13.922241900, Sunreaver Warmage
+Card Played, 2020-07-16T00:08:13.925234100, Sunreaver Warmage
+Button Pressed, 2020-07-16T00:08:15.413272400, end turn
+End turn, 2020-07-16T00:08:15.414924200, end of  's turn
+Start turn, 2020-07-16T00:08:15.415294800, start of system's turn
+Button Pressed, 2020-07-16T00:08:15.830140800, end turn
+End turn, 2020-07-16T00:08:15.831139100, end of system's turn
+Start turn, 2020-07-16T00:08:15.831928400, start of  's turn
+Button Pressed, 2020-07-16T00:08:18.745669900, Divine Spirit
+Card Played, 2020-07-16T00:08:18.746706100, Divine Spirit
+Button Pressed, 2020-07-16T00:08:26.265262200, end turn
+End turn, 2020-07-16T00:08:26.266235600, end of  's turn
+Start turn, 2020-07-16T00:08:26.266235600, start of system's turn
+Button Pressed, 2020-07-16T00:08:26.691100, end turn
+End turn, 2020-07-16T00:08:26.691828900, end of system's turn
+Start turn, 2020-07-16T00:08:26.692352700, start of  's turn
+Button Pressed, 2020-07-16T00:08:31.123321200, Sunreaver Warmage
+Card Played, 2020-07-16T00:08:31.124423500, Sunreaver Warmage
+Button Pressed, 2020-07-16T00:08:34.659151800, end turn
+End turn, 2020-07-16T00:08:34.660299400, end of  's turn
+Start turn, 2020-07-16T00:08:34.660830, start of system's turn
+Button Pressed, 2020-07-16T00:08:35.075058500, end turn
+End turn, 2020-07-16T00:08:35.076044200, end of system's turn
+Start turn, 2020-07-16T00:08:35.077033800, start of  's turn
+Button Pressed, 2020-07-16T00:08:41.022832100, Goldshire Footman
+Card Played, 2020-07-16T00:08:41.023926900, Goldshire Footman
+Button Pressed, 2020-07-16T00:08:44.849613800, Regenerate
+Card Played, 2020-07-16T00:08:44.851599, Regenerate
+Button Pressed, 2020-07-16T00:08:58.676929900, end turn
+End turn, 2020-07-16T00:08:58.677707400, end of  's turn
+Start turn, 2020-07-16T00:08:58.677989900, start of system's turn
+Button Pressed, 2020-07-16T00:09:07.012187200, end turn
+End turn, 2020-07-16T00:09:07.012937800, end of system's turn
+Start turn, 2020-07-16T00:09:07.013208, start of  's turn
+quit, 2020-07-16T00:09:13.142290100, quit the game
+login, 2020-07-16T00:10:32.841159500,  as  
+Button Pressed, 2020-07-16T00:10:33.813182400, Collections
+Button Pressed, 2020-07-16T00:10:36.567542900, Amir
+Button Pressed, 2020-07-16T00:10:37.473070200, Play
+Button Pressed, 2020-07-16T00:10:40.260080100, mana jump
+Button Pressed, 2020-07-16T00:11:05.726545700, end turn
+End turn, 2020-07-16T00:11:05.727543700, end of  's turn
+Start turn, 2020-07-16T00:11:05.728538800, start of system's turn
+Button Pressed, 2020-07-16T00:11:06.046689900, end turn
+End turn, 2020-07-16T00:11:06.047314900, end of system's turn
+Start turn, 2020-07-16T00:11:06.047697700, start of  's turn
+Button Pressed, 2020-07-16T00:11:14.538960900, Goldshire Footman
+Card Played, 2020-07-16T00:11:14.542371100, Goldshire Footman
+Button Pressed, 2020-07-16T00:11:15.456521, end turn
+End turn, 2020-07-16T00:11:15.457503600, end of  's turn
+Start turn, 2020-07-16T00:11:15.458047600, start of system's turn
+Button Pressed, 2020-07-16T00:11:15.769682900, end turn
+End turn, 2020-07-16T00:11:15.770931700, end of system's turn
+Start turn, 2020-07-16T00:11:15.771435, start of  's turn
+Button Pressed, 2020-07-16T00:11:20.237757200, end turn
+End turn, 2020-07-16T00:11:20.238806100, end of  's turn
+Start turn, 2020-07-16T00:11:20.239206700, start of system's turn
+Button Pressed, 2020-07-16T00:11:26.442236800, Goldshire Footman
+Card Played, 2020-07-16T00:11:26.443471400, Goldshire Footman
+Button Pressed, 2020-07-16T00:11:29.199133600, Shieldbearer
+Card Played, 2020-07-16T00:11:29.200771900, Shieldbearer
+Button Pressed, 2020-07-16T00:11:30.439444900, end turn
+End turn, 2020-07-16T00:11:30.440499700, end of system's turn
+Start turn, 2020-07-16T00:11:30.441072500, start of  's turn
+Button Pressed, 2020-07-16T00:11:36.142398, Sunreaver Warmage
+Card Played, 2020-07-16T00:11:36.143194800, Sunreaver Warmage
+Button Pressed, 2020-07-16T00:11:37.198375100, end turn
+End turn, 2020-07-16T00:11:37.199088500, end of  's turn
+Start turn, 2020-07-16T00:11:37.199610800, start of system's turn
+Button Pressed, 2020-07-16T00:11:43.170930900, Lord of the Arena
+Button Pressed, 2020-07-16T00:11:44.351284100, end turn
+End turn, 2020-07-16T00:11:44.352256300, end of system's turn
+Start turn, 2020-07-16T00:11:44.352680600, start of  's turn
+Button Pressed, 2020-07-16T00:11:47.225444300, end turn
+End turn, 2020-07-16T00:11:47.225564, end of  's turn
+Start turn, 2020-07-16T00:11:47.226561100, start of system's turn
+Button Pressed, 2020-07-16T00:11:47.647437, end turn
+End turn, 2020-07-16T00:11:47.648085700, end of system's turn
+Start turn, 2020-07-16T00:11:47.648515100, start of  's turn
+Button Pressed, 2020-07-16T00:11:50.598252600, Sunreaver Warmage
+Card Played, 2020-07-16T00:11:50.599542900, Sunreaver Warmage
+Button Pressed, 2020-07-16T00:12:02.682002500, end turn
+End turn, 2020-07-16T00:12:02.682690700, end of  's turn
+Start turn, 2020-07-16T00:12:02.683155700, start of system's turn
+Button Pressed, 2020-07-16T00:12:07.706374300, Depth Charge
+Card Played, 2020-07-16T00:12:07.708367800, Depth Charge
+Button Pressed, 2020-07-16T00:12:13.473951900, end turn
+End turn, 2020-07-16T00:12:13.474378200, end of system's turn
+Start turn, 2020-07-16T00:12:13.474951900, start of  's turn
+Button Pressed, 2020-07-16T00:12:18.348964700, Goldshire Footman
+Card Played, 2020-07-16T00:12:18.349914400, Goldshire Footman
+Button Pressed, 2020-07-16T00:12:19.652466100, end turn
+End turn, 2020-07-16T00:12:19.652983300, end of  's turn
+Start turn, 2020-07-16T00:12:19.653429700, start of system's turn
+Button Pressed, 2020-07-16T00:12:38.858079600, Stonetusk Boar
+Card Played, 2020-07-16T00:12:38.859226800, Stonetusk Boar
+Button Pressed, 2020-07-16T00:12:41.684548700, end turn
+End turn, 2020-07-16T00:12:41.685482200, end of system's turn
+Start turn, 2020-07-16T00:12:41.686040800, start of  's turn
+Button Pressed, 2020-07-16T00:12:48.789551800, Holy Fire
+Card Played, 2020-07-16T00:12:48.791349700, Holy Fire
+Button Pressed, 2020-07-16T00:13:03.528964700, end turn
+End turn, 2020-07-16T00:13:03.529735100, end of  's turn
+Start turn, 2020-07-16T00:13:03.530551300, start of system's turn
+quit, 2020-07-16T00:13:28.257015300, quit the game
+login, 2020-07-16T00:14:05.812902700,  as  
+Button Pressed, 2020-07-16T00:14:06.897743, Collections
+Button Pressed, 2020-07-16T00:14:10.057714500, Amir
+Button Pressed, 2020-07-16T00:14:12.005976800, Play
+Button Pressed, 2020-07-16T00:14:14.611322800, zombie
+Button Pressed, 2020-07-16T00:14:16.088393, end turn
+End turn, 2020-07-16T00:14:16.089369600, end of  's turn
+Start turn, 2020-07-16T00:14:16.090366800, start of system's turn
+Button Pressed, 2020-07-16T00:14:16.398871700, end turn
+End turn, 2020-07-16T00:14:16.399824500, end of system's turn
+Start turn, 2020-07-16T00:14:16.399824500, start of  's turn
+Button Pressed, 2020-07-16T00:14:18.220693300, end turn
+End turn, 2020-07-16T00:14:18.221670300, end of  's turn
+Start turn, 2020-07-16T00:14:18.222278300, start of system's turn
+Button Pressed, 2020-07-16T00:14:18.541814100, end turn
+End turn, 2020-07-16T00:14:18.543073500, end of system's turn
+Start turn, 2020-07-16T00:14:18.543596200, start of  's turn
+Button Pressed, 2020-07-16T00:14:22.331961200, end turn
+End turn, 2020-07-16T00:14:22.333001800, end of  's turn
+Start turn, 2020-07-16T00:14:22.333302900, start of system's turn
+Button Pressed, 2020-07-16T00:14:24.616341700, Goldshire Footman
+Card Played, 2020-07-16T00:14:24.620818100, Goldshire Footman
+Button Pressed, 2020-07-16T00:14:27.319595800, Depth Charge
+Card Played, 2020-07-16T00:14:27.321129800, Depth Charge
+Button Pressed, 2020-07-16T00:14:29.076895200, end turn
+End turn, 2020-07-16T00:14:29.077723200, end of system's turn
+Start turn, 2020-07-16T00:14:29.078179900, start of  's turn
+Button Pressed, 2020-07-16T00:14:31.910330800, Goldshire Footman
+Card Played, 2020-07-16T00:14:31.911312900, Goldshire Footman
+Button Pressed, 2020-07-16T00:14:33.109303700, end turn
+End turn, 2020-07-16T00:14:33.110211900, end of  's turn
+Start turn, 2020-07-16T00:14:33.111103900, start of system's turn
+Button Pressed, 2020-07-16T00:14:33.975810700, end turn
+End turn, 2020-07-16T00:14:33.976359900, end of system's turn
+Start turn, 2020-07-16T00:14:33.976882900, start of  's turn
+Button Pressed, 2020-07-16T00:14:36.247718300, end turn
+End turn, 2020-07-16T00:14:36.248888800, end of  's turn
+Start turn, 2020-07-16T00:14:36.248888800, start of system's turn
+Button Pressed, 2020-07-16T00:14:36.641676600, end turn
+End turn, 2020-07-16T00:14:36.642916700, end of system's turn
+Start turn, 2020-07-16T00:14:36.643455900, start of  's turn
+Button Pressed, 2020-07-16T00:14:38.860730, end turn
+End turn, 2020-07-16T00:14:38.862306300, end of  's turn
+Start turn, 2020-07-16T00:14:38.862766200, start of system's turn
+Button Pressed, 2020-07-16T00:14:39.338453300, end turn
+End turn, 2020-07-16T00:14:39.339450400, end of system's turn
+Start turn, 2020-07-16T00:14:39.340236200, start of  's turn
+Button Pressed, 2020-07-16T00:14:43.190650400, Sunreaver Warmage
+Card Played, 2020-07-16T00:14:43.192150100, Sunreaver Warmage
+Button Pressed, 2020-07-16T00:14:50.070183900, Divine Spirit
+Card Played, 2020-07-16T00:14:50.072178900, Divine Spirit
+Button Pressed, 2020-07-16T00:14:52.652280400, end turn
+End turn, 2020-07-16T00:14:52.653810100, end of  's turn
+Start turn, 2020-07-16T00:14:52.654455700, start of system's turn
+Button Pressed, 2020-07-16T00:15:03.207125300, Stonetusk Boar
+Card Played, 2020-07-16T00:15:03.209072500, Stonetusk Boar
+Button Pressed, 2020-07-16T00:15:05.285524100, end turn
+End turn, 2020-07-16T00:15:05.286520, end of system's turn
+Start turn, 2020-07-16T00:15:05.287515200, start of  's turn
+Button Pressed, 2020-07-16T00:15:07.232361, end turn
+End turn, 2020-07-16T00:15:07.233906500, end of  's turn
+Start turn, 2020-07-16T00:15:07.234347400, start of system's turn
+Button Pressed, 2020-07-16T00:15:07.710037300, end turn
+End turn, 2020-07-16T00:15:07.711208600, end of system's turn
+Start turn, 2020-07-16T00:15:07.711548400, start of  's turn
+Button Pressed, 2020-07-16T00:15:20.476883700, Sunreaver Warmage
+Card Played, 2020-07-16T00:15:20.478081900, Sunreaver Warmage
+Button Pressed, 2020-07-16T00:15:22.521765500, end turn
+End turn, 2020-07-16T00:15:22.522415400, end of  's turn
+Start turn, 2020-07-16T00:15:22.522791900, start of system's turn
+Button Pressed, 2020-07-16T00:15:27.303631800, Shieldbearer
+Card Played, 2020-07-16T00:15:27.305633100, Shieldbearer
+Button Pressed, 2020-07-16T00:15:34.195226, Fireball
+Card Played, 2020-07-16T00:15:34.196313600, Fireball
+Button Pressed, 2020-07-16T00:15:43.102654800, end turn
+End turn, 2020-07-16T00:15:43.103151400, end of system's turn
+Start turn, 2020-07-16T00:15:43.103653100, start of  's turn
+Button Pressed, 2020-07-16T00:15:50.026177900, Regenerate
+Card Played, 2020-07-16T00:15:50.027323200, Regenerate
+Button Pressed, 2020-07-16T00:16:11.329175700, end turn
+End turn, 2020-07-16T00:16:11.329974500, end of  's turn
+Start turn, 2020-07-16T00:16:11.330430, start of system's turn
+quit, 2020-07-16T00:16:17.301522900, quit the game
+login, 2020-07-16T00:17:50.928556600,  as  
+Button Pressed, 2020-07-16T00:17:51.763707600, Collections
+Button Pressed, 2020-07-16T00:17:54.605992600, Amir
+Button Pressed, 2020-07-16T00:17:56.389857100, Play
+Button Pressed, 2020-07-16T00:17:58.707988500, mana jump
+Button Pressed, 2020-07-16T00:18:01.098595900, end turn
+End turn, 2020-07-16T00:18:01.100591400, end of  's turn
+Start turn, 2020-07-16T00:18:01.101588900, start of system's turn
+Button Pressed, 2020-07-16T00:18:01.758941600, end turn
+End turn, 2020-07-16T00:18:01.759812700, end of system's turn
+Start turn, 2020-07-16T00:18:01.760805900, start of  's turn
+Button Pressed, 2020-07-16T00:18:03.701771800, Goldshire Footman
+Card Played, 2020-07-16T00:18:03.704757700, Goldshire Footman
+Button Pressed, 2020-07-16T00:18:04.745010500, end turn
+End turn, 2020-07-16T00:18:04.745980800, end of  's turn
+Start turn, 2020-07-16T00:18:04.746436300, start of system's turn
+Button Pressed, 2020-07-16T00:18:05.044346400, end turn
+End turn, 2020-07-16T00:18:05.045176400, end of system's turn
+Start turn, 2020-07-16T00:18:05.045607900, start of  's turn
+Button Pressed, 2020-07-16T00:18:06.515247800, end turn
+End turn, 2020-07-16T00:18:06.515832800, end of  's turn
+Start turn, 2020-07-16T00:18:06.516256300, start of system's turn
+Button Pressed, 2020-07-16T00:18:06.865309600, end turn
+End turn, 2020-07-16T00:18:06.866306300, end of system's turn
+Start turn, 2020-07-16T00:18:06.866753900, start of  's turn
+Button Pressed, 2020-07-16T00:18:14.713351500, Sunreaver Warmage
+Card Played, 2020-07-16T00:18:14.715320400, Sunreaver Warmage
+Button Pressed, 2020-07-16T00:18:16.006178300, end turn
+End turn, 2020-07-16T00:18:16.006621200, end of  's turn
+Start turn, 2020-07-16T00:18:16.007004, start of system's turn
+Button Pressed, 2020-07-16T00:18:16.460655400, end turn
+End turn, 2020-07-16T00:18:16.461666700, end of system's turn
+Start turn, 2020-07-16T00:18:16.462316600, start of  's turn
+Button Pressed, 2020-07-16T00:18:21.738420100, Sunreaver Warmage
+Card Played, 2020-07-16T00:18:21.739434200, Sunreaver Warmage
+Button Pressed, 2020-07-16T00:18:23.559637700, end turn
+End turn, 2020-07-16T00:18:23.560547100, end of  's turn
+Start turn, 2020-07-16T00:18:23.561544600, start of system's turn
+Button Pressed, 2020-07-16T00:18:27.306530300, end turn
+End turn, 2020-07-16T00:18:27.307369400, end of system's turn
+Start turn, 2020-07-16T00:18:27.307835600, start of  's turn
+Button Pressed, 2020-07-16T00:18:27.704482300, end turn
+End turn, 2020-07-16T00:18:27.705855600, end of  's turn
+Start turn, 2020-07-16T00:18:27.706460800, start of system's turn
+Button Pressed, 2020-07-16T00:18:30.059171900, Stormwind Champion
+Card Played, 2020-07-16T00:18:30.061278400, Stormwind Champion
+Button Pressed, 2020-07-16T00:18:32.414908400, Stonetusk Boar
+Button Pressed, 2020-07-16T00:18:34.279952500, end turn
+End turn, 2020-07-16T00:18:34.280902300, end of system's turn
+Start turn, 2020-07-16T00:18:34.281521700, start of  's turn
+Button Pressed, 2020-07-16T00:18:45.950691100, Holy Fire
+Card Played, 2020-07-16T00:18:45.951703700, Holy Fire
+Button Pressed, 2020-07-16T00:18:53.327964800, end turn
+End turn, 2020-07-16T00:18:53.327964800, end of  's turn
+Start turn, 2020-07-16T00:18:53.329105300, start of system's turn
+Button Pressed, 2020-07-16T00:18:53.795719900, end turn
+End turn, 2020-07-16T00:18:53.795827700, end of system's turn
+Start turn, 2020-07-16T00:18:53.796839500, start of  's turn
+Button Pressed, 2020-07-16T00:18:57.656392200, end turn
+End turn, 2020-07-16T00:18:57.657190700, end of  's turn
+Start turn, 2020-07-16T00:18:57.657714500, start of system's turn
+Button Pressed, 2020-07-16T00:19:04.828215700, Flamestrike
+Card Played, 2020-07-16T00:19:04.830216600, Flamestrike
+Button Pressed, 2020-07-16T00:19:16.091134, end turn
+End turn, 2020-07-16T00:19:16.092098300, end of system's turn
+Start turn, 2020-07-16T00:19:16.092572400, start of  's turn
+Button Pressed, 2020-07-16T00:19:30.904513500, Regenerate
+Card Played, 2020-07-16T00:19:30.905492100, Regenerate
+quit, 2020-07-16T00:19:38.472120, quit the game

@@ -6,8 +6,10 @@ import Cards.Spell;
 import GUI.MainFrame;
 import GameHandler.GameHandler;
 import GameLogic.Interfaces.Damageable;
+import GameLogic.Interfaces.HealthTaker;
 import GameLogic.Visitors.DealDamageVisitor;
 import GameLogic.Visitors.GiveHealthVisitor;
+import Heroes.Hero;
 import Places.Playground;
 import UserHandle.Contestant;
 
@@ -17,7 +19,7 @@ public class PlayCards {
     public static void playSpell(Spell spell) {
         Contestant contestant = Playground.getPlayground().getCurrentContestant();
         contestant.setCurrentSpell(spell);
-        Damageable target = null;
+        Object target = null;
         if (spell.getTarget()[0] == 1) {
             contestant.setWaitingForTarget(true);
             System.out.println("WAITING for target");
@@ -42,7 +44,7 @@ public class PlayCards {
             switch (spell.getDamage()[1]) {
                 case 0:
                     if (target != null) {
-                        target.acceptDamage(DealDamageVisitor.getInstance(), damageValue);
+                        ((Damageable) target).acceptDamage(DealDamageVisitor.getInstance(), damageValue);
                     }
                     break;
                 case 1:
@@ -57,6 +59,23 @@ public class PlayCards {
                         ((Minion) Playground.getPlayground().getOpponentContestant().getPlanted().get(rand)).acceptDamage
                                 (DealDamageVisitor.getInstance(), 1);
                     }
+                    break;
+            }
+        }
+
+        if (spell.getGiveHealth()[0] != 0) {
+            int healthValue = spell.getGiveHealth()[0];
+            boolean multiplicative = spell.getGiveHealth()[2] == 1;
+            boolean restore = spell.getGiveHealth()[3] == 0;
+            switch (spell.getGiveHealth()[1]) {
+                case 0 :
+                    if (target != null) {
+                        ((HealthTaker) target).acceptHealth(GiveHealthVisitor.getInstance(), healthValue, multiplicative, restore);
+                    }
+                    break;
+                case 1:
+                    Hero hero = Playground.getPlayground().getCurrentContestant().getHero();
+                    hero.acceptHealth(GiveHealthVisitor.getInstance(), healthValue, multiplicative, restore);
                     break;
             }
         }

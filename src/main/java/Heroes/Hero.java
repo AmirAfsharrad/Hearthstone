@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public abstract class Hero implements Damageable, HealthTaker {
     protected static int defaultHp = 30;
     private int hp;
+    private int originalHp;
     private String type;
     private String heroPower;
     private String specialPower;
@@ -26,6 +27,7 @@ public abstract class Hero implements Damageable, HealthTaker {
 
     public Hero(int hp, String type, String heroPower) {
         this.hp = hp;
+        this.originalHp = hp;
         this.type = type;
         this.heroPower = heroPower;
     }
@@ -93,13 +95,17 @@ public abstract class Hero implements Damageable, HealthTaker {
         return heroObject;
     }
 
+    public int getOriginalHp() {
+        return originalHp;
+    }
+
     @Override
     public void acceptDamage(DealDamageVisitor dealDamageVisitor, int damageValue) {
         dealDamageVisitor.visit(this, damageValue);
     }
 
     @Override
-    public void acceptHealth(GiveHealthVisitor giveHealthVisitor, int healthValue, boolean multiplicative) {
-        giveHealthVisitor.visit(this, healthValue, multiplicative);
+    public void acceptHealth(GiveHealthVisitor giveHealthVisitor, int healthValue, boolean multiplicative, boolean restore) {
+        giveHealthVisitor.visit(this, healthValue, multiplicative, restore);
     }
 }

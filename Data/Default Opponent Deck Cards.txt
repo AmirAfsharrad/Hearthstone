@@ -8,3 +8,7 @@ Living Monument
 Sprint
 Sap
 Polymorph
+Fireball
+Flamestrike
+Fireball
+Flamestrike

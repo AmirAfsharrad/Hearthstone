@@ -28,7 +28,11 @@ public class CardCreator {
         String rarity = (String) cardObj.get("rarity");
         Long attackPower = (Long) cardObj.get("attackPower");
 
+        System.out.println("**************************");
+        System.out.println(name + ", " + hp);
+
         Minion minion = new Minion(mana.intValue(), name, rarity, heroClass, description, attackPower.intValue(), hp.intValue());
+        System.out.println(minion.getName() + ", " + minion.getHp());
 
         return minion;
     }
@@ -41,11 +45,10 @@ public class CardCreator {
         String rarity = (String) cardObj.get("rarity");
         JSONArray target = (JSONArray) cardObj.get("target");
         JSONArray damage = (JSONArray) cardObj.get("damage");
-        System.out.println(name);
-        System.out.println(target);
+        JSONArray giveHealth = (JSONArray) cardObj.get("giveHealth");
 
         Spell spell = new Spell(mana.intValue(), name, rarity, heroClass, description, jsonArrayToInt(target),
-                jsonArrayToInt(damage));
+                jsonArrayToInt(damage), jsonArrayToInt(giveHealth));
 
         return spell;
     }
@@ -119,16 +122,12 @@ public class CardCreator {
 
     private static int[] jsonArrayToInt(JSONArray jsonArray) {
         int[] result = new int[jsonArray.size()];
-        System.out.println("inside: " + jsonArray);
-        System.out.println("jsonarray size = " + jsonArray.size());
 
         for (int i = 0; i < jsonArray.size(); i++) {
             System.out.println(i);
             result[i] = Integer.parseInt(jsonArray.get(i).toString());
-            System.out.println("result[" + i + "]" + " = " + result[i]);
         }
 
-        System.out.println("done");
         return result;
     }
 }
