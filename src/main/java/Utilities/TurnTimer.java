@@ -34,11 +34,18 @@ public class TurnTimer extends Thread {
             progressBar.setForeground(Color.GREEN);
 
             while (System.currentTimeMillis() < startTime + waitingTime) {
+                if (!flag) {
+                    return;
+                }
                 leftRatio = 1 - (System.currentTimeMillis() - startTime) * 1.0 / waitingTime;
                 progressBar.setValue((int) (leftRatio * 100));
                 if (leftRatio < 0.2) {
                     progressBar.setForeground(Color.RED);
                 }
+            }
+
+            if (!flag) {
+                return;
             }
 
             TurnTimeFinishEvent turnTimeFinishEvent = new TurnTimeFinishEvent(this);

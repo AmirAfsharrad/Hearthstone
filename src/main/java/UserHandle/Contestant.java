@@ -2,6 +2,7 @@ package UserHandle;
 
 import Cards.*;
 import GameHandler.ContestantState;
+import GameHandler.GameState;
 import GameLogic.PlayCards;
 import GameLogic.Visitors.GiveHealthVisitor;
 import GameLogic.WaitingForTargetThread;
@@ -9,6 +10,7 @@ import Heroes.Hero;
 import Logger.Logger;
 import Places.Playground;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -81,7 +83,6 @@ public class Contestant {
 //            }
 //        }
         for (int i = 0; i < Math.min(3 - count, deck.size()); i++) {
-            System.out.println(i);
             hand.add(popRandomCard(deck));
         }
     }
@@ -111,8 +112,9 @@ public class Contestant {
         }
     }
 
-    public void startTrun() {
+    public void startTurn() {
         state = ContestantState.Normal;
+//        checkForDeadMinions();
         Logger.log("Start turn", "start of " + name + "'s turn");
         mana = Math.min(turnFullManas + 1, 10);
         turnFullManas = mana;
@@ -124,13 +126,32 @@ public class Contestant {
 
     public void endTurn() {
         Logger.log("End turn", "end of " + name + "'s turn");
+//        checkForDeadMinions();
         waitingForTarget = false;
+    }
+
+    public void checkForDeadMinions() throws IOException {
+        boolean flag = false;
+        ArrayList<Integer> removedIndices = new ArrayList();
+        for (int i = 0; i < planted.size(); i++) {
+            if (((Minion) planted.get(i)).getHp() == 0) {
+                removedIndices.add(0, i);
+                flag = true;
+            }
+        }
+        for (Integer removedIndex : removedIndices) {
+            planted.remove((int) removedIndex);
+        }
+        if (flag) {
+            GameState.getGameState().refreshMainFrame();
+        }
     }
 
     public void playCard(Card card, int numberOnLeft) {
         new Thread(new Runnable() {
             @Override
             public void run() {
+//                checkForDeadMinions();
                 if (card.getMana() <= mana) {
                     waitingForTarget = false;
                     hand.remove(card);
@@ -149,9 +170,14 @@ public class Contestant {
                             hasWeapon = true;
                             break;
                         case "Spell":
-                            PlayCards.playSpell((Spell) card);
+                            try {
+                                PlayCards.playSpell((Spell) card);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             break;
                     }
+//                    checkForDeadMinions();
                     Playground.getPlayground().getGameLog().add(name + ": " + card);
                 }
             }

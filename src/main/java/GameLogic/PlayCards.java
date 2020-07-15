@@ -4,7 +4,7 @@ import Cards.Card;
 import Cards.Minion;
 import Cards.Spell;
 import GUI.MainFrame;
-import GameHandler.GameHandler;
+import GameHandler.GameState;
 import GameLogic.Interfaces.Damageable;
 import GameLogic.Interfaces.HealthTaker;
 import GameLogic.Visitors.DealDamageVisitor;
@@ -13,10 +13,11 @@ import Heroes.Hero;
 import Places.Playground;
 import UserHandle.Contestant;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class PlayCards {
-    public static void playSpell(Spell spell) {
+    public static void playSpell(Spell spell) throws IOException {
         Contestant contestant = Playground.getPlayground().getCurrentContestant();
         contestant.setCurrentSpell(spell);
         Object target = null;
@@ -79,5 +80,8 @@ public class PlayCards {
                     break;
             }
         }
+
+        Playground.getPlayground().getContestant0().checkForDeadMinions();
+        Playground.getPlayground().getContestant1().checkForDeadMinions();
     }
 }

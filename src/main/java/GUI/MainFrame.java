@@ -14,6 +14,7 @@ import java.io.IOException;
 public class MainFrame extends JFrame {
     private JPanel panelCards;
     private CardLayout cardLayout = new CardLayout();
+    private PlaygroundPanel playgroundPanel;
     private ChangePlaceListener changePlaceListener = new ChangePlaceListener() {
         @Override
         public void ChangePlaceOccurred(ChangePlaceEvent changePlaceEvent) throws IOException {
@@ -43,7 +44,6 @@ public class MainFrame extends JFrame {
 //        initPlaygroundPanel();
 
         this.add(panelCards);
-        System.out.println(this.getSize().width + "  " + this.getSize().height);
 
         try {
             Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
@@ -100,7 +100,8 @@ public class MainFrame extends JFrame {
             @Override
             public void passiveChosenOccurred(PassiveChosenEvent passiveChosenEvent) throws IOException {
                 Playground.getPlayground().getContestant0().setPassive(passiveChosenEvent.getPassive());
-                updatePage(Playground.getPlayground());
+                GameState.getGameState().setCurrentPlace(Playground.getPlayground());
+//                updatePage(Playground.getPlayground());
             }
         });
     }
@@ -182,7 +183,7 @@ public class MainFrame extends JFrame {
 
     private void initPlaygroundPanel() {
         Playground.getPlayground().initGame(GameState.getGameState().getUser().getSelectedDeck());
-        PlaygroundPanel playgroundPanel = new PlaygroundPanel(this.getSize().width, this.getSize().height);
+        playgroundPanel = new PlaygroundPanel(this.getSize().width, this.getSize().height);
         panelCards.add(playgroundPanel, "Playground");
         playgroundPanel.setEndTurnListener(new EndTurnListener() {
             @Override
@@ -250,6 +251,10 @@ public class MainFrame extends JFrame {
     }
 
     public void refresh() throws IOException {
-        updatePage(GameState.getGameState().getCurrentPlace());
+        if (GameState.getGameState().getCurrentPlace() == Playground.getPlayground()) {
+            playgroundPanel.refresh();
+        } else {
+            updatePage(GameState.getGameState().getCurrentPlace());
+        }
     }
 }

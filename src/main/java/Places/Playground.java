@@ -26,6 +26,7 @@ public class Playground extends Place {
     }
 
     public void changeTurn() {
+        System.out.println("changeTurn RUUUN");
         turn = 1 - turn;
     }
 
@@ -81,7 +82,7 @@ public class Playground extends Place {
 //        turnTimer.reset();
         getCurrentContestant().endTurn();
         changeTurn();
-        getCurrentContestant().startTrun();
+        getCurrentContestant().startTurn();
     }
 
     public void manageSelectedPlantedCard(PlantedCardPressedEvent plantedCardPressedEvent) {

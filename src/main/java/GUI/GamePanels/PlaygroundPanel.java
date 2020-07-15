@@ -90,6 +90,9 @@ public class PlaygroundPanel extends GamePanel {
         initPlayCardsEven(lowerHalfConstants, playCardsEvenDown);
         initPlayCardsEven(upperHalfConstants, playCardsEvenUp);
 
+        drawPlantedCards(playCardsEvenDown, playCardsOddDown, 0);
+        drawPlantedCards(playCardsEvenUp, playCardsOddUp, 1);
+
         initHeroPanel(lowerHalfConstants, 0);
         initHeroPanel(upperHalfConstants, 1);
 
@@ -105,9 +108,6 @@ public class PlaygroundPanel extends GamePanel {
         initManasPanel(lowerHalfConstants, manasDown, lostManasDown);
         initManasPanel(upperHalfConstants, manasUp, lostManasUp);
 
-        drawPlantedCards(playCardsEvenDown, playCardsOddDown, 0);
-        drawPlantedCards(playCardsEvenUp, playCardsOddUp, 1);
-
         drawManasPanel(manasDown, lostManasDown, 0);
         drawManasPanel(manasUp, lostManasUp, 1);
 
@@ -117,6 +117,9 @@ public class PlaygroundPanel extends GamePanel {
     }
 
     private void initTurnTimer() {
+        if (turnTimer != null) {
+            turnTimer.kill();
+        }
         turnTimer = new TurnTimer(constants.TURN_TIME_MILLIS, progressBar);
         turnTimer.setTurnTimeFinishListener(new TurnTimeFinishListener() {
             @Override
@@ -204,39 +207,6 @@ public class PlaygroundPanel extends GamePanel {
                             + constants.CARD_PANEL_X_DISTANCE * i) * screenWidth),
                     (int) (constants.CARD_PANEL_Y * screenHeight), constants.CARD_PANEL_WIDTH, constants.CARD_PANEL_HEIGHT);
 
-            Card card = playCardsOdd[i].getCard();
-//            playCardsOdd[i].addMouseListener(new MouseListener() {
-//                @Override
-//                public void mouseClicked(MouseEvent mouseEvent) {
-//                    if (card == null)
-//                        return;
-//                    if (plantedCardPressedListener == null)
-//                        return;
-//                    PlantedCardPressedEvent plantedCardPressedEvent = new PlantedCardPressedEvent(this, card);
-//                    plantedCardPressedListener.plantedCardPressedEventOccurred(plantedCardPressedEvent);
-//                }
-//
-//                @Override
-//                public void mousePressed(MouseEvent mouseEvent) {
-//
-//                }
-//
-//                @Override
-//                public void mouseReleased(MouseEvent mouseEvent) {
-//
-//                }
-//
-//                @Override
-//                public void mouseEntered(MouseEvent mouseEvent) {
-//
-//                }
-//
-//                @Override
-//                public void mouseExited(MouseEvent mouseEvent) {
-//
-//                }
-//            });
-//
             this.add(playCardsOdd[i]);
         }
     }
@@ -248,39 +218,6 @@ public class PlaygroundPanel extends GamePanel {
             playCardsEven[i].setDrawLocation((int) ((constants.CARD_PANEL_EVEN_X_OFFSET_NEW
                             + constants.CARD_PANEL_X_DISTANCE * i) * screenWidth),
                     (int) (constants.CARD_PANEL_Y * screenHeight), constants.CARD_PANEL_WIDTH, constants.CARD_PANEL_HEIGHT);
-
-            Card card = playCardsEven[i].getCard();
-//            playCardsEven[i].addMouseListener(new MouseListener() {
-//                @Override
-//                public void mouseClicked(MouseEvent mouseEvent) {
-//                    if (card == null)
-//                        return;
-//                    if (plantedCardPressedListener == null)
-//                        return;
-//                    PlantedCardPressedEvent plantedCardPressedEvent = new PlantedCardPressedEvent(this, card);
-//                    plantedCardPressedListener.plantedCardPressedEventOccurred(plantedCardPressedEvent);
-//                }
-//
-//                @Override
-//                public void mousePressed(MouseEvent mouseEvent) {
-//
-//                }
-//
-//                @Override
-//                public void mouseReleased(MouseEvent mouseEvent) {
-//
-//                }
-//
-//                @Override
-//                public void mouseEntered(MouseEvent mouseEvent) {
-//
-//                }
-//
-//                @Override
-//                public void mouseExited(MouseEvent mouseEvent) {
-//
-//                }
-//            });
 
             this.add(playCardsEven[i]);
         }
@@ -320,6 +257,16 @@ public class PlaygroundPanel extends GamePanel {
                     PlantedCardPressedEvent plantedCardPressedEvent = new PlantedCardPressedEvent(this, cardPanel.getCard());
                     plantedCardPressedListener.plantedCardPressedEventOccurred(plantedCardPressedEvent);
                     System.out.println("pressed: " + cardPanel.getCard().getName());
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Thread.sleep(500);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
                     refresh();
                 }
 
@@ -418,16 +365,6 @@ public class PlaygroundPanel extends GamePanel {
         handPanels[index].addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-//                Logger.buttonPressLog(handPanels[index], card.getName());
-//
-//                if (turnIndex != Playground.getPlayground().getTurn())
-//                    return;
-//
-//                PlayCardEvent playCardEvent = new PlayCardEvent(this, card);
-//                if (playCardEventListener != null) {
-//                    playCardEventListener.PlayCardOccurred(playCardEvent);
-//                }
-//                refresh();
             }
 
             @Override
@@ -449,7 +386,6 @@ public class PlaygroundPanel extends GamePanel {
                 Point releasePoint = movingCardThread[0].finish();
                 int numberOnLeft = getHowManyPanelsOnTheLeftOfReleasedPoint(releasePoint,
                         Playground.getPlayground().getCurrentContestant().getPlanted().size() % 2);
-                System.out.println("numberOnLeft = " + numberOnLeft);
 
                 Logger.buttonPressLog(handPanels[index], card.getName());
 
@@ -555,6 +491,7 @@ public class PlaygroundPanel extends GamePanel {
                     }
                 }
                 spellPanel.setVisible(false);
+//                refresh();
             }
         }).start();
     }
