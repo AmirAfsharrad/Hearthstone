@@ -1,6 +1,6 @@
 [
   {
-    "gold": 950,
+    "gold": 920,
     "current hero": 0,
     "user name": " ",
     "password": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
@@ -16,7 +16,9 @@
       "Divine Spirit",
       "Fireball",
       "Regenerate",
-      "Holy Fire"
+      "Holy Fire",
+      "Pharaoh\u0027s Blessing",
+      "Friendly Smith"
     ],
     "heroes": [
       {
@@ -36,7 +38,9 @@
           "Sunreaver Warmage",
           "Living Monument",
           "Living Monument",
-          "Arcane Missiles"
+          "Arcane Missiles",
+          "Friendly Smith",
+          "Friendly Smith"
         ],
         "name": "Sample Deck",
         "heroName": "Rogue"
@@ -48,15 +52,15 @@
           "Sunreaver Warmage",
           "Gnomish Army Knife",
           "Gnomish Army Knife",
-          "Strength in Numbers",
-          "Strength in Numbers",
           "Divine Spirit",
           "Divine Spirit",
           "Goldshire Footman",
           "Regenerate",
           "Regenerate",
           "Holy Fire",
-          "Holy Fire"
+          "Holy Fire",
+          "Pharaoh\u0027s Blessing",
+          "Pharaoh\u0027s Blessing"
         ],
         "name": "Amir",
         "heroName": "Paladin"
@@ -92,7 +96,6 @@
       "Stormwind Champion",
       "Living Monument",
       "Sprint",
-      "Sap",
       "Polymorph",
       "Seal of Light",
       "Gnomish Army Knife"
@@ -117,8 +120,6 @@
           "Lord of the Arena",
           "Stormwind Champion",
           "Living Monument",
-          "Sap",
-          "Sap",
           "Sprint",
           "Depth Charge"
         ],
@@ -142,7 +143,6 @@
       "Stormwind Champion",
       "Living Monument",
       "Sprint",
-      "Sap",
       "Polymorph",
       "Seal of Light",
       "Gnomish Army Knife"
@@ -182,7 +182,6 @@
       "Stormwind Champion",
       "Living Monument",
       "Sprint",
-      "Sap",
       "Polymorph",
       "Seal of Light"
     ],
@@ -224,7 +223,6 @@
       "Stormwind Champion",
       "Living Monument",
       "Sprint",
-      "Sap",
       "Polymorph",
       "Novice Engineer",
       "Shadowblade"
@@ -274,7 +272,6 @@
       "Stormwind Champion",
       "Living Monument",
       "Sprint",
-      "Sap",
       "Polymorph",
       "Novice Engineer",
       "Sunreaver Warmage",
@@ -339,7 +336,6 @@
       "Stormwind Champion",
       "Living Monument",
       "Sprint",
-      "Sap",
       "Polymorph"
     ],
     "heroes": [
@@ -375,7 +371,6 @@
       "Stormwind Champion",
       "Living Monument",
       "Sprint",
-      "Sap",
       "Polymorph",
       "Blood Fury"
     ],
@@ -402,8 +397,6 @@
           "Lord of the Arena",
           "Blood Fury",
           "Blood Fury",
-          "Sap",
-          "Sap",
           "Living Monument",
           "Living Monument",
           "Sprint"

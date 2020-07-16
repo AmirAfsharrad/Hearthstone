@@ -2,6 +2,7 @@ package UserHandle;
 
 import Cards.*;
 import GameHandler.ContestantState;
+import GameHandler.GameHandler;
 import GameHandler.GameState;
 import GameLogic.PlayCards;
 import GameLogic.Visitors.GiveHealthVisitor;
@@ -12,6 +13,7 @@ import Places.Playground;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 
 public class Contestant {
@@ -22,6 +24,7 @@ public class Contestant {
     private Hero hero;
     private Weapon currentWeapon;
     private Spell currentSpell;
+    private Card choiceOfWeapon;
     private boolean hasWeapon;
     private boolean waitingForTarget;
     private int mana;
@@ -30,6 +33,7 @@ public class Contestant {
     private boolean drawTwice;
     private ContestantState state;
     private Minion target;
+    private boolean[] initialHandModificationCheck = new boolean[3];
 
     public Minion getTarget() {
         return target;
@@ -104,10 +108,12 @@ public class Contestant {
         }
     }
 
-    private void drawRandomCard() {
+    public void drawRandomCard(boolean noSpell) {
         if (hand.size() < 12) {
             if (deck.size() > 0) {
-                hand.add(popRandomCard(deck));
+                Card card = popRandomCard(deck);
+                if (!card.getType().equals("Spell") || !noSpell)
+                    hand.add(card);
             }
         }
     }
@@ -118,9 +124,9 @@ public class Contestant {
         Logger.log("Start turn", "start of " + name + "'s turn");
         mana = Math.min(turnFullManas + 1, 10);
         turnFullManas = mana;
-        drawRandomCard();
+        drawRandomCard(false);
         if (drawTwice) {
-            drawRandomCard();
+            drawRandomCard(false);
         }
     }
 
@@ -143,7 +149,7 @@ public class Contestant {
             planted.remove((int) removedIndex);
         }
         if (flag) {
-            GameState.getGameState().refreshMainFrame();
+//            GameState.getGameState().refreshMainFrame();
         }
     }
 
@@ -172,7 +178,7 @@ public class Contestant {
                         case "Spell":
                             try {
                                 PlayCards.playSpell((Spell) card);
-                            } catch (IOException e) {
+                            } catch (IOException | InterruptedException e) {
                                 e.printStackTrace();
                             }
                             break;
@@ -205,6 +211,29 @@ public class Contestant {
             return null;
         }
     }
+
+    public void initialHandModification(Card card) throws IOException {
+        if (deck.size() <= 3)
+            return;
+        int index = 0;
+        for (int i = 0; i < 3; i++) {
+            if (hand.get(i) == card) {
+                index = i;
+                break;
+            }
+        }
+        if (!initialHandModificationCheck[index]) {
+            initialHandModificationCheck[index] = true;
+            hand.remove(index);
+            Card newCard = card;
+            while (newCard == card) {
+                newCard = popRandomCard(deck);
+            }
+            hand.add(index, newCard);
+            GameState.getGameState().refreshMainFrame();
+        }
+    }
+
 
     public int getRemainingDeckSize() {
         return deck.size();
@@ -329,4 +358,37 @@ public class Contestant {
     public void setState(ContestantState state) {
         this.state = state;
     }
+
+    public Card getChoiceOfWeapon() {
+        return choiceOfWeapon;
+    }
+
+    public void setChoiceOfWeapon(Card choiceOfWeapon) {
+        this.choiceOfWeapon = choiceOfWeapon;
+    }
+
+    public int getPlantedCardIndex(Card card) {
+        for (int i = 0; i < planted.size(); i++) {
+            if (card == planted.get(i)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public ArrayList<Card> getListOfWeapons() {
+        ArrayList<Card> weapons = GameHandler.getGameHandler().getWeapons();
+        int number = weapons.size();
+        Random random = new Random();
+        HashSet<Integer> numbers = new HashSet<>();
+        while (numbers.size() < 3) {
+            numbers.add(random.nextInt(number));
+        }
+        ArrayList<Card> result = new ArrayList<>();
+        for (Integer integer : numbers) {
+            result.add(weapons.get(integer));
+        }
+        return result;
+    }
+
 }

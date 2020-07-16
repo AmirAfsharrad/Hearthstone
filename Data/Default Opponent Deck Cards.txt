@@ -6,9 +6,10 @@ Depth Charge
 Stormwind Champion
 Living Monument
 Sprint
-Sap
 Polymorph
+Twisting Nether
 Fireball
 Flamestrike
 Fireball
+Swarm of locusts
 Flamestrike

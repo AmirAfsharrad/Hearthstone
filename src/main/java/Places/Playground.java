@@ -15,18 +15,14 @@ public class Playground extends Place {
     private ArrayList<String> gameLog;
     private Contestant contestant0;
     private Contestant contestant1;
-//    private TurnTimer turnTimer;
     private int turn = 0;
 
     private Playground() {
         contestant0 = new Contestant(GameState.getGameState().getUser().getName());
         contestant1 = new Contestant("system");
-//        turnTimer = new TurnTimer(10000);
-//        turnTimer.start();
     }
 
     public void changeTurn() {
-        System.out.println("changeTurn RUUUN");
         turn = 1 - turn;
     }
 

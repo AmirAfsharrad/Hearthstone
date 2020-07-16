@@ -56,7 +56,7 @@ public class InfoPassivePanel extends GamePanel {
 
     private void drawListOfCards(ArrayList<String> passives) throws IOException {
         for (String passive : passives) {
-            JButton button = new JButton(passive);
+            JButton button = new JButton();
             button.setPreferredSize(new Dimension(cardWidth, cardHeight));
             BufferedImage image = ImageIO.read(new File("Images/passives/" + passive + ".png"));
             ImageIcon imageIcon;

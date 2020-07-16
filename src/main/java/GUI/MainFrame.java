@@ -181,7 +181,7 @@ public class MainFrame extends JFrame {
         panelCards.add(collectionsPanel, "Collections");
     }
 
-    private void initPlaygroundPanel() {
+    private void initPlaygroundPanel() throws IOException {
         Playground.getPlayground().initGame(GameState.getGameState().getUser().getSelectedDeck());
         playgroundPanel = new PlaygroundPanel(this.getSize().width, this.getSize().height);
         panelCards.add(playgroundPanel, "Playground");
@@ -204,6 +204,18 @@ public class MainFrame extends JFrame {
             @Override
             public void plantedCardPressedEventOccurred(PlantedCardPressedEvent plantedCardPressedEvent) {
                 Playground.getPlayground().manageSelectedPlantedCard(plantedCardPressedEvent);
+            }
+        });
+        playgroundPanel.setChoiceOfCardSelectionListener(new ChoiceOfCardSelectionListener() {
+            @Override
+            public void choiceOfCardSelectionEventOccurred(ChoiceOfCardSelectionEvent choiceOfCardSelectionEvent) throws IOException {
+                Playground.getPlayground().getContestant0().initialHandModification(choiceOfCardSelectionEvent.getCard());
+            }
+        });
+        playgroundPanel.setChoiceOfWeaponListener(new ChoiceOfWeaponListener() {
+            @Override
+            public void choiceOfWeaponEventOccurred(ChoiceOfCardSelectionEvent choiceOfCardSelectionEvent) {
+                Playground.getPlayground().getCurrentContestant().setChoiceOfWeapon(choiceOfCardSelectionEvent.getCard());
             }
         });
     }
@@ -244,6 +256,10 @@ public class MainFrame extends JFrame {
             initInfoPassivePanel();
             cardLayout.show(panelCards, "InfoPassive");
         }
+    }
+
+    public PlaygroundPanel getPlaygroundPanel() {
+        return playgroundPanel;
     }
 
     private void close() {

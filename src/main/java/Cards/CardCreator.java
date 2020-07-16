@@ -28,9 +28,6 @@ public class CardCreator {
         String rarity = (String) cardObj.get("rarity");
         Long attackPower = (Long) cardObj.get("attackPower");
 
-        System.out.println("**************************");
-        System.out.println(name + ", " + hp);
-
         Minion minion = new Minion(mana.intValue(), name, rarity, heroClass, description, attackPower.intValue(), hp.intValue());
         System.out.println(minion.getName() + ", " + minion.getHp());
 
@@ -46,9 +43,14 @@ public class CardCreator {
         JSONArray target = (JSONArray) cardObj.get("target");
         JSONArray damage = (JSONArray) cardObj.get("damage");
         JSONArray giveHealth = (JSONArray) cardObj.get("giveHealth");
+        JSONArray draw = (JSONArray) cardObj.get("draw");
+        JSONArray destroy = (JSONArray) cardObj.get("destroy");
+        JSONArray setAbilities = (JSONArray) cardObj.get("setAbilities");
+        JSONArray modifyAttack = (JSONArray) cardObj.get("modifyAttack");
 
         Spell spell = new Spell(mana.intValue(), name, rarity, heroClass, description, jsonArrayToInt(target),
-                jsonArrayToInt(damage), jsonArrayToInt(giveHealth));
+                jsonArrayToInt(damage), jsonArrayToInt(giveHealth), jsonArrayToInt(draw), jsonArrayToInt(destroy),
+                jsonArrayToInt(setAbilities), jsonArrayToInt(modifyAttack));
 
         return spell;
     }

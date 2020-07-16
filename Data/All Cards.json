@@ -168,7 +168,11 @@
     "rarity": "Common",
     "target": [1, 1],
     "damage": [0],
-    "giveHealth": [3, 0, 0, 0]
+    "giveHealth": [3, 0, 0, 0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "mana": 2,
@@ -179,7 +183,11 @@
     "rarity": "Common",
     "target": [1, 1],
     "damage": [0],
-    "giveHealth": [2, 0, 1, 1]
+    "giveHealth": [2, 0, 1, 1],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "mana": 6,
@@ -190,18 +198,11 @@
     "rarity": "Rare",
     "target": [1, 0],
     "damage": [5, 0],
-    "giveHealth": [0]
-  },
-  {
-    "mana": 2,
-    "name": "Sap",
-    "heroClass": "Neutral",
-    "description": "Return an enemy\u0027s minion to their hand.",
-    "type": "Spell",
-    "rarity": "Common",
-    "target": [1, 0],
-    "damage": [0],
-    "giveHealth": [0]
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "mana": 1,
@@ -212,7 +213,11 @@
     "rarity": "Common",
     "target": [0],
     "damage": [3, 2],
-    "giveHealth": [0]
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "mana": 5,
@@ -223,7 +228,11 @@
     "rarity": "Common",
     "target": [1, 0],
     "damage": [6, 0],
-    "giveHealth": [0]
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "mana": 7,
@@ -234,7 +243,11 @@
     "rarity": "Epic",
     "target": [0],
     "damage": [4, 1],
-    "giveHealth": [0]
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "mana": 7,
@@ -245,7 +258,11 @@
     "rarity": "Common",
     "target": [0],
     "damage": [0],
-    "giveHealth": [0]
+    "giveHealth": [0],
+    "draw": [4, 0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "mana": 6,
@@ -256,7 +273,11 @@
     "rarity": "Rare",
     "target": [0],
     "damage": [0],
-    "giveHealth": [0]
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "mana": 6,
@@ -267,7 +288,11 @@
     "rarity": "Rare",
     "target": [1, 1],
     "damage": [0],
-    "giveHealth": [4, 0, 0, 1]
+    "giveHealth": [4, 0, 0, 1],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [1, 1, 0, 1, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [4]
   },
   {
     "mana": 2,
@@ -278,7 +303,11 @@
     "rarity": "Epic",
     "target": [0],
     "damage": [0],
-    "giveHealth": [0]
+    "giveHealth": [0],
+    "draw": [3, 1],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "mana": 1,
@@ -335,7 +364,11 @@
     "rarity": "Common",
     "target": [1, 0],
     "damage": [0],
-    "giveHealth": [0]
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "attackPower": 2,
@@ -345,7 +378,8 @@
     "description": "Battlecry: Deal 1 damage to all enemy minions",
     "hp": 2,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "destroy":[0]
   },
   {
     "mana": 1,
@@ -356,7 +390,11 @@
     "rarity": "Common",
     "target": [0],
     "damage": [0],
-    "giveHealth": [0]
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "attackPower": 3,
@@ -397,7 +435,11 @@
     "rarity": "Rare",
     "target": [0],
     "damage": [0],
-    "giveHealth": [0]
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[1, 1],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "attackPower": 0,
@@ -418,7 +460,11 @@
     "rarity": "Epic",
     "target": [1, 1],
     "damage": [0],
-    "giveHealth": [0]
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy": [0],
+    "setAbilities": [1, 1, 1, 1, 0, 1, 0, 1, 1, 0],
+    "modifyAttack": [0]
   },
   {
     "attackPower": 2,
@@ -439,5 +485,25 @@
     "hp": 3,
     "type": "Minion",
     "rarity": "Epic"
+  },
+  {
+    "attackPower": 1,
+    "mana": 1,
+    "name": "Sheep",
+    "heroClass": "Neutral",
+    "description": "",
+    "hp": 1,
+    "type": "Minion",
+    "rarity": "Common"
+  },
+  {
+    "attackPower": 1,
+    "mana": 1,
+    "name": "Locust",
+    "heroClass": "Neutral",
+    "description": "",
+    "hp": 1,
+    "type": "Minion",
+    "rarity": "Common"
   }
 ]

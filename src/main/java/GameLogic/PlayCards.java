@@ -3,12 +3,15 @@ package GameLogic;
 import Cards.Card;
 import Cards.Minion;
 import Cards.Spell;
+import Cards.Weapon;
 import GUI.MainFrame;
+import GameHandler.GameHandler;
 import GameHandler.GameState;
 import GameLogic.Interfaces.Damageable;
 import GameLogic.Interfaces.HealthTaker;
 import GameLogic.Visitors.DealDamageVisitor;
 import GameLogic.Visitors.GiveHealthVisitor;
+import GameLogic.Visitors.ModifyAttackVisitor;
 import Heroes.Hero;
 import Places.Playground;
 import UserHandle.Contestant;
@@ -17,8 +20,9 @@ import java.io.IOException;
 import java.util.Random;
 
 public class PlayCards {
-    public static void playSpell(Spell spell) throws IOException {
+    public static void playSpell(Spell spell) throws IOException, InterruptedException {
         Contestant contestant = Playground.getPlayground().getCurrentContestant();
+        Contestant opponentContestant = Playground.getPlayground().getOpponentContestant();
         contestant.setCurrentSpell(spell);
         Object target = null;
         if (spell.getTarget()[0] == 1) {
@@ -83,5 +87,64 @@ public class PlayCards {
 
         Playground.getPlayground().getContestant0().checkForDeadMinions();
         Playground.getPlayground().getContestant1().checkForDeadMinions();
+
+        if (spell.getDraw()[0] != 0) {
+            int drawValue = spell.getDraw()[0];
+            boolean noSpell = spell.getDraw()[1] == 1;
+            for (int i = 0; i < drawValue; i++) {
+                contestant.drawRandomCard(noSpell);
+            }
+        }
+
+        if (spell.getName().equals("Polymorph")) {
+            int index = opponentContestant.getPlantedCardIndex((Card) target);
+            opponentContestant.getPlanted().remove(index);
+            Card card = GameHandler.getGameHandler().getCard("Sheep");
+            card.setContestant(opponentContestant);
+            opponentContestant.getPlanted().add(index, card);
+        }
+
+        if (spell.getName().equals("Swarm of locusts")) {
+            int limit = opponentContestant.getPlanted().size();
+            for (int i = 0; i < 7 - limit; i++) {
+                System.out.println("Locust i = " + i);
+                Card card = GameHandler.getGameHandler().getCard("Locust");
+                card.setContestant(opponentContestant);
+                opponentContestant.getPlanted().add(card);
+            }
+        }
+
+        if (spell.getName().equals("Friendly Smith")) {
+            GameState.getGameState().getMainFrame().getPlaygroundPanel().selectWeapon();
+            while (contestant.getChoiceOfWeapon() == null){
+                Thread.sleep(100);
+            }
+            Weapon weapon = (Weapon) contestant.getChoiceOfWeapon();
+            contestant.setChoiceOfWeapon(null);
+            weapon.acceptHealth(GiveHealthVisitor.getInstance(), 2, false, false);
+            weapon.acceptAttackModification(ModifyAttackVisitor.getInstance(), 2);
+            weapon.setContestant(contestant);
+            contestant.getDeck().add(weapon);
+        }
+
+        if (spell.getDestroy()[0] != 0) {
+            if (spell.getDestroy()[1] == 0) {
+                int index = opponentContestant.getPlantedCardIndex((Card) target);
+                opponentContestant.getPlanted().remove(index);
+            } else {
+                opponentContestant.getPlanted().clear();
+            }
+        }
+
+        if (spell.getSetAbilities()[0] != 0) {
+            ((Minion) target).setAbilities(spell.getSetAbilities());
+        }
+
+        if (spell.getModifyAttack()[0] != 0) {
+            int attackChangeValue = spell.getModifyAttack()[0];
+            ((Minion) target).acceptAttackModification(ModifyAttackVisitor.getInstance(), attackChangeValue);
+        }
+
+        GameState.getGameState().refreshMainFrame();
     }
 }

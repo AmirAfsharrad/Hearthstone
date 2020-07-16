@@ -52,9 +52,12 @@ public class PlaygroundPanel extends GamePanel {
     private LowerHalfConstants lowerHalfConstants;
     private UpperHalfConstants upperHalfConstants;
     private TurnTimer turnTimer;
+    private ChoiceOfCardSelectionListener choiceOfCardSelectionListener;
+    private ChoiceOfWeaponListener choiceOfWeaponListener;
 
-    public PlaygroundPanel(int screenWidth, int screenHeight) {
+    public PlaygroundPanel(int screenWidth, int screenHeight) throws IOException {
         super(screenWidth, screenHeight);
+        initCardSelectionFrame();
         constants = new PlaygroundConstants();
         lowerHalfConstants = new LowerHalfConstants();
         upperHalfConstants = new UpperHalfConstants();
@@ -70,6 +73,22 @@ public class PlaygroundPanel extends GamePanel {
         progressBar = new JProgressBar(SwingConstants.VERTICAL);
         draw();
         initTurnTimer();
+    }
+
+    private void initCardSelectionFrame() throws IOException {
+        InitialHandModificationPanel initialHandModificationPanel = new InitialHandModificationPanel(
+                (int) (0.8 * screenWidth), (int) (0.8 * screenHeight), Playground.getPlayground().getContestant0().getHand());
+        JFrame frame = new JFrame();
+        frame.setSize((int) (0.8 * screenWidth), (int) (0.8 * screenHeight));
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.add(initialHandModificationPanel);
+        initialHandModificationPanel.setChoiceOfCardSelectionListener(new ChoiceOfCardSelectionListener() {
+            @Override
+            public void choiceOfCardSelectionEventOccurred(ChoiceOfCardSelectionEvent choiceOfCardSelectionEvent) throws IOException {
+                choiceOfCardSelectionListener.choiceOfCardSelectionEventOccurred(choiceOfCardSelectionEvent);
+            }
+        });
     }
 
     private void draw() {
@@ -555,7 +574,6 @@ public class PlaygroundPanel extends GamePanel {
         });
     }
 
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -615,5 +633,32 @@ public class PlaygroundPanel extends GamePanel {
 
     public void setPlantedCardPressedListener(PlantedCardPressedListener plantedCardPressedListener) {
         this.plantedCardPressedListener = plantedCardPressedListener;
+    }
+
+    public void setChoiceOfCardSelectionListener(ChoiceOfCardSelectionListener choiceOfCardSelectionListener) {
+        this.choiceOfCardSelectionListener = choiceOfCardSelectionListener;
+    }
+
+    public void setChoiceOfWeaponListener(ChoiceOfWeaponListener choiceOfWeaponListener) {
+        this.choiceOfWeaponListener = choiceOfWeaponListener;
+    }
+
+    public void selectWeapon() throws IOException {
+        InitialHandModificationPanel weaponChoicePanel = new InitialHandModificationPanel(
+                (int) (0.8 * screenWidth), (int) (0.8 * screenHeight),
+                Playground.getPlayground().getCurrentContestant().getListOfWeapons());
+        System.out.println(Playground.getPlayground().getCurrentContestant().getListOfWeapons());
+        JFrame frame = new JFrame();
+        frame.setSize((int) (0.8 * screenWidth), (int) (0.8 * screenHeight));
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.add(weaponChoicePanel);
+        weaponChoicePanel.setChoiceOfCardSelectionListener(new ChoiceOfCardSelectionListener() {
+            @Override
+            public void choiceOfCardSelectionEventOccurred(ChoiceOfCardSelectionEvent choiceOfCardSelectionEvent) throws IOException {
+                choiceOfWeaponListener.choiceOfWeaponEventOccurred(choiceOfCardSelectionEvent);
+                frame.dispose();
+            }
+        });
     }
 }

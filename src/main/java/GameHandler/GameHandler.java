@@ -73,6 +73,16 @@ public class GameHandler {
         return deck;
     }
 
+    public ArrayList<Card> getWeapons() {
+        ArrayList<Card> result = new ArrayList<>();
+        for (String s : allCards.keySet()) {
+            if (allCards.get(s).getType().equals("Weapon")) {
+                result.add(allCards.get(s).clone());
+            }
+        }
+        return result;
+    }
+
     public static void runGame() {
         CLI cli = CLI.getGetCLI();
         cli.run();

@@ -1,6 +1,7 @@
 package GameLogic.Visitors;
 
 import Cards.Minion;
+import Cards.Weapon;
 import Heroes.Hero;
 
 public class GiveHealthVisitor {
@@ -17,6 +18,12 @@ public class GiveHealthVisitor {
         int newHpInitial = multiplicative ? minion.getHp() * healthValue : minion.getHp() + healthValue;
         int newHp = restore ? Math.min(minion.getOriginalHp(), newHpInitial) : newHpInitial;
         minion.setHp(newHp);
+    }
+
+    public void visit(Weapon weapon, int healthValue, boolean multiplicative, boolean restore) {
+        int newDurabilityInitial = multiplicative ? weapon.getDurability() * healthValue : weapon.getDurability() + healthValue;
+        int newDurability = restore ? Math.min(weapon.getOriginialDurability(), newDurabilityInitial) : newDurabilityInitial;
+        weapon.setDurability(newDurability);
     }
 
     public void visit(Hero hero, int healthValue, boolean multiplicative, boolean restore) {
