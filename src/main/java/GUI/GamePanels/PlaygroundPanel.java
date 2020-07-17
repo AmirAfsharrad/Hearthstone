@@ -275,7 +275,11 @@ public class PlaygroundPanel extends GamePanel {
                 @Override
                 public void mouseClicked(MouseEvent mouseEvent) {
                     PlantedCardPressedEvent plantedCardPressedEvent = new PlantedCardPressedEvent(this, cardPanel.getCard());
-                    plantedCardPressedListener.plantedCardPressedEventOccurred(plantedCardPressedEvent);
+                    try {
+                        plantedCardPressedListener.plantedCardPressedEventOccurred(plantedCardPressedEvent);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     System.out.println("pressed: " + cardPanel.getCard().getName());
                     new Thread(new Runnable() {
                         @Override
@@ -492,7 +496,7 @@ public class PlaygroundPanel extends GamePanel {
 
     private void initSpellPanel(PlaygroundConstants constants, int index) {
         Contestant contestant = Playground.getPlayground().getContestant(index);
-        if (!contestant.isWaitingForTarget()) {
+        if (!contestant.isWaitingForTarget() || contestant.getCurrentSpell() == null) {
             return;
         }
         BackgroundedPanel spellPanel = new BackgroundedPanel("cards/"

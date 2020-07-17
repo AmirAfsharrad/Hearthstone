@@ -1,13 +1,12 @@
 package Cards;
 
-import GameLogic.Interfaces.Damageable;
-import GameLogic.Interfaces.HealthTaker;
-import GameLogic.Interfaces.ModifiableAttack;
+import GameLogic.Interfaces.*;
+import GameLogic.Visitors.AttackVisitor;
 import GameLogic.Visitors.DealDamageVisitor;
 import GameLogic.Visitors.GiveHealthVisitor;
 import GameLogic.Visitors.ModifyAttackVisitor;
 
-public class Minion extends Card implements Damageable, HealthTaker, ModifiableAttack {
+public class Minion extends Card implements Damageable, HealthTaker, ModifiableAttack, Attacker, Attackable {
     private int hp;
     private int originalHp;
     private int attackPower;
@@ -21,6 +20,7 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
     private boolean lifesteal;
     private boolean reborn;
     private boolean battlecry;
+    private int turnAttack;
 
     public Minion(int mana, String name, String rarity, String heroClass, String description, int attackPower, int hp,
                   boolean battlecry) {
@@ -124,6 +124,14 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
         this.reborn = reborn;
     }
 
+    public int getTurnAttack() {
+        return turnAttack;
+    }
+
+    public void setTurnAttack(int turnAttack) {
+        this.turnAttack = turnAttack;
+    }
+
     public void setAbilities(int[] abilities) {
         taunt = abilities[1] == 1;
         charge = abilities[2] == 1;
@@ -166,5 +174,18 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
     @Override
     public void acceptAttackModification(ModifyAttackVisitor modifyAttackVisitor, int attackChangeValue) {
         modifyAttackVisitor.visit(this, attackChangeValue);
+    }
+
+    @Override
+    public void acceptAttack(int attackValue) {
+        AttackVisitor.getInstance().visit(this, attackValue);
+    }
+
+    @Override
+    public void attack(Attackable target, int attackValue) {
+        if (turnAttack > 0) {
+            target.acceptAttack(attackValue);
+            turnAttack--;
+        }
     }
 }

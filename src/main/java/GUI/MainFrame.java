@@ -202,7 +202,7 @@ public class MainFrame extends JFrame {
         });
         playgroundPanel.setPlantedCardPressedListener(new PlantedCardPressedListener() {
             @Override
-            public void plantedCardPressedEventOccurred(PlantedCardPressedEvent plantedCardPressedEvent) {
+            public void plantedCardPressedEventOccurred(PlantedCardPressedEvent plantedCardPressedEvent) throws IOException {
                 Playground.getPlayground().manageSelectedPlantedCard(plantedCardPressedEvent);
             }
         });

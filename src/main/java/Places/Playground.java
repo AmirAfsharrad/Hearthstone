@@ -8,6 +8,7 @@ import GameHandler.GameState;
 import Logger.Logger;
 import UserHandle.Contestant;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Playground extends Place {
@@ -81,11 +82,16 @@ public class Playground extends Place {
         getCurrentContestant().startTurn();
     }
 
-    public void manageSelectedPlantedCard(PlantedCardPressedEvent plantedCardPressedEvent) {
+    public void manageSelectedPlantedCard(PlantedCardPressedEvent plantedCardPressedEvent) throws IOException {
         if (getCurrentContestant().isWaitingForTarget()) {
             System.out.println("manageSelectedPlanedCard method begin");
-//            getCurrentContestant().getWaitingForTargetThread().setTarget(plantedCardPressedEvent.getCard());
             getCurrentContestant().setTarget((Minion) plantedCardPressedEvent.getCard());
+        } else {
+            getCurrentContestant().setWaitingForTarget(true);
+            Minion minion = (Minion) plantedCardPressedEvent.getCard();
+            getCurrentContestant().initiateAttack(minion, minion.getAttackPower());
+            Playground.getPlayground().getContestant0().checkForDeadMinions();
+            Playground.getPlayground().getContestant1().checkForDeadMinions();
         }
     }
 

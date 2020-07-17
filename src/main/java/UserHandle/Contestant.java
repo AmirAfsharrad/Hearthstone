@@ -4,6 +4,7 @@ import Cards.*;
 import GameHandler.ContestantState;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
+import GameLogic.Interfaces.Attackable;
 import GameLogic.PlayCards;
 import GameLogic.Visitors.GiveHealthVisitor;
 import GameLogic.WaitingForTargetThread;
@@ -121,13 +122,19 @@ public class Contestant {
 
     public void startTurn() {
         state = ContestantState.Normal;
-//        checkForDeadMinions();
         Logger.log("Start turn", "start of " + name + "'s turn");
         mana = Math.min(turnFullManas + 1, 10);
         turnFullManas = mana;
         drawRandomCard(false);
         if (drawTwice) {
             drawRandomCard(false);
+        }
+        plantedAttackValuesInitiate();
+    }
+
+    private void plantedAttackValuesInitiate() {
+        for (Card card : planted) {
+            ((Minion) card).setTurnAttack(1);
         }
     }
 
@@ -166,6 +173,7 @@ public class Contestant {
                     switch (card.getType()) {
                         case "Minion":
                             if (planted.size() < 7) {
+                                ((Minion) card).setTurnAttack(0);
                                 planted.add(getNewPlantedCardIndex(numberOnLeft), card);
                                 System.out.println("card name = " + card.getName());
                                 if (((Minion) card).hasBattlecry()) {
@@ -197,6 +205,45 @@ public class Contestant {
 //                    checkForDeadMinions();
                     Playground.getPlayground().getGameLog().add(name + ": " + card);
                 }
+            }
+        }).start();
+    }
+
+    public void initiateAttack(Minion minion, int attackValue) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Contestant contestant = Playground.getPlayground().getCurrentContestant();
+                Contestant opponentContestant = Playground.getPlayground().getOpponentContestant();
+                Object target = null;
+
+                System.out.println("WAITING for attack target");
+
+                while (contestant.getTarget() == null || contestant.getTarget().getContestant() == contestant) {
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                System.out.println("target received");
+                System.out.println("target = " + contestant.getTarget().getName());
+                target = contestant.getTarget();
+                contestant.setTarget(null);
+                contestant.setWaitingForTarget(false);
+                if (!opponentContestant.hasTaunt()) {
+                    System.out.println("IF 1");
+                    minion.attack((Attackable) target, attackValue);
+                } else {
+                    System.out.println("ELSE 1");
+                    if (target instanceof Minion && ((Minion) target).isTaunt()) {
+                        System.out.println("IF 2");
+                        minion.attack((Attackable) target, attackValue);
+                    }
+                }
+//                if (!opponentContestant.hasTaunt() || (target instanceof Minion && ((Minion) target).isTaunt()))
+//                    minion.attack((Attackable) target, attackValue);
+//                ((Attackable) target).acceptAttack(attackValue);
             }
         }).start();
     }
@@ -295,6 +342,10 @@ public class Contestant {
     }
 
     public boolean hasTaunt() {
+        for (Card card : planted) {
+            if (((Minion) card).isTaunt())
+                return true;
+        }
         return false;
     }
 

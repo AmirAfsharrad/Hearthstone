@@ -36,6 +36,7 @@ public class PlayCards {
             }
             if (!flag) {
                 contestant.setWaitingForTarget(false);
+                contestant.setCurrentSpell(null);
                 return;
             }
         }
@@ -176,6 +177,7 @@ public class PlayCards {
             ((Minion) target).acceptAttackModification(ModifyAttackVisitor.getInstance(), attackChangeValue);
         }
 
+        contestant.setCurrentSpell(null);
         GameState.getGameState().refreshMainFrame();
     }
 }

@@ -3,8 +3,10 @@ package Heroes;
 import Cards.Card;
 import Cards.CardCreator;
 import GameHandler.GameHandler;
+import GameLogic.Interfaces.Attackable;
 import GameLogic.Interfaces.Damageable;
 import GameLogic.Interfaces.HealthTaker;
+import GameLogic.Visitors.AttackVisitor;
 import GameLogic.Visitors.DealDamageVisitor;
 import GameLogic.Visitors.GiveHealthVisitor;
 import UserHandle.Contestant;
@@ -12,7 +14,7 @@ import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
-public abstract class Hero implements Damageable, HealthTaker {
+public abstract class Hero implements Damageable, HealthTaker, Attackable {
     protected static int defaultHp = 30;
     private int hp;
     private int originalHp;
@@ -107,5 +109,10 @@ public abstract class Hero implements Damageable, HealthTaker {
     @Override
     public void acceptHealth(GiveHealthVisitor giveHealthVisitor, int healthValue, boolean multiplicative, boolean restore) {
         giveHealthVisitor.visit(this, healthValue, multiplicative, restore);
+    }
+
+    @Override
+    public void acceptAttack(int attackValue) {
+        AttackVisitor.getInstance().visit(this, attackValue);
     }
 }
