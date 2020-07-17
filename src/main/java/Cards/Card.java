@@ -69,6 +69,10 @@ public abstract class Card {
 
     public abstract Card clone();
 
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
     @Override
     public String toString() {
         return name;

@@ -5,7 +5,9 @@ import GameHandler.ContestantState;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
 import GameLogic.Interfaces.Attackable;
+import GameLogic.Interfaces.Target;
 import GameLogic.PlayCards;
+import GameLogic.Visitors.DealDamageVisitor;
 import GameLogic.Visitors.GiveHealthVisitor;
 import GameLogic.WaitingForTargetThread;
 import Heroes.Hero;
@@ -34,15 +36,15 @@ public class Contestant {
     private String passive;
     private boolean drawTwice;
     private ContestantState state;
-    private Minion target;
+    private Target target;
     private boolean[] initialHandModificationCheck = new boolean[3];
     private boolean immuneHero;
 
-    public Minion getTarget() {
+    public Target getTarget() {
         return target;
     }
 
-    public void setTarget(Minion target) {
+    public void setTarget(Target target) {
         this.target = target;
     }
 
@@ -115,13 +117,29 @@ public class Contestant {
         if (hand.size() < 12) {
             if (deck.size() > 0) {
                 Card card = popRandomCard(deck);
+                drawEffectHandle(card);
                 if (!card.getType().equals("Spell") || !noSpell)
                     hand.add(card);
             }
         }
     }
 
-    public void startTurn() {
+    private void drawEffectHandle(Card card) {
+        for (Card card1 : planted) {
+            Minion minion = (Minion) card1;
+            if (card instanceof Minion) {
+                ((Minion) card).setAttackPower(((Minion) card).getAttackPower() + minion.getDrawEffect()[0]);
+                ((Minion) card).setHp(((Minion) card).getHp() + minion.getDrawEffect()[1]);
+            }
+            if (card instanceof Weapon) {
+                ((Weapon) card).setAttackPower(((Weapon) card).getAttackPower() + minion.getDrawEffect()[0]);
+                ((Weapon) card).setDurability(((Weapon) card).getDurability() + minion.getDrawEffect()[1]);
+            }
+            card.setMana(card.getMana() + minion.getDrawEffect()[2]);
+        }
+    }
+
+    public void startTurn() throws IOException {
         state = ContestantState.Normal;
         Logger.log("Start turn", "start of " + name + "'s turn");
         mana = Math.min(turnFullManas + 1, 10);
@@ -132,6 +150,22 @@ public class Contestant {
             drawRandomCard(false);
         }
         plantedAttackValuesInitiate();
+        startTurnMinionEffectHandle();
+        checkForDeadMinions();
+        Playground.getPlayground().getOpponentContestant().checkForDeadMinions();
+    }
+
+    private void startTurnMinionEffectHandle() throws IOException {
+        for (Card card : planted) {
+            Minion minion = (Minion) card;
+            if (minion.getTurnStartDamage()[0] > 0) {
+                for (Card card1 : Playground.getPlayground().getOpponentContestant().getPlanted()) {
+                    ((Minion) card1).acceptDamage(DealDamageVisitor.getInstance(), minion.getTurnStartDamage()[0]);
+                }
+            }
+        }
+        checkForDeadMinions();
+        Playground.getPlayground().getOpponentContestant().checkForDeadMinions();
     }
 
     private void plantedAttackValuesInitiate() {
@@ -149,10 +183,23 @@ public class Contestant {
         }
     }
 
-    public void endTurn() {
+    public void endTurn() throws IOException {
         Logger.log("End turn", "end of " + name + "'s turn");
         immuneHero = false;
         waitingForTarget = false;
+        endTurnMinionEffectHandle();
+    }
+
+    private void endTurnMinionEffectHandle() throws IOException {
+        for (Card card : planted) {
+            Minion minion = (Minion) card;
+            if (minion.getTurnEndDamage()[0] > 0) {
+                for (Card card1 : Playground.getPlayground().getOpponentContestant().getPlanted()) {
+                    ((Minion) card1).acceptDamage(DealDamageVisitor.getInstance(), minion.getTurnEndDamage()[0]);
+                }
+            }
+        }
+        Playground.getPlayground().getOpponentContestant().checkForDeadMinions();
     }
 
     public void checkForDeadMinions() throws IOException {
@@ -160,6 +207,10 @@ public class Contestant {
         ArrayList<Integer> removedIndices = new ArrayList();
         for (int i = 0; i < planted.size(); i++) {
             if (((Minion) planted.get(i)).getHp() == 0) {
+                if (((Minion) planted.get(i)).isReborn()) {
+                    ((Minion) planted.get(i)).setReborn(false);
+                    ((Minion) planted.get(i)).setHp(1);
+                }
                 removedIndices.add(0, i);
                 flag = true;
             }
@@ -168,7 +219,7 @@ public class Contestant {
             planted.remove((int) removedIndex);
         }
         if (flag) {
-//            GameState.getGameState().refreshMainFrame();
+            GameState.getGameState().refreshMainFrame();
         }
     }
 
@@ -183,25 +234,7 @@ public class Contestant {
                     Logger.log("Card Played", card.getName());
                     switch (card.getType()) {
                         case "Minion":
-                            if (planted.size() < 7) {
-                                if (!((Minion) card).isCharge() && !((Minion) card).isRush())
-                                    ((Minion) card).setTurnAttack(0);
-                                planted.add(getNewPlantedCardIndex(numberOnLeft), card);
-                                ((Minion) card).setJustPlanted(true);
-                                System.out.println("card name = " + card.getName());
-                                if (((Minion) card).hasBattlecry()) {
-                                    try {
-                                        Spell battlecry = (Spell) GameHandler.getGameHandler().getCard
-                                                (card.getName() + " Battlecry");
-                                        battlecry.setContestant(Playground.getPlayground().getCurrentContestant());
-                                        PlayCards.playSpell(battlecry);
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    } catch (InterruptedException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }
+                            PlayCards.playMinion(card, numberOnLeft);
                             break;
                         case "Weapon":
                             currentWeapon = (Weapon) card;
@@ -255,6 +288,7 @@ public class Contestant {
                 try {
                     contestant.checkForDeadMinions();
                     opponentContestant.checkForDeadMinions();
+                    GameState.getGameState().refreshMainFrame();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -262,7 +296,7 @@ public class Contestant {
         }).start();
     }
 
-    private int getNewPlantedCardIndex(int numberOnLeft) {
+    public int getNewPlantedCardIndex(int numberOnLeft) {
         int maxSize;
         if (planted.size() % 2 == 0) {
             maxSize = 6;
@@ -484,6 +518,36 @@ public class Contestant {
             result.add(weapons.get(integer));
         }
         return result;
+    }
+
+    public void summon(Card card) {
+        if (planted.size() >= 7)
+            return;
+        for (Card card1 : planted) {
+            if (card1.getName().equals("High Priest Amet")) {
+                ((Minion) card).setHp(((Minion) card1).getHp());
+            }
+        }
+        planted.add(card);
+    }
+
+    public void summon(int index, Card card) {
+        if (planted.size() >= 7)
+            return;
+        for (Card card1 : planted) {
+            if (card1.getName().equals("High Priest Amet")) {
+                ((Minion) card).setHp(((Minion) card1).getHp());
+            }
+        }
+        planted.add(index, card);
+    }
+
+    public Card hasPlantedCard(String cardName) {
+        for (Card card : planted) {
+            if (card.getName().equals(cardName))
+                return card;
+        }
+        return null;
     }
 
 }

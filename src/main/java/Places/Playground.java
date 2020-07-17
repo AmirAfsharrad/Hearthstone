@@ -2,6 +2,7 @@ package Places;
 
 import Cards.Deck;
 import Cards.Minion;
+import GUI.Events.HeroButtonPressedEvent;
 import GUI.Events.PlantedCardPressedEvent;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
@@ -75,7 +76,7 @@ public class Playground extends Place {
         return contestant0;
     }
 
-    public void nextTurn() {
+    public void nextTurn() throws IOException {
 //        turnTimer.reset();
         getCurrentContestant().endTurn();
         changeTurn();
@@ -92,6 +93,12 @@ public class Playground extends Place {
             getCurrentContestant().initiateAttack(minion, minion.getAttackPower());
             Playground.getPlayground().getContestant0().checkForDeadMinions();
             Playground.getPlayground().getContestant1().checkForDeadMinions();
+        }
+    }
+
+    public void manageSelectedHero(HeroButtonPressedEvent heroButtonPressedEvent) {
+        if (getCurrentContestant().isWaitingForTarget()) {
+            getCurrentContestant().setTarget(heroButtonPressedEvent.getHero());
         }
     }
 

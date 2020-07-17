@@ -6,6 +6,7 @@ import GameHandler.GameHandler;
 import GameLogic.Interfaces.Attackable;
 import GameLogic.Interfaces.Damageable;
 import GameLogic.Interfaces.HealthTaker;
+import GameLogic.Interfaces.Target;
 import GameLogic.Visitors.AttackVisitor;
 import GameLogic.Visitors.DealDamageVisitor;
 import GameLogic.Visitors.GiveHealthVisitor;
@@ -14,7 +15,7 @@ import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
-public abstract class Hero implements Damageable, HealthTaker, Attackable {
+public abstract class Hero implements Damageable, HealthTaker, Attackable, Target {
     protected static int defaultHp = 30;
     private int hp;
     private int originalHp;
@@ -99,6 +100,11 @@ public abstract class Hero implements Damageable, HealthTaker, Attackable {
 
     public int getOriginalHp() {
         return originalHp;
+    }
+
+    @Override
+    public String getName() {
+        return type;
     }
 
     @Override

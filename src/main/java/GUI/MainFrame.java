@@ -187,7 +187,7 @@ public class MainFrame extends JFrame {
         panelCards.add(playgroundPanel, "Playground");
         playgroundPanel.setEndTurnListener(new EndTurnListener() {
             @Override
-            public void endTurnOccurred(EndTurnEvent endTurnEvent) {
+            public void endTurnOccurred(EndTurnEvent endTurnEvent) throws IOException {
                 Playground.getPlayground().nextTurn();
             }
         });
@@ -216,6 +216,12 @@ public class MainFrame extends JFrame {
             @Override
             public void choiceOfWeaponEventOccurred(ChoiceOfCardSelectionEvent choiceOfCardSelectionEvent) {
                 Playground.getPlayground().getCurrentContestant().setChoiceOfWeapon(choiceOfCardSelectionEvent.getCard());
+            }
+        });
+        playgroundPanel.setHeroButtonPressedListener(new HeroButtonPressedListener() {
+            @Override
+            public void heroButtonPressedEventOccurred(HeroButtonPressedEvent heroButtonPressedEvent) {
+                Playground.getPlayground().manageSelectedHero(heroButtonPressedEvent);
             }
         });
     }

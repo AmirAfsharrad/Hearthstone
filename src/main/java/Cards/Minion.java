@@ -6,7 +6,7 @@ import GameLogic.Visitors.DealDamageVisitor;
 import GameLogic.Visitors.GiveHealthVisitor;
 import GameLogic.Visitors.ModifyAttackVisitor;
 
-public class Minion extends Card implements Damageable, HealthTaker, ModifiableAttack, Attacker, Attackable {
+public class Minion extends Card implements Damageable, HealthTaker, ModifiableAttack, Attacker, Attackable, Target {
     private int hp;
     private int originalHp;
     private int attackPower;
@@ -22,14 +22,20 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
     private boolean battlecry;
     private int turnAttack = 1;
     private boolean justPlanted;
+    private int[] turnStartDamage;
+    private int[] turnEndDamage;
+    private int[] drawEffect;
 
     public Minion(int mana, String name, String rarity, String heroClass, String description, int attackPower, int hp,
-                  boolean battlecry) {
+                  boolean battlecry, int[] turnStartDamage, int[] turnEndDamage, int[] drawEffect) {
         super(mana, name, rarity, heroClass, description, "Minion");
         this.hp = hp;
         this.originalHp = hp;
         this.attackPower = attackPower;
         this.battlecry = battlecry;
+        this.turnStartDamage = turnStartDamage;
+        this.turnEndDamage = turnEndDamage;
+        this.drawEffect = drawEffect;
     }
 
     public int getHp() {
@@ -46,7 +52,7 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
 
     public Card clone() {
         Minion minion =  new Minion(getMana(), getName(), getRarity(), getHeroClass(), getDescription(), getAttackPower(), getHp(),
-                battlecry);
+                battlecry, turnStartDamage, turnEndDamage, drawEffect);
         minion.setAbilities(this);
         return minion;
     }
@@ -141,6 +147,30 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
 
     public void setJustPlanted(boolean justPlanted) {
         this.justPlanted = justPlanted;
+    }
+
+    public int[] getTurnStartDamage() {
+        return turnStartDamage;
+    }
+
+    public void setTurnStartDamage(int[] turnStartDamage) {
+        this.turnStartDamage = turnStartDamage;
+    }
+
+    public int[] getTurnEndDamage() {
+        return turnEndDamage;
+    }
+
+    public void setTurnEndDamage(int[] turnEndDamage) {
+        this.turnEndDamage = turnEndDamage;
+    }
+
+    public int[] getDrawEffect() {
+        return drawEffect;
+    }
+
+    public void setDrawEffect(int[] drawEffect) {
+        this.drawEffect = drawEffect;
     }
 
     public void setAbilities(int[] abilities) {

@@ -9,7 +9,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 1,
@@ -21,7 +24,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 0,
@@ -33,7 +39,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 0,
@@ -45,7 +54,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [5],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 3,
@@ -57,7 +69,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 1,
@@ -69,7 +84,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [1],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "mana": 0,
@@ -96,7 +114,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [1],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "mana": 0,
@@ -123,7 +144,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 6,
@@ -135,7 +159,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 2,
@@ -147,7 +174,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 1, 0, 1, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 1, 0, 1, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 10,
@@ -159,7 +189,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 5,
@@ -171,7 +204,10 @@
     "type": "Minion",
     "rarity": "Legendary",
     "battlecry": [1],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "mana": 0,
@@ -198,7 +234,10 @@
     "type": "Minion",
     "rarity": "Epic",
     "battlecry": [1],
-    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "mana": 0,
@@ -225,7 +264,10 @@
     "type": "Minion",
     "rarity": "Epic",
     "battlecry": [0],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 4,
@@ -237,7 +279,10 @@
     "type": "Minion",
     "rarity": "Epic",
     "battlecry": [0],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [1, 1, 0]
   },
   {
     "mana": 0,
@@ -461,7 +506,10 @@
     "rarity": "Common",
     "destroy":[0],
     "battlecry": [1],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "mana": 0,
@@ -503,7 +551,10 @@
     "type": "Minion",
     "rarity": "Rare",
     "battlecry": [1],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "mana": 0,
@@ -556,7 +607,10 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [1],
+    "drawEffect": [0, 0, 0]
   },
   {
     "mana": 8,
@@ -608,7 +662,10 @@
     "type": "Minion",
     "rarity": "Legendary",
     "battlecry": [0],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 3,
@@ -620,7 +677,10 @@
     "type": "Minion",
     "rarity": "Epic",
     "battlecry": [0],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, -1]
   },
   {
     "attackPower": 1,
@@ -632,18 +692,69 @@
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   },
   {
     "attackPower": 1,
     "mana": 1,
     "name": "Locust",
     "heroClass": "Neutral",
-    "description": "",
+    "description": "Rush",
     "hp": 1,
     "type": "Minion",
     "rarity": "Common",
     "battlecry": [0],
-    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    "abilities": [1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
+  },
+  {
+    "attackPower": 6,
+    "mana": 5,
+    "name": "Terminator",
+    "heroClass": "Neutral",
+    "description": "Taunt",
+    "hp": 6,
+    "type": "Minion",
+    "rarity": "Common",
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
+  },
+  {
+    "attackPower": 2,
+    "mana": 2,
+    "name": "Viserion",
+    "heroClass": "Neutral",
+    "description": "Reborn",
+    "hp": 3,
+    "type": "Minion",
+    "rarity": "Common",
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
+  },
+  {
+    "attackPower": 9,
+    "mana": 7,
+    "name": "Swamp King Dred",
+    "heroClass": "Neutral",
+    "description": "Reborn",
+    "hp": 9,
+    "type": "Minion",
+    "rarity": "Common",
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   }
 ]

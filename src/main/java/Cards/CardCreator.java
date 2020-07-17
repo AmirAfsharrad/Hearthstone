@@ -30,9 +30,12 @@ public class CardCreator {
         JSONArray battlecry = (JSONArray) cardObj.get("battlecry");
         boolean booleanBattlecry = jsonArrayToInt(battlecry)[0] == 1;
         JSONArray abilities = (JSONArray) cardObj.get("abilities");
+        JSONArray turnStartDamage = (JSONArray) cardObj.get("turnStartDamage");
+        JSONArray turnEndDamage = (JSONArray) cardObj.get("turnEndDamage");
+        JSONArray drawEffect = (JSONArray) cardObj.get("drawEffect");
 
         Minion minion = new Minion(mana.intValue(), name, rarity, heroClass, description, attackPower.intValue(), hp.intValue(),
-                booleanBattlecry);
+                booleanBattlecry, jsonArrayToInt(turnStartDamage), jsonArrayToInt(turnEndDamage), jsonArrayToInt(drawEffect));
         minion.setAbilities(jsonArrayToInt(abilities));
 
         return minion;

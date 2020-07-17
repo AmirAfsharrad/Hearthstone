@@ -51,7 +51,11 @@ public class TurnTimer extends Thread {
             TurnTimeFinishEvent turnTimeFinishEvent = new TurnTimeFinishEvent(this);
             Logger.buttonPressLog("end turn by time");
             if (turnTimeFinishListener != null) {
-                turnTimeFinishListener.turnTimeFinishEventOccurred(turnTimeFinishEvent);
+                try {
+                    turnTimeFinishListener.turnTimeFinishEventOccurred(turnTimeFinishEvent);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

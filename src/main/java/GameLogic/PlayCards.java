@@ -7,6 +7,7 @@ import Cards.Weapon;
 import GUI.MainFrame;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
+import GameLogic.Interfaces.Attackable;
 import GameLogic.Interfaces.Damageable;
 import GameLogic.Interfaces.HealthTaker;
 import GameLogic.Visitors.DealDamageVisitor;
@@ -47,7 +48,7 @@ public class PlayCards {
             while (contestant.getTarget() == null ||
                     (spell.getTarget()[1] == 0 && contestant.getTarget().getContestant() == contestant) ||
                     (spell.getTarget()[1] == 1 && contestant.getTarget().getContestant() != contestant) ||
-                    (spell.getTarget()[1] == 0 && contestant.getTarget().isStealth())) {
+                    (spell.getTarget()[1] == 0 && target instanceof Minion && ((Minion) contestant.getTarget()).isStealth())) {
                 try {
                     Thread.sleep(50);
                 } catch (InterruptedException e) {
@@ -118,7 +119,7 @@ public class PlayCards {
             opponentContestant.getPlanted().remove(index);
             Card card = GameHandler.getGameHandler().getCard("Sheep");
             card.setContestant(opponentContestant);
-            opponentContestant.getPlanted().add(index, card);
+            opponentContestant.summon(index, card);
         }
 
         if (spell.getName().equals("Swarm of locusts")) {
@@ -127,7 +128,7 @@ public class PlayCards {
                 System.out.println("Locust i = " + i);
                 Card card = GameHandler.getGameHandler().getCard("Locust");
                 card.setContestant(opponentContestant);
-                opponentContestant.getPlanted().add(card);
+                opponentContestant.summon(card);
             }
         }
 
@@ -137,14 +138,14 @@ public class PlayCards {
 
         if (spell.getName().equals("Tomb warden Battlecry")) {
             if (contestant.getPlanted().size() < 7)
-                contestant.getPlanted().add(((Card) target).clone());
+                contestant.summon(((Card) target).clone());
         }
 
         if (spell.getName().equals("Sathrovarr Battlecry")) {
             contestant.getHand().add(((Card) target).clone());
             contestant.getDeck().add(((Card) target).clone());
             if (contestant.getPlanted().size() < 7)
-                contestant.getPlanted().add(((Card) target).clone());
+                contestant.summon(((Card) target).clone());
         }
 
         if (spell.getName().equals("Friendly Smith")) {
@@ -180,5 +181,40 @@ public class PlayCards {
 
         contestant.setCurrentSpell(null);
         GameState.getGameState().refreshMainFrame();
+    }
+
+    public static void playMinion(Card card, int numberOnLeft) {
+        Contestant contestant = card.getContestant();
+        if (contestant.getPlanted().size() < 7) {
+            if (!((Minion) card).isCharge() && !((Minion) card).isRush())
+                ((Minion) card).setTurnAttack(0);
+//                                planted.add(getNewPlantedCardIndex(numberOnLeft), card);
+            contestant.summon(contestant.getNewPlantedCardIndex(numberOnLeft), card);
+            ((Minion) card).setJustPlanted(true);
+            System.out.println("card name = " + card.getName());
+            if (((Minion) card).hasBattlecry()) {
+                try {
+                    Spell battlecry = (Spell) GameHandler.getGameHandler().getCard
+                            (card.getName() + " Battlecry");
+                    battlecry.setContestant(Playground.getPlayground().getCurrentContestant());
+                    PlayCards.playSpell(battlecry);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        Card card1 = Playground.getPlayground().getOpponentContestant().hasPlantedCard("Swamp King Dred");
+        if (card1 != null) {
+            System.out.println("WE DO HAVE THAT SHIT!");
+            ((Minion) card1).setTurnAttack(((Minion) card1).getTurnAttack()+1);
+            ((Minion) card1).attack((Attackable) card, ((Minion) card1).getAttackPower());
+            try {
+                contestant.checkForDeadMinions();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

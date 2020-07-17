@@ -55,6 +55,7 @@ public class PlaygroundPanel extends GamePanel {
     private TurnTimer turnTimer;
     private ChoiceOfCardSelectionListener choiceOfCardSelectionListener;
     private ChoiceOfWeaponListener choiceOfWeaponListener;
+    private HeroButtonPressedListener heroButtonPressedListener;
 
     public PlaygroundPanel(int screenWidth, int screenHeight) throws IOException {
         super(screenWidth, screenHeight);
@@ -143,7 +144,7 @@ public class PlaygroundPanel extends GamePanel {
         turnTimer = new TurnTimer(constants.TURN_TIME_MILLIS, progressBar);
         turnTimer.setTurnTimeFinishListener(new TurnTimeFinishListener() {
             @Override
-            public void turnTimeFinishEventOccurred(TurnTimeFinishEvent turnTimeFinishEvent) {
+            public void turnTimeFinishEventOccurred(TurnTimeFinishEvent turnTimeFinishEvent) throws IOException {
                 EndTurnEvent endTurnEvent = new EndTurnEvent(this);
                 if (endTurnListener != null) {
                     endTurnListener.endTurnOccurred(endTurnEvent);
@@ -178,7 +179,11 @@ public class PlaygroundPanel extends GamePanel {
                 Logger.buttonPressLog("end turn");
                 EndTurnEvent endTurnEvent = new EndTurnEvent(this);
                 if (endTurnListener != null) {
-                    endTurnListener.endTurnOccurred(endTurnEvent);
+                    try {
+                        endTurnListener.endTurnOccurred(endTurnEvent);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 turnTimer.reset();
                 refresh();
@@ -480,6 +485,46 @@ public class PlaygroundPanel extends GamePanel {
         heroPanel.setScaleFactor(constants.HERO_PANEL_X_SCALE_FACTOR, constants.HERO_PANEL_Y_SCALE_FACTOR);
         heroPanel.setDrawLocation((int) (constants.HERO_PANEL_X * screenWidth),
                 (int) (constants.HERO_PANEL_Y * screenHeight), constants.HERO_PANEL_WIDTH, constants.HERO_PANEL_HEIGHT);
+
+        heroPanel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                HeroButtonPressedEvent heroButtonPressedEvent = new HeroButtonPressedEvent(this, heroPanel.getHero());
+                heroButtonPressedListener.heroButtonPressedEventOccurred(heroButtonPressedEvent);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+                refresh();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+
+            }
+        });
+
         this.add(heroPanel);
     }
 
@@ -647,6 +692,10 @@ public class PlaygroundPanel extends GamePanel {
 
     public void setChoiceOfWeaponListener(ChoiceOfWeaponListener choiceOfWeaponListener) {
         this.choiceOfWeaponListener = choiceOfWeaponListener;
+    }
+
+    public void setHeroButtonPressedListener(HeroButtonPressedListener heroButtonPressedListener) {
+        this.heroButtonPressedListener = heroButtonPressedListener;
     }
 
     public void selectWeapon() throws IOException {
