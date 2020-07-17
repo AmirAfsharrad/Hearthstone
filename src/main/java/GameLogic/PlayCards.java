@@ -217,4 +217,13 @@ public class PlayCards {
             }
         }
     }
+
+    public static void playWeapon(Weapon weapon) {
+        Contestant contestant = weapon.getContestant();
+        contestant.setCurrentWeapon(weapon);
+        contestant.setHasWeapon(true);
+        if (weapon.getName().equals("Shadowblade")) {
+            contestant.setImmuneHero(true);
+        }
+    }
 }

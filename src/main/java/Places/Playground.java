@@ -2,8 +2,10 @@ package Places;
 
 import Cards.Deck;
 import Cards.Minion;
+import Cards.Weapon;
 import GUI.Events.HeroButtonPressedEvent;
 import GUI.Events.PlantedCardPressedEvent;
+import GUI.Events.WeaponPressedEvent;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
 import Logger.Logger;
@@ -88,12 +90,26 @@ public class Playground extends Place {
             System.out.println("manageSelectedPlanedCard method begin");
             getCurrentContestant().setTarget((Minion) plantedCardPressedEvent.getCard());
         } else {
-            getCurrentContestant().setWaitingForTarget(true);
             Minion minion = (Minion) plantedCardPressedEvent.getCard();
+            if (minion.getContestant() != getCurrentContestant())
+                return;
+            getCurrentContestant().setWaitingForTarget(true);
             getCurrentContestant().initiateAttack(minion, minion.getAttackPower());
             Playground.getPlayground().getContestant0().checkForDeadMinions();
             Playground.getPlayground().getContestant1().checkForDeadMinions();
         }
+    }
+
+    public void manageWeaponPressed(WeaponPressedEvent weaponPressedEvent) throws IOException {
+        if (getCurrentContestant().isWaitingForTarget())
+            return;
+        Weapon weapon = weaponPressedEvent.getWeapon();
+        if (weapon.getContestant() != getCurrentContestant())
+            return;
+        getCurrentContestant().setWaitingForTarget(true);
+        getCurrentContestant().initiateAttack(weapon, weapon.getAttackPower());
+        Playground.getPlayground().getContestant0().checkForDeadMinions();
+        Playground.getPlayground().getContestant1().checkForDeadMinions();
     }
 
     public void manageSelectedHero(HeroButtonPressedEvent heroButtonPressedEvent) {

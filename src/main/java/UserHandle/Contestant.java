@@ -5,6 +5,7 @@ import GameHandler.ContestantState;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
 import GameLogic.Interfaces.Attackable;
+import GameLogic.Interfaces.Attacker;
 import GameLogic.Interfaces.Target;
 import GameLogic.PlayCards;
 import GameLogic.Visitors.DealDamageVisitor;
@@ -145,12 +146,15 @@ public class Contestant {
         mana = Math.min(turnFullManas + 1, 10);
         turnFullManas = mana;
         currentSpell = null;
+        if (currentWeapon != null)
+            currentWeapon.setTurnAttack(1);
         drawRandomCard(false);
         if (drawTwice) {
             drawRandomCard(false);
         }
         plantedAttackValuesInitiate();
         startTurnMinionEffectHandle();
+        startTurnWeaponEffectHandle();
         checkForDeadMinions();
         Playground.getPlayground().getOpponentContestant().checkForDeadMinions();
     }
@@ -166,6 +170,18 @@ public class Contestant {
         }
         checkForDeadMinions();
         Playground.getPlayground().getOpponentContestant().checkForDeadMinions();
+    }
+
+    private void startTurnWeaponEffectHandle() throws IOException {
+        if (currentWeapon != null && currentWeapon.getName().equals("Skull of the Man'ari")) {
+            for (Card card : hand) {
+                if (card.getName().equals("Sathrovarr")) {
+                    safeRemove(hand, card);
+                    summon(card);
+                    break;
+                }
+            }
+        }
     }
 
     private void plantedAttackValuesInitiate() {
@@ -187,6 +203,10 @@ public class Contestant {
         Logger.log("End turn", "end of " + name + "'s turn");
         immuneHero = false;
         waitingForTarget = false;
+        if (currentWeapon != null && currentWeapon.getDurability() == 0) {
+            currentWeapon = null;
+            hasWeapon = false;
+        }
         endTurnMinionEffectHandle();
     }
 
@@ -237,8 +257,7 @@ public class Contestant {
                             PlayCards.playMinion(card, numberOnLeft);
                             break;
                         case "Weapon":
-                            currentWeapon = (Weapon) card;
-                            hasWeapon = true;
+                            PlayCards.playWeapon((Weapon) card);
                             break;
                         case "Spell":
                             try {
@@ -255,7 +274,7 @@ public class Contestant {
         }).start();
     }
 
-    public void initiateAttack(Minion minion, int attackValue) {
+    public void initiateAttack(Attacker attacker, int attackValue) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -279,9 +298,10 @@ public class Contestant {
                 contestant.setWaitingForTarget(false);
                 if ((!opponentContestant.hasTaunt() || (target instanceof Minion && ((Minion) target).isTaunt()))
                         && !(target instanceof Minion && ((Minion) target).isStealth())
-                        && !((target instanceof Hero) && minion.isRush() && minion.isJustPlanted())) {
-                    minion.attack((Attackable) target, attackValue);
-                    if (minion.isPoisonous() && target instanceof Card) {
+                        && !((target instanceof Hero) && attacker instanceof Minion &&
+                        ((Minion) attacker).isRush() && ((Minion) attacker).isJustPlanted())) {
+                    attacker.attack((Attackable) target, attackValue);
+                    if (attacker instanceof Minion && ((Minion) attacker).isPoisonous() && target instanceof Card) {
                         safeRemove(opponentContestant.getDeck(), (Card) target);
                     }
                 }

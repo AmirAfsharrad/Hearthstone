@@ -5,6 +5,7 @@ import GUI.GamePanels.*;
 import GUI.Listeners.*;
 import GameHandler.GameState;
 import GameHandler.RespondToUser;
+import GameLogic.PlayCards;
 import Places.*;
 
 import javax.swing.*;
@@ -222,6 +223,12 @@ public class MainFrame extends JFrame {
             @Override
             public void heroButtonPressedEventOccurred(HeroButtonPressedEvent heroButtonPressedEvent) {
                 Playground.getPlayground().manageSelectedHero(heroButtonPressedEvent);
+            }
+        });
+        playgroundPanel.setWeaponPressedListener(new WeaponPressedListener() {
+            @Override
+            public void weaponPressedEventOccurred(WeaponPressedEvent weaponPressedEvent) throws IOException {
+                Playground.getPlayground().manageWeaponPressed(weaponPressedEvent);
             }
         });
     }

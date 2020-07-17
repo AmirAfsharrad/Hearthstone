@@ -1,6 +1,6 @@
 [
   {
-    "gold": 710,
+    "gold": 660,
     "current hero": 0,
     "user name": " ",
     "password": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
@@ -28,7 +28,9 @@
       "Dreadscale",
       "Shadowfiend",
       "Security Rover",
-      "Swamp King Dred"
+      "Swamp King Dred",
+      "Blood Fury",
+      "Skull of the Man\u0027ari"
     ],
     "heroes": [
       {
@@ -50,7 +52,11 @@
           "Living Monument",
           "Arcane Missiles",
           "Friendly Smith",
-          "Friendly Smith"
+          "Friendly Smith",
+          "Blood Fury",
+          "Blood Fury",
+          "Sathrovarr",
+          "Sathrovarr"
         ],
         "name": "Sample Deck",
         "heroName": "Rogue"

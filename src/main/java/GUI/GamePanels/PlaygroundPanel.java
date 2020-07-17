@@ -1,6 +1,7 @@
 package GUI.GamePanels;
 
 import Cards.Card;
+import Cards.Weapon;
 import GUI.Constants.LowerHalfConstants;
 import GUI.Constants.PlaygroundConstants;
 import GUI.Constants.UpperHalfConstants;
@@ -56,6 +57,7 @@ public class PlaygroundPanel extends GamePanel {
     private ChoiceOfCardSelectionListener choiceOfCardSelectionListener;
     private ChoiceOfWeaponListener choiceOfWeaponListener;
     private HeroButtonPressedListener heroButtonPressedListener;
+    private WeaponPressedListener weaponPressedListener;
 
     public PlaygroundPanel(int screenWidth, int screenHeight) throws IOException {
         super(screenWidth, screenHeight);
@@ -576,6 +578,40 @@ public class PlaygroundPanel extends GamePanel {
         weaponPanel.setDrawLocation((int) (constants.WEAPON_PANEL_X * screenWidth),
                 (int) (constants.WEAPON_PANEL_Y * screenHeight), constants.WEAPON_PANEL_WIDTH,
                 constants.WEAPON_PANEL_HEIGHT);
+
+        weaponPanel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                WeaponPressedEvent weaponPressedEvent = new WeaponPressedEvent(this, (Weapon) weaponPanel.getCard());
+                try {
+                    weaponPressedListener.weaponPressedEventOccurred(weaponPressedEvent);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(weaponPanel.getCard() + " pressed as weapon!");
+            }
+
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+
+            }
+        });
+
         this.add(weaponPanel);
     }
 
@@ -696,6 +732,10 @@ public class PlaygroundPanel extends GamePanel {
 
     public void setHeroButtonPressedListener(HeroButtonPressedListener heroButtonPressedListener) {
         this.heroButtonPressedListener = heroButtonPressedListener;
+    }
+
+    public void setWeaponPressedListener(WeaponPressedListener weaponPressedListener) {
+        this.weaponPressedListener = weaponPressedListener;
     }
 
     public void selectWeapon() throws IOException {
