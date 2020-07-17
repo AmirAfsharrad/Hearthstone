@@ -22,6 +22,7 @@ public class DealDamageVisitor {
     }
 
     public void visit(Hero hero, int damageValue) {
-        hero.setHp(Math.max(hero.getHp() - damageValue, 0));
+        if (!hero.getContestant().isImmuneHero())
+            hero.setHp(Math.max(hero.getHp() - damageValue, 0));
     }
 }

@@ -12256,3 +12256,74 @@ Card Played, 2020-07-17T06:54:09.978329100, Shieldbearer
 Button Pressed, 2020-07-17T06:54:18.157421300, Twilight Flamecaller
 Card Played, 2020-07-17T06:54:18.158420800, Twilight Flamecaller
 quit, 2020-07-17T06:54:21.880351400, quit the game
+login, 2020-07-17T07:00:33.956896600,  as  
+Button Pressed, 2020-07-17T07:00:35.420392100, Collections
+Button Pressed, 2020-07-17T07:00:38.443919200, Amir
+Button Pressed, 2020-07-17T07:00:42.825409400, Sathrovarr
+Buy Card, 2020-07-17T07:00:44.001428800, Sathrovarr
+system response, 2020-07-17T07:00:44.982815, You have successfully purchased Sathrovarr.
+Button Pressed, 2020-07-17T07:00:47.573554400, Amir
+Button Pressed, 2020-07-17T07:00:52.084611400, Sathrovarr
+Add Card to Deck, 2020-07-17T07:00:52.085621500, Sathrovarr -> Amir
+Button Pressed, 2020-07-17T07:00:52.633399100, Sathrovarr
+Button Pressed, 2020-07-17T07:00:54.878993600, Play
+Button Pressed, 2020-07-17T07:00:56.873484900, null
+Button Pressed, 2020-07-17T07:01:01.357740900, end turn
+End turn, 2020-07-17T07:01:01.358739200, end of  's turn
+Start turn, 2020-07-17T07:01:01.359735900, start of system's turn
+Button Pressed, 2020-07-17T07:01:01.624394900, end turn
+End turn, 2020-07-17T07:01:01.624394900, end of system's turn
+Start turn, 2020-07-17T07:01:01.625357300, start of  's turn
+Button Pressed, 2020-07-17T07:01:01.912671400, end turn
+End turn, 2020-07-17T07:01:01.912671400, end of  's turn
+Start turn, 2020-07-17T07:01:01.913621900, start of system's turn
+Button Pressed, 2020-07-17T07:01:02.210864, end turn
+End turn, 2020-07-17T07:01:02.210864, end of system's turn
+Start turn, 2020-07-17T07:01:02.211858, start of  's turn
+Button Pressed, 2020-07-17T07:01:02.252772200, end turn
+End turn, 2020-07-17T07:01:02.253806, end of  's turn
+Start turn, 2020-07-17T07:01:02.253806, start of system's turn
+Button Pressed, 2020-07-17T07:01:02.669879900, end turn
+End turn, 2020-07-17T07:01:02.669879900, end of system's turn
+Start turn, 2020-07-17T07:01:02.670877800, start of  's turn
+Button Pressed, 2020-07-17T07:01:02.702818200, end turn
+End turn, 2020-07-17T07:01:02.702818200, end of  's turn
+Start turn, 2020-07-17T07:01:02.703787300, start of system's turn
+Button Pressed, 2020-07-17T07:01:03.070260400, end turn
+End turn, 2020-07-17T07:01:03.070260400, end of system's turn
+Start turn, 2020-07-17T07:01:03.071231400, start of  's turn
+Button Pressed, 2020-07-17T07:01:03.464442300, end turn
+End turn, 2020-07-17T07:01:03.465396800, end of  's turn
+Start turn, 2020-07-17T07:01:03.465396800, start of system's turn
+Button Pressed, 2020-07-17T07:01:03.499753300, end turn
+End turn, 2020-07-17T07:01:03.500750400, end of system's turn
+Start turn, 2020-07-17T07:01:03.500750400, start of  's turn
+Button Pressed, 2020-07-17T07:01:03.906088900, end turn
+End turn, 2020-07-17T07:01:03.907085600, end of  's turn
+Start turn, 2020-07-17T07:01:03.907085600, start of system's turn
+Button Pressed, 2020-07-17T07:01:03.942005900, end turn
+End turn, 2020-07-17T07:01:03.942005900, end of system's turn
+Start turn, 2020-07-17T07:01:03.943007400, start of  's turn
+Button Pressed, 2020-07-17T07:01:04.371376800, end turn
+End turn, 2020-07-17T07:01:04.371376800, end of  's turn
+Start turn, 2020-07-17T07:01:04.372389, start of system's turn
+Button Pressed, 2020-07-17T07:01:04.405285400, end turn
+End turn, 2020-07-17T07:01:04.406283300, end of system's turn
+Start turn, 2020-07-17T07:01:04.407280400, start of  's turn
+Button Pressed, 2020-07-17T07:01:04.439195100, end turn
+End turn, 2020-07-17T07:01:04.439195100, end of  's turn
+Start turn, 2020-07-17T07:01:04.440198900, start of system's turn
+Button Pressed, 2020-07-17T07:01:08.517265200, end turn
+End turn, 2020-07-17T07:01:08.517265200, end of system's turn
+Start turn, 2020-07-17T07:01:08.518263100, start of  's turn
+Button Pressed, 2020-07-17T07:01:11.004590400, Goldshire Footman
+Card Played, 2020-07-17T07:01:11.010575200, Goldshire Footman
+Button Pressed, 2020-07-17T07:01:14.215195100, end turn
+End turn, 2020-07-17T07:01:14.215195100, end of  's turn
+Start turn, 2020-07-17T07:01:14.216158600, start of system's turn
+Button Pressed, 2020-07-17T07:01:14.713373400, end turn
+End turn, 2020-07-17T07:01:14.713373400, end of system's turn
+Start turn, 2020-07-17T07:01:14.714362700, start of  's turn
+Button Pressed, 2020-07-17T07:01:18.849055400, Sathrovarr
+Card Played, 2020-07-17T07:01:18.850065600, Sathrovarr
+quit, 2020-07-17T07:01:38.367865500, quit the game

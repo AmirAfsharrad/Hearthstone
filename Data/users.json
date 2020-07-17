@@ -1,6 +1,6 @@
 [
   {
-    "gold": 870,
+    "gold": 830,
     "current hero": 0,
     "user name": " ",
     "password": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
@@ -21,7 +21,8 @@
       "Friendly Smith",
       "Novice Engineer",
       "Twilight Flamecaller",
-      "Flamestrike"
+      "Flamestrike",
+      "Sathrovarr"
     ],
     "heroes": [
       {
@@ -63,7 +64,8 @@
           "Novice Engineer",
           "Novice Engineer",
           "Flamestrike",
-          "Flamestrike"
+          "Flamestrike",
+          "Sathrovarr"
         ],
         "name": "Amir",
         "heroName": "Paladin"

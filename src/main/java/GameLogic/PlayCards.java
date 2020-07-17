@@ -133,6 +133,18 @@ public class PlayCards {
             contestant.setImmuneHero(true);
         }
 
+        if (spell.getName().equals("Tomb warden Battlecry")) {
+            if (contestant.getPlanted().size() < 7)
+                contestant.getPlanted().add(((Card) target).clone());
+        }
+
+        if (spell.getName().equals("Sathrovarr Battlecry")) {
+            contestant.getHand().add(((Card) target).clone());
+            contestant.getDeck().add(((Card) target).clone());
+            if (contestant.getPlanted().size() < 7)
+                contestant.getPlanted().add(((Card) target).clone());
+        }
+
         if (spell.getName().equals("Friendly Smith")) {
             GameState.getGameState().getMainFrame().getPlaygroundPanel().selectWeapon();
             while (contestant.getChoiceOfWeapon() == null){

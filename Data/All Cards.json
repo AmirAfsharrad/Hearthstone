@@ -168,7 +168,7 @@
     "description": "",
     "type": "Spell",
     "rarity": "Common",
-    "target": [0],
+    "target": [1, 1],
     "damage": [0],
     "giveHealth": [0],
     "draw": [0],
