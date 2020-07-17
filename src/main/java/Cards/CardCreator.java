@@ -29,9 +29,11 @@ public class CardCreator {
         Long attackPower = (Long) cardObj.get("attackPower");
         JSONArray battlecry = (JSONArray) cardObj.get("battlecry");
         boolean booleanBattlecry = jsonArrayToInt(battlecry)[0] == 1;
+        JSONArray abilities = (JSONArray) cardObj.get("abilities");
 
         Minion minion = new Minion(mana.intValue(), name, rarity, heroClass, description, attackPower.intValue(), hp.intValue(),
                 booleanBattlecry);
+        minion.setAbilities(jsonArrayToInt(abilities));
 
         return minion;
     }

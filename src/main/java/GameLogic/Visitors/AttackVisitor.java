@@ -14,7 +14,15 @@ public class AttackVisitor {
     }
 
     public void visit(Minion minion, int attackValue) {
-        minion.acceptDamage(DealDamageVisitor.getInstance(), attackValue);
+        if (minion.isDivineShield())
+            minion.setDivineShield(false);
+        else {
+            minion.acceptDamage(DealDamageVisitor.getInstance(), attackValue);
+            if (minion.isLifesteal()) {
+                minion.getContestant().getHero().acceptHealth(GiveHealthVisitor.getInstance(), attackValue,
+                        false, true);
+            }
+        }
     }
 
     public void visit(Hero hero, int attackValue) {

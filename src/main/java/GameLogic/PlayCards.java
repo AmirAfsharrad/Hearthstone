@@ -46,7 +46,8 @@ public class PlayCards {
             System.out.println("WAITING for target");
             while (contestant.getTarget() == null ||
                     (spell.getTarget()[1] == 0 && contestant.getTarget().getContestant() == contestant) ||
-                    (spell.getTarget()[1] == 1 && contestant.getTarget().getContestant() != contestant)) {
+                    (spell.getTarget()[1] == 1 && contestant.getTarget().getContestant() != contestant) ||
+                    (spell.getTarget()[1] == 0 && contestant.getTarget().isStealth())) {
                 try {
                     Thread.sleep(50);
                 } catch (InterruptedException e) {

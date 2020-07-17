@@ -13,6 +13,7 @@ import Logger.Logger;
 import Places.Playground;
 
 import java.io.IOException;
+import java.lang.management.MemoryNotificationInfo;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
@@ -125,6 +126,7 @@ public class Contestant {
         Logger.log("Start turn", "start of " + name + "'s turn");
         mana = Math.min(turnFullManas + 1, 10);
         turnFullManas = mana;
+        currentSpell = null;
         drawRandomCard(false);
         if (drawTwice) {
             drawRandomCard(false);
@@ -134,7 +136,16 @@ public class Contestant {
 
     private void plantedAttackValuesInitiate() {
         for (Card card : planted) {
-            ((Minion) card).setTurnAttack(1);
+            ((Minion) card).setJustPlanted(false);
+            if (((Minion) card).isWindfury())
+                ((Minion) card).setTurnAttack(2);
+            else
+                ((Minion) card).setTurnAttack(1);
+
+            Minion minion = (Minion) card;
+            System.out.println(minion + " , Taunt: " + minion.isTaunt() + " , Charge: " + minion.isCharge() +
+                    " , Rush: " + minion.isRush());
+
         }
     }
 
@@ -173,8 +184,10 @@ public class Contestant {
                     switch (card.getType()) {
                         case "Minion":
                             if (planted.size() < 7) {
-                                ((Minion) card).setTurnAttack(0);
+                                if (!((Minion) card).isCharge() && !((Minion) card).isRush())
+                                    ((Minion) card).setTurnAttack(0);
                                 planted.add(getNewPlantedCardIndex(numberOnLeft), card);
+                                ((Minion) card).setJustPlanted(true);
                                 System.out.println("card name = " + card.getName());
                                 if (((Minion) card).hasBattlecry()) {
                                     try {
@@ -231,19 +244,20 @@ public class Contestant {
                 target = contestant.getTarget();
                 contestant.setTarget(null);
                 contestant.setWaitingForTarget(false);
-                if (!opponentContestant.hasTaunt()) {
-                    System.out.println("IF 1");
+                if ((!opponentContestant.hasTaunt() || (target instanceof Minion && ((Minion) target).isTaunt()))
+                        && !(target instanceof Minion && ((Minion) target).isStealth())
+                        && !((target instanceof Hero) && minion.isRush() && minion.isJustPlanted())) {
                     minion.attack((Attackable) target, attackValue);
-                } else {
-                    System.out.println("ELSE 1");
-                    if (target instanceof Minion && ((Minion) target).isTaunt()) {
-                        System.out.println("IF 2");
-                        minion.attack((Attackable) target, attackValue);
+                    if (minion.isPoisonous() && target instanceof Card) {
+                        safeRemove(opponentContestant.getDeck(), (Card) target);
                     }
                 }
-//                if (!opponentContestant.hasTaunt() || (target instanceof Minion && ((Minion) target).isTaunt()))
-//                    minion.attack((Attackable) target, attackValue);
-//                ((Attackable) target).acceptAttack(attackValue);
+                try {
+                    contestant.checkForDeadMinions();
+                    opponentContestant.checkForDeadMinions();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }).start();
     }

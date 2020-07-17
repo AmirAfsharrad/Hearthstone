@@ -8,7 +8,8 @@
     "hp": 2,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 1,
@@ -19,7 +20,8 @@
     "hp": 1,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 0, 1, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 0,
@@ -30,7 +32,8 @@
     "hp": 4,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 0,
@@ -41,7 +44,8 @@
     "hp": 5,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 3,
@@ -52,7 +56,8 @@
     "hp": 2,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 1,
@@ -63,7 +68,8 @@
     "hp": 1,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [1]
+    "battlecry": [1],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "mana": 0,
@@ -89,7 +95,8 @@
     "hp": 4,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [1]
+    "battlecry": [1],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "mana": 0,
@@ -115,7 +122,8 @@
     "hp": 5,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 6,
@@ -126,7 +134,8 @@
     "hp": 6,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 2,
@@ -137,7 +146,8 @@
     "hp": 14,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 1, 0, 1, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 10,
@@ -148,7 +158,8 @@
     "hp": 10,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 5,
@@ -159,7 +170,8 @@
     "hp": 5,
     "type": "Minion",
     "rarity": "Legendary",
-    "battlecry": [1]
+    "battlecry": [1],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "mana": 0,
@@ -185,7 +197,8 @@
     "hp": 6,
     "type": "Minion",
     "rarity": "Epic",
-    "battlecry": [1]
+    "battlecry": [1],
+    "abilities": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "mana": 0,
@@ -211,7 +224,8 @@
     "hp": 6,
     "type": "Minion",
     "rarity": "Epic",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 4,
@@ -222,7 +236,8 @@
     "hp": 4,
     "type": "Minion",
     "rarity": "Epic",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "mana": 0,
@@ -445,7 +460,8 @@
     "type": "Minion",
     "rarity": "Common",
     "destroy":[0],
-    "battlecry": [1]
+    "battlecry": [1],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "mana": 0,
@@ -486,7 +502,8 @@
     "hp": 3,
     "type": "Minion",
     "rarity": "Rare",
-    "battlecry": [1]
+    "battlecry": [1],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "mana": 0,
@@ -538,7 +555,8 @@
     "hp": 2,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "mana": 8,
@@ -553,7 +571,7 @@
     "draw": [0],
     "destroy":[1, 1],
     "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    "modifyAttack": [0]
+    "modifyAttack": [0],
   },
   {
     "attackPower": 0,
@@ -589,7 +607,8 @@
     "hp": 7,
     "type": "Minion",
     "rarity": "Legendary",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 3,
@@ -600,7 +619,8 @@
     "hp": 3,
     "type": "Minion",
     "rarity": "Epic",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 1,
@@ -611,7 +631,8 @@
     "hp": 1,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "attackPower": 1,
@@ -622,6 +643,7 @@
     "hp": 1,
     "type": "Minion",
     "rarity": "Common",
-    "battlecry": [0]
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   }
 ]

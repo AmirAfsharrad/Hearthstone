@@ -20,7 +20,8 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
     private boolean lifesteal;
     private boolean reborn;
     private boolean battlecry;
-    private int turnAttack;
+    private int turnAttack = 1;
+    private boolean justPlanted;
 
     public Minion(int mana, String name, String rarity, String heroClass, String description, int attackPower, int hp,
                   boolean battlecry) {
@@ -44,8 +45,10 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
     }
 
     public Card clone() {
-        return new Minion(getMana(), getName(), getRarity(), getHeroClass(), getDescription(), getAttackPower(), getHp(),
+        Minion minion =  new Minion(getMana(), getName(), getRarity(), getHeroClass(), getDescription(), getAttackPower(), getHp(),
                 battlecry);
+        minion.setAbilities(this);
+        return minion;
     }
 
     public int getOriginalHp() {
@@ -132,6 +135,14 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
         this.turnAttack = turnAttack;
     }
 
+    public boolean isJustPlanted() {
+        return justPlanted;
+    }
+
+    public void setJustPlanted(boolean justPlanted) {
+        this.justPlanted = justPlanted;
+    }
+
     public void setAbilities(int[] abilities) {
         taunt = abilities[1] == 1;
         charge = abilities[2] == 1;
@@ -142,7 +153,18 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
         windfury = abilities[7] == 1;
         lifesteal = abilities[8] == 1;
         reborn = abilities[9] == 1;
+    }
 
+    public void setAbilities(Minion minion) {
+        taunt = minion.taunt;
+        charge = minion.charge;
+        divineShield = minion.divineShield;
+        rush = minion.rush;
+        poisonous = minion.poisonous;
+        stealth = minion.stealth;
+        windfury = minion.windfury;
+        lifesteal = minion.lifesteal;
+        reborn = minion.reborn;
     }
 
     public void setOriginalHp(int originalHp) {
