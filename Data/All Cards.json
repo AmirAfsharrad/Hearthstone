@@ -7,7 +7,8 @@
     "description": "Taunt",
     "hp": 2,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   },
   {
     "attackPower": 1,
@@ -17,7 +18,8 @@
     "description": "Charge",
     "hp": 1,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   },
   {
     "attackPower": 0,
@@ -27,7 +29,8 @@
     "description": "Taunt",
     "hp": 4,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   },
   {
     "attackPower": 0,
@@ -37,7 +40,8 @@
     "description": "At the start of your turn, deal 5 damage to all minions",
     "hp": 5,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   },
   {
     "attackPower": 3,
@@ -47,7 +51,8 @@
     "description": "",
     "hp": 2,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   },
   {
     "attackPower": 1,
@@ -57,17 +62,23 @@
     "description": "Battlecry: Draw a card.",
     "hp": 1,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [1]
   },
   {
-    "attackPower": 2,
-    "mana": 3,
-    "name": "Raid Leader",
+    "mana": 0,
+    "name": "Novice Engineer Battlecry",
     "heroClass": "Neutral",
-    "description": "Your other minions have +1 attack",
-    "hp": 2,
-    "type": "Minion",
-    "rarity": "Common"
+    "description": "",
+    "type": "Spell",
+    "rarity": "Common",
+    "target": [0],
+    "damage": [0],
+    "giveHealth": [0],
+    "draw": [1, 0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "attackPower": 4,
@@ -77,7 +88,23 @@
     "description": "Battlecry: If you\u0027re holding a spell that costs 5 or more, deal 4 damage.",
     "hp": 4,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [1]
+  },
+  {
+    "mana": 0,
+    "name": "Sunreaver Warmage Battlecry",
+    "heroClass": "Neutral",
+    "description": "",
+    "type": "Spell",
+    "rarity": "Common",
+    "target": [1, 0],
+    "damage": [4, 0],
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "attackPower": 6,
@@ -87,7 +114,8 @@
     "description": "Taunt",
     "hp": 5,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   },
   {
     "attackPower": 6,
@@ -97,7 +125,8 @@
     "description": "Your other minions have +1/+1",
     "hp": 6,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   },
   {
     "attackPower": 2,
@@ -107,7 +136,8 @@
     "description": "Taunt\n Divine shield",
     "hp": 14,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   },
   {
     "attackPower": 10,
@@ -117,7 +147,8 @@
     "description": "Taunt",
     "hp": 10,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   },
   {
     "attackPower": 5,
@@ -127,7 +158,23 @@
     "description": "Battlecry: Choose a friendly minion. Add a copy of it to your hand, deck, and battlefield.",
     "hp": 5,
     "type": "Minion",
-    "rarity": "Legendary"
+    "rarity": "Legendary",
+    "battlecry": [1]
+  },
+  {
+    "mana": 0,
+    "name": "Sathrovarr Battlecry",
+    "heroClass": "Neutral",
+    "description": "",
+    "type": "Spell",
+    "rarity": "Common",
+    "target": [0],
+    "damage": [0],
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "attackPower": 3,
@@ -137,7 +184,23 @@
     "description": "Taunt\nBattlecry: Summon a copy of this minion.",
     "hp": 6,
     "type": "Minion",
-    "rarity": "Epic"
+    "rarity": "Epic",
+    "battlecry": [1]
+  },
+  {
+    "mana": 0,
+    "name": "Tomb warden Battlecry",
+    "heroClass": "Neutral",
+    "description": "",
+    "type": "Spell",
+    "rarity": "Common",
+    "target": [0],
+    "damage": [0],
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "attackPower": 2,
@@ -147,7 +210,8 @@
     "description": "Whenever this minion takes damage, summon a 2/3 Mech with Taunt.",
     "hp": 6,
     "type": "Minion",
-    "rarity": "Epic"
+    "rarity": "Epic",
+    "battlecry": [0]
   },
   {
     "attackPower": 4,
@@ -157,7 +221,8 @@
     "description": "Whenever you draw a card, gain +1/+1.",
     "hp": 4,
     "type": "Minion",
-    "rarity": "Epic"
+    "rarity": "Epic",
+    "battlecry": [0]
   },
   {
     "mana": 0,
@@ -379,7 +444,23 @@
     "hp": 2,
     "type": "Minion",
     "rarity": "Common",
-    "destroy":[0]
+    "destroy":[0],
+    "battlecry": [1]
+  },
+  {
+    "mana": 0,
+    "name": "Twilight Flamecaller Battlecry",
+    "heroClass": "Neutral",
+    "description": "",
+    "type": "Spell",
+    "rarity": "Common",
+    "target": [0],
+    "damage": [1, 1],
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "mana": 1,
@@ -404,7 +485,23 @@
     "description": "Battlecry: Give a friendly minion poisonous.",
     "hp": 3,
     "type": "Minion",
-    "rarity": "Rare"
+    "rarity": "Rare",
+    "battlecry": [1]
+  },
+  {
+    "mana": 0,
+    "name": "Plaguebringer Battlecry",
+    "heroClass": "Neutral",
+    "description": "",
+    "type": "Spell",
+    "rarity": "Common",
+    "target": [0],
+    "damage": [0],
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "attackPower": 3,
@@ -414,7 +511,23 @@
     "heroClass": "Rogue",
     "description": "Battlecry: Your hero is immune this turn.",
     "type": "Weapon",
-    "rarity": "Rare"
+    "rarity": "Rare",
+    "battlecry": [1]
+  },
+  {
+    "mana": 0,
+    "name": "Shadowblade Battlecry",
+    "heroClass": "Neutral",
+    "description": "",
+    "type": "Spell",
+    "rarity": "Common",
+    "target": [0],
+    "damage": [0],
+    "giveHealth": [0],
+    "draw": [0],
+    "destroy":[0],
+    "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "modifyAttack": [0]
   },
   {
     "attackPower": 4,
@@ -424,7 +537,8 @@
     "description": "At the end of your turn, deal 1 damage to all other minions",
     "hp": 2,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   },
   {
     "mana": 8,
@@ -474,7 +588,8 @@
     "description": "Whenever you summon a minion, set its Hp equal to this minion\u0027s.",
     "hp": 7,
     "type": "Minion",
-    "rarity": "Legendary"
+    "rarity": "Legendary",
+    "battlecry": [0]
   },
   {
     "attackPower": 3,
@@ -484,7 +599,8 @@
     "description": "Whenever you draw a card, reduce its Cost by (1).",
     "hp": 3,
     "type": "Minion",
-    "rarity": "Epic"
+    "rarity": "Epic",
+    "battlecry": [0]
   },
   {
     "attackPower": 1,
@@ -494,7 +610,8 @@
     "description": "",
     "hp": 1,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   },
   {
     "attackPower": 1,
@@ -504,6 +621,7 @@
     "description": "",
     "hp": 1,
     "type": "Minion",
-    "rarity": "Common"
+    "rarity": "Common",
+    "battlecry": [0]
   }
 ]

@@ -20,12 +20,15 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
     private boolean windfury;
     private boolean lifesteal;
     private boolean reborn;
+    private boolean battlecry;
 
-    public Minion(int mana, String name, String rarity, String heroClass, String description, int attackPower, int hp) {
+    public Minion(int mana, String name, String rarity, String heroClass, String description, int attackPower, int hp,
+                  boolean battlecry) {
         super(mana, name, rarity, heroClass, description, "Minion");
         this.hp = hp;
         this.originalHp = hp;
         this.attackPower = attackPower;
+        this.battlecry = battlecry;
     }
 
     public int getHp() {
@@ -41,7 +44,8 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
     }
 
     public Card clone() {
-        return new Minion(getMana(), getName(), getRarity(), getHeroClass(), getDescription(), getAttackPower(), getHp());
+        return new Minion(getMana(), getName(), getRarity(), getHeroClass(), getDescription(), getAttackPower(), getHp(),
+                battlecry);
     }
 
     public int getOriginalHp() {
@@ -131,6 +135,18 @@ public class Minion extends Card implements Damageable, HealthTaker, ModifiableA
         lifesteal = abilities[8] == 1;
         reborn = abilities[9] == 1;
 
+    }
+
+    public void setOriginalHp(int originalHp) {
+        this.originalHp = originalHp;
+    }
+
+    public boolean hasBattlecry() {
+        return battlecry;
+    }
+
+    public void setBattlecry(boolean battlecry) {
+        this.battlecry = battlecry;
     }
 
     public void setAttackPower(int attackPower) {

@@ -5,6 +5,7 @@ import GameLogic.Interfaces.HealthTaker;
 import UserHandle.Contestant;
 
 import java.util.Objects;
+import java.util.Random;
 
 public abstract class Card {
     private int mana;

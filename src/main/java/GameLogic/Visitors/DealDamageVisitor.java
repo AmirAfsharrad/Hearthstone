@@ -17,10 +17,11 @@ public class DealDamageVisitor {
     }
 
     public void visit(Minion minion, int damageValue) {
-            minion.setHp(Math.max(minion.getHp() - damageValue, 0));
+        System.out.println("DAMAGE DEAL WITH VALUE " + damageValue + " ***********************************");
+        minion.setHp(Math.max(minion.getHp() - damageValue, 0));
     }
 
     public void visit(Hero hero, int damageValue) {
-            hero.setHp(Math.max(hero.getHp() - damageValue, 0));
+        hero.setHp(Math.max(hero.getHp() - damageValue, 0));
     }
 }

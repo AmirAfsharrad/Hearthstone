@@ -25,6 +25,21 @@ public class PlayCards {
         Contestant opponentContestant = Playground.getPlayground().getOpponentContestant();
         contestant.setCurrentSpell(spell);
         Object target = null;
+
+        if (spell.getName().equals("Sunreaver Warmage Battlecry")) {
+            boolean flag = false;
+            for (Card card : contestant.getHand()) {
+                if (card.getType().equals("Spell") && card.getMana() >= 5) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                contestant.setWaitingForTarget(false);
+                return;
+            }
+        }
+
         if (spell.getTarget()[0] == 1) {
             contestant.setWaitingForTarget(true);
             System.out.println("WAITING for target");
@@ -112,6 +127,10 @@ public class PlayCards {
                 card.setContestant(opponentContestant);
                 opponentContestant.getPlanted().add(card);
             }
+        }
+
+        if (spell.getName().equals("Shadowblade Battlecry")) {
+            contestant.setImmuneHero(true);
         }
 
         if (spell.getName().equals("Friendly Smith")) {

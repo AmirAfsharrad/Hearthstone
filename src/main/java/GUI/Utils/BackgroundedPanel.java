@@ -46,8 +46,13 @@ public class BackgroundedPanel extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
+        BufferedImage image = null;
         if (backgroundImagePath != null) {
-            BufferedImage image = ImageLoader.getInstance().loadImage(backgroundImagePath);
+            try {
+                image = ImageLoader.getInstance().loadImage(backgroundImagePath);
+            } catch (Exception ignored) {}
+            if (image == null)
+                return;
             Image newImage = image.getScaledInstance((int) (image.getWidth() * scaleFactorX),
                     (int) (image.getHeight() * scaleFactorY), java.awt.Image.SCALE_SMOOTH);
             g2d.drawImage(newImage, 0, 0, null);

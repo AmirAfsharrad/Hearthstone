@@ -27,9 +27,11 @@ public class CardCreator {
         String description = (String) cardObj.get("description");
         String rarity = (String) cardObj.get("rarity");
         Long attackPower = (Long) cardObj.get("attackPower");
+        JSONArray battlecry = (JSONArray) cardObj.get("battlecry");
+        boolean booleanBattlecry = jsonArrayToInt(battlecry)[0] == 1;
 
-        Minion minion = new Minion(mana.intValue(), name, rarity, heroClass, description, attackPower.intValue(), hp.intValue());
-        System.out.println(minion.getName() + ", " + minion.getHp());
+        Minion minion = new Minion(mana.intValue(), name, rarity, heroClass, description, attackPower.intValue(), hp.intValue(),
+                booleanBattlecry);
 
         return minion;
     }
@@ -126,7 +128,6 @@ public class CardCreator {
         int[] result = new int[jsonArray.size()];
 
         for (int i = 0; i < jsonArray.size(); i++) {
-            System.out.println(i);
             result[i] = Integer.parseInt(jsonArray.get(i).toString());
         }
 

@@ -522,9 +522,12 @@ public class CollectionsPanel extends GamePanel {
 
         cardsPanel.removeAll();
         for (Card card : cards) {
+            if (card.getName().contains("Battlecry"))
+                continue;
             CardButton button = new CardButton(card);
             button.setPreferredSize(new Dimension(cardWidth, cardHeight));
-            BufferedImage image = ImageIO.read(new File("Images/cards/" + button.getCard().getName() + ".png"));
+            BufferedImage image;
+            image = ImageIO.read(new File("Images/cards/" + button.getCard().getName() + ".png"));
             ImageIcon imageIcon;
 
             if (GameState.getGameState().getUser().hasCard(card))
@@ -542,7 +545,8 @@ public class CollectionsPanel extends GamePanel {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
                     Logger.buttonPressLog(button);
-                    AddCardToDeckEvent addCardToDeckEvent = new AddCardToDeckEvent(this, button.getCard(), currentDeck);
+                    AddCardToDeckEvent addCardToDeckEvent = new AddCardToDeckEvent(this, button.getCard().clone()
+                            , currentDeck);
                     if (addCardToDeckListener != null) {
                         if (currentDeckPanelCard.equals("cards") && currentDeck != null) {
                             addCardToDeckListener.addCardToDeckOccurred(addCardToDeckEvent);

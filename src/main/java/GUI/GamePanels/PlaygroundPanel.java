@@ -647,7 +647,6 @@ public class PlaygroundPanel extends GamePanel {
         InitialHandModificationPanel weaponChoicePanel = new InitialHandModificationPanel(
                 (int) (0.8 * screenWidth), (int) (0.8 * screenHeight),
                 Playground.getPlayground().getCurrentContestant().getListOfWeapons());
-        System.out.println(Playground.getPlayground().getCurrentContestant().getListOfWeapons());
         JFrame frame = new JFrame();
         frame.setSize((int) (0.8 * screenWidth), (int) (0.8 * screenHeight));
         frame.setLocationRelativeTo(null);

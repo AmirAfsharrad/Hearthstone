@@ -34,6 +34,7 @@ public class Contestant {
     private ContestantState state;
     private Minion target;
     private boolean[] initialHandModificationCheck = new boolean[3];
+    private boolean immuneHero;
 
     public Minion getTarget() {
         return target;
@@ -132,7 +133,7 @@ public class Contestant {
 
     public void endTurn() {
         Logger.log("End turn", "end of " + name + "'s turn");
-//        checkForDeadMinions();
+        immuneHero = false;
         waitingForTarget = false;
     }
 
@@ -157,10 +158,9 @@ public class Contestant {
         new Thread(new Runnable() {
             @Override
             public void run() {
-//                checkForDeadMinions();
                 if (card.getMana() <= mana) {
                     waitingForTarget = false;
-                    hand.remove(card);
+                    safeRemove(hand, card);
                     mana -= card.getMana();
                     Logger.log("Card Played", card.getName());
                     switch (card.getType()) {
@@ -168,7 +168,18 @@ public class Contestant {
                             if (planted.size() < 7) {
                                 planted.add(getNewPlantedCardIndex(numberOnLeft), card);
                                 System.out.println("card name = " + card.getName());
-                                System.out.println(card.getType());
+                                if (((Minion) card).hasBattlecry()) {
+                                    try {
+                                        Spell battlecry = (Spell) GameHandler.getGameHandler().getCard
+                                                (card.getName() + " Battlecry");
+                                        battlecry.setContestant(Playground.getPlayground().getCurrentContestant());
+                                        PlayCards.playSpell(battlecry);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
                             }
                             break;
                         case "Weapon":
@@ -365,6 +376,25 @@ public class Contestant {
 
     public void setChoiceOfWeapon(Card choiceOfWeapon) {
         this.choiceOfWeapon = choiceOfWeapon;
+    }
+
+    public <T> void safeRemove(ArrayList<T> arrayList, T item) {
+        int index;
+        boolean flag;
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (arrayList.get(i) == item) {
+                arrayList.remove(i);
+                break;
+            }
+        }
+    }
+
+    public boolean isImmuneHero() {
+        return immuneHero;
+    }
+
+    public void setImmuneHero(boolean immuneHero) {
+        this.immuneHero = immuneHero;
     }
 
     public int getPlantedCardIndex(Card card) {

@@ -58,8 +58,7 @@ public class GameHandler {
     }
 
     public Card getCard(String cardName) {
-        Card newCard = allCards.get(cardName).clone();
-        return newCard;
+        return allCards.get(cardName).clone();
     }
 
     public Deck getDefaultOpponentDeck() {
