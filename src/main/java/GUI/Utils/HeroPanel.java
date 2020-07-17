@@ -3,6 +3,7 @@ package GUI.Utils;
 import Cards.Card;
 import Cards.Minion;
 import Cards.Weapon;
+import Heroes.Hero;
 import Places.Playground;
 import Utilities.ImageLoader;
 
@@ -10,9 +11,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class CardPanel extends JPanel {
+public class HeroPanel extends JPanel {
     private String backgroundImagePath;
-    private Card card;
+    private Hero hero;
     private int width;
     private int height;
     private double scaleFactorX = 1;
@@ -24,13 +25,13 @@ public class CardPanel extends JPanel {
 //        this.card = card;
 //    }
 
-    public CardPanel(Card card) {
+    public HeroPanel(Hero hero) {
         this.setOpaque(false);
-        this.backgroundImagePath = "cards/" + card.getName() + ".png";
-        this.card = card;
+        this.backgroundImagePath = "heroes/" + hero.getType() + ".png";
+        this.hero = hero;
     }
 
-    public CardPanel() {
+    public HeroPanel() {
         this.setOpaque(false);
     }
 
@@ -48,8 +49,8 @@ public class CardPanel extends JPanel {
         this.backgroundImagePath = backgroundImagePath;
     }
 
-    public void setCard(Card card) {
-        this.card = card;
+    public void setHero(Hero hero) {
+        this.hero = hero;
     }
 
     public void setDrawLocation(int x, int y, int width, int height) {
@@ -67,8 +68,8 @@ public class CardPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setFont(new Font("Arial", Font.BOLD, 20));
-        g2d.setColor(Color.RED);
+        g2d.setFont(new Font("Arial", Font.BOLD, 30));
+        g2d.setColor(Color.GREEN);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
         if (backgroundImagePath != null) {
@@ -76,62 +77,32 @@ public class CardPanel extends JPanel {
             Image newImage = image.getScaledInstance((int) (image.getWidth() * scaleFactorX),
                     (int) (image.getHeight() * scaleFactorY), java.awt.Image.SCALE_SMOOTH);
             g2d.drawImage(newImage, 0, 0, null);
-            if (card != null) {
-                drawCardStatistics(g2d, (int) (image.getWidth() * scaleFactorX), (int) (image.getHeight() * scaleFactorY));
+            if (hero != null) {
+                drawHeroHP(g2d, (int) (image.getWidth() * scaleFactorX), (int) (image.getHeight() * scaleFactorY));
             }
         }
     }
 
-    void drawCardStatistics(Graphics2D g2d, int x, int y) {
-        drawCardMana(g2d, x, y);
-        if (card instanceof Minion) {
-            drawMinionStatistics(g2d, x, y);
-        } else if (card instanceof Weapon) {
-            drawWeaponStatistics(g2d, x, y);
-        }
-    }
-
-    void drawCardMana(Graphics2D g2d, int x, int y) {
-        g2d.drawString("" + card.getMana(), getProperLeftXPosition(x, card.getMana()), getProperUpYPosition(y));
-    }
-
-    void drawMinionStatistics(Graphics2D g2d, int x, int y) {
-        g2d.drawString("" + ((Minion) card).getHp(),
-                getProperRightXPosition(x, ((Minion) card).getHp()), getProperDownYPosition(y));
-        g2d.drawString("" + ((Minion) card).getAttackPower(),
-                getProperLeftXPosition(x, ((Minion) card).getAttackPower()), getProperDownYPosition(y));
-    }
-
-    void drawWeaponStatistics(Graphics2D g2d, int x, int y) {
-        g2d.drawString("" + ((Weapon) card).getDurability(),
-                getProperRightXPosition(x, ((Weapon) card).getDurability()), getProperDownYPosition(y));
-        g2d.drawString("" + ((Weapon) card).getAttackPower(),
-                getProperLeftXPosition(x, ((Weapon) card).getAttackPower()), getProperDownYPosition(y));
-    }
-
-    int getProperLeftXPosition(int x, int number) {
-        if (number < 10) {
-            return (int) (0.1 * x);
-        }
-        return (int) (0.05 * x);
+    void drawHeroHP(Graphics2D g2d, int x, int y) {
+        g2d.drawString("" + hero.getHp(), getProperRightXPosition(x, hero.getHp()), getProperDownYPosition(y));
     }
 
     int getProperRightXPosition(int x, int number) {
         if (number < 10) {
-            return (int) (0.82 * x);
+            return (int) (0.81 * x);
         }
         return (int) (0.77 * x);
     }
 
     int getProperDownYPosition(int y) {
-        return (int) (0.95 * y);
+        return (int) (0.72 * y);
     }
 
     int getProperUpYPosition(int y) {
         return (int) (0.2 * y);
     }
 
-    public Card getCard() {
-        return card;
+    public Hero getHero() {
+        return hero;
     }
 }

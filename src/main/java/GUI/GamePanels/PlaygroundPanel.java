@@ -8,6 +8,7 @@ import GUI.Events.*;
 import GUI.Listeners.*;
 import GUI.Utils.BackgroundedPanel;
 import GUI.Utils.CardPanel;
+import GUI.Utils.HeroPanel;
 import GUI.Utils.MovingPanelThread;
 import GameHandler.ContestantState;
 import Logger.Logger;
@@ -470,7 +471,8 @@ public class PlaygroundPanel extends GamePanel {
 
     private void initHeroPanel(PlaygroundConstants constants, int index) {
         Contestant contestant = Playground.getPlayground().getContestant(index);
-        BackgroundedPanel heroPanel = new BackgroundedPanel("heroes/" + contestant.getHero() + ".png");
+        HeroPanel heroPanel = new HeroPanel(contestant.getHero());
+//        BackgroundedPanel heroPanel = new BackgroundedPanel("heroes/" + contestant.getHero() + ".png");
         heroPanel.setScaleFactor(constants.HERO_PANEL_X_SCALE_FACTOR, constants.HERO_PANEL_Y_SCALE_FACTOR);
         heroPanel.setDrawLocation((int) (constants.HERO_PANEL_X * screenWidth),
                 (int) (constants.HERO_PANEL_Y * screenHeight), constants.HERO_PANEL_WIDTH, constants.HERO_PANEL_HEIGHT);

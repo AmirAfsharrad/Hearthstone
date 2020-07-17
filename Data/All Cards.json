@@ -263,7 +263,7 @@
     "rarity": "Rare",
     "target": [1, 0],
     "damage": [5, 0],
-    "giveHealth": [0],
+    "giveHealth": [5, 1, 0, 1],
     "draw": [0],
     "destroy":[0],
     "setAbilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
