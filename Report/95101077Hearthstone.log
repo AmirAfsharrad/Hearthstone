@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.1.19)  6 MAY 2020 22:12
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.1.19)  18 JUL 2020 22:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -843,105 +843,38 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1] [2
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
+] [3
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
-
- []
-
-[3
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 195--196
-
- []
-
-[4
+] [4
 
 ]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <20> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 201.
 
-Underfull \hbox (badness 10000) in paragraph at lines 202--203
-
- []
-
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <15> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 205.
-File: loginPanel.JPG Graphic file (type bmp)
-<loginPanel.JPG>
-File: mainmenuPanel.JPG Graphic file (type bmp)
-<mainmenuPanel.JPG>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 [5
 
-]
-File: collectionPanel1.JPG Graphic file (type bmp)
-<collectionPanel1.JPG>
+] [6]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <15> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 259.
+ [7
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-File: collectionPanel2.JPG Graphic file (type bmp)
-<collectionPanel2.JPG>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-File: StorePanel.JPG Graphic file (type bmp)
-<StorePanel.JPG>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-File: statusPanel1.JPG Graphic file (type bmp)
-<statusPanel1.JPG>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-File: statusPanel2.JPG Graphic file (type bmp)
-<statusPanel2.JPG>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-File: playPanel.JPG Graphic file (type bmp)
-<playPanel.JPG>
-[6]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[7] [8] [9] [10
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
-
- []
-
-[11
-
-] [12
-
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 303.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 303.
+] [8]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 302.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
  (./95101077Hearthstone.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 303.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 303.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 302.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 302.
 Package rerunfilecheck Info: File `95101077Hearthstone.out' has not changed.
-(rerunfilecheck)             Checksum: 50F54CFF60DB71901FAC038EEC60ED49.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 303.
+(rerunfilecheck)             Checksum: 63F2559CA879A9880CCE2F2D46A9E7F3.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 302.
  ) 
 Here is how much of TeX's memory you used:
- 29473 strings out of 492970
- 606689 string characters out of 6137298
- 798952 words of memory out of 5000000
- 33050 multiletter control sequences out of 15000+600000
+ 29431 strings out of 492970
+ 605986 string characters out of 6137298
+ 799952 words of memory out of 5000000
+ 33017 multiletter control sequences out of 15000+600000
  8765 words of font info for 48 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 55i,11n,65p,926b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,11n,65p,789b,433s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 95101077Hearthstone.pdf (13 pages).
+Output written on 95101077Hearthstone.pdf (9 pages).

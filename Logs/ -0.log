@@ -17303,3 +17303,24 @@ Start turn, 2020-07-18T18:43:58.038756700, start of system's turn
 Button Pressed, 2020-07-18T18:44:01.334135700, Swarm of locusts
 Card Played, 2020-07-18T18:44:01.340120400, Swarm of locusts
 quit, 2020-07-18T18:44:05.031312900, quit the game
+login, 2020-07-18T19:12:12.271653500,  as  
+Button Pressed, 2020-07-18T19:12:16.176952400, Status
+Button Pressed, 2020-07-18T19:12:18.016761200, Amir
+quit, 2020-07-18T19:12:52.670324500, quit the game
+login, 2020-07-18T19:12:57.956524600,  as  
+Button Pressed, 2020-07-18T19:13:00.975149400, Status
+Button Pressed, 2020-07-18T19:13:02.286247900, Amir
+quit, 2020-07-18T19:13:22.416411200, quit the game
+login, 2020-07-18T19:13:27.845115200,  as  
+Button Pressed, 2020-07-18T19:13:28.751288800, Collections
+Button Pressed, 2020-07-18T19:13:31.189364900, Amir
+Button Pressed, 2020-07-18T19:13:32.370414200, Play
+Button Pressed, 2020-07-18T19:13:34.580776200, null
+Button Pressed, 2020-07-18T19:13:37.545838200, Main Menu
+Button Pressed, 2020-07-18T19:13:39.942415, Collections
+Button Pressed, 2020-07-18T19:13:44.210005700, Main Menu
+Button Pressed, 2020-07-18T19:13:45.204344800, Status
+Button Pressed, 2020-07-18T19:13:46.097955500, Amir
+Button Pressed, 2020-07-18T19:13:49.667411300, Back
+Button Pressed, 2020-07-18T19:13:50.640807500, New Deck 2
+quit, 2020-07-18T19:13:54.655075500, quit the game

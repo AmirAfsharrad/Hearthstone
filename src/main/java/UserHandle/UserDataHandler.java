@@ -145,9 +145,13 @@ public class UserDataHandler {
                     Hero hero = HeroCreator.createHero(heroName);
                     String name = (String) ((JSONObject) deck).get("name");
                     JSONArray cards = (JSONArray) ((JSONObject) deck).get("cardsNames");
+                    Long totalWin = (Long) ((JSONObject) deck).get("totalWin");
+                    Long totalGames = (Long) ((JSONObject) deck).get("totalGames");
 
                     Deck newDeck = new Deck(name);
                     newDeck.setHero(hero);
+                    newDeck.setTotalWinning(totalWin.intValue());
+                    newDeck.setTotalGamesPlayed(totalGames.intValue());
                     for (Object card : cards) {
                         newDeck.getCards().add(GameHandler.getGameHandler().getCard((String) card));
                     }

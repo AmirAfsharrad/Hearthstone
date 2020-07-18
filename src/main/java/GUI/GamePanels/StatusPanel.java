@@ -282,15 +282,15 @@ public class StatusPanel extends GamePanel {
         name.setFont(font);
         name.setForeground(Color.WHITE);
 
-        JLabel winRatio = new JLabel("Win ration: " + 0);
+        JLabel winRatio = new JLabel("Win ratio: " + deck.getWinningRatio());
         winRatio.setFont(font);
         winRatio.setForeground(Color.WHITE);
 
-        JLabel totalWin = new JLabel("Total winning: " + 0);
+        JLabel totalWin = new JLabel("Total winning: " + deck.getTotalWinning());
         totalWin.setFont(font);
         totalWin.setForeground(Color.WHITE);
 
-        JLabel totalPlayed = new JLabel("Total games played: " + 0);
+        JLabel totalPlayed = new JLabel("Total games played: " + deck.getTotalGamesPlayed());
         totalPlayed.setFont(font);
         totalPlayed.setForeground(Color.WHITE);
 

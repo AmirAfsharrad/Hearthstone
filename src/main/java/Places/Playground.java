@@ -23,6 +23,7 @@ public class Playground extends Place {
     private Contestant contestant0;
     private Contestant contestant1;
     private boolean gameFinished;
+    private Deck originalDeck;
     private int turn = 0;
 
     private Playground() {
@@ -39,7 +40,9 @@ public class Playground extends Place {
     }
 
     public void initGame(Deck inputDeck) {
+        originalDeck = inputDeck;
         gameLog = new ArrayList<>();
+        inputDeck.setTotalGamesPlayed(inputDeck.getTotalGamesPlayed() + 1);
         if (DeckReader.getInstance().isActive()) {
             contestant0.init(DeckReader.getInstance().getFriendly());
             contestant1.init(DeckReader.getInstance().getEnemy());
@@ -130,6 +133,7 @@ public class Playground extends Place {
     public void checkForGameFinish() {
         if (contestant0.getHero().getHp() == 0) {
             new ResponseDialog("", contestant0.getName() + " has won!");
+            originalDeck.setTotalWinning(originalDeck.getTotalWinning() + 1);
             gameFinished = true;
         }
         if (contestant1.getHero().getHp() == 0) {

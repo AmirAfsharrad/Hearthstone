@@ -45,6 +45,7 @@
     "sign up time": "2020-05-05T12:15:56.127054600",
     "decks": [
       {
+        "totalGames": 0,
         "cardsNames": [
           "Goldshire Footman",
           "Sunreaver Warmage",
@@ -62,9 +63,11 @@
           "Learn Draconic"
         ],
         "name": "Sample Deck",
-        "heroName": "Rogue"
+        "heroName": "Rogue",
+        "totalWin": 0
       },
       {
+        "totalGames": 1,
         "cardsNames": [
           "Goldshire Footman",
           "Sunreaver Warmage",
@@ -83,9 +86,11 @@
           "Gnomish Army Knife"
         ],
         "name": "Amir",
-        "heroName": "Paladin"
+        "heroName": "Paladin",
+        "totalWin": 0
       },
       {
+        "totalGames": 0,
         "cardsNames": [
           "High Priest Amet",
           "High Priest Amet",
@@ -103,9 +108,11 @@
           "Swamp King Dred"
         ],
         "name": "New Deck 1",
-        "heroName": "Priest"
+        "heroName": "Priest",
+        "totalWin": 0
       },
       {
+        "totalGames": 0,
         "cardsNames": [
           "Goldshire Footman",
           "Goldshire Footman",
@@ -123,7 +130,8 @@
           "Curio Collector"
         ],
         "name": "New Deck 2",
-        "heroName": "Warlock"
+        "heroName": "Warlock",
+        "totalWin": 0
       }
     ],
     "current hero index": 0

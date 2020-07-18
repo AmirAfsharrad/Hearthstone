@@ -12,6 +12,8 @@ public class Deck {
     private ArrayList<Card> cards;
     private Hero hero;
     private String name;
+    private int totalWinning;
+    private int totalGamesPlayed;
 
     public Deck() {
         cards = new ArrayList<>();
@@ -80,6 +82,26 @@ public class Deck {
         return hashMapOfCards;
     }
 
+    public int getTotalWinning() {
+        return totalWinning;
+    }
+
+    public void setTotalWinning(int totalWinning) {
+        this.totalWinning = totalWinning;
+    }
+
+    public int getTotalGamesPlayed() {
+        return totalGamesPlayed;
+    }
+
+    public void setTotalGamesPlayed(int totalGamesPlayed) {
+        this.totalGamesPlayed = totalGamesPlayed;
+    }
+
+    public int getWinningRatio () {
+        return totalWinning * 100 / (totalGamesPlayed == 0 ? 1 : totalGamesPlayed);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -99,6 +121,8 @@ public class Deck {
         deckObject.put("name", name);
         deckObject.put("cardsNames", cardsNames);
         deckObject.put("heroName", hero.getType());
+        deckObject.put("totalGames", totalGamesPlayed);
+        deckObject.put("totalWin", totalWinning);
 
         return deckObject;
     }
