@@ -3,13 +3,16 @@ package Places;
 import Cards.Deck;
 import Cards.Minion;
 import Cards.Weapon;
+import GUI.Dialogs.ResponseDialog;
 import GUI.Events.HeroButtonPressedEvent;
+import GUI.Events.HeroPowerPressedEvent;
 import GUI.Events.PlantedCardPressedEvent;
 import GUI.Events.WeaponPressedEvent;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
 import Logger.Logger;
 import UserHandle.Contestant;
+import Utilities.DeckReader;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,6 +22,7 @@ public class Playground extends Place {
     private ArrayList<String> gameLog;
     private Contestant contestant0;
     private Contestant contestant1;
+    private boolean gameFinished;
     private int turn = 0;
 
     private Playground() {
@@ -36,8 +40,13 @@ public class Playground extends Place {
 
     public void initGame(Deck inputDeck) {
         gameLog = new ArrayList<>();
-        contestant0.init(inputDeck);
-        contestant1.init(GameHandler.getGameHandler().getDefaultOpponentDeck());
+        if (DeckReader.getInstance().isActive()) {
+            contestant0.init(DeckReader.getInstance().getFriendly());
+            contestant1.init(DeckReader.getInstance().getEnemy());
+        } else {
+            contestant0.init(inputDeck);
+            contestant1.init(GameHandler.getGameHandler().getDefaultOpponentDeck());
+        }
     }
 
     public static Playground getPlayground() {
@@ -112,16 +121,43 @@ public class Playground extends Place {
         Playground.getPlayground().getContestant1().checkForDeadMinions();
     }
 
+    public void manageHeroPowerPressed(HeroPowerPressedEvent heroPowerPressedEvent) throws IOException {
+        if (heroPowerPressedEvent.getContestantIndex() != turn)
+            return;
+        getCurrentContestant().runHeroPower();
+    }
+
+    public void checkForGameFinish() {
+        if (contestant0.getHero().getHp() == 0) {
+            new ResponseDialog("", contestant0.getName() + " has won!");
+            gameFinished = true;
+        }
+        if (contestant1.getHero().getHp() == 0) {
+            new ResponseDialog("", "player2 has won!");
+            gameFinished = true;
+        }
+    }
+
     public void manageSelectedHero(HeroButtonPressedEvent heroButtonPressedEvent) {
         if (getCurrentContestant().isWaitingForTarget()) {
             getCurrentContestant().setTarget(heroButtonPressedEvent.getHero());
+            System.out.println("SET HERO TO " + heroButtonPressedEvent.getHero().getName());
         }
     }
 
     public ArrayList<String> getGameLog() {
         return gameLog;
     }
-//
+
+    public boolean isGameFinished() {
+        return gameFinished;
+    }
+
+    public void setGameFinished(boolean gameFinished) {
+        this.gameFinished = gameFinished;
+    }
+
+    //
 //    public void setPassive(String passive) {
 //        this.passive = passive;
 //    }

@@ -4,20 +4,21 @@ import Cards.*;
 import GameHandler.ContestantState;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
-import GameLogic.Interfaces.Attackable;
-import GameLogic.Interfaces.Attacker;
-import GameLogic.Interfaces.Target;
+import GameLogic.Interfaces.*;
 import GameLogic.PlayCards;
 import GameLogic.Visitors.DealDamageVisitor;
 import GameLogic.Visitors.GiveHealthVisitor;
-import GameLogic.WaitingForTargetThread;
+import GameLogic.Visitors.ModifyAttackVisitor;
 import Heroes.Hero;
+import Heroes.Mage;
+import Heroes.Paladin;
+import Heroes.Rogue;
 import Logger.Logger;
 import Places.Playground;
-import sun.jvm.hotspot.gc.shared.Space;
+import Utilities.DeckReader;
 
+import javax.swing.*;
 import java.io.IOException;
-import java.lang.management.MemoryNotificationInfo;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
@@ -32,16 +33,24 @@ public class Contestant {
     private Spell currentSpell;
     private Card choiceOfWeapon;
     private boolean hasWeapon;
+    private boolean freePower;
+    private boolean hasNurse;
     private boolean waitingForTarget;
     private int mana;
     private int turnFullManas;
     private String passive;
     private boolean drawTwice;
-    private ContestantState state;
+    private ContestantState state = ContestantState.Normal;
     private Target target;
     private boolean[] initialHandModificationCheck = new boolean[3];
     private boolean immuneHero;
     private Quest activeQuest;
+    private int heroPowerNumber;
+
+    public Contestant(String name) {
+        this.name = name;
+        passive = "";
+    }
 
     public Target getTarget() {
         return target;
@@ -49,11 +58,6 @@ public class Contestant {
 
     public void setTarget(Target target) {
         this.target = target;
-    }
-
-    public Contestant(String name) {
-        this.name = name;
-        passive = "";
     }
 
     public void init(Deck inputDeck) {
@@ -95,14 +99,25 @@ public class Contestant {
 //            }
 //        }
         for (int i = 0; i < Math.min(3 - count, deck.size()); i++) {
-            hand.add(popRandomCard(deck));
+            if (DeckReader.getInstance().isActive()) {
+                deck.get(0).setContestant(this);
+                hand.add(deck.get(0));
+                deck.remove(0);
+            } else {
+                hand.add(popRandomCard(deck));
+            }
         }
     }
 
     public void initPassiveProcess() {
         switch (passive) {
-            case "zombie": {
-                hero.setHeroPower("Zombie");
+            case "off cards": {
+                for (Card card : deck) {
+                    card.setMana(Math.max(0, card.getMana() - 1));
+                }
+                for (Card card : hand) {
+                    card.setMana(Math.max(0, card.getMana() - 1));
+                }
                 break;
             }
             case "mana jump": {
@@ -112,14 +127,31 @@ public class Contestant {
             }
             case "draw twice": {
                 drawTwice = true;
+                break;
+            }
+            case "free power": {
+                freePower = true;
+                break;
+            }
+            case "nurse": {
+                hasNurse = true;
+                break;
             }
         }
     }
 
+
     public void drawRandomCard(boolean noSpell) {
         if (hand.size() < 12) {
             if (deck.size() > 0) {
-                Card card = popRandomCard(deck);
+                Card card;
+                if (DeckReader.getInstance().isActive()) {
+                    card = deck.get(0);
+                    deck.remove(0);
+                } else {
+                    card = popRandomCard(deck);
+                }
+
                 drawEffectHandle(card);
                 if (!card.getType().equals("Spell") || !noSpell)
                     hand.add(card);
@@ -154,11 +186,26 @@ public class Contestant {
         if (drawTwice) {
             drawRandomCard(false);
         }
+        if (hero instanceof Rogue && currentWeapon != null) {
+            ((Rogue) hero).setUpgradedHeroPower(true);
+        }
         plantedAttackValuesInitiate();
         startTurnMinionEffectHandle();
         startTurnWeaponEffectHandle();
+        if (hero instanceof Rogue) {
+            ((Rogue) hero).initUpgradedHeroPower();
+        }
         checkForDeadMinions();
+        initHeroPowerNumber();
         Playground.getPlayground().getOpponentContestant().checkForDeadMinions();
+    }
+
+
+    private void initHeroPowerNumber() {
+        if (freePower)
+            heroPowerNumber = 2;
+        else
+            heroPowerNumber = 1;
     }
 
     private void startTurnMinionEffectHandle() throws IOException {
@@ -202,6 +249,7 @@ public class Contestant {
     }
 
     public void endTurn() throws IOException {
+        Playground.getPlayground().checkForGameFinish();
         Logger.log("End turn", "end of " + name + "'s turn");
         immuneHero = false;
         waitingForTarget = false;
@@ -210,6 +258,20 @@ public class Contestant {
             hasWeapon = false;
         }
         endTurnMinionEffectHandle();
+        if (hero instanceof Paladin) {
+            Minion minion = (Minion) getRandomCardFrom(planted, true);
+            if (minion != null) {
+                minion.acceptHealth(GiveHealthVisitor.getInstance(), 1, false, false);
+                minion.acceptAttackModification(ModifyAttackVisitor.getInstance(), 1);
+            }
+        }
+        if (hasNurse) {
+            Minion minion = getDamagedMinion();
+            if (minion != null) {
+                minion.acceptHealth(GiveHealthVisitor.getInstance(),
+                        100, false, true);
+            }
+        }
     }
 
     private void endTurnMinionEffectHandle() throws IOException {
@@ -246,7 +308,14 @@ public class Contestant {
     }
 
     private void spendMana(Card card) {
-        mana -= card.getMana();
+        if (card instanceof Spell && hero instanceof Mage) {
+            mana -= (Math.max(card.getMana() - 2, 0));
+        } else if (hero instanceof Rogue && !card.getHeroClass().equals("Rogue") && !card.getHeroClass().equals("Neutral")) {
+            mana -= (Math.max(card.getMana() - 2, 0));
+        } else {
+            mana -= card.getMana();
+        }
+
         if (activeQuest != null) {
             handleQuestCompletion(card);
         }
@@ -275,7 +344,11 @@ public class Contestant {
                     activeQuest.setCompletion(completion * 10);
                     System.out.println("Quest completion = " + completion);
                     if (completion == 10) {
-                        Minion minion = getRandomMinionFromDeck();
+                        Minion minion = (Minion) getRandomCardFrom(deck, true);
+                        if (DeckReader.getInstance().isActive()) {
+                            minion = (Minion) DeckReader.getInstance().getQuestReward();
+                        }
+                        minion.setContestant(this);
                         if (minion != null) {
                             safeRemove(deck, minion);
                             summon(minion);
@@ -287,11 +360,11 @@ public class Contestant {
         }
     }
 
-    private Minion getRandomMinionFromDeck() {
+    private Card getRandomCardFrom(ArrayList<Card> cards, boolean getMinion) {
         ArrayList<Integer> indices = new ArrayList<>();
         int index = 0;
-        for (Card card : deck) {
-            if (card instanceof Minion) {
+        for (Card card : cards) {
+            if (!getMinion || card instanceof Minion) {
                 indices.add(index);
             }
             index++;
@@ -299,7 +372,24 @@ public class Contestant {
         Random random = new Random();
         if (indices.size() > 0) {
             index = random.nextInt(indices.size());
-            return (Minion) deck.get(index);
+            return cards.get(index);
+        }
+        return null;
+    }
+
+    private Minion getDamagedMinion() {
+        ArrayList<Integer> indices = new ArrayList<>();
+        int index = 0;
+        for (Card card : planted) {
+            if (((Minion) card).getHp() < ((Minion) card).getOriginalHp()) {
+                indices.add(index);
+            }
+            index++;
+        }
+        Random random = new Random();
+        if (indices.size() > 0) {
+            index = random.nextInt(indices.size());
+            return (Minion) planted.get(index);
         }
         return null;
     }
@@ -337,6 +427,137 @@ public class Contestant {
             }
         }).start();
     }
+
+    public void runHeroPower() throws IOException {
+        int heroPowerCost = freePower ? 1 : 2;
+        if (heroPowerNumber == 0)
+            return;
+
+        if (mana < heroPowerCost)
+            return;
+
+        heroPowerNumber--;
+        mana -= heroPowerCost;
+
+        switch (hero.getType()) {
+            case "Mage":
+                waitingForTarget = true;
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Contestant contestant = Playground.getPlayground().getCurrentContestant();
+                        Contestant opponentContestant = Playground.getPlayground().getOpponentContestant();
+                        Object target = null;
+
+                        System.out.println("WAITING for attack target");
+
+                        while (contestant.getTarget() == null || contestant.getTarget().getContestant() == contestant) {
+                            try {
+                                Thread.sleep(50);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        System.out.println("target received");
+                        System.out.println("target = " + contestant.getTarget().getName());
+                        target = contestant.getTarget();
+                        contestant.setTarget(null);
+                        contestant.setWaitingForTarget(false);
+                        if (!(target instanceof Minion && ((Minion) target).isStealth())
+                                && !(target instanceof Minion && ((Minion) target).getContestant() == contestant)
+                                && !(target instanceof Hero && target == contestant.getHero())) {
+                            ((Damageable) target).acceptDamage(DealDamageVisitor.getInstance(), 2);
+                        }
+                        try {
+                            contestant.checkForDeadMinions();
+                            opponentContestant.checkForDeadMinions();
+                            GameState.getGameState().refreshMainFrame();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+                break;
+
+            case "Rogue":
+                if (mana > 0) {
+                    mana--;
+                } else {
+                    mana += 2;
+                    break;
+                }
+                Card card = getRandomCardFrom(Playground.getPlayground().getOpponentContestant().getDeck(), false);
+                if (card != null) {
+                    safeRemove(Playground.getPlayground().getOpponentContestant().getDeck(), card);
+                    card.setContestant(this);
+                    deck.add(card);
+                }
+                if (((Rogue) hero).isUpgradedHeroPower()) {
+                    card = getRandomCardFrom(Playground.getPlayground().getOpponentContestant().getHand(), false);
+                    if (card != null) {
+                        safeRemove(Playground.getPlayground().getOpponentContestant().getHand(), card);
+                        card.setContestant(this);
+                        hand.add(card);
+                    }
+                }
+                break;
+
+            case "Warlock":
+                Random random = new Random();
+                hero.setHp(Math.max(hero.getHp() - 2, 0));
+                Playground.getPlayground().checkForGameFinish();
+                int rand = random.nextInt(2);
+                if (rand == 1) {
+                    Minion minion = (Minion) getRandomCardFrom(planted, true);
+                    if (minion != null) {
+                        minion.setHp(minion.getHp() + 1);
+                        minion.setAttackPower(minion.getAttackPower() + 1);
+                    }
+                } else {
+                    drawRandomCard(false);
+                }
+                break;
+
+            case "Paladin":
+                for (int i = 0; i < 2; i++) {
+                    Minion minion = (Minion) GameHandler.getGameHandler().getCard("Silver Hand Recruit");
+                    minion.setContestant(this);
+                    summon(minion);
+                }
+                break;
+
+            case "Priest":
+                waitingForTarget = true;
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Contestant contestant = Playground.getPlayground().getCurrentContestant();
+                        Object target = null;
+
+                        System.out.println("WAITING for attack target");
+
+                        while (contestant.getTarget() == null || contestant.getTarget().getContestant() != contestant) {
+                            try {
+                                Thread.sleep(50);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        System.out.println("target received");
+                        System.out.println("target = " + contestant.getTarget().getName());
+                        target = contestant.getTarget();
+                        contestant.setTarget(null);
+                        contestant.setWaitingForTarget(false);
+
+                        ((HealthTaker) target).acceptHealth(GiveHealthVisitor.getInstance(),
+                                4, false, true);
+                    }
+                }).start();
+                break;
+        }
+        GameState.getGameState().refreshMainFrame();
+    }
+
 
     public void initiateAttack(Attacker attacker, int attackValue) {
         new Thread(new Runnable() {
@@ -433,28 +654,48 @@ public class Contestant {
         return mana;
     }
 
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
     public int getTurnFullManas() {
         return turnFullManas;
+    }
+
+    public void setTurnFullManas(int turnFullManas) {
+        this.turnFullManas = turnFullManas;
     }
 
     public ArrayList<Card> getPlanted() {
         return planted;
     }
 
+    public void setPlanted(ArrayList<Card> planted) {
+        this.planted = planted;
+    }
+
     public ArrayList<Card> getHand() {
         return hand;
+    }
+
+    public void setHand(ArrayList<Card> hand) {
+        this.hand = hand;
     }
 
     public Hero getHero() {
         return hero;
     }
 
-    public void setPassive(String passive) {
-        this.passive = passive;
+    public void setHero(Hero hero) {
+        this.hero = hero;
     }
 
     public Weapon getCurrentWeapon() {
         return currentWeapon;
+    }
+
+    public void setCurrentWeapon(Weapon currentWeapon) {
+        this.currentWeapon = currentWeapon;
     }
 
     public boolean hasWeapon() {
@@ -465,12 +706,28 @@ public class Contestant {
         return waitingForTarget;
     }
 
+    public void setWaitingForTarget(boolean waitingForTarget) {
+        if (waitingForTarget)
+            state = ContestantState.waitingForTarget;
+        else
+            state = ContestantState.Normal;
+        this.waitingForTarget = waitingForTarget;
+    }
+
     public Spell getCurrentSpell() {
         return currentSpell;
     }
 
+    public void setCurrentSpell(Spell currentSpell) {
+        this.currentSpell = currentSpell;
+    }
+
     public ContestantState getState() {
         return state;
+    }
+
+    public void setState(ContestantState state) {
+        this.state = state;
     }
 
     public boolean hasTaunt() {
@@ -497,32 +754,12 @@ public class Contestant {
         this.activeQuest = activeQuest;
     }
 
-    public void setPlanted(ArrayList<Card> planted) {
-        this.planted = planted;
-    }
-
-    public void setHand(ArrayList<Card> hand) {
-        this.hand = hand;
-    }
-
     public ArrayList<Card> getDeck() {
         return deck;
     }
 
     public void setDeck(ArrayList<Card> deck) {
         this.deck = deck;
-    }
-
-    public void setHero(Hero hero) {
-        this.hero = hero;
-    }
-
-    public void setCurrentWeapon(Weapon currentWeapon) {
-        this.currentWeapon = currentWeapon;
-    }
-
-    public void setCurrentSpell(Spell currentSpell) {
-        this.currentSpell = currentSpell;
     }
 
     public boolean isHasWeapon() {
@@ -533,20 +770,12 @@ public class Contestant {
         this.hasWeapon = hasWeapon;
     }
 
-    public void setWaitingForTarget(boolean waitingForTarget) {
-        this.waitingForTarget = waitingForTarget;
-    }
-
-    public void setMana(int mana) {
-        this.mana = mana;
-    }
-
-    public void setTurnFullManas(int turnFullManas) {
-        this.turnFullManas = turnFullManas;
-    }
-
     public String getPassive() {
         return passive;
+    }
+
+    public void setPassive(String passive) {
+        this.passive = passive;
     }
 
     public boolean isDrawTwice() {
@@ -555,10 +784,6 @@ public class Contestant {
 
     public void setDrawTwice(boolean drawTwice) {
         this.drawTwice = drawTwice;
-    }
-
-    public void setState(ContestantState state) {
-        this.state = state;
     }
 
     public Card getChoiceOfWeapon() {

@@ -1,0 +1,42 @@
+{
+  "active": 1,
+  "friend": [
+    "Learn Draconic",
+    "Book of Specters",
+    "Goldshire Footman",
+    "Stonetusk Boar",
+    "Goldshire Footman",
+    "Arcane Missiles",
+    "Fireball",
+    "Holy Fire",
+    "Friendly Smith",
+    "Curio Collector",
+    "Pharaoh's Blessing",
+    "Polymorph",
+    "Sprint",
+    "Dreadscale",
+    "Polymorph",
+    "Bloodfen Raptor",
+    "Shieldbearer",
+    "Depth Charge",
+    "Sunreaver Warmage",
+    "Twilight Flamecaller",
+    "Novice Engineer",
+    "Mosh'Ogg Enforcer",
+    "Shadowfiend"
+  ],
+  "enemy": [
+    "Strength in Numbers->Security Rover",
+    "Dreadscale",
+    "Poisoned Dagger",
+    "Swarm of locusts",
+    "Tomb warden",
+    "Sathrovarr",
+    "Depth Charge",
+    "Sunreaver Warmage",
+    "Twilight Flamecaller",
+    "Goldshire Footman",
+    "Mosh'Ogg Enforcer",
+    "Security Rover"
+  ]
+}

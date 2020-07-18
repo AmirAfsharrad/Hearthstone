@@ -10,7 +10,7 @@ public class InfoPassive extends Place {
     private String[] passives;
 
     private InfoPassive() {
-        passives = new String[]{"draw twice", "mana jump", "nurse", "warriors", "zombie"};
+        passives = new String[]{"draw twice", "mana jump", "nurse", "off cards", "free power"};
     }
 
     public static InfoPassive getInfoPassive() {

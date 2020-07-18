@@ -756,5 +756,20 @@
     "turnStartDamage": [0],
     "turnEndDamage": [0],
     "drawEffect": [0, 0, 0]
+  },
+  {
+    "attackPower": 1,
+    "mana": 1,
+    "name": "Silver Hand Recruit",
+    "heroClass": "Neutral",
+    "description": "Reborn",
+    "hp": 1,
+    "type": "Minion",
+    "rarity": "Common",
+    "battlecry": [0],
+    "abilities": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "turnStartDamage": [0],
+    "turnEndDamage": [0],
+    "drawEffect": [0, 0, 0]
   }
 ]

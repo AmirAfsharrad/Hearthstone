@@ -1,6 +1,7 @@
 package GUI.GamePanels;
 
 import Cards.Card;
+import Cards.Minion;
 import Cards.Weapon;
 import GUI.Constants.LowerHalfConstants;
 import GUI.Constants.PlaygroundConstants;
@@ -63,6 +64,7 @@ public class PlaygroundPanel extends GamePanel {
     private ChoiceOfWeaponListener choiceOfWeaponListener;
     private HeroButtonPressedListener heroButtonPressedListener;
     private WeaponPressedListener weaponPressedListener;
+    private HeroPowerPressedListener heroPowerPressedListener;
 
     public PlaygroundPanel(int screenWidth, int screenHeight) throws IOException {
         super(screenWidth, screenHeight);
@@ -102,7 +104,10 @@ public class PlaygroundPanel extends GamePanel {
         });
     }
 
-    private void draw() {
+    private void draw() throws IOException {
+        if (Playground.getPlayground().isGameFinished()) {
+            changePlaceListener.ChangePlaceOccurred(new ChangePlaceEvent(this, MainMenu.getMainMenu()));
+        }
         System.out.println("draw method run");
         initReturnButtons();
 
@@ -198,7 +203,11 @@ public class PlaygroundPanel extends GamePanel {
                     }
                 }
                 turnTimer.reset();
-                refresh();
+                try {
+                    refresh();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
         this.add(endTurnButton);
@@ -298,11 +307,36 @@ public class PlaygroundPanel extends GamePanel {
         setPlantedCardsMouseListeners(playCardsOdd);
     }
 
+    private String createAbilityList(Minion minion) {
+        String abilities = "<html><center> ";
+        if (minion.isTaunt())
+            abilities += "Taunt <br />";
+        if (minion.isCharge())
+            abilities += "Charge <br />";
+        if (minion.isDivineShield())
+            abilities += "Divine Shield <br />";
+        if (minion.isRush())
+            abilities += "Rush <br />";
+        if (minion.isPoisonous())
+            abilities += "Poisonous <br />";
+        if (minion.isStealth())
+            abilities += "Stealth <br />";
+        if (minion.isWindfury())
+            abilities += "Windfury <br />";
+        if (minion.isLifesteal())
+            abilities += "Lifesteal <br />";
+        if (minion.isReborn())
+            abilities += "Reborn <br />";
+        abilities += " </center></html>";
+        return abilities;
+    }
+
     private void setPlantedCardsMouseListeners(CardPanel[] cardPanels) {
         for (CardPanel cardPanel : cardPanels) {
             if (cardPanel.getCard() == null) {
                 continue;
             }
+            cardPanel.setToolTipText(createAbilityList((Minion) cardPanel.getCard()));
             cardPanel.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent mouseEvent) {
@@ -323,7 +357,11 @@ public class PlaygroundPanel extends GamePanel {
                             }
                         }
                     }).start();
-                    refresh();
+                    try {
+                        refresh();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 @Override
@@ -452,7 +490,11 @@ public class PlaygroundPanel extends GamePanel {
                 if (playCardEventListener != null) {
                     playCardEventListener.PlayCardOccurred(playCardEvent);
                 }
-                refresh();
+                try {
+                    refresh();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -528,7 +570,11 @@ public class PlaygroundPanel extends GamePanel {
                         }
                     }
                 }).start();
-                refresh();
+                try {
+                    refresh();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -563,6 +609,39 @@ public class PlaygroundPanel extends GamePanel {
         heroPowerPanel.setDrawLocation((int) (constants.HERO_POWER_PANEL_X * screenWidth),
                 (int) (constants.HERO_POWER_PANEL_Y * screenHeight), constants.HERO_POWER_PANEL_WIDTH,
                 constants.HERO_POWER_PANEL_HEIGHT);
+
+        heroPowerPanel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                HeroPowerPressedEvent heroPowerPressedEvent = new HeroPowerPressedEvent(this, index);
+                try {
+                    heroPowerPressedListener.heroPowerPressedEventOccurred(heroPowerPressedEvent);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+
+            }
+        });
+
         this.add(heroPowerPanel);
     }
 
@@ -717,14 +796,7 @@ public class PlaygroundPanel extends GamePanel {
         this.playCardEventListener = playCardEventListener;
     }
 
-    private class Ticker extends TimerTask {
-        @Override
-        public void run() {
-            refresh();
-        }
-    }
-
-    public void refresh() {
+    public void refresh() throws IOException {
         clear();
         draw();
         revalidate();
@@ -761,6 +833,10 @@ public class PlaygroundPanel extends GamePanel {
 
     public void setWeaponPressedListener(WeaponPressedListener weaponPressedListener) {
         this.weaponPressedListener = weaponPressedListener;
+    }
+
+    public void setHeroPowerPressedListener(HeroPowerPressedListener heroPowerPressedListener) {
+        this.heroPowerPressedListener = heroPowerPressedListener;
     }
 
     public void selectWeapon() throws IOException {

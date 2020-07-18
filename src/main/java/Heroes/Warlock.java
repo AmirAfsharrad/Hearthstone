@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Warlock extends Hero {
     public Warlock() {
-        super(defaultHp, "Warlock", "Sacrificer");
+        super(35, "Warlock", "Sacrificer");
     }
 
     @Override

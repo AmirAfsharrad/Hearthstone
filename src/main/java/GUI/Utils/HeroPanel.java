@@ -9,6 +9,7 @@ import Utilities.ImageLoader;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 
 public class HeroPanel extends JPanel {
@@ -84,6 +85,12 @@ public class HeroPanel extends JPanel {
     }
 
     void drawHeroHP(Graphics2D g2d, int x, int y) {
+        Ellipse2D.Double circle = new Ellipse2D.Double(getProperRightXPosition(x, 10) * 1.01,
+                getProperDownYPosition(y) * 0.83, 40, 40);
+        g2d.setPaint(Color.RED);
+        g2d.fill(circle);
+
+        g2d.setPaint(Color.WHITE);
         g2d.drawString("" + hero.getHp(), getProperRightXPosition(x, hero.getHp()), getProperDownYPosition(y));
     }
 

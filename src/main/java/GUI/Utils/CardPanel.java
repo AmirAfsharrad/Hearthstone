@@ -8,6 +8,7 @@ import Utilities.ImageLoader;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 
 public class CardPanel extends JPanel {
@@ -17,12 +18,6 @@ public class CardPanel extends JPanel {
     private int height;
     private double scaleFactorX = 1;
     private double scaleFactorY = 1;
-
-//    public CardPanel(Card card, String backgroundImagePath) {
-//        this.setOpaque(false);
-//        this.backgroundImagePath = backgroundImagePath;
-//        this.card = card;
-//    }
 
     public CardPanel(Card card) {
         this.setOpaque(false);
@@ -92,19 +87,55 @@ public class CardPanel extends JPanel {
     }
 
     void drawCardMana(Graphics2D g2d, int x, int y) {
+        Ellipse2D.Double circle = new Ellipse2D.Double(getProperLeftXPosition(x, card.getMana()) * 0.8,
+                getProperUpYPosition(y) * 0.5,17, 17);
+        g2d.setPaint(Color.BLUE);
+        g2d.fill(circle);
+
+        g2d.setPaint(Color.WHITE);
         g2d.drawString("" + card.getMana(), getProperLeftXPosition(x, card.getMana()), getProperUpYPosition(y));
     }
 
     void drawMinionStatistics(Graphics2D g2d, int x, int y) {
+        Ellipse2D.Double circle = new Ellipse2D.Double(getProperRightXPosition(x, ((Minion) card).getHp()),
+                getProperDownYPosition(y) * 0.9,
+                17, 17);
+        g2d.setPaint(Color.RED);
+        g2d.fill(circle);
+
+        g2d.setPaint(Color.WHITE);
         g2d.drawString("" + ((Minion) card).getHp(),
                 getProperRightXPosition(x, ((Minion) card).getHp()), getProperDownYPosition(y));
+
+
+        circle = new Ellipse2D.Double(getProperLeftXPosition(x, ((Minion) card).getAttackPower()), getProperDownYPosition(y) * 0.9,
+                17, 17);
+        g2d.setPaint(Color.ORANGE);
+        g2d.fill(circle);
+
+        g2d.setPaint(Color.WHITE);
         g2d.drawString("" + ((Minion) card).getAttackPower(),
                 getProperLeftXPosition(x, ((Minion) card).getAttackPower()), getProperDownYPosition(y));
     }
 
     void drawWeaponStatistics(Graphics2D g2d, int x, int y) {
+        Ellipse2D.Double circle = new Ellipse2D.Double(getProperRightXPosition(x, ((Weapon) card).getDurability()),
+                getProperDownYPosition(y) * 0.9,
+                17, 17);
+        g2d.setPaint(Color.BLACK);
+        g2d.fill(circle);
+
+        g2d.setPaint(Color.WHITE);
         g2d.drawString("" + ((Weapon) card).getDurability(),
                 getProperRightXPosition(x, ((Weapon) card).getDurability()), getProperDownYPosition(y));
+
+
+        circle = new Ellipse2D.Double(getProperLeftXPosition(x, ((Weapon) card).getAttackPower()), getProperDownYPosition(y) * 0.9,
+                17, 17);
+        g2d.setPaint(Color.BLACK);
+        g2d.fill(circle);
+
+        g2d.setPaint(Color.WHITE);
         g2d.drawString("" + ((Weapon) card).getAttackPower(),
                 getProperLeftXPosition(x, ((Weapon) card).getAttackPower()), getProperDownYPosition(y));
     }

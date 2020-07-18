@@ -231,6 +231,12 @@ public class MainFrame extends JFrame {
                 Playground.getPlayground().manageWeaponPressed(weaponPressedEvent);
             }
         });
+        playgroundPanel.setHeroPowerPressedListener(new HeroPowerPressedListener() {
+            @Override
+            public void heroPowerPressedEventOccurred(HeroPowerPressedEvent heroPowerPressedEvent) throws IOException {
+                Playground.getPlayground().manageHeroPowerPressed(heroPowerPressedEvent);
+            }
+        });
     }
 
     private void initStatusPanel() throws IOException {

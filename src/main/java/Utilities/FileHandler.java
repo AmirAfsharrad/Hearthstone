@@ -28,16 +28,6 @@ public class FileHandler {
         return lines;
     }
 
-    public static String readFileInString(String path) {
-        try {
-            String text = Files.readString(Paths.get(path), StandardCharsets.UTF_8);
-            return text;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public static void writeListIntoFile(List list, String path){
         try {
             Files.write(Paths.get(path), list);

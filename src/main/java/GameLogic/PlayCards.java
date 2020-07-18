@@ -11,6 +11,7 @@ import GameLogic.Visitors.DealDamageVisitor;
 import GameLogic.Visitors.GiveHealthVisitor;
 import GameLogic.Visitors.ModifyAttackVisitor;
 import Heroes.Hero;
+import Heroes.Priest;
 import Places.Playground;
 import UserHandle.Contestant;
 
@@ -85,10 +86,13 @@ public class PlayCards {
 
         if (spell.getGiveHealth()[0] != 0) {
             int healthValue = spell.getGiveHealth()[0];
+            if (contestant.getHero() instanceof Priest) {
+                healthValue *= 2;
+            }
             boolean multiplicative = spell.getGiveHealth()[2] == 1;
             boolean restore = spell.getGiveHealth()[3] == 0;
             switch (spell.getGiveHealth()[1]) {
-                case 0 :
+                case 0:
                     if (target != null) {
                         ((HealthTaker) target).acceptHealth(GiveHealthVisitor.getInstance(), healthValue, multiplicative, restore);
                     }
@@ -124,8 +128,8 @@ public class PlayCards {
             for (int i = 0; i < 7 - limit; i++) {
                 System.out.println("Locust i = " + i);
                 Card card = GameHandler.getGameHandler().getCard("Locust");
-                card.setContestant(opponentContestant);
-                opponentContestant.summon(card);
+                card.setContestant(contestant);
+                contestant.summon(card);
             }
         }
 
@@ -147,7 +151,7 @@ public class PlayCards {
 
         if (spell.getName().equals("Friendly Smith")) {
             GameState.getGameState().getMainFrame().getPlaygroundPanel().selectWeapon();
-            while (contestant.getChoiceOfWeapon() == null){
+            while (contestant.getChoiceOfWeapon() == null) {
                 Thread.sleep(100);
             }
             Weapon weapon = (Weapon) contestant.getChoiceOfWeapon();
@@ -205,7 +209,7 @@ public class PlayCards {
         Card card1 = Playground.getPlayground().getOpponentContestant().hasPlantedCard("Swamp King Dred");
         if (card1 != null) {
             System.out.println("WE DO HAVE THAT SHIT!");
-            ((Minion) card1).setTurnAttack(((Minion) card1).getTurnAttack()+1);
+            ((Minion) card1).setTurnAttack(((Minion) card1).getTurnAttack() + 1);
             ((Minion) card1).attack((Attackable) card, ((Minion) card1).getAttackPower());
             try {
                 contestant.checkForDeadMinions();

@@ -4,6 +4,7 @@ import Cards.Minion;
 import Cards.Weapon;
 import GameHandler.GameHandler;
 import Heroes.Hero;
+import Places.Playground;
 
 public class DealDamageVisitor {
     private static DealDamageVisitor dealDamageVisitor = new DealDamageVisitor();
@@ -29,5 +30,6 @@ public class DealDamageVisitor {
     public void visit(Hero hero, int damageValue) {
         if (!hero.getContestant().isImmuneHero())
             hero.setHp(Math.max(hero.getHp() - damageValue, 0));
+        Playground.getPlayground().checkForGameFinish();
     }
 }
