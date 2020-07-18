@@ -94,4 +94,9 @@ public class PlaygroundConstants {
     public double TIMER_PANEL_Y = 0.35;
     public int TIMER_PANEL_WIDTH = 50;
     public int TIMER_PANEL_HEIGHT = 200;
+
+    public double QUEST_PANEL_X = 0.95;
+    public double QUEST_PANEL_Y;
+    public int QUEST_PANEL_WIDTH = 50;
+    public int QUEST_PANEL_HEIGHT = 200;
 }

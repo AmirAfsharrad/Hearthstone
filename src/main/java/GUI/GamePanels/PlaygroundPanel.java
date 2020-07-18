@@ -12,6 +12,7 @@ import GUI.Utils.CardPanel;
 import GUI.Utils.HeroPanel;
 import GUI.Utils.MovingPanelThread;
 import GameHandler.ContestantState;
+import GameLogic.PlayCards;
 import Logger.Logger;
 import Places.MainMenu;
 import Places.Playground;
@@ -45,6 +46,10 @@ public class PlaygroundPanel extends GamePanel {
     private JButton exitButton;
     private JPanel timerPanel;
     private JProgressBar progressBar;
+    private JPanel questPanelUp;
+    private JPanel questPanelDown;
+    private JProgressBar questProgressbarUp;
+    private JProgressBar questProgressbarDown;
     private ExitListener exitListener;
     private EndTurnListener endTurnListener;
     private ChangePlaceListener changePlaceListener;
@@ -75,6 +80,8 @@ public class PlaygroundPanel extends GamePanel {
         lostManasDown = new BackgroundedPanel[10];
         timerPanel = new JPanel();
         progressBar = new JProgressBar(SwingConstants.VERTICAL);
+        questProgressbarDown = new JProgressBar(SwingConstants.VERTICAL);
+        questProgressbarUp = new JProgressBar(SwingConstants.VERTICAL);
         draw();
         initTurnTimer();
     }
@@ -133,6 +140,9 @@ public class PlaygroundPanel extends GamePanel {
 
         drawManasPanel(manasDown, lostManasDown, 0);
         drawManasPanel(manasUp, lostManasUp, 1);
+
+        drawQuestPanel(lowerHalfConstants, questProgressbarDown, 0);
+        drawQuestPanel(upperHalfConstants, questProgressbarUp, 1);
 
         initEndTurnButton();
 
@@ -224,6 +234,21 @@ public class PlaygroundPanel extends GamePanel {
         for (int i = currentManas; i < fullManas; i++) {
             lostManas[i].setVisible(true);
         }
+    }
+
+    private void drawQuestPanel(PlaygroundConstants constants, JProgressBar progressBar, int index) {
+        Contestant contestant = Playground.getPlayground().getContestant(index);
+        if (contestant.getActiveQuest() == null)
+            return;
+        JPanel questPanel = new JPanel();
+        questPanel.setVisible(true);
+        questPanel.setOpaque(false);
+        progressBar.setValue(contestant.getActiveQuest().getCompletion());
+        progressBar.setForeground(Color.YELLOW);
+        questPanel.add(progressBar);
+        questPanel.setBounds((int) (constants.QUEST_PANEL_X * screenWidth),
+                (int) (constants.QUEST_PANEL_Y * screenHeight), constants.QUEST_PANEL_WIDTH, constants.QUEST_PANEL_HEIGHT);
+        this.add(questPanel);
     }
 
     private void initPlayCardsOdd(PlaygroundConstants constants, CardPanel[] playCardsOdd) {

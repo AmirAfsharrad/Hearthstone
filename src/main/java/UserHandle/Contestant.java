@@ -14,6 +14,7 @@ import GameLogic.WaitingForTargetThread;
 import Heroes.Hero;
 import Logger.Logger;
 import Places.Playground;
+import sun.jvm.hotspot.gc.shared.Space;
 
 import java.io.IOException;
 import java.lang.management.MemoryNotificationInfo;
@@ -40,6 +41,7 @@ public class Contestant {
     private Target target;
     private boolean[] initialHandModificationCheck = new boolean[3];
     private boolean immuneHero;
+    private Quest activeQuest;
 
     public Target getTarget() {
         return target;
@@ -243,6 +245,65 @@ public class Contestant {
         }
     }
 
+    private void spendMana(Card card) {
+        mana -= card.getMana();
+        if (activeQuest != null) {
+            handleQuestCompletion(card);
+        }
+    }
+
+    private void handleQuestCompletion(Card card) {
+        switch (activeQuest.getName()) {
+            case "Learn Draconic":
+                if (card instanceof Spell) {
+                    int completion = (int) Math.ceil(activeQuest.getCompletion() * 8.0 / 100);
+                    completion = Math.min(8, completion + card.getMana());
+                    activeQuest.setCompletion(completion * 100 / 8);
+                    System.out.println("Quest completion = " + completion);
+                    if (completion == 8) {
+                        Minion minion = (Minion) GameHandler.getGameHandler().getCard("Viserion");
+                        summon(minion);
+                        activeQuest = null;
+                    }
+                }
+                break;
+
+            case "Strength in Numbers":
+                if (card instanceof Minion) {
+                    int completion = (int) Math.ceil(activeQuest.getCompletion() / 10);
+                    completion = Math.min(10, completion + card.getMana());
+                    activeQuest.setCompletion(completion * 10);
+                    System.out.println("Quest completion = " + completion);
+                    if (completion == 10) {
+                        Minion minion = getRandomMinionFromDeck();
+                        if (minion != null) {
+                            safeRemove(deck, minion);
+                            summon(minion);
+                        }
+                        activeQuest = null;
+                    }
+                }
+                break;
+        }
+    }
+
+    private Minion getRandomMinionFromDeck() {
+        ArrayList<Integer> indices = new ArrayList<>();
+        int index = 0;
+        for (Card card : deck) {
+            if (card instanceof Minion) {
+                indices.add(index);
+            }
+            index++;
+        }
+        Random random = new Random();
+        if (indices.size() > 0) {
+            index = random.nextInt(indices.size());
+            return (Minion) deck.get(index);
+        }
+        return null;
+    }
+
     public void playCard(Card card, int numberOnLeft) {
         new Thread(new Runnable() {
             @Override
@@ -250,7 +311,7 @@ public class Contestant {
                 if (card.getMana() <= mana) {
                     waitingForTarget = false;
                     safeRemove(hand, card);
-                    mana -= card.getMana();
+                    spendMana(card);
                     Logger.log("Card Played", card.getName());
                     switch (card.getType()) {
                         case "Minion":
@@ -265,6 +326,9 @@ public class Contestant {
                             } catch (IOException | InterruptedException e) {
                                 e.printStackTrace();
                             }
+                            break;
+                        case "Quest":
+                            PlayCards.playQuest((Quest) card);
                             break;
                     }
 //                    checkForDeadMinions();
@@ -423,6 +487,14 @@ public class Contestant {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Quest getActiveQuest() {
+        return activeQuest;
+    }
+
+    public void setActiveQuest(Quest activeQuest) {
+        this.activeQuest = activeQuest;
     }
 
     public void setPlanted(ArrayList<Card> planted) {

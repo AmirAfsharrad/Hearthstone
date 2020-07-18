@@ -69,7 +69,7 @@ public class CardCreator {
         String description = (String) cardObj.get("description");
         String rarity = (String) cardObj.get("rarity");
 
-        Quest quest = new Quest(mana.intValue(), name, rarity, heroClass, description);
+        Quest quest = new Quest(mana.intValue(), name, rarity, heroClass, description, 0);
 
         return quest;
     }

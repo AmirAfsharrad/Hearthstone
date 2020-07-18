@@ -14851,3 +14851,523 @@ Button Pressed, 2020-07-18T03:47:22.725625100, end turn
 End turn, 2020-07-18T03:47:22.725625100, end of system's turn
 Start turn, 2020-07-18T03:47:22.725625100, start of  's turn
 quit, 2020-07-18T03:47:24.038115, quit the game
+login, 2020-07-18T10:13:39.011175900,  as  
+Button Pressed, 2020-07-18T10:13:39.946928100, Collections
+Button Pressed, 2020-07-18T10:13:43.439170700, Sample Deck
+Button Pressed, 2020-07-18T10:13:44.677874500, Play
+Button Pressed, 2020-07-18T10:13:58.994606600, null
+quit, 2020-07-18T10:14:08.854303600, quit the game
+login, 2020-07-18T10:16:34.321940500,  as  
+Button Pressed, 2020-07-18T10:16:35.139334700, Collections
+Button Pressed, 2020-07-18T10:16:38.463621100, Sample Deck
+Button Pressed, 2020-07-18T10:16:39.831318900, Play
+Button Pressed, 2020-07-18T10:16:44.184337700, null
+quit, 2020-07-18T10:16:55.143442900, quit the game
+login, 2020-07-18T10:17:40.906720300,  as  
+Button Pressed, 2020-07-18T10:17:41.885452600, Collections
+Button Pressed, 2020-07-18T10:17:44.195649500, Sample Deck
+Button Pressed, 2020-07-18T10:17:45.732801100, Play
+Button Pressed, 2020-07-18T10:17:47.550926200, null
+quit, 2020-07-18T10:17:55.876118500, quit the game
+login, 2020-07-18T11:05:23.186872,  as  
+Button Pressed, 2020-07-18T11:05:24.151626200, Collections
+Button Pressed, 2020-07-18T11:05:28.157659600, Sample Deck
+Button Pressed, 2020-07-18T11:05:38.390398400, Learn Draconic
+Buy Card, 2020-07-18T11:05:39.796388700, Learn Draconic
+system response, 2020-07-18T11:05:40.801191900, You have successfully purchased Learn Draconic.
+Button Pressed, 2020-07-18T11:05:42.590910800, Sample Deck
+Button Pressed, 2020-07-18T11:05:46.287936700, Learn Draconic
+Add Card to Deck, 2020-07-18T11:05:46.288933100, Learn Draconic -> Sample Deck
+Button Pressed, 2020-07-18T11:05:46.514369100, Learn Draconic
+Add Card to Deck, 2020-07-18T11:05:46.515341400, Learn Draconic -> Sample Deck
+Button Pressed, 2020-07-18T11:05:49.797255900, Play
+Button Pressed, 2020-07-18T11:05:52.208924800, null
+Button Pressed, 2020-07-18T11:05:58.414556, end turn
+End turn, 2020-07-18T11:05:58.415565, end of  's turn
+Start turn, 2020-07-18T11:05:58.416540800, start of system's turn
+Button Pressed, 2020-07-18T11:05:58.698790300, end turn
+End turn, 2020-07-18T11:05:58.699777900, end of system's turn
+Start turn, 2020-07-18T11:05:58.699777900, start of  's turn
+Button Pressed, 2020-07-18T11:06:01.432471300, Learn Draconic
+Card Played, 2020-07-18T11:06:01.441447100, Learn Draconic
+Button Pressed, 2020-07-18T11:06:13.249899, Friendly Smith
+Card Played, 2020-07-18T11:06:13.250875600, Friendly Smith
+Button Pressed, 2020-07-18T11:06:17.335420, null
+Button Pressed, 2020-07-18T11:06:19.537528800, end turn
+End turn, 2020-07-18T11:06:19.538526800, end of  's turn
+Start turn, 2020-07-18T11:06:19.538526800, start of system's turn
+Button Pressed, 2020-07-18T11:06:23.453099800, end turn
+End turn, 2020-07-18T11:06:23.454058600, end of system's turn
+Start turn, 2020-07-18T11:06:23.454058600, start of  's turn
+Button Pressed, 2020-07-18T11:06:25.788815800, end turn
+End turn, 2020-07-18T11:06:25.789815700, end of  's turn
+Start turn, 2020-07-18T11:06:25.789815700, start of system's turn
+Button Pressed, 2020-07-18T11:06:26.070064500, end turn
+End turn, 2020-07-18T11:06:26.070064500, end of system's turn
+Start turn, 2020-07-18T11:06:26.071075500, start of  's turn
+Button Pressed, 2020-07-18T11:06:27.400506, end turn
+End turn, 2020-07-18T11:06:27.400506, end of  's turn
+Start turn, 2020-07-18T11:06:27.401526500, start of system's turn
+Button Pressed, 2020-07-18T11:06:27.710677700, end turn
+End turn, 2020-07-18T11:06:27.711674400, end of system's turn
+Start turn, 2020-07-18T11:06:27.711674400, start of  's turn
+Button Pressed, 2020-07-18T11:06:29.797098200, end turn
+End turn, 2020-07-18T11:06:29.798094600, end of  's turn
+Start turn, 2020-07-18T11:06:29.799093300, start of system's turn
+Button Pressed, 2020-07-18T11:06:30.169104900, end turn
+End turn, 2020-07-18T11:06:30.169104900, end of system's turn
+Start turn, 2020-07-18T11:06:30.170099700, start of  's turn
+Button Pressed, 2020-07-18T11:06:31.622218600, end turn
+End turn, 2020-07-18T11:06:31.623251300, end of  's turn
+Start turn, 2020-07-18T11:06:31.623251300, start of system's turn
+Button Pressed, 2020-07-18T11:06:32.024205800, end turn
+End turn, 2020-07-18T11:06:32.025138900, end of system's turn
+Start turn, 2020-07-18T11:06:32.026138, start of  's turn
+Button Pressed, 2020-07-18T11:06:33.382511800, end turn
+End turn, 2020-07-18T11:06:33.382511800, end of  's turn
+Start turn, 2020-07-18T11:06:33.383519900, start of system's turn
+Button Pressed, 2020-07-18T11:06:33.792433700, end turn
+End turn, 2020-07-18T11:06:33.793412700, end of system's turn
+Start turn, 2020-07-18T11:06:33.794411400, start of  's turn
+Button Pressed, 2020-07-18T11:06:35.968648600, end turn
+End turn, 2020-07-18T11:06:35.969646200, end of  's turn
+Start turn, 2020-07-18T11:06:35.970643700, start of system's turn
+Button Pressed, 2020-07-18T11:06:36.400494200, end turn
+End turn, 2020-07-18T11:06:36.400494200, end of system's turn
+Start turn, 2020-07-18T11:06:36.401490500, start of  's turn
+Button Pressed, 2020-07-18T11:06:38.084990, end turn
+End turn, 2020-07-18T11:06:38.084990, end of  's turn
+Start turn, 2020-07-18T11:06:38.085993400, start of system's turn
+Button Pressed, 2020-07-18T11:06:38.563731300, end turn
+End turn, 2020-07-18T11:06:38.564711500, end of system's turn
+Start turn, 2020-07-18T11:06:38.565707, start of  's turn
+Button Pressed, 2020-07-18T11:06:42.875181800, Living Monument
+Card Played, 2020-07-18T11:06:42.876177300, Living Monument
+Button Pressed, 2020-07-18T11:06:50.985497600, Main Menu
+Button Pressed, 2020-07-18T11:06:52.019731700, Collections
+Button Pressed, 2020-07-18T11:06:54.400370100, Amir
+Button Pressed, 2020-07-18T11:06:59.509706600, Back
+Button Pressed, 2020-07-18T11:07:01.880381600, New Deck 2
+Button Pressed, 2020-07-18T11:07:19.531169500, Regenerate
+Add Card to Deck, 2020-07-18T11:07:19.531169500, Regenerate -> New Deck 2
+Button Pressed, 2020-07-18T11:07:19.814432300, Regenerate
+Add Card to Deck, 2020-07-18T11:07:19.815437, Regenerate -> New Deck 2
+Button Pressed, 2020-07-18T11:07:24.465977200, Regenerate x2
+Remove Card from Deck, 2020-07-18T11:07:24.466973600, Regenerate -> New Deck 2
+Button Pressed, 2020-07-18T11:07:24.821026300, Regenerate
+Remove Card from Deck, 2020-07-18T11:07:24.821026300, Regenerate -> New Deck 2
+Button Pressed, 2020-07-18T11:07:29.185357400, Fireball
+Add Card to Deck, 2020-07-18T11:07:29.186354100, Fireball -> New Deck 2
+Button Pressed, 2020-07-18T11:07:29.432694900, Fireball
+Add Card to Deck, 2020-07-18T11:07:29.433693600, Fireball -> New Deck 2
+Button Pressed, 2020-07-18T11:07:31.374502700, Divine Spirit
+Add Card to Deck, 2020-07-18T11:07:31.374502700, Divine Spirit -> New Deck 2
+Button Pressed, 2020-07-18T11:07:31.595925700, Divine Spirit
+Add Card to Deck, 2020-07-18T11:07:31.595925700, Divine Spirit -> New Deck 2
+Button Pressed, 2020-07-18T11:07:33.062989800, Flamestrike
+Add Card to Deck, 2020-07-18T11:07:33.063986900, Flamestrike -> New Deck 2
+Button Pressed, 2020-07-18T11:07:33.281406, Flamestrike
+Add Card to Deck, 2020-07-18T11:07:33.281406, Flamestrike -> New Deck 2
+Button Pressed, 2020-07-18T11:07:38.565277200, end turn by time
+End turn, 2020-07-18T11:07:38.566311900, end of  's turn
+Start turn, 2020-07-18T11:07:38.567271900, start of system's turn
+Button Pressed, 2020-07-18T11:07:42.413987900, Learn Draconic
+Add Card to Deck, 2020-07-18T11:07:42.414983900, Learn Draconic -> New Deck 2
+Button Pressed, 2020-07-18T11:07:43.749453400, Learn Draconic
+Add Card to Deck, 2020-07-18T11:07:43.750414200, Learn Draconic -> New Deck 2
+Button Pressed, 2020-07-18T11:07:45.112771100, Play
+Button Pressed, 2020-07-18T11:07:46.070210700, null
+Button Pressed, 2020-07-18T11:07:48.867731700, null
+Button Pressed, 2020-07-18T11:07:51.699160400, null
+Button Pressed, 2020-07-18T11:07:54.572776200, end turn
+End turn, 2020-07-18T11:07:54.572776200, end of system's turn
+Start turn, 2020-07-18T11:07:54.573775, start of  's turn
+Button Pressed, 2020-07-18T11:07:54.847044700, end turn
+End turn, 2020-07-18T11:07:54.848053700, end of  's turn
+Start turn, 2020-07-18T11:07:54.848053700, start of system's turn
+Button Pressed, 2020-07-18T11:08:01.441410700, end turn
+End turn, 2020-07-18T11:08:01.442408200, end of system's turn
+Start turn, 2020-07-18T11:08:01.442408200, start of  's turn
+Button Pressed, 2020-07-18T11:08:03.484946900, Learn Draconic
+Card Played, 2020-07-18T11:08:03.485946400, Learn Draconic
+Button Pressed, 2020-07-18T11:08:09.383178200, end turn
+End turn, 2020-07-18T11:08:09.383178200, end of  's turn
+Start turn, 2020-07-18T11:08:09.384187600, start of system's turn
+Button Pressed, 2020-07-18T11:08:09.715289600, end turn
+End turn, 2020-07-18T11:08:09.716286, end of system's turn
+Start turn, 2020-07-18T11:08:09.716286, start of  's turn
+Button Pressed, 2020-07-18T11:08:10.151122900, end turn
+End turn, 2020-07-18T11:08:10.151122900, end of  's turn
+Start turn, 2020-07-18T11:08:10.152120400, start of system's turn
+Button Pressed, 2020-07-18T11:08:10.453314700, end turn
+End turn, 2020-07-18T11:08:10.454313, end of system's turn
+Start turn, 2020-07-18T11:08:10.455327200, start of  's turn
+Button Pressed, 2020-07-18T11:08:11.578308300, end turn
+End turn, 2020-07-18T11:08:11.578308300, end of  's turn
+Start turn, 2020-07-18T11:08:11.579303900, start of system's turn
+Button Pressed, 2020-07-18T11:08:19.101203700, Goldshire Footman
+Card Played, 2020-07-18T11:08:19.102190200, Goldshire Footman
+Button Pressed, 2020-07-18T11:08:20.171344900, end turn
+End turn, 2020-07-18T11:08:20.172329800, end of system's turn
+Start turn, 2020-07-18T11:08:20.173325800, start of  's turn
+Button Pressed, 2020-07-18T11:08:22.338597500, Fireball
+Card Played, 2020-07-18T11:08:22.340566100, Fireball
+Button Pressed, 2020-07-18T11:08:38.581142100, end turn by time
+End turn, 2020-07-18T11:08:38.581142100, end of  's turn
+Start turn, 2020-07-18T11:08:38.582140, start of system's turn
+quit, 2020-07-18T11:09:01.076992700, quit the game
+login, 2020-07-18T11:10:04.236730,  as  
+Button Pressed, 2020-07-18T11:10:05.198668600, Collections
+Button Pressed, 2020-07-18T11:10:27.513083200, New Deck 2
+Button Pressed, 2020-07-18T11:10:31.645748100, Play
+Button Pressed, 2020-07-18T11:10:33.879041900, null
+Button Pressed, 2020-07-18T11:10:36.480085300, null
+Button Pressed, 2020-07-18T11:10:38.346061, null
+Button Pressed, 2020-07-18T11:10:42.609575900, end turn
+End turn, 2020-07-18T11:10:42.610574200, end of  's turn
+Start turn, 2020-07-18T11:10:42.612567700, start of system's turn
+Button Pressed, 2020-07-18T11:10:42.872872200, end turn
+End turn, 2020-07-18T11:10:42.872872200, end of system's turn
+Start turn, 2020-07-18T11:10:42.873869400, start of  's turn
+Button Pressed, 2020-07-18T11:10:46.494195700, Learn Draconic
+Card Played, 2020-07-18T11:10:46.501169700, Learn Draconic
+Button Pressed, 2020-07-18T11:10:49.985852800, end turn
+End turn, 2020-07-18T11:10:49.986862600, end of  's turn
+Start turn, 2020-07-18T11:10:49.986862600, start of system's turn
+Button Pressed, 2020-07-18T11:10:51.642422100, Goldshire Footman
+Card Played, 2020-07-18T11:10:51.643420800, Goldshire Footman
+Button Pressed, 2020-07-18T11:10:52.685637500, end turn
+End turn, 2020-07-18T11:10:52.686635, end of system's turn
+Start turn, 2020-07-18T11:10:52.687628600, start of  's turn
+Button Pressed, 2020-07-18T11:10:59.155371, Dreadscale
+Card Played, 2020-07-18T11:10:59.157330900, Dreadscale
+Button Pressed, 2020-07-18T11:11:01.534989, end turn
+End turn, 2020-07-18T11:11:01.534989, end of  's turn
+Start turn, 2020-07-18T11:11:01.536968200, start of system's turn
+Button Pressed, 2020-07-18T11:11:03.955501800, end turn
+End turn, 2020-07-18T11:11:03.955501800, end of system's turn
+Start turn, 2020-07-18T11:11:03.956506, start of  's turn
+Button Pressed, 2020-07-18T11:11:06.844572, Fireball
+Button Pressed, 2020-07-18T11:11:09.536378400, Divine Spirit
+Card Played, 2020-07-18T11:11:09.537375600, Divine Spirit
+Button Pressed, 2020-07-18T11:11:26.461139700, end turn
+End turn, 2020-07-18T11:11:26.462119900, end of  's turn
+Start turn, 2020-07-18T11:11:26.495046300, start of system's turn
+Button Pressed, 2020-07-18T11:11:40.301118400, end turn
+End turn, 2020-07-18T11:11:40.301118400, end of system's turn
+Start turn, 2020-07-18T11:11:40.302131300, start of  's turn
+Button Pressed, 2020-07-18T11:11:44.157805800, Fireball
+Card Played, 2020-07-18T11:11:44.158808400, Fireball
+Button Pressed, 2020-07-18T11:11:54.975880600, end turn
+End turn, 2020-07-18T11:11:54.976876200, end of  's turn
+Start turn, 2020-07-18T11:11:54.976876200, start of system's turn
+Button Pressed, 2020-07-18T11:11:55.341322200, end turn
+End turn, 2020-07-18T11:11:55.342319400, end of system's turn
+Start turn, 2020-07-18T11:11:55.342319400, start of  's turn
+Button Pressed, 2020-07-18T11:12:01.716278100, Divine Spirit
+Card Played, 2020-07-18T11:12:01.717277200, Divine Spirit
+quit, 2020-07-18T11:12:34.566443400, quit the game
+login, 2020-07-18T11:13:14.055817400,  as  
+Button Pressed, 2020-07-18T11:13:15.033936500, Collections
+Button Pressed, 2020-07-18T11:13:17.817752400, New Deck 2
+Button Pressed, 2020-07-18T11:13:18.791378500, Play
+Button Pressed, 2020-07-18T11:13:20.972082900, null
+Button Pressed, 2020-07-18T11:13:24.026951100, end turn
+End turn, 2020-07-18T11:13:24.028943800, end of  's turn
+Start turn, 2020-07-18T11:13:24.029942900, start of system's turn
+Button Pressed, 2020-07-18T11:13:24.315180600, end turn
+End turn, 2020-07-18T11:13:24.316189200, end of system's turn
+Start turn, 2020-07-18T11:13:24.317174100, start of  's turn
+Button Pressed, 2020-07-18T11:13:25.840038700, Learn Draconic
+Card Played, 2020-07-18T11:13:25.848796400, Learn Draconic
+Button Pressed, 2020-07-18T11:13:28.273313900, end turn
+End turn, 2020-07-18T11:13:28.274310300, end of  's turn
+Start turn, 2020-07-18T11:13:28.274310300, start of system's turn
+Button Pressed, 2020-07-18T11:13:28.569520900, end turn
+End turn, 2020-07-18T11:13:28.570518500, end of system's turn
+Start turn, 2020-07-18T11:13:28.570518500, start of  's turn
+Button Pressed, 2020-07-18T11:13:30.392016900, Goldshire Footman
+Card Played, 2020-07-18T11:13:30.394015900, Goldshire Footman
+Button Pressed, 2020-07-18T11:13:31.544935100, end turn
+End turn, 2020-07-18T11:13:31.545933, end of  's turn
+Start turn, 2020-07-18T11:13:31.545933, start of system's turn
+Button Pressed, 2020-07-18T11:13:35.326823500, Goldshire Footman
+Card Played, 2020-07-18T11:13:35.327821, Goldshire Footman
+Button Pressed, 2020-07-18T11:13:36.633329700, end turn
+End turn, 2020-07-18T11:13:36.634328, end of system's turn
+Start turn, 2020-07-18T11:13:36.634328, start of  's turn
+Button Pressed, 2020-07-18T11:13:38.888304900, Divine Spirit
+Card Played, 2020-07-18T11:13:38.889297700, Divine Spirit
+Button Pressed, 2020-07-18T11:13:42.863670500, end turn
+End turn, 2020-07-18T11:13:42.863670500, end of  's turn
+Start turn, 2020-07-18T11:13:42.864669200, start of system's turn
+Button Pressed, 2020-07-18T11:13:43.237692, end turn
+End turn, 2020-07-18T11:13:43.238668600, end of system's turn
+Start turn, 2020-07-18T11:13:43.238668600, start of  's turn
+Button Pressed, 2020-07-18T11:13:44.742648400, end turn
+End turn, 2020-07-18T11:13:44.742648400, end of  's turn
+Start turn, 2020-07-18T11:13:44.743644400, start of system's turn
+Button Pressed, 2020-07-18T11:13:45.094705300, end turn
+End turn, 2020-07-18T11:13:45.095719100, end of system's turn
+Start turn, 2020-07-18T11:13:45.096705100, start of  's turn
+Button Pressed, 2020-07-18T11:13:50.825382700, Fireball
+Card Played, 2020-07-18T11:13:50.827378500, Fireball
+Button Pressed, 2020-07-18T11:14:03.202916700, end turn
+End turn, 2020-07-18T11:14:03.203906700, end of  's turn
+Start turn, 2020-07-18T11:14:03.204913700, start of system's turn
+Button Pressed, 2020-07-18T11:14:03.571926500, end turn
+End turn, 2020-07-18T11:14:03.572919300, end of system's turn
+Start turn, 2020-07-18T11:14:03.572919300, start of  's turn
+Button Pressed, 2020-07-18T11:14:06.105154700, end turn
+End turn, 2020-07-18T11:14:06.106147900, end of  's turn
+Start turn, 2020-07-18T11:14:06.107143500, start of system's turn
+Button Pressed, 2020-07-18T11:14:09.067288, Lord of the Arena
+Card Played, 2020-07-18T11:14:09.068227100, Lord of the Arena
+Button Pressed, 2020-07-18T11:14:10.486434700, end turn
+End turn, 2020-07-18T11:14:10.487444900, end of system's turn
+Start turn, 2020-07-18T11:14:10.487444900, start of  's turn
+Button Pressed, 2020-07-18T11:14:12.582829, end turn
+End turn, 2020-07-18T11:14:12.583827300, end of  's turn
+Start turn, 2020-07-18T11:14:12.583827300, start of system's turn
+Button Pressed, 2020-07-18T11:14:13.016671200, end turn
+End turn, 2020-07-18T11:14:13.017677800, end of system's turn
+Start turn, 2020-07-18T11:14:13.017677800, start of  's turn
+Button Pressed, 2020-07-18T11:14:15.462151100, Divine Spirit
+Card Played, 2020-07-18T11:14:15.463128400, Divine Spirit
+Button Pressed, 2020-07-18T11:14:32.778196500, Main Menu
+Button Pressed, 2020-07-18T11:14:35.257552500, Collections
+Button Pressed, 2020-07-18T11:14:42.444340100, New Deck 2
+Button Pressed, 2020-07-18T11:14:43.935350500, Strength in Numbers
+Add Card to Deck, 2020-07-18T11:14:43.937345900, Strength in Numbers -> New Deck 2
+Button Pressed, 2020-07-18T11:14:44.190667800, Strength in Numbers
+Button Pressed, 2020-07-18T11:14:47.734232800, Learn Draconic x2
+Remove Card from Deck, 2020-07-18T11:14:47.736188400, Learn Draconic -> New Deck 2
+Button Pressed, 2020-07-18T11:14:47.945628, Learn Draconic
+Remove Card from Deck, 2020-07-18T11:14:47.946644100, Learn Draconic -> New Deck 2
+Button Pressed, 2020-07-18T11:14:49.207254100, Strength in Numbers
+Add Card to Deck, 2020-07-18T11:14:49.207254100, Strength in Numbers -> New Deck 2
+Button Pressed, 2020-07-18T11:14:50.323650300, Play
+Button Pressed, 2020-07-18T11:14:51.370878800, null
+Button Pressed, 2020-07-18T11:14:55.501804200, end turn
+End turn, 2020-07-18T11:14:55.502801300, end of  's turn
+Start turn, 2020-07-18T11:14:55.502801300, start of system's turn
+Button Pressed, 2020-07-18T11:14:55.839899600, end turn
+End turn, 2020-07-18T11:14:55.840898300, end of system's turn
+Start turn, 2020-07-18T11:14:55.840898300, start of  's turn
+Button Pressed, 2020-07-18T11:14:58.081910500, Strength in Numbers
+Card Played, 2020-07-18T11:14:58.082902500, Strength in Numbers
+Button Pressed, 2020-07-18T11:15:03.195261200, Goldshire Footman
+Card Played, 2020-07-18T11:15:03.197227400, Goldshire Footman
+Button Pressed, 2020-07-18T11:15:06.846474200, Goldshire Footman
+Card Played, 2020-07-18T11:15:06.847473700, Goldshire Footman
+Button Pressed, 2020-07-18T11:15:08.452510400, end turn
+End turn, 2020-07-18T11:15:08.452510400, end of  's turn
+Start turn, 2020-07-18T11:15:08.453509100, start of system's turn
+Button Pressed, 2020-07-18T11:15:08.741747300, end turn
+End turn, 2020-07-18T11:15:08.742745200, end of system's turn
+Start turn, 2020-07-18T11:15:08.743743200, start of  's turn
+Button Pressed, 2020-07-18T11:15:13.019301500, end turn by time
+End turn, 2020-07-18T11:15:13.019301500, end of  's turn
+Start turn, 2020-07-18T11:15:13.020297400, start of system's turn
+Button Pressed, 2020-07-18T11:15:13.884986400, end turn
+End turn, 2020-07-18T11:15:13.885983200, end of system's turn
+Start turn, 2020-07-18T11:15:13.885983200, start of  's turn
+Button Pressed, 2020-07-18T11:15:19.662537, end turn
+End turn, 2020-07-18T11:15:19.663536500, end of  's turn
+Start turn, 2020-07-18T11:15:19.663536500, start of system's turn
+Button Pressed, 2020-07-18T11:15:24.105657200, Goldshire Footman
+Card Played, 2020-07-18T11:15:24.106655600, Goldshire Footman
+Button Pressed, 2020-07-18T11:15:25.542819100, end turn
+End turn, 2020-07-18T11:15:25.543813500, end of system's turn
+Start turn, 2020-07-18T11:15:25.543813500, start of  's turn
+Button Pressed, 2020-07-18T11:15:28.730292100, Dreadscale
+Card Played, 2020-07-18T11:15:28.731303500, Dreadscale
+Button Pressed, 2020-07-18T11:15:33.292095200, end turn
+End turn, 2020-07-18T11:15:33.293100600, end of  's turn
+Start turn, 2020-07-18T11:15:33.293100600, start of system's turn
+Button Pressed, 2020-07-18T11:15:34.416088800, end turn
+End turn, 2020-07-18T11:15:34.417087600, end of system's turn
+Start turn, 2020-07-18T11:15:34.417087600, start of  's turn
+Button Pressed, 2020-07-18T11:15:38.499171900, Dreadscale
+Card Played, 2020-07-18T11:15:38.500171400, Dreadscale
+Button Pressed, 2020-07-18T11:15:42.397763900, end turn
+End turn, 2020-07-18T11:15:42.398745600, end of  's turn
+Start turn, 2020-07-18T11:15:42.426671, start of system's turn
+Button Pressed, 2020-07-18T11:15:44.237828300, end turn
+End turn, 2020-07-18T11:15:44.237828300, end of system's turn
+Start turn, 2020-07-18T11:15:44.238826200, start of  's turn
+Button Pressed, 2020-07-18T11:15:49.819921300, Depth Charge
+Card Played, 2020-07-18T11:15:49.821897800, Depth Charge
+Button Pressed, 2020-07-18T11:15:51.352804300, end turn
+End turn, 2020-07-18T11:15:51.353801800, end of  's turn
+Start turn, 2020-07-18T11:15:51.354799, start of system's turn
+Button Pressed, 2020-07-18T11:15:54.760693300, Goldshire Footman
+Card Played, 2020-07-18T11:15:54.761692800, Goldshire Footman
+Button Pressed, 2020-07-18T11:15:56.456158800, Depth Charge
+Card Played, 2020-07-18T11:15:56.458153800, Depth Charge
+Button Pressed, 2020-07-18T11:16:02.019563, end turn
+End turn, 2020-07-18T11:16:02.019563, end of system's turn
+Start turn, 2020-07-18T11:16:02.019563, start of  's turn
+Button Pressed, 2020-07-18T11:16:13.027165600, end turn by time
+End turn, 2020-07-18T11:16:13.028113300, end of  's turn
+Start turn, 2020-07-18T11:16:13.028113300, start of system's turn
+Button Pressed, 2020-07-18T11:16:18.260124400, Fireball
+Card Played, 2020-07-18T11:16:18.261121900, Fireball
+Button Pressed, 2020-07-18T11:16:28.506505800, end turn
+End turn, 2020-07-18T11:16:28.507506100, end of system's turn
+Start turn, 2020-07-18T11:16:28.507506100, start of  's turn
+Button Pressed, 2020-07-18T11:16:30.346584, end turn
+End turn, 2020-07-18T11:16:30.347581600, end of  's turn
+Start turn, 2020-07-18T11:16:30.347581600, start of system's turn
+Button Pressed, 2020-07-18T11:16:30.770452100, end turn
+End turn, 2020-07-18T11:16:30.771449600, end of system's turn
+Start turn, 2020-07-18T11:16:30.771449600, start of  's turn
+Button Pressed, 2020-07-18T11:16:32.315320, end turn
+End turn, 2020-07-18T11:16:32.316316800, end of  's turn
+Start turn, 2020-07-18T11:16:32.316316800, start of system's turn
+Button Pressed, 2020-07-18T11:16:32.753158700, end turn
+End turn, 2020-07-18T11:16:32.754147100, end of system's turn
+Start turn, 2020-07-18T11:16:32.754147100, start of  's turn
+Button Pressed, 2020-07-18T11:16:33.988100300, end turn
+End turn, 2020-07-18T11:16:33.988100300, end of  's turn
+Start turn, 2020-07-18T11:16:33.989117600, start of system's turn
+Button Pressed, 2020-07-18T11:16:34.463841100, end turn
+End turn, 2020-07-18T11:16:34.464827200, end of system's turn
+Start turn, 2020-07-18T11:16:34.464827200, start of  's turn
+Button Pressed, 2020-07-18T11:16:38.660606, Depth Charge
+Button Pressed, 2020-07-18T11:17:13.037973700, end turn by time
+End turn, 2020-07-18T11:17:13.037973700, end of  's turn
+Start turn, 2020-07-18T11:17:13.038970800, start of system's turn
+Button Pressed, 2020-07-18T11:17:34.465724, end turn by time
+End turn, 2020-07-18T11:17:34.466689900, end of system's turn
+Start turn, 2020-07-18T11:17:34.466689900, start of  's turn
+quit, 2020-07-18T11:17:52.020749, quit the game
+login, 2020-07-18T11:18:09.572621,  as  
+Button Pressed, 2020-07-18T11:18:10.520092, Collections
+Button Pressed, 2020-07-18T11:18:13.315375800, New Deck 2
+Button Pressed, 2020-07-18T11:18:17.623452400, Shieldbearer
+Button Pressed, 2020-07-18T11:18:29.550357300, Curio Collector
+Add Card to Deck, 2020-07-18T11:18:29.551354, Curio Collector -> New Deck 2
+Button Pressed, 2020-07-18T11:18:29.789762300, Curio Collector
+Button Pressed, 2020-07-18T11:18:32.844331800, Fireball x2
+Remove Card from Deck, 2020-07-18T11:18:32.845328100, Fireball -> New Deck 2
+Button Pressed, 2020-07-18T11:18:33.834943600, Fireball
+Remove Card from Deck, 2020-07-18T11:18:33.834943600, Fireball -> New Deck 2
+Button Pressed, 2020-07-18T11:18:34.460601600, Curio Collector
+Add Card to Deck, 2020-07-18T11:18:34.460601600, Curio Collector -> New Deck 2
+Button Pressed, 2020-07-18T11:18:35.584185600, Play
+Button Pressed, 2020-07-18T11:18:37.379905900, null
+Button Pressed, 2020-07-18T11:18:41.473959500, end turn
+End turn, 2020-07-18T11:18:41.474995300, end of  's turn
+Start turn, 2020-07-18T11:18:41.476951300, start of system's turn
+Button Pressed, 2020-07-18T11:18:41.818073200, end turn
+End turn, 2020-07-18T11:18:41.819049400, end of system's turn
+Start turn, 2020-07-18T11:18:41.819049400, start of  's turn
+Button Pressed, 2020-07-18T11:18:42.733591300, end turn
+End turn, 2020-07-18T11:18:42.734593500, end of  's turn
+Start turn, 2020-07-18T11:18:42.734593500, start of system's turn
+Button Pressed, 2020-07-18T11:18:43.013841300, end turn
+End turn, 2020-07-18T11:18:43.013841300, end of system's turn
+Start turn, 2020-07-18T11:18:43.015838, start of  's turn
+Button Pressed, 2020-07-18T11:18:43.815715500, end turn
+End turn, 2020-07-18T11:18:43.816699600, end of  's turn
+Start turn, 2020-07-18T11:18:43.816699600, start of system's turn
+Button Pressed, 2020-07-18T11:18:44.190705300, end turn
+End turn, 2020-07-18T11:18:44.190705300, end of system's turn
+Start turn, 2020-07-18T11:18:44.191705600, start of  's turn
+Button Pressed, 2020-07-18T11:18:44.956648200, end turn
+End turn, 2020-07-18T11:18:44.957650500, end of  's turn
+Start turn, 2020-07-18T11:18:44.957650500, start of system's turn
+Button Pressed, 2020-07-18T11:18:45.297736200, end turn
+End turn, 2020-07-18T11:18:45.298741300, end of system's turn
+Start turn, 2020-07-18T11:18:45.298741300, start of  's turn
+Button Pressed, 2020-07-18T11:18:47.719815100, Strength in Numbers
+Card Played, 2020-07-18T11:18:47.728033100, Strength in Numbers
+Button Pressed, 2020-07-18T11:18:55.470613300, Depth Charge
+Card Played, 2020-07-18T11:18:55.472607200, Depth Charge
+Button Pressed, 2020-07-18T11:18:59.265060700, Goldshire Footman
+Card Played, 2020-07-18T11:18:59.267058100, Goldshire Footman
+Button Pressed, 2020-07-18T11:19:00.771052200, end turn
+End turn, 2020-07-18T11:19:00.772050100, end of  's turn
+Start turn, 2020-07-18T11:19:00.772050100, start of system's turn
+Button Pressed, 2020-07-18T11:19:01.150036100, end turn
+End turn, 2020-07-18T11:19:01.150036100, end of system's turn
+Start turn, 2020-07-18T11:19:01.151022200, start of  's turn
+Button Pressed, 2020-07-18T11:19:03.812902300, Dreadscale
+Card Played, 2020-07-18T11:19:03.813900600, Dreadscale
+Button Pressed, 2020-07-18T11:19:06.175585100, end turn
+End turn, 2020-07-18T11:19:06.175585100, end of  's turn
+Start turn, 2020-07-18T11:19:06.176593300, start of system's turn
+Button Pressed, 2020-07-18T11:19:07.768329, end turn
+End turn, 2020-07-18T11:19:07.769326600, end of system's turn
+Start turn, 2020-07-18T11:19:07.769326600, start of  's turn
+Button Pressed, 2020-07-18T11:19:32.611899200, end turn
+End turn, 2020-07-18T11:19:32.612895900, end of  's turn
+Start turn, 2020-07-18T11:19:32.612895900, start of system's turn
+Button Pressed, 2020-07-18T11:19:33.028799900, end turn
+End turn, 2020-07-18T11:19:33.028799900, end of system's turn
+Start turn, 2020-07-18T11:19:33.029796300, start of  's turn
+Button Pressed, 2020-07-18T11:20:11.602935700, end turn
+End turn, 2020-07-18T11:20:11.603920500, end of  's turn
+Start turn, 2020-07-18T11:20:11.603920500, start of system's turn
+Button Pressed, 2020-07-18T11:20:14.113214, end turn
+End turn, 2020-07-18T11:20:14.114212300, end of system's turn
+Start turn, 2020-07-18T11:20:14.114212300, start of  's turn
+Button Pressed, 2020-07-18T11:20:16.724448700, Depth Charge
+Card Played, 2020-07-18T11:20:16.725436400, Depth Charge
+Button Pressed, 2020-07-18T11:20:19.681559700, Goldshire Footman
+Card Played, 2020-07-18T11:20:19.683527100, Goldshire Footman
+Button Pressed, 2020-07-18T11:20:28.934789900, end turn
+End turn, 2020-07-18T11:20:28.935787400, end of  's turn
+Start turn, 2020-07-18T11:20:28.935787400, start of system's turn
+Button Pressed, 2020-07-18T11:20:29.595026100, end turn
+End turn, 2020-07-18T11:20:29.596024, end of system's turn
+Start turn, 2020-07-18T11:20:29.597021200, start of  's turn
+Button Pressed, 2020-07-18T11:20:34.416467700, Curio Collector
+Card Played, 2020-07-18T11:20:34.418464700, Curio Collector
+Button Pressed, 2020-07-18T11:20:46.030463200, Main Menu
+Button Pressed, 2020-07-18T11:20:47.002853100, Play
+Button Pressed, 2020-07-18T11:20:48.042943900, null
+Button Pressed, 2020-07-18T11:20:51.905569500, end turn
+End turn, 2020-07-18T11:20:51.906577300, end of  's turn
+Start turn, 2020-07-18T11:20:51.906577300, start of system's turn
+Button Pressed, 2020-07-18T11:20:52.146925, end turn
+End turn, 2020-07-18T11:20:52.146925, end of system's turn
+Start turn, 2020-07-18T11:20:52.147922900, start of  's turn
+Button Pressed, 2020-07-18T11:20:53.155565400, end turn
+End turn, 2020-07-18T11:20:53.156557800, end of  's turn
+Start turn, 2020-07-18T11:20:53.156557800, start of system's turn
+Button Pressed, 2020-07-18T11:20:53.442826200, end turn
+End turn, 2020-07-18T11:20:53.443791, end of system's turn
+Start turn, 2020-07-18T11:20:53.443791, start of  's turn
+Button Pressed, 2020-07-18T11:20:54.416190800, end turn
+End turn, 2020-07-18T11:20:54.416190800, end of  's turn
+Start turn, 2020-07-18T11:20:54.417187900, start of system's turn
+Button Pressed, 2020-07-18T11:20:54.734339100, end turn
+End turn, 2020-07-18T11:20:54.734339100, end of system's turn
+Start turn, 2020-07-18T11:20:54.734339100, start of  's turn
+Button Pressed, 2020-07-18T11:20:55.856338900, end turn
+End turn, 2020-07-18T11:20:55.857337200, end of  's turn
+Start turn, 2020-07-18T11:20:55.857337200, start of system's turn
+Button Pressed, 2020-07-18T11:20:56.200446800, end turn
+End turn, 2020-07-18T11:20:56.200446800, end of system's turn
+Start turn, 2020-07-18T11:20:56.201460900, start of  's turn
+Button Pressed, 2020-07-18T11:20:58.941119600, Strength in Numbers
+Card Played, 2020-07-18T11:20:58.942117900, Strength in Numbers
+Button Pressed, 2020-07-18T11:21:00.646558800, end turn
+End turn, 2020-07-18T11:21:00.647558300, end of  's turn
+Start turn, 2020-07-18T11:21:00.647558300, start of system's turn
+Button Pressed, 2020-07-18T11:21:00.991636900, end turn
+End turn, 2020-07-18T11:21:00.991636900, end of system's turn
+Start turn, 2020-07-18T11:21:00.992634, start of  's turn
+Button Pressed, 2020-07-18T11:21:02.970345400, Curio Collector
+Card Played, 2020-07-18T11:21:02.971350100, Curio Collector
+Button Pressed, 2020-07-18T11:21:04.710953400, end turn
+End turn, 2020-07-18T11:21:04.711952500, end of  's turn
+Start turn, 2020-07-18T11:21:04.711952500, start of system's turn
+Button Pressed, 2020-07-18T11:21:05.096923600, end turn
+End turn, 2020-07-18T11:21:05.096923600, end of system's turn
+Start turn, 2020-07-18T11:21:05.097921100, start of  's turn
+Button Pressed, 2020-07-18T11:21:23.932597300, Curio Collector
+Card Played, 2020-07-18T11:21:23.934591600, Curio Collector
+quit, 2020-07-18T11:21:27.310564300, quit the game

@@ -1,9 +1,6 @@
 package GameLogic;
 
-import Cards.Card;
-import Cards.Minion;
-import Cards.Spell;
-import Cards.Weapon;
+import Cards.*;
 import GUI.MainFrame;
 import GameHandler.GameHandler;
 import GameHandler.GameState;
@@ -225,5 +222,10 @@ public class PlayCards {
         if (weapon.getName().equals("Shadowblade")) {
             contestant.setImmuneHero(true);
         }
+    }
+
+    public static void playQuest(Quest quest) {
+        Contestant contestant = quest.getContestant();
+        contestant.setActiveQuest(quest);
     }
 }
